@@ -64,8 +64,11 @@ export function sortOpen(items, missions, next) {
 /** Offene Einträge, die jetzt machbar sind. */
 export function openNow(items, state, missions) {
   const next = nextIndex(missions, state.lastCompletedMissionId);
+  const currentChapter = missions[Math.min(next, missions.length - 1)].chapter;
+  // Einträge ohne Verlustpunkt aus früheren Kapiteln nicht mehr aufdrängen (bleiben unter „Einträge“).
+  const stale = (i) => !i.lostAt && itemChapter(i, missions) < currentChapter;
   return sortOpen(
-    items.filter((i) => itemStatus(i, state, missions) === 'offen' && isAvailable(i, missions, next)),
+    items.filter((i) => itemStatus(i, state, missions) === 'offen' && isAvailable(i, missions, next) && !stale(i)),
     missions,
     next,
   );
@@ -79,8 +82,13 @@ export function redItems(items, state, missions) {
 
 /** Kapitel eines Eintrags: Kapitel der Verlust-Mission, sonst der Verfügbarkeit. */
 export function itemChapter(item, missions) {
-  const id = item.lostAt?.mission || item.availableFrom;
-  const m = missions.find((x) => x.id === id);
+  if (item.lostAt) {
+    const m = missions.find((x) => x.id === item.lostAt.mission);
+    return m ? m.chapter : 0;
+  }
+  // Ohne Verlustpunkt: Kapitel der Mission, die nach der Freischaltung kommt.
+  const i = missionIndexById(missions, item.availableFrom);
+  const m = missions[i + 1] || missions[i];
   return m ? m.chapter : 0;
 }
 

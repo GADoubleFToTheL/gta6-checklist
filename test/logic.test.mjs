@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import {
   nextIndex, urgency, openNow, redItems, itemStatus, defaultState,
-  sanitizeState, safeHttpsUrl, nextPonrIndex, missionIndexById,
+  sanitizeState, safeHttpsUrl, nextPonrIndex, missionIndexById, itemChapter,
 } from '../logic.js';
 
 const missions = JSON.parse(readFileSync(new URL('../data/missions.json', import.meta.url)));
@@ -30,6 +30,14 @@ test('Daten: Item-IDs eindeutig, Quellen gültige https-URLs', () => {
 test('Points of no Return: Tourist Trap, Checking Out, Sunset', () => {
   const ids = missions.filter((m) => m.pointOfNoReturn).map((m) => m.id);
   assert.deepEqual(ids, ['tourist-trap', 'checking-out', 'sunset']);
+});
+
+test('Eintrag ohne Verlustpunkt: Kapitel folgt der Freischaltung, alte erscheinen nicht mehr in „Jetzt“', () => {
+  const race = items.find((i) => i.id === 'race-against-yago');
+  assert.equal(itemChapter(race, missions), 3);
+  const cigars = items.find((i) => i.id === 'macizo-cigars');
+  assert.ok(openNow(items, stateAt('pipework'), missions).some((i) => i.id === cigars.id));
+  assert.ok(!openNow(items, stateAt('ambulance-chaser'), missions).some((i) => i.id === cigars.id));
 });
 
 test('Eintrag ohne Verlustpunkt bleibt offen und ist nie rot', () => {
