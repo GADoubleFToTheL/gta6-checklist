@@ -153,3 +153,14 @@ label.row{cursor:pointer}
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important}
 }
+
+/* Aufgaben-Ansicht */
+.cta{position:sticky;bottom:88px;margin-top:18px;padding-top:8px;background:linear-gradient(180deg,transparent,var(--bg) 40%)}
+.cta button{font-size:1.05rem}
+.legend{margin:-.2rem 0 .8rem;color:var(--muted);font-size:.8rem}
+.dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin:0 2px 0 6px;vertical-align:middle}
+.dot.rot{background:var(--red)}.dot.orange{background:var(--orange)}
+.help h2{margin-top:0}
+.help ol{padding-left:1.3rem;margin:.4rem 0 1rem}
+.help li{margin:.4rem 0}
+.allgood{color:var(--green);font-weight:700;text-align:center}

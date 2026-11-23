@@ -98,7 +98,7 @@ export function defaultState() {
     doneItems: {},
     missedItems: {},
     gtabaseUrls: {},
-    settings: { spoilerProtection: true },
+    settings: { spoilerProtection: true, helpSeen: false },
   };
 }
 
@@ -120,7 +120,7 @@ export function sanitizeState(raw, missions) {
     doneItems: bools(raw.doneItems),
     missedItems: bools(raw.missedItems),
     gtabaseUrls: urls,
-    settings: { spoilerProtection: raw.settings?.spoilerProtection !== false },
+    settings: { spoilerProtection: raw.settings?.spoilerProtection !== false, helpSeen: raw.settings?.helpSeen === true },
   };
 }
 

@@ -137,55 +137,66 @@ function itemRow(it, showHint = true) {
       (hint || unsure) && h('div', { class: 'meta' }, hint, hint && unsure && ' · ', unsure && 'Quellen unsicher')));
 }
 
-function section(title, rows) {
-  return rows.length ? [h('h2', {}, title), ...rows.map((r) => itemRow(r, false))] : [];
-}
+/* ---------- Tab: Aufgaben ---------- */
 
-/* ---------- Tab: Jetzt ---------- */
+function helpCard() {
+  return h('div', { class: 'help card' },
+    h('h2', {}, 'So geht’s'),
+    h('ol', {},
+      h('li', {}, 'Oben steht, welche Mission im Spiel als Nächstes kommt.'),
+      h('li', {}, 'Darunter stehen Dinge, die du vorher erledigen solltest. Danach sind sie weg.'),
+      h('li', {}, 'Erledigt? Tippe das Kästchen an.'),
+      h('li', {}, 'Mission gespielt? Tippe unten auf „Weiter“.')),
+    h('button', { class: 'block', onclick: () => save({ ...state, settings: { ...state.settings, helpSeen: true } }) }, 'Verstanden'));
+}
 
 function viewNow() {
   const next = nextIdx();
   const root = h('div');
   if (next >= missions.length) {
     root.append(h('section', { class: 'hero' }, h('div', { class: 'name' }, 'Story abgeschlossen 🎉')));
-    root.append(h('button', { class: 'block', onclick: undoMission }, 'Eine Mission zurück'));
+    root.append(h('button', { class: 'link', onclick: undoMission }, 'Letzte Mission rückgängig machen'));
     return root;
   }
   const m = missions[next];
-  const pct = Math.round((next / missions.length) * 100);
   const list = openNow(items, state, missions);
   const reds = redItems(items, state, missions);
+  const shown = list.filter((it) => urgency(it, missions, next) === 'rot');
+  const more = list.filter((it) => urgency(it, missions, next) !== 'rot');
+
+  if (!state.settings.helpSeen) root.append(helpCard());
 
   root.append(h('section', { class: 'hero' },
-    h('div', { class: 'label' }, 'Nächste Mission'),
+    h('div', { class: 'label' }, 'Im Spiel als Nächstes'),
     h('div', { class: 'name' }, m.name),
     h('div', { class: 'meta' }, `${chapterLabel(m.chapter)} · Mission ${m.order} von ${missions.length}`),
-    h('div', { class: 'bar', role: 'img', 'aria-label': `${pct} Prozent geschafft` }, h('i', { style: `width:${pct}%` })),
-    m.orderNote && h('div', { class: 'meta' }, `ℹ ${m.orderNote}`),
-    h('button', { class: 'primary block', onclick: () => completeMission(reds) }, 'Mission erledigt ✓')));
+    m.orderNote && h('div', { class: 'meta' }, `ℹ ${m.orderNote}`)));
 
   if (m.pointOfNoReturn) {
     root.append(h('div', { class: 'banner', role: 'alert' },
       h('h2', {}, '⚠ Danach gibt es kein Zurück'),
-      h('p', {}, 'Erledige die Einträge unten und speichere in einem eigenen Slot.'),
+      h('p', {}, 'Erledige die Dinge unten und speichere in einem eigenen Slot.'),
       h('details', {}, h('summary', {}, 'Was geht verloren?'), h('p', {}, m.ponrNote))));
   } else if (missions[next + 1]?.pointOfNoReturn) {
     root.append(h('div', { class: 'banner soft' },
       h('h2', {}, 'Danach kommt ein Point of no Return'),
-      h('p', {}, 'Jetzt in einem eigenen Slot speichern und alles Wichtige erledigen.')));
+      h('p', {}, 'Speichere jetzt in einem eigenen Slot und erledige alles Wichtige.')));
   }
 
-  const of = (u) => list.filter((it) => urgency(it, missions, next) === u);
-  const rest = of('normal');
-  root.append(...section('Jetzt erledigen', of('rot')), ...section('Bald erledigen', of('orange')));
-  if (rest.length) {
-    root.append(h('details', { class: 'more' }, h('summary', {}, `Weitere Einträge (${rest.length})`), rest.map((r) => itemRow(r, false))));
+  if (shown.length) {
+    root.append(h('h2', {}, `Vor dieser Mission erledigen (${shown.length})`));
+    shown.forEach((it) => root.append(itemRow(it, false)));
+  } else {
+    root.append(h('div', { class: 'allgood card' }, '✓ Vor dieser Mission ist nichts mehr zu tun. Viel Spaß!'));
   }
-  if (!list.length) root.append(h('p', { class: 'muted' }, 'Nichts offen. Du kannst weiterspielen.'));
-
+  if (more.length) {
+    root.append(h('details', { class: 'more' }, h('summary', {}, `Für später (${more.length})`), more.map((it) => itemRow(it, false))));
+  }
   if (state.lastCompletedMissionId) {
     root.append(h('button', { class: 'link', onclick: undoMission }, 'Letzte Mission rückgängig machen'));
   }
+  root.append(h('div', { class: 'cta' },
+    h('button', { class: 'primary block', onclick: () => completeMission(reds) }, `„${m.name}“ gespielt – weiter ✓`)));
   return root;
 }
 
