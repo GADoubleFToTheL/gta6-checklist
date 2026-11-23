@@ -1,0 +1,822 @@
+[
+ {
+  "id": "prologue",
+  "name": "Prologue",
+  "chapter": 0,
+  "character": "Lucia",
+  "order": 1,
+  "pointOfNoReturn": false,
+  "ponrNote": ""
+ },
+ {
+  "id": "gone-fishing",
+  "name": "Gone Fishing",
+  "chapter": 1,
+  "character": "unbekannt",
+  "order": 2,
+  "pointOfNoReturn": false,
+  "ponrNote": ""
+ },
+ {
+  "id": "gear-up",
+  "name": "Gear Up",
+  "chapter": 1,
+  "character": "unbekannt",
+  "order": 3,
+  "pointOfNoReturn": false,
+  "ponrNote": ""
+ },
+ {
+  "id": "just-a-scratch",
+  "name": "Just a Scratch",
+  "chapter": 1,
+  "character": "unbekannt",
+  "order": 4,
+  "pointOfNoReturn": false,
+  "ponrNote": ""
+ },
+ {
+  "id": "lab-fees",
+  "name": "Lab Fees",
+  "chapter": 1,
+  "character": "unbekannt",
+  "order": 5,
+  "pointOfNoReturn": false,
+  "ponrNote": ""
+ },
+ {
+  "id": "unwanted-attention",
+  "name": "Unwanted Attention",
+  "chapter": 1,
+  "character": "unbekannt",
+  "order": 6,
+  "pointOfNoReturn": false,
+  "ponrNote": ""
+ },
+ {
+  "id": "pipework",
+  "name": "Pipework",
+  "chapter": 1,
+  "character": "unbekannt",
+  "order": 7,
+  "pointOfNoReturn": false,
+  "ponrNote": ""
+ },
+ {
+  "id": "hey-arnold",
+  "name": "Hey Arnold!",
+  "chapter": 1,
+  "character": "unbekannt",
+  "order": 8,
+  "pointOfNoReturn": false,
+  "ponrNote": ""
+ },
+ {
+  "id": "island-dreams",
+  "name": "Island Dreams",
+  "chapter": 1,
+  "character": "unbekannt",
+  "order": 9,
+  "pointOfNoReturn": false,
+  "ponrNote": ""
+ },
+ {
+  "id": "feng-shui",
+  "name": "Feng Shui",
+  "chapter": 1,
+  "character": "unbekannt",
+  "order": 10,
+  "pointOfNoReturn": false,
+  "ponrNote": ""
+ },
+ {
+  "id": "coming-home",
+  "name": "Coming Home",
+  "chapter": 1,
+  "character": "unbekannt",
+  "order": 11,
+  "pointOfNoReturn": false,
+  "ponrNote": "",
+  "orderNote": "Reihenfolge laut KeenGamer/Dexerto direkt nach Feng Shui; andere Guides könnten abweichen."
+ },
+ {
+  "id": "buck-me",
+  "name": "Buck Me",
+  "chapter": 1,
+  "character": "unbekannt",
+  "order": 12,
+  "pointOfNoReturn": false,
+  "ponrNote": ""
+ },
+ {
+  "id": "clean-up-after-donnie",
+  "name": "Clean Up After Donnie",
+  "chapter": 1,
+  "character": "unbekannt",
+  "order": 13,
+  "pointOfNoReturn": false,
+  "ponrNote": ""
+ },
+ {
+  "id": "down-to-earth",
+  "name": "Down to Earth",
+  "chapter": 1,
+  "character": "Lucia",
+  "order": 14,
+  "pointOfNoReturn": false,
+  "ponrNote": ""
+ },
+ {
+  "id": "clear-skies",
+  "name": "Clear Skies",
+  "chapter": 1,
+  "character": "unbekannt",
+  "order": 15,
+  "pointOfNoReturn": false,
+  "ponrNote": ""
+ },
+ {
+  "id": "day-release",
+  "name": "Day Release",
+  "chapter": 1,
+  "character": "unbekannt",
+  "order": 16,
+  "pointOfNoReturn": false,
+  "ponrNote": ""
+ },
+ {
+  "id": "swamped",
+  "name": "Swamped",
+  "chapter": 1,
+  "character": "unbekannt",
+  "order": 17,
+  "pointOfNoReturn": false,
+  "ponrNote": ""
+ },
+ {
+  "id": "don-gone",
+  "name": "Don Gone",
+  "chapter": 1,
+  "character": "unbekannt",
+  "order": 18,
+  "pointOfNoReturn": false,
+  "ponrNote": ""
+ },
+ {
+  "id": "recalibration",
+  "name": "Recalibration",
+  "chapter": 1,
+  "character": "unbekannt",
+  "order": 19,
+  "pointOfNoReturn": false,
+  "ponrNote": ""
+ },
+ {
+  "id": "tourist-trap",
+  "name": "Tourist Trap",
+  "chapter": 1,
+  "character": "unbekannt",
+  "order": 20,
+  "pointOfNoReturn": true,
+  "ponrNote": "Weg: Bargeld, BuckMe-Girokonto, Bodenversteck, Jasons Haus in Key Lento, alle eigenen Fahrzeuge samt Tuning (auch Ultimate Edition). Jasons Fitness sinkt vorübergehend. Bleibt: Family Savings (bis 5.000 $), Beziehungslevel mit Lucia, Unikat-Waffen. Bei Ammu-Nation gekaufte Waffen liegen zu Beginn von Kapitel 2 im Waffenschrank. Tourist Trap, Home Sweet Home und Discharge Time laufen ohne Free Roam."
+ },
+ {
+  "id": "home-sweet-home",
+  "name": "Home Sweet Home",
+  "chapter": 1,
+  "character": "Lucia",
+  "order": 21,
+  "pointOfNoReturn": false,
+  "ponrNote": ""
+ },
+ {
+  "id": "discharge-time",
+  "name": "Discharge Time",
+  "chapter": 1,
+  "character": "unbekannt",
+  "order": 22,
+  "pointOfNoReturn": false,
+  "ponrNote": ""
+ },
+ {
+  "id": "what-s-in-the-bag",
+  "name": "What's in the Bag?",
+  "chapter": 2,
+  "character": "Lucia",
+  "order": 23,
+  "pointOfNoReturn": false,
+  "ponrNote": ""
+ },
+ {
+  "id": "ambulance-chaser",
+  "name": "Ambulance Chaser",
+  "chapter": 2,
+  "character": "Lucia",
+  "order": 24,
+  "pointOfNoReturn": false,
+  "ponrNote": ""
+ },
+ {
+  "id": "just-moved-in",
+  "name": "Just Moved In",
+  "chapter": 2,
+  "character": "Lucia",
+  "order": 25,
+  "pointOfNoReturn": false,
+  "ponrNote": ""
+ },
+ {
+  "id": "girls-trip",
+  "name": "Girls' Trip",
+  "chapter": 2,
+  "character": "Lucia",
+  "order": 26,
+  "pointOfNoReturn": false,
+  "ponrNote": ""
+ },
+ {
+  "id": "moses",
+  "name": "Moses",
+  "chapter": 2,
+  "character": "unbekannt",
+  "order": 27,
+  "pointOfNoReturn": false,
+  "ponrNote": ""
+ },
+ {
+  "id": "daily-driver",
+  "name": "Daily Driver",
+  "chapter": 2,
+  "character": "unbekannt",
+  "order": 28,
+  "pointOfNoReturn": false,
+  "ponrNote": ""
+ },
+ {
+  "id": "slam-dunk",
+  "name": "Slam Dunk",
+  "chapter": 2,
+  "character": "unbekannt",
+  "order": 29,
+  "pointOfNoReturn": false,
+  "ponrNote": ""
+ },
+ {
+  "id": "breakfast-run",
+  "name": "Breakfast Run",
+  "chapter": 2,
+  "character": "beide",
+  "order": 30,
+  "pointOfNoReturn": false,
+  "ponrNote": ""
+ },
+ {
+  "id": "coffee-break",
+  "name": "Coffee Break",
+  "chapter": 2,
+  "character": "unbekannt",
+  "order": 31,
+  "pointOfNoReturn": false,
+  "ponrNote": ""
+ },
+ {
+  "id": "afternoon-delight",
+  "name": "Afternoon Delight",
+  "chapter": 2,
+  "character": "unbekannt",
+  "order": 32,
+  "pointOfNoReturn": false,
+  "ponrNote": ""
+ },
+ {
+  "id": "checking-out",
+  "name": "Checking Out",
+  "chapter": 2,
+  "character": "unbekannt",
+  "order": 33,
+  "pointOfNoReturn": false,
+  "ponrNote": ""
+ },
+ {
+  "id": "welcome-to-vice-city",
+  "name": "Welcome to Vice City",
+  "chapter": 3,
+  "character": "unbekannt",
+  "order": 34,
+  "pointOfNoReturn": false,
+  "ponrNote": ""
+ },
+ {
+  "id": "dealer-s-choice",
+  "name": "Dealer's Choice",
+  "chapter": 3,
+  "character": "Jason",
+  "order": 35,
+  "pointOfNoReturn": false,
+  "ponrNote": ""
+ },
+ {
+  "id": "meet-the-heders",
+  "name": "Meet the Heders",
+  "chapter": 3,
+  "character": "unbekannt",
+  "order": 36,
+  "pointOfNoReturn": false,
+  "ponrNote": ""
+ },
+ {
+  "id": "dubious-provenance",
+  "name": "Dubious Provenance",
+  "chapter": 3,
+  "character": "unbekannt",
+  "order": 37,
+  "pointOfNoReturn": false,
+  "ponrNote": ""
+ },
+ {
+  "id": "mami-knows-best",
+  "name": "Mami Knows Best",
+  "chapter": 3,
+  "character": "Lucia",
+  "order": 38,
+  "pointOfNoReturn": false,
+  "ponrNote": ""
+ },
+ {
+  "id": "south-leonida-real-estate",
+  "name": "South Leonida Real Estate",
+  "chapter": 3,
+  "character": "Lucia",
+  "order": 39,
+  "pointOfNoReturn": false,
+  "ponrNote": ""
+ },
+ {
+  "id": "tyrone",
+  "name": "Tyrone",
+  "chapter": 3,
+  "character": "Jason",
+  "order": 40,
+  "pointOfNoReturn": false,
+  "ponrNote": ""
+ },
+ {
+  "id": "here-kitty-kitty",
+  "name": "Here, Kitty Kitty",
+  "chapter": 3,
+  "character": "unbekannt",
+  "order": 41,
+  "pointOfNoReturn": false,
+  "ponrNote": ""
+ },
+ {
+  "id": "car-service",
+  "name": "Car Service",
+  "chapter": 3,
+  "character": "Lucia",
+  "order": 42,
+  "pointOfNoReturn": false,
+  "ponrNote": ""
+ },
+ {
+  "id": "top-billing",
+  "name": "Top Billing",
+  "chapter": 3,
+  "character": "unbekannt",
+  "order": 43,
+  "pointOfNoReturn": false,
+  "ponrNote": ""
+ },
+ {
+  "id": "boobie-time",
+  "name": "Boobie Time",
+  "chapter": 3,
+  "character": "unbekannt",
+  "order": 44,
+  "pointOfNoReturn": false,
+  "ponrNote": ""
+ },
+ {
+  "id": "first-impressions",
+  "name": "First Impressions",
+  "chapter": 3,
+  "character": "unbekannt",
+  "order": 45,
+  "pointOfNoReturn": false,
+  "ponrNote": ""
+ },
+ {
+  "id": "caught-slipping",
+  "name": "Caught Slipping",
+  "chapter": 3,
+  "character": "beide",
+  "order": 46,
+  "pointOfNoReturn": false,
+  "ponrNote": ""
+ },
+ {
+  "id": "crosstown-traffic",
+  "name": "Crosstown Traffic",
+  "chapter": 3,
+  "character": "unbekannt",
+  "order": 47,
+  "pointOfNoReturn": false,
+  "ponrNote": ""
+ },
+ {
+  "id": "credit-check",
+  "name": "Credit Check",
+  "chapter": 3,
+  "character": "unbekannt",
+  "order": 48,
+  "pointOfNoReturn": false,
+  "ponrNote": ""
+ },
+ {
+  "id": "steal-the-zorrusso-for-randy",
+  "name": "Steal the Zorrusso for Randy",
+  "chapter": 3,
+  "character": "unbekannt",
+  "order": 49,
+  "pointOfNoReturn": false,
+  "ponrNote": ""
+ },
+ {
+  "id": "sinfrontera-national-bank",
+  "name": "Sinfrontera National Bank",
+  "chapter": 3,
+  "character": "unbekannt",
+  "order": 50,
+  "pointOfNoReturn": false,
+  "ponrNote": ""
+ },
+ {
+  "id": "security-expert",
+  "name": "Security Expert",
+  "chapter": 3,
+  "character": "unbekannt",
+  "order": 51,
+  "pointOfNoReturn": false,
+  "ponrNote": ""
+ },
+ {
+  "id": "ride-or-die",
+  "name": "Ride or Die",
+  "chapter": 3,
+  "character": "unbekannt",
+  "order": 52,
+  "pointOfNoReturn": false,
+  "ponrNote": ""
+ },
+ {
+  "id": "company-property",
+  "name": "Company Property",
+  "chapter": 3,
+  "character": "unbekannt",
+  "order": 53,
+  "pointOfNoReturn": false,
+  "ponrNote": ""
+ },
+ {
+  "id": "the-missing-link",
+  "name": "The Missing Link",
+  "chapter": 3,
+  "character": "unbekannt",
+  "order": 54,
+  "pointOfNoReturn": false,
+  "ponrNote": ""
+ },
+ {
+  "id": "safe-word",
+  "name": "Safe Word",
+  "chapter": 3,
+  "character": "unbekannt",
+  "order": 55,
+  "pointOfNoReturn": false,
+  "ponrNote": ""
+ },
+ {
+  "id": "cooties",
+  "name": "Cooties",
+  "chapter": 3,
+  "character": "unbekannt",
+  "order": 56,
+  "pointOfNoReturn": false,
+  "ponrNote": ""
+ },
+ {
+  "id": "bricked-up",
+  "name": "Bricked Up",
+  "chapter": 3,
+  "character": "beide",
+  "order": 57,
+  "pointOfNoReturn": false,
+  "ponrNote": ""
+ },
+ {
+  "id": "hidden-charges",
+  "name": "Hidden Charges",
+  "chapter": 3,
+  "character": "unbekannt",
+  "order": 58,
+  "pointOfNoReturn": false,
+  "ponrNote": ""
+ },
+ {
+  "id": "the-cartel-heist",
+  "name": "The Cartel Heist",
+  "chapter": 3,
+  "character": "unbekannt",
+  "order": 59,
+  "pointOfNoReturn": false,
+  "ponrNote": ""
+ },
+ {
+  "id": "ocean-beach",
+  "name": "Ocean Beach",
+  "chapter": 4,
+  "character": "unbekannt",
+  "order": 60,
+  "pointOfNoReturn": false,
+  "ponrNote": ""
+ },
+ {
+  "id": "another-life",
+  "name": "Another Life",
+  "chapter": 4,
+  "character": "unbekannt",
+  "order": 61,
+  "pointOfNoReturn": false,
+  "ponrNote": ""
+ },
+ {
+  "id": "company-cars",
+  "name": "Company Cars",
+  "chapter": 4,
+  "character": "unbekannt",
+  "order": 62,
+  "pointOfNoReturn": false,
+  "ponrNote": ""
+ },
+ {
+  "id": "lawyer-up",
+  "name": "Lawyer Up",
+  "chapter": 4,
+  "character": "unbekannt",
+  "order": 63,
+  "pointOfNoReturn": false,
+  "ponrNote": ""
+ },
+ {
+  "id": "party-hard",
+  "name": "Party Hard",
+  "chapter": 4,
+  "character": "unbekannt",
+  "order": 64,
+  "pointOfNoReturn": false,
+  "ponrNote": ""
+ },
+ {
+  "id": "heavy-lifting",
+  "name": "Heavy Lifting",
+  "chapter": 4,
+  "character": "beide",
+  "order": 65,
+  "pointOfNoReturn": false,
+  "ponrNote": ""
+ },
+ {
+  "id": "photo-shoot",
+  "name": "Photo/Shoot",
+  "chapter": 4,
+  "character": "unbekannt",
+  "order": 66,
+  "pointOfNoReturn": false,
+  "ponrNote": ""
+ },
+ {
+  "id": "making-gainz",
+  "name": "Making Gainz",
+  "chapter": 4,
+  "character": "Lucia",
+  "order": 67,
+  "pointOfNoReturn": false,
+  "ponrNote": ""
+ },
+ {
+  "id": "watch-it",
+  "name": "Watch It",
+  "chapter": 4,
+  "character": "unbekannt",
+  "order": 68,
+  "pointOfNoReturn": false,
+  "ponrNote": ""
+ },
+ {
+  "id": "cash-injections",
+  "name": "Cash Injections",
+  "chapter": 4,
+  "character": "Lucia",
+  "order": 69,
+  "pointOfNoReturn": false,
+  "ponrNote": ""
+ },
+ {
+  "id": "amateur-hour",
+  "name": "Amateur Hour",
+  "chapter": 4,
+  "character": "Lucia",
+  "order": 70,
+  "pointOfNoReturn": false,
+  "ponrNote": ""
+ },
+ {
+  "id": "dirty-work",
+  "name": "Dirty Work",
+  "chapter": 4,
+  "character": "unbekannt",
+  "order": 71,
+  "pointOfNoReturn": false,
+  "ponrNote": ""
+ },
+ {
+  "id": "too-much-baggage",
+  "name": "Too Much Baggage",
+  "chapter": 4,
+  "character": "Jason",
+  "order": 72,
+  "pointOfNoReturn": false,
+  "ponrNote": ""
+ },
+ {
+  "id": "adventures-in-babysitting",
+  "name": "Adventures in Babysitting",
+  "chapter": 4,
+  "character": "unbekannt",
+  "order": 73,
+  "pointOfNoReturn": false,
+  "ponrNote": ""
+ },
+ {
+  "id": "fresh-evidence",
+  "name": "Fresh Evidence",
+  "chapter": 4,
+  "character": "unbekannt",
+  "order": 74,
+  "pointOfNoReturn": false,
+  "ponrNote": ""
+ },
+ {
+  "id": "power-play",
+  "name": "Power Play",
+  "chapter": 4,
+  "character": "unbekannt",
+  "order": 75,
+  "pointOfNoReturn": false,
+  "ponrNote": ""
+ },
+ {
+  "id": "child-s-play",
+  "name": "Child's Play",
+  "chapter": 4,
+  "character": "unbekannt",
+  "order": 76,
+  "pointOfNoReturn": false,
+  "ponrNote": ""
+ },
+ {
+  "id": "headliners",
+  "name": "Headliners",
+  "chapter": 4,
+  "character": "unbekannt",
+  "order": 77,
+  "pointOfNoReturn": false,
+  "ponrNote": ""
+ },
+ {
+  "id": "close-surveillance",
+  "name": "Close Surveillance",
+  "chapter": 4,
+  "character": "Jason",
+  "order": 78,
+  "pointOfNoReturn": false,
+  "ponrNote": ""
+ },
+ {
+  "id": "delivery-method",
+  "name": "Delivery Method",
+  "chapter": 4,
+  "character": "Jason",
+  "order": 79,
+  "pointOfNoReturn": false,
+  "ponrNote": ""
+ },
+ {
+  "id": "team-building",
+  "name": "Team Building",
+  "chapter": 4,
+  "character": "Lucia",
+  "order": 80,
+  "pointOfNoReturn": false,
+  "ponrNote": ""
+ },
+ {
+  "id": "fully-catered",
+  "name": "Fully Catered",
+  "chapter": 4,
+  "character": "unbekannt",
+  "order": 81,
+  "pointOfNoReturn": false,
+  "ponrNote": ""
+ },
+ {
+  "id": "vcia-takedown",
+  "name": "VCIA Takedown",
+  "chapter": 4,
+  "character": "unbekannt",
+  "order": 82,
+  "pointOfNoReturn": false,
+  "ponrNote": ""
+ },
+ {
+  "id": "sunset",
+  "name": "Sunset",
+  "chapter": 4,
+  "character": "beide",
+  "order": 83,
+  "pointOfNoReturn": false,
+  "ponrNote": ""
+ },
+ {
+  "id": "starting-from-zero",
+  "name": "Starting From Zero",
+  "chapter": 4,
+  "character": "unbekannt",
+  "order": 84,
+  "pointOfNoReturn": false,
+  "ponrNote": ""
+ },
+ {
+  "id": "bird-in-the-hand",
+  "name": "Bird in the Hand",
+  "chapter": 5,
+  "character": "beide",
+  "order": 85,
+  "pointOfNoReturn": false,
+  "ponrNote": ""
+ },
+ {
+  "id": "taking-liberties",
+  "name": "Taking Liberties",
+  "chapter": 5,
+  "character": "beide",
+  "order": 86,
+  "pointOfNoReturn": false,
+  "ponrNote": ""
+ },
+ {
+  "id": "vc-baby",
+  "name": "VC Baby",
+  "chapter": 5,
+  "character": "unbekannt",
+  "order": 87,
+  "pointOfNoReturn": false,
+  "ponrNote": ""
+ },
+ {
+  "id": "doggie-bag",
+  "name": "Doggie Bag",
+  "chapter": 5,
+  "character": "unbekannt",
+  "order": 88,
+  "pointOfNoReturn": false,
+  "ponrNote": ""
+ },
+ {
+  "id": "operation-savage-glory",
+  "name": "Operation Savage Glory",
+  "chapter": 5,
+  "character": "unbekannt",
+  "order": 89,
+  "pointOfNoReturn": false,
+  "ponrNote": ""
+ },
+ {
+  "id": "protective-custody",
+  "name": "Protective Custody",
+  "chapter": 5,
+  "character": "beide",
+  "order": 90,
+  "pointOfNoReturn": false,
+  "ponrNote": ""
+ },
+ {
+  "id": "the-end-of-the-road",
+  "name": "The End of the Road",
+  "chapter": 5,
+  "character": "unbekannt",
+  "order": 91,
+  "pointOfNoReturn": false,
+  "ponrNote": ""
+ }
+]
