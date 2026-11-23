@@ -1,4 +1,4 @@
-const CACHE = 'gta6-checklist-v1';
+const CACHE = 'gta6-checklist-v2';
 const SHELL = [
   './', 'index.html', 'style.css', 'app.js', 'logic.js', 'manifest.webmanifest',
   'data/missions.json', 'data/items.json', 'data/chapters.json',

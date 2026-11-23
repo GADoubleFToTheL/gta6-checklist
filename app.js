@@ -72,6 +72,7 @@ function setMissed(id, missed) {
 }
 
 function setProgress(missionId) {
+  animateNext = true;
   save({ ...state, lastCompletedMissionId: missionId });
 }
 
@@ -113,7 +114,12 @@ function itemRow(it, { showUrgency = true } = {}) {
       onclick: () => showDetail(it.id),
       onkeydown: (e) => { if (e.key === 'Enter') showDetail(it.id); } },
     h('div', { class: 'check', role: 'checkbox', 'aria-checked': done, 'aria-label': 'Erledigt',
-        onclick: (e) => { e.stopPropagation(); if (st === 'verpasst') return; setDone(it.id, !done); } }, done ? '✓' : ''),
+        onclick: (e) => {
+          e.stopPropagation();
+          if (st === 'verpasst') return;
+          if (!done) { const r = e.currentTarget.getBoundingClientRect(); burst(r.left + r.width / 2, r.top + r.height / 2); }
+          setDone(it.id, !done);
+        } }, done ? '✓' : ''),
     h('div', { class: 'body' },
       h('div', { class: `title ${blurred ? 'blur' : ''}` }, it.title),
       h('div', { class: 'meta' },
@@ -140,11 +146,17 @@ function viewNow() {
     return root;
   }
   const m = missions[next];
-  root.append(h('div', { class: 'card next' },
-    h('div', { class: 'label' }, `Nächste Mission · ${chapterLabel(m.chapter)}`),
-    h('div', { class: 'name' }, m.name),
-    h('div', { class: 'meta' }, m.character !== 'unbekannt' && `Charakter: ${m.character} · `, `Mission ${m.order} von ${missions.length}`),
-    m.orderNote && h('div', { class: 'meta' }, `Hinweis: ${m.orderNote}`)));
+  const pct = Math.round((next / missions.length) * 100);
+  root.append(h('section', { class: 'hero' },
+    h('div', { class: 'hero-sun', 'aria-hidden': 'true' }),
+    h('div', { class: 'hero-palms', 'aria-hidden': 'true' }),
+    h('div', { class: 'hero-body' },
+      h('div', { class: 'label' }, `Nächste Mission · ${chapterLabel(m.chapter)}`),
+      h('div', { class: 'name' }, m.name),
+      h('div', { class: 'meta' }, m.character !== 'unbekannt' && `${m.character} · `, `Mission ${m.order} von ${missions.length}`),
+      m.orderNote && h('div', { class: 'meta' }, `Hinweis: ${m.orderNote}`)),
+    h('div', { class: 'ring', style: `--p:${pct}`, role: 'img', 'aria-label': `${pct} Prozent der Story` },
+      h('span', {}, `${pct}%`))));
 
   if (ponrBanner(m)) {
     root.append(h('div', { class: 'banner', role: 'alert' },
@@ -340,10 +352,32 @@ async function resetAll() {
 
 /* ---------- Rendering / Start ---------- */
 
+let animateNext = true; // Einblend-Animation nur bei Tabwechsel/Start, nicht bei jedem Haken
+
+const BURST_COLORS = ['#ff2e93', '#ff8a3d', '#ffd23f', '#00e0d0', '#9b5cff'];
+const reducedMotion = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/** Kleines Partikel-Feuerwerk beim Abhaken. */
+function burst(x, y) {
+  if (reducedMotion()) return;
+  for (let i = 0; i < 14; i++) {
+    const a = (Math.PI * 2 * i) / 14 + Math.random() * 0.4;
+    const d = 40 + Math.random() * 40;
+    const p = h('i', { class: 'spark', style: `left:${x}px;top:${y}px;background:${BURST_COLORS[i % BURST_COLORS.length]};--dx:${Math.cos(a) * d}px;--dy:${Math.sin(a) * d}px` });
+    document.body.append(p);
+    p.addEventListener('animationend', () => p.remove());
+  }
+}
+
 function render() {
   const view = document.getElementById('view');
   const fn = { now: viewNow, missions: viewMissions, items: viewItems, settings: viewSettings }[tab];
   view.replaceChildren(fn());
+  view.classList.toggle('enter', animateNext);
+  if (animateNext) {
+    view.querySelectorAll('.hero, .card, .banner, h2, .filters, button.block').forEach((el, i) => el.style.setProperty('--i', Math.min(i, 16)));
+    animateNext = false;
+  }
   document.querySelectorAll('#tabs button').forEach((b) => b.classList.toggle('active', b.dataset.tab === tab));
 }
 
@@ -361,7 +395,7 @@ async function init() {
   state = loadState();
   document.getElementById('tabs').addEventListener('click', (e) => {
     const t = e.target.closest('button')?.dataset.tab;
-    if (t) { tab = t; window.scrollTo(0, 0); render(); }
+    if (t) { tab = t; animateNext = true; window.scrollTo(0, 0); render(); }
   });
   render();
   if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(() => {});
