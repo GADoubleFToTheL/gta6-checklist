@@ -162,7 +162,7 @@ function viewNow() {
     root.append(h('div', { class: 'banner', role: 'alert' },
       h('h2', {}, '⚠ Point of no Return – nächste Mission'),
       h('p', {}, m.ponrNote),
-      h('p', {}, h('strong', {}, 'Vorher: '), 'Manueller Save in eigenem Slot · 5.000 $ ins Family Savings · Restgeld ausgeben (Waffen bei Ammu-Nation, kein Tuning).')));
+      m.ponrChecklist?.length && h('p', {}, h('strong', {}, 'Vorher: '), m.ponrChecklist.join(' · '))));
   } else if (missions[next + 1]?.pointOfNoReturn) {
     root.append(h('div', { class: 'banner soft' },
       h('h2', {}, 'Achtung: danach kommt der Point of no Return'),

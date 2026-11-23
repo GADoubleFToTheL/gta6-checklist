@@ -18,8 +18,25 @@ test('Daten: Missions-IDs eindeutig, Reihenfolge lückenlos', () => {
 test('Daten: alle Item-Referenzen zeigen auf bekannte Missionen', () => {
   for (const it of items) {
     if (it.availableFrom) assert.ok(missionIndexById(missions, it.availableFrom) >= 0, it.id);
-    assert.ok(missionIndexById(missions, it.lostAt.mission) >= 0, it.id);
+    if (it.lostAt) assert.ok(missionIndexById(missions, it.lostAt.mission) >= 0, it.id);
   }
+});
+
+test('Daten: Item-IDs eindeutig, Quellen gültige https-URLs', () => {
+  assert.equal(new Set(items.map((i) => i.id)).size, items.length);
+  for (const it of items) for (const s of it.sources) assert.ok(safeHttpsUrl(s), `${it.id}: ${s}`);
+});
+
+test('Points of no Return: Tourist Trap, Checking Out, Sunset', () => {
+  const ids = missions.filter((m) => m.pointOfNoReturn).map((m) => m.id);
+  assert.deepEqual(ids, ['tourist-trap', 'checking-out', 'sunset']);
+});
+
+test('Eintrag ohne Verlustpunkt bleibt offen und ist nie rot', () => {
+  const it = items.find((i) => i.lostAt === null);
+  assert.ok(it);
+  assert.equal(itemStatus(it, stateAt('sunset'), missions), 'offen');
+  assert.equal(urgency(it, missions, nextIndex(missions, 'prologue')), 'normal');
 });
 
 test('nextIndex: ohne Fortschritt 0, sonst Folgemission', () => {

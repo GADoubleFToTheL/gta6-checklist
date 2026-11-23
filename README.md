@@ -34,13 +34,16 @@ Item-Felder: `id`, `title`, `category`, `description`, `availableFrom` (Missions
 
 Semantik: Ein Eintrag ist sichtbar, sobald `availableFrom` abgeschlossen ist, und muss erledigt sein, bevor die Mission aus `lostAt` abgeschlossen wird. **Rot** = geht mit der nächsten Mission verloren, **Orange** = geht bis zum nächsten Point of no Return verloren.
 
-## Datenstand & Lücken
+## Datenstand & Lücken (Stand 23.11.2026)
 
-- Missionsliste (91 Missionen, Prolog + 5 Kapitel): KeenGamer, abgeglichen mit Dexerto. Drei Titel (`Don Gone`, `Starting From Zero`, `The End of the Road`) nennt nur KeenGamer; Dexerto verbirgt sie.
-- Kapitel 1 Missables: Startdaten aus dem Projektauftrag, gegen KeenGamer geprüft. TheGamesWiki war beim Prüfen nicht erreichbar (HTTP 429) – offene Punkte sind als „umstritten“ markiert.
-- **Reihenfolge `Coming Home`**: laut KeenGamer/Dexerto direkt nach `Feng Shui` (#11, vor `Buck Me`). Das wirkt ungewöhnlich; bitte im Spiel gegenprüfen und bei Abweichung in `missions.json` umsortieren (`order` und Listenposition).
-- Missions-Charaktere: nur wo Quellen sie nennen, sonst `unbekannt`.
-- Kapitel 2 ff.: nur Missionen, noch keine Missable-Einträge (keine belastbaren Quellen gefunden).
-- GTABase-Karte wird nur verlinkt (nicht eingebettet, keine Marker-Daten). Eigene Marker-Links werden im Fortschritt gespeichert.
+- Missionsliste (91 Missionen, Prolog + 5 Kapitel): KeenGamer, abgeglichen mit Dexerto. Drei Titel (Don Gone, Starting From Zero, The End of the Road) nennt nur KeenGamer.
+- Missables: Kapitel 1 aus KeenGamer, Gamerant, Output Lag; Kapitel 2-5 aus game-checklists, vicemissions und Everyblip. Metaforge (403), Game8 (402) und TheGamesWiki (429) ließen sich nicht lesen.
+- Points of no Return: Tourist Trap (Kap. 1), Checking Out (Kap. 2), Sunset (Kap. 4). Für Kapitel 5 uneinig (siehe Eintrag Save vor den letzten Missionen), daher nur als Eintrag, nicht als Banner.
+- Reihenfolge Coming Home: laut KeenGamer/Dexerto direkt nach Feng Shui (vor Buck Me). Bitte im Spiel gegenprüfen und bei Abweichung in missions.json umsortieren.
+- Einträge mit lostAt: null haben keinen festen Verlustpunkt (zeitlich begrenzte Missionen, unklare Quellen): sie bleiben offen und werden nie rot/orange.
+- Viele Einträge sind nur durch eine Quelle gestützt oder in Guides widersprüchlich: sie sind als umstritten markiert, mit Notiz.
+- Nicht aufgenommen, weil unbestätigt: Thrillbillies-Hinweis, Arthur-Morgan-Hut, Pfister Growler, Mandys Mietjob in Pipework.
+- Missions-Charaktere: nur wo Quellen sie nennen, sonst unbekannt.
+- GTABase-Karte wird nur verlinkt. Eigene Marker-Links stehen im Fortschritt.
 
 Fan-Projekt, nicht mit Rockstar Games verbunden.

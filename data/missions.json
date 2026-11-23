@@ -178,7 +178,12 @@
   "character": "unbekannt",
   "order": 20,
   "pointOfNoReturn": true,
-  "ponrNote": "Weg: Bargeld, BuckMe-Girokonto, Bodenversteck, Jasons Haus in Key Lento, alle eigenen Fahrzeuge samt Tuning (auch Ultimate Edition). Jasons Fitness sinkt vorübergehend. Bleibt: Family Savings (bis 5.000 $), Beziehungslevel mit Lucia, Unikat-Waffen. Bei Ammu-Nation gekaufte Waffen liegen zu Beginn von Kapitel 2 im Waffenschrank. Tourist Trap, Home Sweet Home und Discharge Time laufen ohne Free Roam."
+  "ponrNote": "Weg: Bargeld, BuckMe-Girokonto, Bodenversteck, Jasons Haus in Key Lento, alle eigenen Fahrzeuge samt Tuning (auch Ultimate Edition). Jasons Fitness sinkt vorübergehend. Bleibt: Family Savings (bis 5.000 $), Beziehungslevel mit Lucia, Unikat-Waffen. Bei Ammu-Nation gekaufte Waffen liegen zu Beginn von Kapitel 2 im Waffenschrank. Tourist Trap, Home Sweet Home und Discharge Time laufen ohne Free Roam.",
+  "ponrChecklist": [
+   "Manueller Save in eigenem Slot",
+   "5.000 $ ins Family Savings",
+   "Restgeld ausgeben (Waffen bei Ammu-Nation, kein Tuning)"
+  ]
  },
  {
   "id": "home-sweet-home",
@@ -294,8 +299,14 @@
   "chapter": 2,
   "character": "unbekannt",
   "order": 33,
-  "pointOfNoReturn": false,
-  "ponrNote": ""
+  "pointOfNoReturn": true,
+  "ponrNote": "Das Starlet Motel ist danach nicht mehr dein Zuhause (Bett, Schrank, Speicherpunkt). Kleidung bleibt, auch Geld und Autos. Der Pool-Gegner im Delights Cabaret ist bis zur Wiedereröffnung weg. Laut einigen Guides braucht die Mission 15.000 $ und alle anderen Kapitel-2-Missionen.",
+  "ponrChecklist": [
+   "Alle anderen Kapitel-2-Missionen und Port-Gellhorn-Wünsche erledigen",
+   "Pool-Gegner im Delights Cabaret besiegen",
+   "Karten im Starlet Motel einsammeln",
+   "Manueller Save in eigenem Slot"
+  ]
  },
  {
   "id": "welcome-to-vice-city",
@@ -744,8 +755,13 @@
   "chapter": 4,
   "character": "beide",
   "order": 83,
-  "pointOfNoReturn": false,
-  "ponrNote": ""
+  "pointOfNoReturn": true,
+  "ponrNote": "Danach beginnt Kapitel 5; bis dahin gibt es lange kein Free Roam. Die Kapitel-4-Entscheidung lässt sich nicht wiederholen.",
+  "ponrChecklist": [
+   "Kapitel-4-Nebenjobs beenden",
+   "Notiz an der Y-Hotel-Rezeption abholen",
+   "Manueller Save in eigenem Slot"
+  ]
  },
  {
   "id": "starting-from-zero",

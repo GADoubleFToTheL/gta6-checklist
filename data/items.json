@@ -5,7 +5,10 @@
   "category": "Vorbereitung",
   "description": "Missionen sind nicht wiederholbar. Leg einen separaten Spielstand an, am besten schon vor „Recalibration“ – danach läuft alles am Stück in den Point of no Return.",
   "availableFrom": null,
-  "lostAt": { "mission": "tourist-trap", "when": "start" },
+  "lostAt": {
+   "mission": "tourist-trap",
+   "when": "start"
+  },
   "importance": "kritisch",
   "trophy": false,
   "completion100": false,
@@ -13,7 +16,10 @@
   "note": "KeenGamer nennt Recalibration als letzte Warnung.",
   "location": "Spielmenü",
   "gtabaseUrl": "",
-  "sources": ["https://www.keengamer.com/articles/guides/gta-6-chapter-1-guide-all-missables-and-things-to-do-before-tourist-trap/", "https://metaforge.app/gta-6/gta-6-chapter-1-missables-point-of-no-return"]
+  "sources": [
+   "https://www.keengamer.com/articles/guides/gta-6-chapter-1-guide-all-missables-and-things-to-do-before-tourist-trap/",
+   "https://metaforge.app/gta-6/gta-6-chapter-1-missables-point-of-no-return"
+  ]
  },
  {
   "id": "family-savings",
@@ -21,7 +27,10 @@
   "category": "Geld",
   "description": "Geld unter den losen Dielen in Jasons Schlafzimmer holen, am ATM (ATM Finder in der BuckMe-App) auf das Girokonto einzahlen und unter „Buck Yourself“ bis 5.000 $ ins Family Savings schieben. Nur dieses Geld überlebt das Kapitelende. 5.000 $ erfüllen „Buckin' Broke“ (Girokonto-Limit danach 15.000 $). Einzahlungen lassen sich nicht zurückholen.",
   "availableFrom": "coming-home",
-  "lostAt": { "mission": "tourist-trap", "when": "start" },
+  "lostAt": {
+   "mission": "tourist-trap",
+   "when": "start"
+  },
   "importance": "kritisch",
   "trophy": false,
   "completion100": false,
@@ -29,7 +38,10 @@
   "note": "Family Savings wird laut KeenGamer erst in „Buck Me“ freigeschaltet (Startdaten nannten keinen Zeitpunkt). Verfügbarkeit hier = direkt vor Buck Me.",
   "location": "Schlafzimmer in Jasons Haus, danach beliebiger ATM",
   "gtabaseUrl": "",
-  "sources": ["https://www.keengamer.com/articles/guides/gta-6-chapter-1-guide-all-missables-and-things-to-do-before-tourist-trap/", "https://metaforge.app/gta-6/gta-6-chapter-1-missables-point-of-no-return"]
+  "sources": [
+   "https://www.keengamer.com/articles/guides/gta-6-chapter-1-guide-all-missables-and-things-to-do-before-tourist-trap/",
+   "https://metaforge.app/gta-6/gta-6-chapter-1-missables-point-of-no-return"
+  ]
  },
  {
   "id": "spend-leftover-cash",
@@ -37,7 +49,10 @@
   "category": "Geld",
   "description": "Bargeld, Bodenversteck und Girokonto gehen verloren. Kauf Waffen bei Ammu-Nation – die liegen zu Beginn von Kapitel 2 im Waffenschrank. Kein Geld ins Fahrzeugtuning stecken, die Autos verschwinden.",
   "availableFrom": null,
-  "lostAt": { "mission": "tourist-trap", "when": "start" },
+  "lostAt": {
+   "mission": "tourist-trap",
+   "when": "start"
+  },
   "importance": "wichtig",
   "trophy": false,
   "completion100": false,
@@ -45,7 +60,10 @@
   "note": "",
   "location": "Ammu-Nation",
   "gtabaseUrl": "",
-  "sources": ["https://www.keengamer.com/articles/guides/gta-6-chapter-1-guide-all-missables-and-things-to-do-before-tourist-trap/", "https://gamerant.com/all-missable-content-chapter-1-gta-6/"]
+  "sources": [
+   "https://www.keengamer.com/articles/guides/gta-6-chapter-1-guide-all-missables-and-things-to-do-before-tourist-trap/",
+   "https://gamerant.com/all-missable-content-chapter-1-gta-6/"
+  ]
  },
  {
   "id": "shirleys-rum",
@@ -53,15 +71,26 @@
   "category": "Missable",
   "description": "Salty Squid Rum im Three Sheets Liquor Store kaufen und Shirley bringen. Belohnung: 3 % Focus und das Professional Criminal Profile.",
   "availableFrom": "unwanted-attention",
-  "lostAt": { "mission": "tourist-trap", "when": "start" },
+  "lostAt": {
+   "mission": "tourist-trap",
+   "when": "start"
+  },
   "importance": "wichtig",
   "trophy": "umstritten",
   "completion100": "umstritten",
   "confidence": "umstritten",
-  "note": "Quellen nennen als Auslöser entweder Pipework oder Unwanted Attention; hier das frühere Datum. Trophäe/100 %: Quellen uneins.",
+  "note": "Auslöser laut Quellen Pipework oder Unwanted Attention (hier das frühere). Verlust bei Start von Tourist Trap in mehreren Quellen bestätigt; Trophäe/100 %: laut Output Lag nicht nötig, Quellen uneins. Ein Versteck hinter dem Laden (siehe „Geheimversteck hinter Three Sheets“) hängt evtl. an dieser Quest.",
   "location": "Three Sheets Liquor Store, danach Shirley (Nachbarin)",
   "gtabaseUrl": "",
-  "sources": ["https://www.keengamer.com/articles/guides/gta-6-chapter-1-guide-all-missables-and-things-to-do-before-tourist-trap/", "https://metaforge.app/gta-6/gta-6-chapter-1-missables-point-of-no-return", "https://thegameswiki.com/gta6/wiki/missable-content-and-points-of-no-return"]
+  "sources": [
+   "https://www.keengamer.com/articles/guides/gta-6-chapter-1-guide-all-missables-and-things-to-do-before-tourist-trap/",
+   "https://metaforge.app/gta-6/gta-6-chapter-1-missables-point-of-no-return",
+   "https://thegameswiki.com/gta6/wiki/missable-content-and-points-of-no-return",
+   "https://outputlag.com/guides/gta-6-missables/",
+   "https://vicemissions.com/guides/points-of-no-return",
+   "https://game-checklists.com/gta6/guides/missables/",
+   "https://everyblip.com/missables/"
+  ]
  },
  {
   "id": "steal-scooter",
@@ -69,7 +98,10 @@
   "category": "Fahrzeug",
   "description": "Den Mobility-Scooter der Nachbarin Peggy klauen. Danach darf Jason Shirleys Penumbra fahren. Der Wagen respawnt nicht, wenn er zerstört oder stehen gelassen wird.",
   "availableFrom": "unwanted-attention",
-  "lostAt": { "mission": "tourist-trap", "when": "start" },
+  "lostAt": {
+   "mission": "tourist-trap",
+   "when": "start"
+  },
   "importance": "wichtig",
   "trophy": false,
   "completion100": false,
@@ -77,7 +109,14 @@
   "note": "Folgt auf Get Shirley's Rum (Verfügbarkeit entsprechend).",
   "location": "Peggys Haus in der Nachbarschaft",
   "gtabaseUrl": "",
-  "sources": ["https://www.keengamer.com/articles/guides/gta-6-chapter-1-guide-all-missables-and-things-to-do-before-tourist-trap/", "https://gamerant.com/all-missable-content-chapter-1-gta-6/"]
+  "sources": [
+   "https://www.keengamer.com/articles/guides/gta-6-chapter-1-guide-all-missables-and-things-to-do-before-tourist-trap/",
+   "https://gamerant.com/all-missable-content-chapter-1-gta-6/",
+   "https://outputlag.com/guides/gta-6-missables/",
+   "https://vicemissions.com/guides/points-of-no-return",
+   "https://game-checklists.com/gta6/guides/missables/",
+   "https://everyblip.com/missables/"
+  ]
  },
  {
   "id": "meditation-lucia",
@@ -85,15 +124,25 @@
   "category": "Beziehung Lucia",
   "description": "Lucia im Haus ansprechen, bis sie meditieren will, ihr nach draußen auf den Balkon folgen, L2/LT halten und annehmen. Einzige der 18 Meditationen, die verschwindet. Erhöht Focus.",
   "availableFrom": "down-to-earth",
-  "lostAt": { "mission": "discharge-time", "when": "end" },
+  "lostAt": {
+   "mission": "discharge-time",
+   "when": "end"
+  },
   "importance": "wichtig",
   "trophy": "umstritten",
   "completion100": true,
   "confidence": "umstritten",
-  "note": "Trophäe „Positive Mental Attitude“: eine Quelle sagt, ohne diese Meditation unmöglich, andere widersprechen.",
+  "note": "Trophäe „Positive Mental Attitude“: game-checklists (Update 21.11.) und Gamerant sagen, es geht auch ohne diese Meditation; Output Lag und Everyblip sehen es als unbestätigt. Sicherheitshalber mitnehmen.",
   "location": "Jasons Haus, morgens nach Down to Earth",
   "gtabaseUrl": "",
-  "sources": ["https://www.keengamer.com/articles/guides/gta-6-chapter-1-guide-all-missables-and-things-to-do-before-tourist-trap/", "https://metaforge.app/gta-6/gta-6-chapter-1-missables-point-of-no-return"]
+  "sources": [
+   "https://www.keengamer.com/articles/guides/gta-6-chapter-1-guide-all-missables-and-things-to-do-before-tourist-trap/",
+   "https://metaforge.app/gta-6/gta-6-chapter-1-missables-point-of-no-return",
+   "https://gamerant.com/all-missable-content-chapter-1-gta-6/",
+   "https://outputlag.com/guides/gta-6-missables/",
+   "https://game-checklists.com/gta6/guides/missables/",
+   "https://everyblip.com/missables/"
+  ]
  },
  {
   "id": "find-lost-drugs",
@@ -101,15 +150,22 @@
   "category": "Geld",
   "description": "Vier Drogenpakete in Mariana County einsammeln (Offroad-Fahrzeug nehmen). Je ca. 900 $ beim Verkauf.",
   "availableFrom": "coming-home",
-  "lostAt": { "mission": "discharge-time", "when": "end" },
+  "lostAt": {
+   "mission": "tourist-trap",
+   "when": "start"
+  },
   "importance": "nice-to-have",
   "trophy": false,
   "completion100": false,
-  "confidence": "bestätigt",
-  "note": "Freischaltung nach „Buck Me“; Verfügbarkeit hier = direkt davor.",
+  "confidence": "umstritten",
+  "note": "Zeitpunkt umstritten: Startdaten sagten Kapitelende, game-checklists Start von Tourist Trap (dort „nicht verifiziert“), eine Quelle nennt Swamped. Sicherheitshalber vor Swamped erledigen.",
   "location": "Mariana County",
   "gtabaseUrl": "",
-  "sources": ["https://www.keengamer.com/articles/guides/gta-6-chapter-1-guide-all-missables-and-things-to-do-before-tourist-trap/", "https://gamerant.com/all-missable-content-chapter-1-gta-6/"]
+  "sources": [
+   "https://www.keengamer.com/articles/guides/gta-6-chapter-1-guide-all-missables-and-things-to-do-before-tourist-trap/",
+   "https://gamerant.com/all-missable-content-chapter-1-gta-6/",
+   "https://game-checklists.com/gta6/guides/missables/"
+  ]
  },
  {
   "id": "sell-drugs-donnie",
@@ -117,15 +173,23 @@
   "category": "Geld",
   "description": "Donnie im Trailer zahlt mehr als Brian. Verkauf vor Swamped erledigen.",
   "availableFrom": "coming-home",
-  "lostAt": { "mission": "swamped", "when": "start" },
+  "lostAt": {
+   "mission": "swamped",
+   "when": "start"
+  },
   "importance": "nice-to-have",
   "trophy": false,
   "completion100": false,
   "confidence": "umstritten",
-  "note": "Zeitpunkt unklar: KeenGamer sagt, er kauft nach Swamped nicht mehr; eine andere Quelle vermutet schon ab Clear Skies.",
+  "note": "Donnie kauft laut Quellen nach Swamped nicht mehr (game-checklists: bei Abschluss von Swamped, Donnie stirbt). Brian als Fence fällt nach Kapitel 1 weg (eine Quelle). Eine Quelle vermutet schon ab Clear Skies.",
   "location": "Donnies Trailer",
   "gtabaseUrl": "",
-  "sources": ["https://www.keengamer.com/articles/guides/gta-6-chapter-1-guide-all-missables-and-things-to-do-before-tourist-trap/", "https://beebom.com/gta-6-chapter-1-missable-items-activities/"]
+  "sources": [
+   "https://www.keengamer.com/articles/guides/gta-6-chapter-1-guide-all-missables-and-things-to-do-before-tourist-trap/",
+   "https://beebom.com/gta-6-chapter-1-missable-items-activities/",
+   "https://game-checklists.com/gta6/guides/missables/",
+   "https://everyblip.com/missables/"
+  ]
  },
  {
   "id": "ring-the-bell",
@@ -133,15 +197,23 @@
   "category": "Kleidung",
   "description": "Cal schickt eine SMS, ins Rusty Anchor zu kommen. Hin, danach Cal heimfahren – Belohnung: Rusty-Anchor-T-Shirt und Cap.",
   "availableFrom": "day-release",
-  "lostAt": { "mission": "swamped", "when": "start" },
+  "lostAt": {
+   "mission": "swamped",
+   "when": "start"
+  },
   "importance": "nice-to-have",
   "trophy": false,
   "completion100": false,
-  "confidence": "bestätigt",
-  "note": "SMS kommt laut Startdaten vor Swamped; genauer Zeitpunkt nicht in den Quellen, hier: nach Day Release.",
+  "confidence": "umstritten",
+  "note": "Quellen uneins: Gamerant – SMS von Cal vor Swamped, weg bei Start von Swamped; game-checklists – SMS kommt nach Recalibration (Spielerberichte), weg bei Tourist Trap; laut Update vom 23.11. startet sie evtl. sogar noch nach Swamped. Sicherheitshalber vor Swamped.",
   "location": "Rusty Anchor",
   "gtabaseUrl": "",
-  "sources": ["https://metaforge.app/gta-6/gta-6-chapter-1-missables-point-of-no-return", "https://vicedex.app/gta-6-missables/"]
+  "sources": [
+   "https://metaforge.app/gta-6/gta-6-chapter-1-missables-point-of-no-return",
+   "https://vicedex.app/gta-6-missables/",
+   "https://gamerant.com/all-missable-content-chapter-1-gta-6/",
+   "https://game-checklists.com/gta6/guides/missables/"
+  ]
  },
  {
   "id": "donnies-revolver",
@@ -149,15 +221,25 @@
   "category": "Waffe",
   "description": "Soll in „Don Gone“ die Tasche in Donnies Kofferraum gelegt werden, vorher den Revolver aus dem Kofferraum nehmen – bevor das Auto entsorgt wird. Unikat-Waffe, bleibt in Kapitel 2 erhalten.",
   "availableFrom": "swamped",
-  "lostAt": { "mission": "don-gone", "when": "end" },
+  "lostAt": {
+   "mission": "don-gone",
+   "when": "end"
+  },
   "importance": "wichtig",
   "trophy": false,
-  "completion100": "umstritten",
-  "confidence": "umstritten",
-  "note": "Laut einer Quelle später aus einem Spind holbar – nicht sicher. Sicherheitshalber in Don Gone mitnehmen.",
-  "location": "Kofferraum in der Mission Don Gone",
+  "completion100": false,
+  "confidence": "bestätigt",
+  "note": "Mehrere Quellen: nur während Don Gone holbar, danach weg. (Die frühere Vermutung „später im Spind“ wird von keiner Quelle gestützt.)",
+  "location": "Kofferraum von Donnies Auto in der Mission Don Gone",
   "gtabaseUrl": "",
-  "sources": ["https://www.keengamer.com/articles/guides/gta-6-chapter-1-guide-all-missables-and-things-to-do-before-tourist-trap/", "https://gameshorizon.com/guides/all-missable-items-quests-before-closing-chapter-1-in-gta-6/"]
+  "sources": [
+   "https://www.keengamer.com/articles/guides/gta-6-chapter-1-guide-all-missables-and-things-to-do-before-tourist-trap/",
+   "https://gameshorizon.com/guides/all-missable-items-quests-before-closing-chapter-1-in-gta-6/",
+   "https://gamerant.com/all-missable-content-chapter-1-gta-6/",
+   "https://vicemissions.com/guides/points-of-no-return",
+   "https://game-checklists.com/gta6/guides/missables/",
+   "https://everyblip.com/missables/"
+  ]
  },
  {
   "id": "lucia-clothes-andy",
@@ -165,15 +247,24 @@
   "category": "Beziehung Lucia",
   "description": "Nach Feng Shui bietet Andy per Telefon Kleidung an. Beziehungsbonus. Verpasst man es, bekommt Lucia auf anderem Weg Kleidung.",
   "availableFrom": "feng-shui",
-  "lostAt": { "mission": "coming-home", "when": "start" },
+  "lostAt": {
+   "mission": "coming-home",
+   "when": "start"
+  },
   "importance": "wichtig",
   "trophy": false,
   "completion100": false,
-  "confidence": "bestätigt",
-  "note": "",
+  "confidence": "umstritten",
+  "note": "Quellen uneins: KeenGamer – vor der Abholung aus dem Gefängnis; game-checklists – „nicht verpassbar“, Andy nach Flucht aus dem Haus zurückrufen; Everyblip (ein Guide) – nur während Home Sweet Home. Sicherheitshalber vor Coming Home.",
   "location": "Telefonangebot von Andy",
   "gtabaseUrl": "",
-  "sources": ["https://www.keengamer.com/articles/guides/gta-6-chapter-1-guide-all-missables-and-things-to-do-before-tourist-trap/", "https://metaforge.app/gta-6/gta-6-chapter-1-missables-point-of-no-return"]
+  "sources": [
+   "https://www.keengamer.com/articles/guides/gta-6-chapter-1-guide-all-missables-and-things-to-do-before-tourist-trap/",
+   "https://metaforge.app/gta-6/gta-6-chapter-1-missables-point-of-no-return",
+   "https://gamerant.com/all-missable-content-chapter-1-gta-6/",
+   "https://game-checklists.com/gta6/guides/missables/",
+   "https://everyblip.com/missables/"
+  ]
  },
  {
   "id": "lucia-necklace",
@@ -181,23 +272,35 @@
   "category": "Beziehung Lucia",
   "description": "Bei The Siren's Chest im Südwesten von Key Lento für 475 $ kaufen. Erleichtert in Kapitel 2 eine Mission.",
   "availableFrom": "feng-shui",
-  "lostAt": { "mission": "coming-home", "when": "start" },
+  "lostAt": {
+   "mission": "coming-home",
+   "when": "start"
+  },
   "importance": "wichtig",
   "trophy": false,
   "completion100": false,
-  "confidence": "bestätigt",
-  "note": "",
+  "confidence": "umstritten",
+  "note": "Quellen uneins: KeenGamer/Everyblip – vor Coming Home; game-checklists – bis Tourist Trap. Hier der frühere Zeitpunkt. Verfügbar nach Feng Shui.",
   "location": "The Siren's Chest, Südwest-Key Lento",
   "gtabaseUrl": "",
-  "sources": ["https://www.keengamer.com/articles/guides/gta-6-chapter-1-guide-all-missables-and-things-to-do-before-tourist-trap/", "https://metaforge.app/gta-6/gta-6-chapter-1-missables-point-of-no-return"]
+  "sources": [
+   "https://www.keengamer.com/articles/guides/gta-6-chapter-1-guide-all-missables-and-things-to-do-before-tourist-trap/",
+   "https://metaforge.app/gta-6/gta-6-chapter-1-missables-point-of-no-return",
+   "https://gamerant.com/all-missable-content-chapter-1-gta-6/",
+   "https://game-checklists.com/gta6/guides/missables/",
+   "https://everyblip.com/missables/"
+  ]
  },
  {
   "id": "lucia-flowers-groceries-haircut",
   "title": "Blumen, Einkäufe, Haarschnitt",
   "category": "Beziehung Lucia",
-  "description": "Blumenstrauß besorgen, das Haus mit Lebensmitteln auffüllen, zum Friseur. Alles vor der Abholung aus dem Gefängnis – jeweils Beziehungsbonus.",
+  "description": "Blumenstrauß besorgen, das Haus mit Lebensmitteln auffüllen, zum Friseur. Alles vor der Abholung aus dem Gefängnis – jeweils Beziehungsbonus. Everyblip nennt zusätzlich die Aufgabe „Get The Chop“ (nur ein Guide).",
   "availableFrom": null,
-  "lostAt": { "mission": "coming-home", "when": "start" },
+  "lostAt": {
+   "mission": "coming-home",
+   "when": "start"
+  },
   "importance": "wichtig",
   "trophy": false,
   "completion100": false,
@@ -205,7 +308,12 @@
   "note": "",
   "location": "Key Lento (Blumenladen, Supermarkt, Barber)",
   "gtabaseUrl": "",
-  "sources": ["https://www.keengamer.com/articles/guides/gta-6-chapter-1-guide-all-missables-and-things-to-do-before-tourist-trap/", "https://beebom.com/gta-6-chapter-1-missable-items-activities/"]
+  "sources": [
+   "https://www.keengamer.com/articles/guides/gta-6-chapter-1-guide-all-missables-and-things-to-do-before-tourist-trap/",
+   "https://beebom.com/gta-6-chapter-1-missable-items-activities/",
+   "https://game-checklists.com/gta6/guides/missables/",
+   "https://everyblip.com/missables/"
+  ]
  },
  {
   "id": "house-repairs",
@@ -213,15 +321,22 @@
   "category": "Beziehung Lucia",
   "description": "Treppe, Dach, Balkongeländer und Schlafzimmerwand reparieren. Jede Reparatur bringt Beziehungspunkte bei Lucia.",
   "availableFrom": null,
-  "lostAt": { "mission": "coming-home", "when": "start" },
+  "lostAt": {
+   "mission": "coming-home",
+   "when": "start"
+  },
   "importance": "wichtig",
   "trophy": false,
   "completion100": false,
-  "confidence": "umstritten",
-  "note": "Zwei Quellen: Bonus endet mit Coming Home; eine Quelle: wirkt auch danach. Sicherheitshalber vorher erledigen.",
+  "confidence": "bestätigt",
+  "note": "Mehrere Quellen: Bonus endet bei der Gefängnisabholung in Coming Home. (Eine ältere Meldung, dass es auch danach geht, wird nicht gestützt.)",
   "location": "Jasons Haus",
   "gtabaseUrl": "",
-  "sources": ["https://www.keengamer.com/articles/guides/gta-6-chapter-1-guide-all-missables-and-things-to-do-before-tourist-trap/", "https://metaforge.app/gta-6/gta-6-chapter-1-missables-point-of-no-return"]
+  "sources": [
+   "https://www.keengamer.com/articles/guides/gta-6-chapter-1-guide-all-missables-and-things-to-do-before-tourist-trap/",
+   "https://metaforge.app/gta-6/gta-6-chapter-1-missables-point-of-no-return",
+   "https://game-checklists.com/gta6/guides/missables/"
+  ]
  },
  {
   "id": "house-magazines-books",
@@ -229,15 +344,22 @@
   "category": "Sammelobjekt",
   "description": "„Off the Hook“ auf der Werkbank im Schuppen unter dem Haus, „Body Copy“ auf dem Terrassentisch bei den Trainingsgeräten, dazu alle Bücher im Haus (auch Wohnzimmer). Spielweit gibt es 27 Stück.",
   "availableFrom": null,
-  "lostAt": { "mission": "discharge-time", "when": "end" },
+  "lostAt": {
+   "mission": "discharge-time",
+   "when": "end"
+  },
   "importance": "nice-to-have",
   "trophy": false,
   "completion100": "umstritten",
   "confidence": "umstritten",
-  "note": "Evtl. tauchen die Stücke später an anderer Stelle wieder auf.",
+  "note": "Evtl. tauchen Stücke später woanders wieder auf. game-checklists nennt als Verlust „Lethal By Design“ und „Body Copy“; „Ashes of Glory“ soll nicht verpassbar sein (Kopien anderswo). Titel zwischen Guides uneinheitlich.",
   "location": "Jasons Haus: Schuppen, Terrasse, Wohnzimmer",
   "gtabaseUrl": "",
-  "sources": ["https://www.keengamer.com/articles/guides/gta-6-chapter-1-guide-all-missables-and-things-to-do-before-tourist-trap/", "https://vicedex.app/gta-6-missables/"]
+  "sources": [
+   "https://www.keengamer.com/articles/guides/gta-6-chapter-1-guide-all-missables-and-things-to-do-before-tourist-trap/",
+   "https://vicedex.app/gta-6-missables/",
+   "https://game-checklists.com/gta6/guides/missables/"
+  ]
  },
  {
   "id": "ue-enduro-kayak",
@@ -245,15 +367,23 @@
   "category": "Fahrzeug",
   "description": "Nur mit Ultimate Edition: Motorrad und Kajak gehören nur in diesem Kapitel zu Jason und verschwinden zum Kapitelende.",
   "availableFrom": null,
-  "lostAt": { "mission": "discharge-time", "when": "end" },
+  "lostAt": {
+   "mission": "discharge-time",
+   "when": "end"
+  },
   "importance": "nice-to-have",
   "trophy": false,
   "completion100": false,
-  "confidence": "umstritten",
-  "note": "Gemeldet, nicht von mehreren Quellen bestätigt (KeenGamer nennt es als Kapitel-1-Ende).",
+  "confidence": "bestätigt",
+  "note": "Output Lag: In-Game-Text nennt beide als „nur Kapitel 1“. Von Output Lag, game-checklists und Everyblip gestützt; Trophäen/100 % nicht betroffen (Output Lag widerspricht sich dazu).",
   "location": "Garage/Strand bei Jasons Haus",
   "gtabaseUrl": "",
-  "sources": ["https://www.keengamer.com/articles/guides/gta-6-chapter-1-guide-all-missables-and-things-to-do-before-tourist-trap/"]
+  "sources": [
+   "https://www.keengamer.com/articles/guides/gta-6-chapter-1-guide-all-missables-and-things-to-do-before-tourist-trap/",
+   "https://outputlag.com/guides/gta-6-missables/",
+   "https://game-checklists.com/gta6/guides/missables/",
+   "https://everyblip.com/missables/"
+  ]
  },
  {
   "id": "explore-key-lento",
@@ -261,7 +391,10 @@
   "category": "Sammelobjekt",
   "description": "Freies Erkunden und Zufallsbegegnungen, solange Free Roam noch läuft. Danach bis Kapitel 2 gesperrt.",
   "availableFrom": null,
-  "lostAt": { "mission": "tourist-trap", "when": "start" },
+  "lostAt": {
+   "mission": "tourist-trap",
+   "when": "start"
+  },
   "importance": "nice-to-have",
   "trophy": false,
   "completion100": false,
@@ -269,6 +402,481 @@
   "note": "Nur gemeldet, keine genauen Angaben.",
   "location": "Key Lento",
   "gtabaseUrl": "",
-  "sources": ["https://gameshorizon.com/guides/all-missable-items-quests-before-closing-chapter-1-in-gta-6/"]
+  "sources": [
+   "https://gameshorizon.com/guides/all-missable-items-quests-before-closing-chapter-1-in-gta-6/"
+  ]
+ },
+ {
+  "trophy": false,
+  "completion100": false,
+  "gtabaseUrl": "",
+  "location": "Trailer nahe Camp-Ausgang",
+  "id": "gone-fishing-cash",
+  "title": "Bargeld im Trailer (Gone Fishing)",
+  "category": "Geld",
+  "description": "Im Trailer nahe dem Camp-Ausgang liegt Bargeld. Mitnehmen, bevor du in der Mission ins Wasserflugzeug steigst.",
+  "availableFrom": null,
+  "lostAt": {
+   "mission": "gone-fishing",
+   "when": "end"
+  },
+  "importance": "nice-to-have",
+  "confidence": "umstritten",
+  "note": "Nur eine Quelle (vicemissions).",
+  "sources": [
+   "https://vicemissions.com/guides/points-of-no-return"
+  ]
+ },
+ {
+  "trophy": false,
+  "completion100": false,
+  "gtabaseUrl": "",
+  "location": "Fluchtroute im Prolog",
+  "id": "prologue-jetski",
+  "title": "Lucias Jetski-Dialog (Prolog-Flucht)",
+  "category": "Missable",
+  "description": "Bei der Flucht nach dem Ladenüberfall die Wasserroute auf dem Seashark-Jetski nehmen. Das löst einen alternativen Dialog bzw. eine Zwischensequenz mit Lucia aus.",
+  "availableFrom": null,
+  "lostAt": {
+   "mission": "prologue",
+   "when": "end"
+  },
+  "importance": "nice-to-have",
+  "confidence": "umstritten",
+  "note": "Nur eine Quelle (game-checklists); Trophäe nicht genannt.",
+  "sources": [
+   "https://game-checklists.com/gta6/guides/missables/"
+  ]
+ },
+ {
+  "trophy": false,
+  "completion100": false,
+  "gtabaseUrl": "",
+  "location": "Mission Hey Arnold!",
+  "id": "hey-arnold-choice",
+  "title": "Entscheidung in „Hey Arnold!“",
+  "category": "Missable",
+  "description": "Arnold töten oder verschonen wird dauerhaft im Criminal Profile vermerkt und lässt sich nicht ändern. Vorher speichern, falls dir das Ergebnis wichtig ist.",
+  "availableFrom": "pipework",
+  "lostAt": {
+   "mission": "hey-arnold",
+   "when": "end"
+  },
+  "importance": "nice-to-have",
+  "confidence": "umstritten",
+  "note": "Nur Output Lag; Folgen für Trophäen unbekannt.",
+  "sources": [
+   "https://outputlag.com/guides/gta-6-missables/"
+  ]
+ },
+ {
+  "trophy": false,
+  "completion100": false,
+  "gtabaseUrl": "",
+  "location": "Mandys Haus/Garten",
+  "id": "macizo-cigars",
+  "title": "Macizo-Zigarren (Mandys Garten)",
+  "category": "Sammelobjekt",
+  "description": "Nach Pipework drei Macizo-Zigarren aus der Kiste in Mandys Garten mitnehmen.",
+  "availableFrom": "pipework",
+  "lostAt": null,
+  "importance": "nice-to-have",
+  "confidence": "umstritten",
+  "note": "Zeitpunkt des Verlusts unklar (game-checklists: weg, sobald man Mandys Grundstück verlässt – ein Guide). Nur wenige Quellen.",
+  "sources": [
+   "https://game-checklists.com/gta6/guides/missables/",
+   "https://everyblip.com/missables/"
+  ]
+ },
+ {
+  "trophy": false,
+  "completion100": false,
+  "gtabaseUrl": "",
+  "location": "Donnies Unterkunft in Don Gone",
+  "id": "donnies-sunglasses",
+  "title": "Donnies Sonnenbrille (Aviators)",
+  "category": "Kleidung",
+  "description": "Während Don Gone in Donnies Umgebung die Sonnenbrille einsammeln.",
+  "availableFrom": "swamped",
+  "lostAt": {
+   "mission": "don-gone",
+   "when": "end"
+  },
+  "importance": "nice-to-have",
+  "confidence": "umstritten",
+  "note": "Fundort uneins: am Waschbecken im Haus (Gamerant, game-checklists) oder im Badezimmer des Trailers (Everyblip).",
+  "sources": [
+   "https://gamerant.com/all-missable-content-chapter-1-gta-6/",
+   "https://game-checklists.com/gta6/guides/missables/",
+   "https://everyblip.com/missables/"
+  ]
+ },
+ {
+  "trophy": false,
+  "completion100": false,
+  "gtabaseUrl": "",
+  "location": "Yacht, mittleres Deck",
+  "id": "lucia-yacht-sunglasses",
+  "title": "Sonnenbrille für Lucia (Yacht)",
+  "category": "Kleidung",
+  "description": "In Day Release auf dem mittleren Deck der Yacht das Paar oben an der Treppe ansprechen und die Sonnenbrille für Lucia holen.",
+  "availableFrom": "clear-skies",
+  "lostAt": {
+   "mission": "day-release",
+   "when": "end"
+  },
+  "importance": "wichtig",
+  "confidence": "bestätigt",
+  "note": "",
+  "sources": [
+   "https://gamerant.com/all-missable-content-chapter-1-gta-6/",
+   "https://game-checklists.com/gta6/guides/missables/",
+   "https://everyblip.com/missables/"
+  ]
+ },
+ {
+  "trophy": false,
+  "completion100": false,
+  "gtabaseUrl": "",
+  "location": "Key Lento Community Center",
+  "id": "clock-out",
+  "title": "Clock Out (Lucia abholen)",
+  "category": "Beziehung Lucia",
+  "description": "Am Tag nach Day Release ruft Lucia an. Annehmen und sie bis 16 Uhr am Key Lento Community Center abholen.",
+  "availableFrom": "day-release",
+  "lostAt": null,
+  "importance": "wichtig",
+  "confidence": "umstritten",
+  "note": "Zeitfenster nur im Spiel selbst (Anruf ablehnen oder zu spät = verpasst); der Anruf kommt evtl. erst bei hohem Beziehungslevel. Quellen: game-checklists, Everyblip.",
+  "sources": [
+   "https://game-checklists.com/gta6/guides/missables/",
+   "https://everyblip.com/missables/"
+  ]
+ },
+ {
+  "trophy": false,
+  "completion100": false,
+  "gtabaseUrl": "",
+  "location": "Three Sheets Liquor Store, Key Lento",
+  "id": "parrot-stash",
+  "title": "Geheimversteck hinter Three Sheets",
+  "category": "Geld",
+  "description": "Hinter dem Three Sheets Liquor Store (Papageienkäfige/Lüftung am Generator) liegt ein Bargeldversteck.",
+  "availableFrom": null,
+  "lostAt": {
+   "mission": "discharge-time",
+   "when": "end"
+  },
+  "importance": "nice-to-have",
+  "confidence": "umstritten",
+  "note": "Betrag uneins (ca. 1.300 $ laut Output Lag, gut 2.000 $ laut game-checklists), dort „nicht verifiziert“. Bargeld geht ohnehin am Kapitelende verloren – ausgeben.",
+  "sources": [
+   "https://outputlag.com/guides/gta-6-missables/",
+   "https://game-checklists.com/gta6/guides/missables/"
+  ]
+ },
+ {
+  "trophy": false,
+  "completion100": false,
+  "gtabaseUrl": "",
+  "location": "Coastal Auto Care, Key Lento",
+  "id": "ue-ganado-retro",
+  "title": "Ultimate Edition: Ganado Retro Build",
+  "category": "Fahrzeug",
+  "description": "Kostenlos bei Coastal Auto Care in Key Lento unter „Pro Builds“. Das Auto geht am Kapitelende verloren.",
+  "availableFrom": null,
+  "lostAt": {
+   "mission": "discharge-time",
+   "when": "end"
+  },
+  "importance": "nice-to-have",
+  "confidence": "umstritten",
+  "note": "KeenGamer koppelt es an Just a Scratch, Output Lag an keine Mission. Nur mit Ultimate Edition.",
+  "sources": [
+   "https://www.keengamer.com/articles/guides/gta-6-chapter-1-guide-all-missables-and-things-to-do-before-tourist-trap/",
+   "https://outputlag.com/guides/gta-6-missables/"
+  ]
+ },
+ {
+  "trophy": false,
+  "completion100": false,
+  "gtabaseUrl": "",
+  "location": "Delights Cabaret",
+  "id": "ch2-pool-opponent",
+  "title": "Pool-Gegner im Delights Cabaret besiegen",
+  "category": "Missable",
+  "description": "Den Pool-Gegner im Delights Cabaret schlagen, bevor Checking Out beginnt. Danach ist er weg, bis der Club wieder öffnet.",
+  "availableFrom": "discharge-time",
+  "lostAt": {
+   "mission": "checking-out",
+   "when": "start"
+  },
+  "importance": "wichtig",
+  "confidence": "bestätigt",
+  "note": "",
+  "sources": [
+   "https://game-checklists.com/gta6/guides/missables/",
+   "https://vicemissions.com/guides/points-of-no-return"
+  ]
+ },
+ {
+  "trophy": false,
+  "completion100": false,
+  "gtabaseUrl": "",
+  "location": "Starlet Motel",
+  "id": "ch2-motel-cards",
+  "title": "Karten im Starlet Motel",
+  "category": "Sammelobjekt",
+  "description": "Vicki-Karte (Büro/Bad der Rezeption), Victor-Maravilla-Karte (Küche) und laut einem Guide eine dritte Karte (Wäscheraum) einsammeln, solange das Motel dein Zuhause ist.",
+  "availableFrom": "discharge-time",
+  "lostAt": {
+   "mission": "checking-out",
+   "when": "start"
+  },
+  "importance": "nice-to-have",
+  "confidence": "umstritten",
+  "note": "Quellen uneins: Spieler berichten, dass man nach Kapitel 2 noch in die Küche kommt („wahrscheinlich nicht verpassbar“). Dritte Karte „nicht verifiziert“.",
+  "sources": [
+   "https://game-checklists.com/gta6/guides/missables/",
+   "https://vicemissions.com/guides/points-of-no-return"
+  ]
+ },
+ {
+  "trophy": false,
+  "completion100": false,
+  "gtabaseUrl": "",
+  "location": "Port Gellhorn / Starlet Motel",
+  "id": "ch2-prep-checking-out",
+  "title": "Vorbereitung auf Checking Out",
+  "category": "Vorbereitung",
+  "description": "Alle anderen Kapitel-2-Missionen abschließen und Wünsche in Port Gellhorn erledigen. Das Starlet Motel ist danach nicht mehr dein Zuhause (Bett, Schrank, Speicherpunkt weg), Kleidung bleibt. Laut einem Guide braucht Checking Out mindestens 15.000 $.",
+  "availableFrom": "discharge-time",
+  "lostAt": {
+   "mission": "checking-out",
+   "when": "start"
+  },
+  "importance": "kritisch",
+  "confidence": "umstritten",
+  "note": "15.000 $ und „alle anderen Missionen“ nennt nur ein Teil der Guides (game-checklists: „15.000 $ oder mehr“). Verlust des Motels in allen Quellen gleich.",
+  "sources": [
+   "https://vicemissions.com/guides/points-of-no-return",
+   "https://game-checklists.com/gta6/guides/missables/",
+   "https://everyblip.com/missables/"
+  ]
+ },
+ {
+  "trophy": false,
+  "completion100": false,
+  "gtabaseUrl": "",
+  "location": "Spielmenü",
+  "id": "ch2-manual-save",
+  "title": "Manueller Save vor Checking Out",
+  "category": "Vorbereitung",
+  "description": "Missionen lassen sich nicht wiederholen. Eigener Save-Slot vor Checking Out.",
+  "availableFrom": "discharge-time",
+  "lostAt": {
+   "mission": "checking-out",
+   "when": "start"
+  },
+  "importance": "wichtig",
+  "confidence": "bestätigt",
+  "note": "",
+  "sources": [
+   "https://game-checklists.com/gta6/guides/missables/"
+  ]
+ },
+ {
+  "trophy": "umstritten",
+  "completion100": false,
+  "gtabaseUrl": "",
+  "location": "Vice City",
+  "id": "race-against-yago",
+  "title": "Race Against Yago",
+  "category": "Missable",
+  "description": "Zeitlich begrenzte Rennmission. Läuft der Timer ab, ist sie weg. Erster Platz zahlt laut einem Guide 3.800 $.",
+  "availableFrom": "checking-out",
+  "lostAt": null,
+  "importance": "kritisch",
+  "confidence": "umstritten",
+  "note": "Trophäe „Strangers & Freaks“: game-checklists sagt, ohne dieses Rennen dauerhaft verpasst; Everyblip: Guides uneinig. Erscheint einige Spieltage nach „Bumper to Bumper“ (kein Story-Eintrag in der Missionsliste).",
+  "sources": [
+   "https://game-checklists.com/gta6/guides/missables/",
+   "https://everyblip.com/missables/",
+   "https://outputlag.com/guides/gta-6-missables/"
+  ]
+ },
+ {
+  "trophy": false,
+  "completion100": false,
+  "gtabaseUrl": "",
+  "location": "Telefon / Dubious Provenance",
+  "id": "halifax-statue",
+  "title": "Halifax: Statue und Rückruf",
+  "category": "Missable",
+  "description": "In Dubious Provenance Halifax nicht endgültig abweisen und später zurückrufen. Sonst gehen Teil 2 und 3 verloren.",
+  "availableFrom": "dubious-provenance",
+  "lostAt": {
+   "mission": "the-cartel-heist",
+   "when": "end"
+  },
+  "importance": "wichtig",
+  "confidence": "bestätigt",
+  "note": "Das Anruf-Ziel bleibt bis zum Ende von Kapitel 3 offen.",
+  "sources": [
+   "https://vicemissions.com/guides/points-of-no-return",
+   "https://game-checklists.com/gta6/guides/missables/",
+   "https://everyblip.com/missables/"
+  ]
+ },
+ {
+  "trophy": false,
+  "completion100": false,
+  "gtabaseUrl": "",
+  "location": "Fotoraum, The Missing Link",
+  "id": "montys-pistol",
+  "title": "Monty’s 1992 Pistol",
+  "category": "Waffe",
+  "description": "Im Fotoraum in „The Missing Link“ die Pistole mitnehmen, bevor die Mission endet.",
+  "availableFrom": "company-property",
+  "lostAt": {
+   "mission": "the-missing-link",
+   "when": "end"
+  },
+  "importance": "nice-to-have",
+  "confidence": "umstritten",
+  "note": "Nur eine Quelle (game-checklists).",
+  "sources": [
+   "https://game-checklists.com/gta6/guides/missables/"
+  ]
+ },
+ {
+  "trophy": false,
+  "completion100": false,
+  "gtabaseUrl": "",
+  "location": "Millport",
+  "id": "bad-driver",
+  "title": "Bad Driver! (Felipe)",
+  "category": "Missable",
+  "description": "Nebenjob in Millport nach Party Hard. Felipe töten bringt 20.000 $; verschonen schaltet „Collect Felipe’s Gift“ frei. Vor Power Play erledigen.",
+  "availableFrom": "party-hard",
+  "lostAt": {
+   "mission": "power-play",
+   "when": "start"
+  },
+  "importance": "wichtig",
+  "confidence": "bestätigt",
+  "note": "",
+  "sources": [
+   "https://vicemissions.com/guides/points-of-no-return",
+   "https://game-checklists.com/gta6/guides/missables/",
+   "https://everyblip.com/missables/"
+  ]
+ },
+ {
+  "trophy": false,
+  "completion100": false,
+  "gtabaseUrl": "",
+  "location": "nahe Hamlet",
+  "id": "free-call",
+  "title": "This Is a Free Call From … (Lucia)",
+  "category": "Beziehung Lucia",
+  "description": "Zeitlich begrenzter Lucia-Anruf: Shayna abholen, sofort hinfahren.",
+  "availableFrom": "lawyer-up",
+  "lostAt": null,
+  "importance": "nice-to-have",
+  "confidence": "umstritten",
+  "note": "Auslöser uneins (nach Lawyer Up laut Everyblip, nach Child’s Play laut game-checklists); keine Frist genannt.",
+  "sources": [
+   "https://game-checklists.com/gta6/guides/missables/",
+   "https://everyblip.com/missables/"
+  ]
+ },
+ {
+  "trophy": false,
+  "completion100": false,
+  "gtabaseUrl": "",
+  "location": "Vice City",
+  "id": "making-gainz-couple",
+  "title": "Paar-Aktivitäten vor Making Gainz",
+  "category": "Beziehung Lucia",
+  "description": "Nach Making Gainz können Jason und Lucia bis VCIA Takedown nicht mehr zusammen in der Öffentlichkeit gesehen werden. Gemeinsame Aktivitäten vorher erledigen.",
+  "availableFrom": "the-cartel-heist",
+  "lostAt": {
+   "mission": "making-gainz",
+   "when": "end"
+  },
+  "importance": "wichtig",
+  "confidence": "umstritten",
+  "note": "Nur eine Quelle (vicemissions).",
+  "sources": [
+   "https://vicemissions.com/guides/points-of-no-return"
+  ]
+ },
+ {
+  "trophy": false,
+  "completion100": false,
+  "gtabaseUrl": "",
+  "location": "Y Hotel, Spielmenü",
+  "id": "sunset-prep",
+  "title": "Vorbereitung auf Sunset",
+  "category": "Vorbereitung",
+  "description": "Kapitel-4-Nebenjobs beenden, die Notiz an der Rezeption des Y Hotel abholen und manuell in eigenem Slot speichern. Danach gibt es lange kein Free Roam.",
+  "availableFrom": "the-cartel-heist",
+  "lostAt": {
+   "mission": "sunset",
+   "when": "start"
+  },
+  "importance": "kritisch",
+  "confidence": "bestätigt",
+  "note": "Auch die Kapitel-4-Entscheidung lässt sich nicht wiederholen.",
+  "sources": [
+   "https://vicemissions.com/guides/points-of-no-return",
+   "https://game-checklists.com/gta6/guides/missables/",
+   "https://everyblip.com/missables/"
+  ]
+ },
+ {
+  "trophy": false,
+  "completion100": false,
+  "gtabaseUrl": "",
+  "location": "Spielmenü",
+  "id": "final-save",
+  "title": "Save vor den letzten Missionen",
+  "category": "Vorbereitung",
+  "description": "Die Enden hängen an Entscheidungen und lassen sich nicht wiederholen. Vor Protective Custody (Abe-Angebot) und vor The End of the Road in eigenem Slot speichern.",
+  "availableFrom": "sunset",
+  "lostAt": {
+   "mission": "protective-custody",
+   "when": "start"
+  },
+  "importance": "kritisch",
+  "confidence": "umstritten",
+  "note": "Ob Kapitel 5 einen echten Point of no Return hat, sehen Guides unterschiedlich (Everyblip: nichts geht für immer verloren; vicemissions: Free Roam bis zum Abspann weg).",
+  "sources": [
+   "https://vicemissions.com/guides/points-of-no-return",
+   "https://game-checklists.com/gta6/guides/missables/",
+   "https://everyblip.com/missables/"
+  ]
+ },
+ {
+  "trophy": false,
+  "completion100": false,
+  "gtabaseUrl": "",
+  "location": "Protective Custody",
+  "id": "buckme-ending",
+  "title": "BuckMe-Sparziel für das alternative Ende",
+  "category": "Geld",
+  "description": "Die Nachfrage „Meet Abe“ in Protective Custody aufschieben, bis 2 Mio. $ auf dem BuckMe-Sparkonto liegen, um das BuckMe-Ende zu behalten.",
+  "availableFrom": "sunset",
+  "lostAt": {
+   "mission": "protective-custody",
+   "when": "start"
+  },
+  "importance": "nice-to-have",
+  "confidence": "umstritten",
+  "note": "Nur eine Quelle (game-checklists).",
+  "sources": [
+   "https://game-checklists.com/gta6/guides/missables/"
+  ]
  }
 ]
