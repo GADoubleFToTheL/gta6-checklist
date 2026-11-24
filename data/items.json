@@ -77,10 +77,10 @@
    "when": "start"
   },
   "importance": "wichtig",
-  "trophy": "umstritten",
+  "trophy": false,
   "completion100": "umstritten",
   "confidence": "umstritten",
-  "note": "Auslöser laut Quellen Pipework oder Unwanted Attention (hier das frühere). Verlust bei Start von Tourist Trap in mehreren Quellen bestätigt; Trophäe/100 %: laut Output Lag nicht nötig, Quellen uneins. Ein Versteck hinter dem Laden (siehe „Geheimversteck hinter Three Sheets“) hängt evtl. an dieser Quest.",
+  "note": "Auslöser laut Quellen Pipework oder Unwanted Attention (hier das frühere). Verlust bei Start von Tourist Trap in mehreren Quellen bestätigt. Stand 24.11.: Für keine Trophäe nötig (GTABase englisch, Bloxodes, eGamers); 100 % weiter uneins – die deutsche GTABase-Seite nennt die Mission als nötig. Ein Versteck hinter dem Laden (siehe „Geheimversteck hinter Three Sheets“) hängt evtl. an dieser Quest.",
   "location": "Three Sheets Liquor Store, danach Shirley (Nachbarin)",
   "gtabaseUrl": "https://www.gtabase.com/de/gta-6/karte/#liquor-store-002",
   "sources": [
@@ -90,7 +90,8 @@
    "https://outputlag.com/guides/gta-6-missables/",
    "https://vicemissions.com/guides/points-of-no-return",
    "https://game-checklists.com/gta6/guides/missables/",
-   "https://everyblip.com/missables/"
+   "https://everyblip.com/missables/",
+   "https://www.gtabase.com/gta-6/missions/get-shirleys-rum"
   ]
  },
  {
@@ -131,9 +132,9 @@
   },
   "importance": "wichtig",
   "trophy": "umstritten",
-  "completion100": true,
+  "completion100": "umstritten",
   "confidence": "umstritten",
-  "note": "Trophäe „Positive Mental Attitude“: game-checklists (Update 21.11.) und Gamerant sagen, es geht auch ohne diese Meditation; Output Lag und Everyblip sehen es als unbestätigt. Sicherheitshalber mitnehmen.",
+  "note": "Trophäe „Positive Mental Attitude“: game-checklists (Update 21.11.) und Gamerant sagen, es geht auch ohne diese Meditation; Output Lag und Everyblip sehen es als unbestätigt. Sicherheitshalber mitnehmen. Stand 24.11.: weiterhin unbestätigt. Laut Beebom reichen für 100 % schon 15 der 18 Meditationsorte.",
   "location": "Jasons Haus, morgens nach Down to Earth",
   "gtabaseUrl": "https://www.gtabase.com/de/gta-6/karte/#meditation-002",
   "sources": [
@@ -142,7 +143,8 @@
    "https://gamerant.com/all-missable-content-chapter-1-gta-6/",
    "https://outputlag.com/guides/gta-6-missables/",
    "https://game-checklists.com/gta6/guides/missables/",
-   "https://everyblip.com/missables/"
+   "https://everyblip.com/missables/",
+   "https://beebom.com/gta-6-meditation-spots-locations/"
   ]
  },
  {
@@ -492,7 +494,7 @@
  {
   "trophy": false,
   "completion100": false,
-  "gtabaseUrl": "",
+  "gtabaseUrl": "https://www.gtabase.com/de/gta-6/karte/#fence-006",
   "location": "Donnies Unterkunft in Don Gone",
   "id": "donnies-sunglasses",
   "title": "Donnies Sonnenbrille (Aviators)",
@@ -699,11 +701,12 @@
   "lostAt": null,
   "importance": "kritisch",
   "confidence": "umstritten",
-  "note": "Trophäe „Strangers & Freaks“: game-checklists sagt, ohne dieses Rennen dauerhaft verpasst; Everyblip: Guides uneinig. Erscheint einige Spieltage nach „Bumper to Bumper“ (kein Story-Eintrag in der Missionsliste).",
+  "note": "Trophäe „Strangers & Freaks“: game-checklists sagt, ohne dieses Rennen dauerhaft verpasst; Everyblip: Guides uneinig. Erscheint einige Spieltage nach „Bumper to Bumper“ (kein Story-Eintrag in der Missionsliste). Stand 24.11.: PowerPyx und GTABase zählen das Rennen zu Yagos Strang für „Strangers & Freaks“ (8 Stränge nötig); ob ein verpasstes Rennen die Trophäe sperrt, ist weiter offen.",
   "sources": [
    "https://game-checklists.com/gta6/guides/missables/",
    "https://everyblip.com/missables/",
-   "https://outputlag.com/guides/gta-6-missables/"
+   "https://outputlag.com/guides/gta-6-missables/",
+   "https://www.gtabase.com/gta-6/strangers/race-against-yago"
   ],
   "mapFeature": "race"
  },

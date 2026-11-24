@@ -167,3 +167,38 @@ label.row{cursor:pointer}
 .pin{flex:none;align-self:center;display:grid;place-items:center;width:44px;height:44px;border-radius:12px;text-decoration:none;font-size:1.2rem;background:var(--panel2);border:1px solid var(--line)}
 .pin.marker{background:var(--sunset);border:0}
 .map-link{display:block;margin:10px 0;text-decoration:none}
+
+/* Meldungsleiste mit Rückgängig */
+#snack{position:fixed;left:12px;right:12px;bottom:calc(96px + env(safe-area-inset-bottom));max-width:680px;margin:0 auto;z-index:20;
+  display:flex;align-items:center;gap:12px;padding:10px 10px 10px 16px;border-radius:16px;background:#2a1046;border:1px solid var(--line);
+  box-shadow:0 12px 40px rgba(0,0,0,.55);font-size:.9rem}
+#snack[hidden]{display:none}
+#snack span{flex:1}
+#snack button{min-height:44px;padding:.4rem .9rem;color:var(--teal);font-weight:800;border-color:var(--teal)}
+#snack.show{animation:snackin .3s var(--ease)}
+@keyframes snackin{from{transform:translateY(20px);opacity:0}to{transform:none;opacity:1}}
+body.tab-now #snack{bottom:calc(176px + env(safe-area-inset-bottom))}
+
+/* Wischen */
+.row{touch-action:pan-y}
+.row.swiping{transition:none;user-select:none}
+.row:not(.swiping){transition:transform .25s var(--ease),border-color .2s,box-shadow .2s}
+.row.sw-right{border-color:var(--green);box-shadow:inset 6px 0 0 var(--green)}
+.row.sw-left{border-color:var(--teal);box-shadow:inset -6px 0 0 var(--teal)}
+
+/* Bestätigung mit Haken */
+label.gate{display:flex;gap:12px;align-items:center;margin:14px 0 4px;padding:12px;border:1px solid var(--yellow);border-radius:14px;font-weight:700}
+label.gate input{width:28px;min-height:28px;height:28px;flex:none;accent-color:var(--pink)}
+button:disabled{opacity:.4;cursor:not-allowed;animation:none}
+button:disabled::after{display:none}
+
+/* Geld-Rechner */
+.money summary,.money h2{cursor:pointer;font-weight:800}
+.money-grid{display:grid;gap:8px;margin:10px 0}
+.money-field{display:grid;gap:4px;font-size:.85rem;color:var(--muted)}
+.money-out ol{margin:8px 0;padding-left:1.3rem}
+.money-out li{margin:4px 0}
+
+/* Teilen */
+.qr-box:not(:empty){margin-top:12px;display:flex;justify-content:center}
+svg.qr{width:min(78vw,320px);height:auto;border-radius:12px}

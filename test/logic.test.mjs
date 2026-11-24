@@ -4,6 +4,7 @@ import { readFileSync } from 'node:fs';
 import {
   nextIndex, urgency, openNow, redItems, itemStatus, defaultState,
   sanitizeState, safeHttpsUrl, nextPonrIndex, missionIndexById, itemChapter, mapTarget,
+  moneyPlan, goalMatch, encodeShare, decodeShare,
 } from '../logic.js';
 
 const missions = JSON.parse(readFileSync(new URL('../data/missions.json', import.meta.url)));
@@ -124,4 +125,33 @@ test('Hinterlegte Karten-Links zeigen auf einen GTABase-Marker', () => {
     if (it.gtabaseUrl) assert.match(it.gtabaseUrl, /^https:\/\/www\.gtabase\.com\/de\/gta-6\/karte\/#[a-z0-9-]+$/, it.id);
     if (it.mapFeature) assert.equal(mapTarget(it, defaultState()).kind, it.gtabaseUrl ? 'marker' : 'category', it.id);
   }
+});
+
+test('moneyPlan: füllt Family Savings bis 5.000 $, Rest ausgeben', () => {
+  assert.deepEqual(moneyPlan({ cash: '3.000', checking: 1000, savings: 0 }),
+    { toSavings: 4000, depositCash: 3000, spend: 0, kept: 4000, full: false });
+  const p = moneyPlan({ cash: 8000, checking: 2000, savings: 1000 });
+  assert.equal(p.toSavings, 4000); assert.equal(p.depositCash, 2000); assert.equal(p.spend, 6000); assert.ok(p.full);
+  assert.equal(moneyPlan({ cash: 500, checking: 0, savings: 5000 }).spend, 500);
+  assert.equal(moneyPlan({ cash: 'abc', checking: -5, savings: '' }).toSavings, 0);
+});
+
+test('goalMatch: Trophäe/100 % inkl. umstrittener Einträge', () => {
+  assert.ok(goalMatch({ trophy: 'umstritten', completion100: false }, 'trophy'));
+  assert.ok(!goalMatch({ trophy: false, completion100: false }, 'any'));
+  assert.ok(goalMatch({ trophy: false, completion100: true }, 'any'));
+  assert.ok(items.some((i) => goalMatch(i, 'trophy')));
+});
+
+test('Teilen: encode/decode ergibt denselben Zustand, Müll wird abgelehnt', () => {
+  const s = { ...stateAt('feng-shui'), doneItems: { 'lucia-necklace': true }, missedItems: { 'prologue-jetski': true },
+    gtabaseUrls: { a: 'https://www.gtabase.com/de/gta-6/karte/#pool-005', b: 'https://example.com/x' },
+    settings: { spoilerProtection: false, helpSeen: true } };
+  const code = encodeShare(s);
+  assert.match(code, /^[A-Za-z0-9_-]+$/);
+  assert.deepEqual(decodeShare(code, missions), s);
+  assert.throws(() => decodeShare('<script>', missions));
+  const evil = Buffer.from(JSON.stringify({ v: 1, m: 'nope', d: [1, 'x'], u: { a: 'javascript:alert(1)' } })).toString('base64url');
+  const r = decodeShare(evil, missions);
+  assert.equal(r.lastCompletedMissionId, null); assert.deepEqual(r.gtabaseUrls, {}); assert.deepEqual(r.doneItems, { x: true });
 });

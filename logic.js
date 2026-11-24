@@ -147,3 +147,87 @@ export function mapTarget(item, state) {
   }
   return { url: MAP_URL, kind: 'map' };
 }
+
+/* ---------- Geld vor Kapitelende ---------- */
+
+export const FAMILY_SAVINGS_CAP = 5000;
+
+const money = (v) => {
+  if (String(v ?? '').trim().startsWith('-')) return 0;
+  const n = Math.floor(Number(String(v ?? '').replace(/[^\d]/g, '')));
+  return Number.isFinite(n) && n > 0 ? Math.min(n, 1e9) : 0;
+};
+
+/**
+ * Plan für das Ende von Kapitel 1: Nur Family Savings (max. 5.000 $) überlebt.
+ * Bargeld muss zuerst am ATM aufs Girokonto, von dort ins Family Savings.
+ */
+export function moneyPlan({ cash, checking, savings }) {
+  const c = money(cash);
+  const k = money(checking);
+  const s = Math.min(money(savings), FAMILY_SAVINGS_CAP);
+  const room = FAMILY_SAVINGS_CAP - s;
+  const toSavings = Math.min(room, c + k);
+  const depositCash = Math.max(0, toSavings - k); // so viel Bargeld muss erst an den ATM
+  const spend = c + k - toSavings;
+  return { toSavings, depositCash, spend, kept: s + toSavings, full: s + toSavings >= FAMILY_SAVINGS_CAP };
+}
+
+/* ---------- Trophäen / 100 % ---------- */
+
+/** Zählt der Eintrag (sicher oder laut einem Teil der Quellen) für Trophäen bzw. 100 %? */
+export function goalMatch(item, goal) {
+  const v = goal === 'trophy' ? item.trophy : goal === 'completion' ? item.completion100 : null;
+  if (goal === 'any') return goalMatch(item, 'trophy') || goalMatch(item, 'completion');
+  return v === true || v === 'umstritten';
+}
+
+/* ---------- Fortschritt teilen (Link / QR) ---------- */
+
+const MAP_PREFIX = 'https://www.gtabase.com/de/gta-6/karte/#';
+
+function b64urlEncode(str) {
+  const bytes = new TextEncoder().encode(str);
+  let bin = '';
+  bytes.forEach((b) => { bin += String.fromCharCode(b); });
+  return btoa(bin).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+}
+
+function b64urlDecode(s) {
+  const bin = atob(s.replace(/-/g, '+').replace(/_/g, '/'));
+  return new TextDecoder().decode(Uint8Array.from(bin, (c) => c.charCodeAt(0)));
+}
+
+/** Kompakter Text für Link/QR-Code. */
+export function encodeShare(state) {
+  const u = {};
+  for (const [k, v] of Object.entries(state.gtabaseUrls)) u[k] = v.startsWith(MAP_PREFIX) ? `#${v.slice(MAP_PREFIX.length)}` : v;
+  const data = {
+    v: 1,
+    m: state.lastCompletedMissionId,
+    d: Object.keys(state.doneItems),
+    x: Object.keys(state.missedItems),
+    s: [state.settings.spoilerProtection ? 1 : 0, state.settings.helpSeen ? 1 : 0],
+  };
+  if (Object.keys(u).length) data.u = u;
+  return b64urlEncode(JSON.stringify(data));
+}
+
+/** Gegenstück zu encodeShare; liefert einen geprüften Zustand oder wirft bei kaputten Daten. */
+export function decodeShare(text, missions) {
+  if (typeof text !== 'string' || text.length > 20000 || !/^[A-Za-z0-9_-]+$/.test(text)) throw new Error('Ungültiger Link');
+  const d = JSON.parse(b64urlDecode(text));
+  if (!d || d.v !== 1) throw new Error('Unbekanntes Format');
+  const flags = (arr) => Object.fromEntries((Array.isArray(arr) ? arr : []).filter((k) => typeof k === 'string').map((k) => [k, true]));
+  const urls = {};
+  for (const [k, v] of Object.entries(d.u && typeof d.u === 'object' ? d.u : {})) {
+    if (typeof v === 'string') urls[k] = v.startsWith('#') ? MAP_PREFIX + v.slice(1) : v;
+  }
+  return sanitizeState({
+    lastCompletedMissionId: d.m,
+    doneItems: flags(d.d),
+    missedItems: flags(d.x),
+    gtabaseUrls: urls,
+    settings: { spoilerProtection: d.s?.[0] !== 0, helpSeen: d.s?.[1] === 1 },
+  }, missions);
+}

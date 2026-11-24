@@ -1,6 +1,7 @@
 import {
   nextIndex, itemStatus, urgency, openNow, redItems, itemChapter,
   defaultState, sanitizeState, safeHttpsUrl, mapTarget,
+  moneyPlan, goalMatch, encodeShare, decodeShare, FAMILY_SAVINGS_CAP,
 } from './logic.js';
 
 const STORAGE_KEY = 'gta6-checklist-v1';
@@ -11,7 +12,8 @@ let items = [];
 let chapters = {};
 let state = defaultState();
 let tab = 'now';
-let filters = { chapter: '', category: '', status: 'offen', q: '' };
+let filters = { chapter: '', category: '', status: 'offen', q: '', goal: '' };
+let moneyInputs = { cash: '', checking: '', savings: '' };
 const revealed = new Set(); // nur für diese Sitzung aufgedeckte Spoiler
 
 /* ---------- Hilfsfunktionen ---------- */
@@ -50,28 +52,48 @@ function save(next) {
   render();
 }
 
-function toast(msg) {
-  alert(msg);
+let snackTimer;
+
+/** Kurze Meldung unten; optional mit Knopf (z. B. „Rückgängig“). */
+function snack(msg, action) {
+  const el = document.getElementById('snack');
+  const hide = () => { clearTimeout(snackTimer); el.hidden = true; };
+  el.replaceChildren(h('span', {}, msg),
+    action && h('button', { onclick: () => { hide(); action.run(); } }, action.label));
+  el.hidden = false;
+  el.classList.remove('show'); void el.offsetWidth; el.classList.add('show');
+  clearTimeout(snackTimer);
+  snackTimer = setTimeout(hide, action ? 7000 : 4000);
 }
+
+const toast = (msg) => snack(msg);
+const undoTo = (prev) => ({ label: 'Rückgängig', run: () => { animateNext = false; save(prev); } });
+const titleOf = (id) => items.find((x) => x.id === id)?.title || id;
 
 const nextIdx = () => nextIndex(missions, state.lastCompletedMissionId);
 const status = (it) => itemStatus(it, state, missions);
 
 function setDone(id, done) {
+  const prev = state;
   const doneItems = { ...state.doneItems };
   if (done) doneItems[id] = true; else delete doneItems[id];
   save({ ...state, doneItems });
+  snack(`${done ? 'Erledigt' : 'Wieder offen'}: ${titleOf(id)}`, undoTo(prev));
 }
 
 function setMissed(id, missed) {
   const missedItems = { ...state.missedItems };
   if (missed) missedItems[id] = true; else delete missedItems[id];
+  const prev = state;
   save({ ...state, missedItems });
+  snack(`${missed ? 'Als verpasst markiert' : 'Nicht mehr verpasst'}: ${titleOf(id)}`, undoTo(prev));
 }
 
-function setProgress(missionId) {
+function setProgress(missionId, msg) {
+  const prev = state;
   animateNext = true;
   save({ ...state, lastCompletedMissionId: missionId });
+  if (msg) snack(msg, undoTo(prev));
 }
 
 /* ---------- Dialoge ---------- */
@@ -85,17 +107,18 @@ function openDialog(...content) {
 }
 const closeDialog = () => dlg().close();
 
-function confirmDialog(title, body, okLabel) {
+/** Ja/Nein-Dialog. `gate`: Checkbox, die angehakt sein muss, bevor „OK“ geht. */
+function confirmDialog(title, body, okLabel, gate) {
   return new Promise((resolve) => {
     const d = dlg();
     const finish = (v) => { d.removeEventListener('close', onClose); if (d.open) d.close(); resolve(v); };
     const onClose = () => resolve(false);
     d.addEventListener('close', onClose, { once: true });
+    const ok = h('button', { class: 'primary', disabled: gate ? !gate.checked : false, onclick: () => finish(true) }, okLabel);
+    if (gate) gate.addEventListener('change', () => { ok.disabled = !gate.checked; });
     openDialog(
-      h('h1', {}, title), body,
-      h('div', { class: 'actions' },
-        h('button', { onclick: () => finish(false) }, 'Abbrechen'),
-        h('button', { class: 'primary', onclick: () => { d.removeEventListener('close', onClose); d.close(); resolve(true); } }, okLabel)),
+      h('h1', {}, title), h('div', {}, body),
+      h('div', { class: 'actions' }, h('button', { onclick: () => finish(false) }, 'Abbrechen'), ok),
     );
   });
 }
@@ -134,8 +157,9 @@ function itemRow(it, showHint = true) {
   const done = st === 'erledigt';
   const hint = st === 'verpasst' ? 'Verpasst' : showHint ? HINTS[urg] : '';
   const unsure = it.confidence === 'umstritten';
-  return h('div', { class: `row card ${urg === 'normal' ? '' : urg} ${done ? 'done' : ''}`, role: 'button', tabindex: 0,
-      onclick: () => showDetail(it.id),
+  const goal = goalMatch(it, 'any');
+  const row = h('div', { class: `row card ${urg === 'normal' ? '' : urg} ${done ? 'done' : ''}`, role: 'button', tabindex: 0,
+      onclick: () => { if (!row.dataset.swiped) showDetail(it.id); },
       onkeydown: (e) => { if (e.key === 'Enter') showDetail(it.id); } },
     h('div', { class: 'check', role: 'checkbox', 'aria-checked': done, 'aria-label': 'Erledigt',
         onclick: (e) => {
@@ -146,8 +170,52 @@ function itemRow(it, showHint = true) {
         } }, done ? '✓' : ''),
     h('div', { class: 'body' },
       h('div', { class: `title ${isFutureItem(it) ? 'blur' : ''}` }, it.title),
-      (hint || unsure) && h('div', { class: 'meta' }, hint, hint && unsure && ' · ', unsure && 'Quellen unsicher')),
+      (hint || unsure || goal) && h('div', { class: 'meta' },
+        [hint, unsure && 'Quellen unsicher', goal && '🏆 Trophäe/100 %'].filter(Boolean).join(' · '))),
     pinLink(it));
+  addSwipe(row, {
+    right: () => { if (st !== 'verpasst') setDone(it.id, !done); },
+    left: () => showDetail(it.id),
+  });
+  return row;
+}
+
+/** Wischen: nach rechts = abhaken, nach links = Details. Senkrechtes Scrollen bleibt frei. */
+function addSwipe(el, { right, left }) {
+  const LIMIT = 70;
+  let x0 = 0; let y0 = 0; let pid = null; let mode = null; let dx = 0;
+  const reset = () => { el.style.transform = ''; el.classList.remove('swiping', 'sw-right', 'sw-left'); };
+  el.addEventListener('pointerdown', (e) => {
+    if (e.pointerType === 'mouse' || e.target.closest('a, .check')) return;
+    x0 = e.clientX; y0 = e.clientY; pid = e.pointerId; mode = null; dx = 0;
+  });
+  el.addEventListener('pointermove', (e) => {
+    if (e.pointerId !== pid) return;
+    const mx = e.clientX - x0; const my = e.clientY - y0;
+    if (mode === null) {
+      if (Math.abs(mx) > 12 && Math.abs(mx) > Math.abs(my) * 1.5) { mode = 'x'; el.setPointerCapture(pid); el.classList.add('swiping'); }
+      else if (Math.abs(my) > 12) { mode = 'y'; pid = null; return; }
+    }
+    if (mode !== 'x') return;
+    dx = Math.max(-120, Math.min(120, mx));
+    el.style.transform = `translateX(${dx}px)`;
+    el.classList.toggle('sw-right', dx > LIMIT);
+    el.classList.toggle('sw-left', dx < -LIMIT);
+  });
+  const end = (e) => {
+    if (e.pointerId !== pid) return;
+    pid = null;
+    if (mode !== 'x') return;
+    reset();
+    el.dataset.swiped = '1';
+    setTimeout(() => { delete el.dataset.swiped; }, 80);
+    if (e.type === 'pointerup') {
+      if (dx > LIMIT) { if (!reducedMotion() && navigator.vibrate) navigator.vibrate(15); right(); }
+      else if (dx < -LIMIT) left();
+    }
+  };
+  el.addEventListener('pointerup', end);
+  el.addEventListener('pointercancel', end);
 }
 
 /* ---------- Tab: Aufgaben ---------- */
@@ -158,7 +226,7 @@ function helpCard() {
     h('ol', {},
       h('li', {}, 'Oben steht, welche Mission im Spiel als Nächstes kommt.'),
       h('li', {}, 'Darunter stehen Dinge, die du vorher erledigen solltest. Danach sind sie weg.'),
-      h('li', {}, 'Erledigt? Tippe das Kästchen an.'),
+      h('li', {}, 'Erledigt? Tippe das Kästchen an – oder wische die Aufgabe nach rechts.'),
       h('li', {}, 'Mission gespielt? Tippe unten auf „Weiter“.')),
     h('button', { class: 'block', onclick: () => save({ ...state, settings: { ...state.settings, helpSeen: true } }) }, 'Verstanden'));
 }
@@ -196,6 +264,8 @@ function viewNow() {
       h('p', {}, 'Speichere jetzt in einem eigenen Slot und erledige alles Wichtige.')));
   }
 
+  if (showMoneyHint(next)) root.append(moneyCard(true));
+
   if (shown.length) {
     root.append(h('h2', {}, `Vor dieser Mission erledigen (${shown.length})`));
     shown.forEach((it) => root.append(itemRow(it, false)));
@@ -214,18 +284,65 @@ function viewNow() {
 }
 
 async function completeMission(reds) {
-  if (reds.length) {
-    const ok = await confirmDialog('Das ist danach weg:',
-      h('ul', {}, reds.map((it) => h('li', {}, it.title))), 'Trotzdem weiter');
+  const next = nextIdx();
+  const m = missions[next];
+  if (!m) return;
+  if (reds.length || m.pointOfNoReturn) {
+    const gate = m.pointOfNoReturn ? h('input', { type: 'checkbox' }) : null;
+    const ok = await confirmDialog(m.pointOfNoReturn ? '⚠ Point of no Return' : 'Noch nicht erledigt', [
+      reds.length && h('p', {}, `${reds.length === 1 ? 'Diese Aufgabe ist' : `Diese ${reds.length} Aufgaben sind`} danach weg:`),
+      reds.length && h('ul', {}, reds.map((it) => h('li', {}, it.title))),
+      m.pointOfNoReturn && h('div', { class: 'unsure' }, h('strong', {}, 'Kein Zurück: '), m.ponrNote || 'Danach geht einiges verloren.'),
+      gate && h('label', { class: 'gate' }, gate, h('span', {}, 'Ich habe in einem eigenen Slot gespeichert.')),
+    ], reds.length ? 'Trotzdem weiter' : 'Weiter', gate);
     if (!ok) return;
   }
-  const next = nextIdx();
-  if (next < missions.length) setProgress(missions[next].id);
+  setProgress(m.id, `„${m.name}“ abgeschlossen`);
 }
 
 function undoMission() {
   const i = nextIdx() - 1;
-  setProgress(i > 0 ? missions[i - 1].id : null);
+  setProgress(i > 0 ? missions[i - 1].id : null, 'Letzte Mission zurückgenommen');
+}
+
+/* ---------- Geld vor Kapitelende ---------- */
+
+const CH1_END = 'tourist-trap';
+const fmt = (n) => `${n.toLocaleString('de-DE')} $`;
+
+/** Geld-Hinweis kurz vor dem Ende von Kapitel 1 (dort verfällt Bargeld). */
+function showMoneyHint(next) {
+  const end = missions.findIndex((m) => m.id === CH1_END);
+  return end >= 0 && (next === end || next === end - 1);
+}
+
+function moneyCard(compact) {
+  const out = h('div', { class: 'money-out', 'aria-live': 'polite' });
+  const update = () => {
+    const p = moneyPlan(moneyInputs);
+    const lines = [];
+    if (p.toSavings > 0) {
+      if (p.depositCash > 0) lines.push(`1. ${fmt(p.depositCash)} Bargeld am ATM aufs Girokonto einzahlen.`);
+      lines.push(`${p.depositCash > 0 ? '2' : '1'}. In BuckMe unter „Buck Yourself“ ${fmt(p.toSavings)} ins Family Savings schieben.`);
+    }
+    if (p.spend > 0) lines.push(`${lines.length + 1}. Die restlichen ${fmt(p.spend)} ausgeben – z. B. Waffen bei Ammu-Nation, die bleiben.`);
+    if (!lines.length) lines.push('Trag oben deine Beträge ein.');
+    out.replaceChildren(
+      h('ol', {}, lines.map((l) => h('li', {}, l.replace(/^\d+\. /, '')))),
+      h('p', { class: 'meta' }, p.full
+        ? `Family Savings ist dann voll (${fmt(FAMILY_SAVINGS_CAP)}) – nur das nimmst du mit.`
+        : `Du nimmst ${fmt(p.kept)} mit. Mehr als ${fmt(FAMILY_SAVINGS_CAP)} passen nicht ins Family Savings.`));
+  };
+  const field = (k, label) => h('label', { class: 'money-field' }, h('span', {}, label),
+    h('input', { type: 'text', inputmode: 'numeric', placeholder: '0', value: moneyInputs[k],
+      oninput: (e) => { moneyInputs = { ...moneyInputs, [k]: e.target.value }; update(); } }));
+  update();
+  return h(compact ? 'details' : 'div', { class: 'money card' },
+    h(compact ? 'summary' : 'h2', {}, '💰 Geld vor dem Kapitelende retten'),
+    h('p', { class: 'meta' }, 'Am Ende von Kapitel 1 verfallen Bargeld, Girokonto und Bodenversteck. Nur das Family Savings (ab „Buck Me“) bleibt, höchstens 5.000 $.'),
+    h('div', { class: 'money-grid' },
+      field('cash', 'Bargeld'), field('checking', 'Girokonto'), field('savings', 'Schon im Family Savings')),
+    out);
 }
 
 /* ---------- Tab: Missionen ---------- */
@@ -243,7 +360,7 @@ function viewMissions() {
       h('summary', {}, chapterLabel(chapter), future || chapter === 0 ? '' : ` · ${chapters[chapter] || ''}`),
       entries.map(([m, i]) => missionRow(m, i, next))));
   }
-  root.append(h('button', { class: 'link', onclick: () => setProgress(null) }, 'Fortschritt auf Anfang setzen'));
+  root.append(h('button', { class: 'link', onclick: () => setProgress(null, 'Fortschritt auf Anfang gesetzt') }, 'Fortschritt auf Anfang setzen'));
   return root;
 }
 
@@ -253,7 +370,7 @@ function missionRow(m, i, next) {
   return h('button', { class: `row card ${m.pointOfNoReturn ? 'rot' : ''} ${isDone ? 'done' : ''} ${i === next ? 'current' : ''}`,
       onclick: async () => {
         if (hidden) { revealed.add(`m:${m.id}`); render(); return; }
-        if (await confirmDialog('Fortschritt setzen', h('p', {}, `„${m.name}“ als zuletzt abgeschlossen setzen?`), 'Setzen')) setProgress(m.id);
+        if (await confirmDialog('Fortschritt setzen', h('p', {}, `„${m.name}“ als zuletzt abgeschlossen setzen?`), 'Setzen')) setProgress(m.id, `Fortschritt auf „${m.name}“ gesetzt`);
       } },
     h('div', { class: 'check' }, isDone ? '✓' : ''),
     h('div', { class: 'body' },
@@ -276,11 +393,14 @@ function viewItems() {
     h('details', { class: 'more' }, h('summary', {}, 'Mehr Filter'),
       h('div', { class: 'filters' },
         sel('chapter', [...new Set(missions.map((m) => m.chapter))].map((c) => [String(c), chapterLabel(c)]), 'Kapitel'),
-        sel('category', CATEGORIES.map((c) => [c, c]), 'Kategorie'))));
+        sel('category', CATEGORIES.map((c) => [c, c]), 'Kategorie'),
+        sel('goal', [['any', 'Trophäe oder 100 %'], ['trophy', 'Nur Trophäen'], ['completion', 'Nur 100 %']], 'Alle Ziele')),
+      h('p', { class: 'meta' }, '🏆 = zählt für Trophäen oder 100 %, auch wenn sich die Quellen nur teilweise einig sind.')));
   const q = filters.q.trim().toLowerCase();
   const list = items.filter((it) =>
     (!filters.chapter || String(itemChapter(it, missions)) === filters.chapter)
     && (!filters.category || it.category === filters.category)
+    && (!filters.goal || goalMatch(it, filters.goal))
     && (!filters.status || status(it) === filters.status)
     && (!q || `${it.title} ${it.description} ${it.location}`.toLowerCase().includes(q)));
   if (!list.length) root.append(h('p', { class: 'muted' }, 'Keine Treffer.'));
@@ -361,12 +481,82 @@ function viewSettings() {
         onchange: (e) => save({ ...state, settings: { ...state.settings, spoilerProtection: e.target.checked } }) }),
       h('div', { class: 'body' }, h('div', { class: 'title' }, 'Spoiler-Schutz'),
         h('div', { class: 'meta' }, 'Künftige Missionen und Einträge aus späteren Kapiteln sind unscharf.'))),
+    h('h2', {}, 'Auf anderes Gerät übertragen'),
+    shareCard(),
+    h('h2', {}, 'Werkzeuge'),
+    moneyCard(true),
+    h('h2', {}, 'Sicherung'),
     h('button', { class: 'block', onclick: exportJson }, 'Fortschritt exportieren (JSON)'),
     h('button', { class: 'block', style: 'margin-top:8px', onclick: () => fileInput.click() }, 'Fortschritt importieren'),
     fileInput,
     h('button', { class: 'block danger', style: 'margin-top:8px', onclick: resetAll }, 'Alles zurücksetzen'),
     h('p', { class: 'muted small', style: 'margin-top:20px' },
       'Privates Fan-Tool, nicht mit Rockstar verbunden. Kein Zugriff auf Spielstände – der Fortschritt ist, was du hier einträgst. Daten aus Guides, siehe Quellen je Eintrag.'));
+}
+
+const shareLink = () => `${location.origin}${location.pathname}#import=${encodeShare(state)}`;
+
+function shareCard() {
+  const qrBox = h('div', { class: 'qr-box' });
+  return h('div', { class: 'card share' },
+    h('p', { class: 'meta' }, 'Öffne den Link oder scanne den QR-Code auf dem anderen Gerät. Dort wird dein Stand nach einer Rückfrage übernommen.'),
+    h('div', { class: 'actions' },
+      h('button', { class: 'primary', onclick: shareProgress }, 'Link teilen'),
+      h('button', { onclick: async () => {
+        if (qrBox.firstChild) { qrBox.replaceChildren(); return; }
+        try { qrBox.replaceChildren(await qrSvg(shareLink())); } catch { toast('QR-Code konnte nicht erstellt werden.'); }
+      } }, 'QR-Code')),
+    qrBox);
+}
+
+async function shareProgress() {
+  const url = shareLink();
+  try {
+    if (navigator.share) { await navigator.share({ title: 'GTA 6 Checkliste – mein Stand', url }); return; }
+    await navigator.clipboard.writeText(url);
+    toast('Link kopiert.');
+  } catch (err) {
+    if (err?.name !== 'AbortError') prompt('Link kopieren:', url);
+  }
+}
+
+/** QR-Code als SVG aus DOM-Elementen (kein innerHTML). */
+async function qrSvg(text) {
+  const { default: qrcode } = await import('./vendor/qrcode.js');
+  const q = qrcode(0, 'L');
+  q.addData(text);
+  q.make();
+  const n = q.getModuleCount();
+  const pad = 4;
+  let d = '';
+  for (let r = 0; r < n; r++) for (let c = 0; c < n; c++) if (q.isDark(r, c)) d += `M${c + pad} ${r + pad}h1v1h-1z`;
+  const NS = 'http://www.w3.org/2000/svg';
+  const svg = document.createElementNS(NS, 'svg');
+  svg.setAttribute('viewBox', `0 0 ${n + 2 * pad} ${n + 2 * pad}`);
+  svg.setAttribute('class', 'qr');
+  svg.setAttribute('role', 'img');
+  svg.setAttribute('aria-label', 'QR-Code mit deinem Fortschritt');
+  const bg = document.createElementNS(NS, 'rect');
+  bg.setAttribute('width', '100%'); bg.setAttribute('height', '100%'); bg.setAttribute('fill', '#fff');
+  const path = document.createElementNS(NS, 'path');
+  path.setAttribute('d', d); path.setAttribute('fill', '#000');
+  svg.append(bg, path);
+  return svg;
+}
+
+/** Link mit #import=… öffnet: nach Rückfrage Stand übernehmen. */
+async function importFromHash() {
+  const m = location.hash.match(/^#import=([A-Za-z0-9_-]+)$/);
+  if (!m) return;
+  history.replaceState(null, '', location.pathname + location.search);
+  let incoming;
+  try { incoming = decodeShare(m[1], missions); } catch { toast('Der Link enthält keinen gültigen Fortschritt.'); return; }
+  const last = missions.find((x) => x.id === incoming.lastCompletedMissionId);
+  const ok = await confirmDialog('Fortschritt übernehmen?', [
+    h('p', {}, `Zuletzt gespielt: ${last ? `„${last.name}“` : 'noch nichts'} · ${Object.keys(incoming.doneItems).length} Aufgaben erledigt.`),
+    h('p', { class: 'meta' }, 'Dein bisheriger Stand auf diesem Gerät wird ersetzt.'),
+  ], 'Übernehmen');
+  if (ok) { const prev = state; save(incoming); snack('Fortschritt übernommen', undoTo(prev)); }
 }
 
 function exportJson() {
@@ -423,6 +613,7 @@ function render() {
     animateNext = false;
   }
   document.querySelectorAll('#tabs button').forEach((b) => b.classList.toggle('active', b.dataset.tab === tab));
+  document.body.classList.toggle('tab-now', tab === 'now');
 }
 
 async function init() {
@@ -442,7 +633,15 @@ async function init() {
     if (t) { tab = t; animateNext = true; window.scrollTo(0, 0); render(); }
   });
   render();
-  if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(() => {});
+  importFromHash();
+  window.addEventListener('hashchange', importFromHash);
+  if ('serviceWorker' in navigator) {
+    const hadController = !!navigator.serviceWorker.controller;
+    navigator.serviceWorker.addEventListener('controllerchange', () => {
+      if (hadController) snack('Neue Version geladen.', { label: 'Neu laden', run: () => location.reload() });
+    });
+    navigator.serviceWorker.register('sw.js').catch(() => {});
+  }
 }
 
 init();

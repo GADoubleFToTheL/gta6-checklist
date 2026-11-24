@@ -45,5 +45,8 @@ Semantik: Ein Eintrag ist sichtbar, sobald `availableFrom` abgeschlossen ist, un
 - Nicht aufgenommen, weil unbestätigt: Thrillbillies-Hinweis, Arthur-Morgan-Hut, Pfister Growler, Mandys Mietjob in Pipework.
 - Missions-Charaktere: nur wo Quellen sie nennen, sonst unbekannt.
 - GTABase-Karte wird nur verlinkt. Eigene Marker-Links stehen im Fortschritt.
+- Wischen: Aufgabe nach rechts = erledigt, nach links = Details. Jede Änderung lässt sich über die Meldungsleiste rückgängig machen.
+- „Mehr“: Fortschritt per Link/QR-Code auf ein anderes Gerät übertragen (`#import=…`, mit Rückfrage), Geld-Rechner für das Ende von Kapitel 1.
+- `vendor/qrcode.js`: qrcode-generator 1.4.4 (MIT, Kazuhiko Arase), als ES-Modul verpackt.
 
 Fan-Projekt, nicht mit Rockstar Games verbunden.
