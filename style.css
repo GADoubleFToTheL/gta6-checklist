@@ -218,3 +218,10 @@ svg.qr{width:min(78vw,320px);height:auto;border-radius:12px}
 @keyframes drift{from{transform:translateX(-18px)}to{transform:translateX(18px)}}
 @keyframes birds{0%,100%{transform:translateY(0)}50%{transform:translateY(-2px)}}
 @media (orientation:landscape){.scene.ground{height:min(75vw,100vh)}.scene.sky{height:60vh}}
+
+/* Kopfzeile mit Logo */
+header.top{max-width:720px;margin:0 auto;padding:12px 12px 0;display:flex;align-items:center;gap:12px}
+header.top img{height:46px;width:auto;filter:drop-shadow(0 4px 12px rgba(246,154,201,.35))}
+header.top b{display:block;font-family:"Arial Black","Segoe UI Black",Impact,system-ui,sans-serif;font-style:italic;text-transform:uppercase;
+  letter-spacing:.06em;font-size:1rem;color:var(--cream);text-shadow:2px 2px 0 var(--bandana)}
+header.top span{display:block;font-size:.75rem;color:var(--muted);letter-spacing:.04em}
