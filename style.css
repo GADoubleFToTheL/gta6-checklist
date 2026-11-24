@@ -208,9 +208,13 @@ svg.qr{width:min(78vw,320px);height:auto;border-radius:12px}
 .scene.ground{bottom:0;height:62vh}
 .scene .palm-sway{transform-box:fill-box;transform-origin:50% 100%;animation:sway 7s ease-in-out infinite}
 .scene .palm-sway.b{animation-duration:9s;animation-delay:-3s}
-.scene .jet{animation:fly 60s linear infinite}
+.scene .jet{animation:fly 48s linear infinite}
+.scene .blink{animation:blink 1.6s steps(1) infinite}
+.scene .streak{animation:drift 70s ease-in-out infinite alternate}
 .scene .birds{animation:birds 5s ease-in-out infinite}
 @keyframes sway{0%,100%{transform:rotate(-1.2deg)}50%{transform:rotate(1.4deg)}}
-@keyframes fly{from{transform:translate(0,0)}to{transform:translate(-180px,70px)}}
+@keyframes fly{0%{transform:translate(140px,-68px);opacity:0}8%{opacity:1}88%{opacity:1}100%{transform:translate(-330px,161px);opacity:0}}
+@keyframes blink{0%{opacity:1}50%{opacity:.15}}
+@keyframes drift{from{transform:translateX(-18px)}to{transform:translateX(18px)}}
 @keyframes birds{0%,100%{transform:translateY(0)}50%{transform:translateY(-2px)}}
 @media (orientation:landscape){.scene.ground{height:min(75vw,100vh)}.scene.sky{height:60vh}}
