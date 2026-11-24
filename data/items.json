@@ -37,7 +37,7 @@
   "confidence": "bestätigt",
   "note": "Family Savings wird laut KeenGamer erst in „Buck Me“ freigeschaltet (Startdaten nannten keinen Zeitpunkt). Verfügbarkeit hier = direkt vor Buck Me.",
   "location": "Schlafzimmer in Jasons Haus, danach beliebiger ATM",
-  "gtabaseUrl": "",
+  "gtabaseUrl": "https://www.gtabase.com/de/gta-6/karte/#safehouse-001",
   "sources": [
    "https://www.keengamer.com/articles/guides/gta-6-chapter-1-guide-all-missables-and-things-to-do-before-tourist-trap/",
    "https://metaforge.app/gta-6/gta-6-chapter-1-missables-point-of-no-return"
@@ -63,7 +63,8 @@
   "sources": [
    "https://www.keengamer.com/articles/guides/gta-6-chapter-1-guide-all-missables-and-things-to-do-before-tourist-trap/",
    "https://gamerant.com/all-missable-content-chapter-1-gta-6/"
-  ]
+  ],
+  "mapFeature": "ammu-nation"
  },
  {
   "id": "shirleys-rum",
@@ -81,7 +82,7 @@
   "confidence": "umstritten",
   "note": "Auslöser laut Quellen Pipework oder Unwanted Attention (hier das frühere). Verlust bei Start von Tourist Trap in mehreren Quellen bestätigt; Trophäe/100 %: laut Output Lag nicht nötig, Quellen uneins. Ein Versteck hinter dem Laden (siehe „Geheimversteck hinter Three Sheets“) hängt evtl. an dieser Quest.",
   "location": "Three Sheets Liquor Store, danach Shirley (Nachbarin)",
-  "gtabaseUrl": "",
+  "gtabaseUrl": "https://www.gtabase.com/de/gta-6/karte/#liquor-store-002",
   "sources": [
    "https://www.keengamer.com/articles/guides/gta-6-chapter-1-guide-all-missables-and-things-to-do-before-tourist-trap/",
    "https://metaforge.app/gta-6/gta-6-chapter-1-missables-point-of-no-return",
@@ -108,7 +109,7 @@
   "confidence": "bestätigt",
   "note": "Folgt auf Get Shirley's Rum (Verfügbarkeit entsprechend).",
   "location": "Peggys Haus in der Nachbarschaft",
-  "gtabaseUrl": "",
+  "gtabaseUrl": "https://www.gtabase.com/de/gta-6/karte/#random-event-075",
   "sources": [
    "https://www.keengamer.com/articles/guides/gta-6-chapter-1-guide-all-missables-and-things-to-do-before-tourist-trap/",
    "https://gamerant.com/all-missable-content-chapter-1-gta-6/",
@@ -134,7 +135,7 @@
   "confidence": "umstritten",
   "note": "Trophäe „Positive Mental Attitude“: game-checklists (Update 21.11.) und Gamerant sagen, es geht auch ohne diese Meditation; Output Lag und Everyblip sehen es als unbestätigt. Sicherheitshalber mitnehmen.",
   "location": "Jasons Haus, morgens nach Down to Earth",
-  "gtabaseUrl": "",
+  "gtabaseUrl": "https://www.gtabase.com/de/gta-6/karte/#meditation-002",
   "sources": [
    "https://www.keengamer.com/articles/guides/gta-6-chapter-1-guide-all-missables-and-things-to-do-before-tourist-trap/",
    "https://metaforge.app/gta-6/gta-6-chapter-1-missables-point-of-no-return",
@@ -183,7 +184,7 @@
   "confidence": "umstritten",
   "note": "Donnie kauft laut Quellen nach Swamped nicht mehr (game-checklists: bei Abschluss von Swamped, Donnie stirbt). Brian als Fence fällt nach Kapitel 1 weg (eine Quelle). Eine Quelle vermutet schon ab Clear Skies.",
   "location": "Donnies Trailer",
-  "gtabaseUrl": "",
+  "gtabaseUrl": "https://www.gtabase.com/de/gta-6/karte/#fence-006",
   "sources": [
    "https://www.keengamer.com/articles/guides/gta-6-chapter-1-guide-all-missables-and-things-to-do-before-tourist-trap/",
    "https://beebom.com/gta-6-chapter-1-missable-items-activities/",
@@ -207,7 +208,7 @@
   "confidence": "umstritten",
   "note": "Quellen uneins: Gamerant – SMS von Cal vor Swamped, weg bei Start von Swamped; game-checklists – SMS kommt nach Recalibration (Spielerberichte), weg bei Tourist Trap; laut Update vom 23.11. startet sie evtl. sogar noch nach Swamped. Sicherheitshalber vor Swamped.",
   "location": "Rusty Anchor",
-  "gtabaseUrl": "",
+  "gtabaseUrl": "https://www.gtabase.com/de/gta-6/karte/#food-and-drink-002",
   "sources": [
    "https://metaforge.app/gta-6/gta-6-chapter-1-missables-point-of-no-return",
    "https://vicedex.app/gta-6-missables/",
@@ -231,7 +232,7 @@
   "confidence": "bestätigt",
   "note": "Mehrere Quellen: nur während Don Gone holbar, danach weg. (Die frühere Vermutung „später im Spind“ wird von keiner Quelle gestützt.)",
   "location": "Kofferraum von Donnies Auto in der Mission Don Gone",
-  "gtabaseUrl": "",
+  "gtabaseUrl": "https://www.gtabase.com/de/gta-6/karte/#unique-weapon-039",
   "sources": [
    "https://www.keengamer.com/articles/guides/gta-6-chapter-1-guide-all-missables-and-things-to-do-before-tourist-trap/",
    "https://gameshorizon.com/guides/all-missable-items-quests-before-closing-chapter-1-in-gta-6/",
@@ -282,7 +283,7 @@
   "confidence": "umstritten",
   "note": "Quellen uneins: KeenGamer/Everyblip – vor Coming Home; game-checklists – bis Tourist Trap. Hier der frühere Zeitpunkt. Verfügbar nach Feng Shui.",
   "location": "The Siren's Chest, Südwest-Key Lento",
-  "gtabaseUrl": "",
+  "gtabaseUrl": "https://www.gtabase.com/de/gta-6/karte/#smash-n-grab-001",
   "sources": [
    "https://www.keengamer.com/articles/guides/gta-6-chapter-1-guide-all-missables-and-things-to-do-before-tourist-trap/",
    "https://metaforge.app/gta-6/gta-6-chapter-1-missables-point-of-no-return",
@@ -307,7 +308,7 @@
   "confidence": "bestätigt",
   "note": "",
   "location": "Key Lento (Blumenladen, Supermarkt, Barber)",
-  "gtabaseUrl": "",
+  "gtabaseUrl": "https://www.gtabase.com/de/gta-6/karte/#city-town-006",
   "sources": [
    "https://www.keengamer.com/articles/guides/gta-6-chapter-1-guide-all-missables-and-things-to-do-before-tourist-trap/",
    "https://beebom.com/gta-6-chapter-1-missable-items-activities/",
@@ -331,7 +332,7 @@
   "confidence": "bestätigt",
   "note": "Mehrere Quellen: Bonus endet bei der Gefängnisabholung in Coming Home. (Eine ältere Meldung, dass es auch danach geht, wird nicht gestützt.)",
   "location": "Jasons Haus",
-  "gtabaseUrl": "",
+  "gtabaseUrl": "https://www.gtabase.com/de/gta-6/karte/#safehouse-001",
   "sources": [
    "https://www.keengamer.com/articles/guides/gta-6-chapter-1-guide-all-missables-and-things-to-do-before-tourist-trap/",
    "https://metaforge.app/gta-6/gta-6-chapter-1-missables-point-of-no-return",
@@ -354,7 +355,7 @@
   "confidence": "umstritten",
   "note": "Evtl. tauchen Stücke später woanders wieder auf. game-checklists nennt als Verlust „Lethal By Design“ und „Body Copy“; „Ashes of Glory“ soll nicht verpassbar sein (Kopien anderswo). Titel zwischen Guides uneinheitlich.",
   "location": "Jasons Haus: Schuppen, Terrasse, Wohnzimmer",
-  "gtabaseUrl": "",
+  "gtabaseUrl": "https://www.gtabase.com/de/gta-6/karte/#safehouse-001",
   "sources": [
    "https://www.keengamer.com/articles/guides/gta-6-chapter-1-guide-all-missables-and-things-to-do-before-tourist-trap/",
    "https://vicedex.app/gta-6-missables/",
@@ -377,7 +378,7 @@
   "confidence": "bestätigt",
   "note": "Output Lag: In-Game-Text nennt beide als „nur Kapitel 1“. Von Output Lag, game-checklists und Everyblip gestützt; Trophäen/100 % nicht betroffen (Output Lag widerspricht sich dazu).",
   "location": "Garage/Strand bei Jasons Haus",
-  "gtabaseUrl": "",
+  "gtabaseUrl": "https://www.gtabase.com/de/gta-6/karte/#safehouse-001",
   "sources": [
    "https://www.keengamer.com/articles/guides/gta-6-chapter-1-guide-all-missables-and-things-to-do-before-tourist-trap/",
    "https://outputlag.com/guides/gta-6-missables/",
@@ -401,7 +402,7 @@
   "confidence": "umstritten",
   "note": "Nur gemeldet, keine genauen Angaben.",
   "location": "Key Lento",
-  "gtabaseUrl": "",
+  "gtabaseUrl": "https://www.gtabase.com/de/gta-6/karte/#city-town-006",
   "sources": [
    "https://gameshorizon.com/guides/all-missable-items-quests-before-closing-chapter-1-in-gta-6/"
   ]
@@ -537,7 +538,7 @@
  {
   "trophy": false,
   "completion100": false,
-  "gtabaseUrl": "",
+  "gtabaseUrl": "https://www.gtabase.com/de/gta-6/karte/#city-town-006",
   "location": "Key Lento Community Center",
   "id": "clock-out",
   "title": "Clock Out (Lucia abholen)",
@@ -556,7 +557,7 @@
  {
   "trophy": false,
   "completion100": false,
-  "gtabaseUrl": "",
+  "gtabaseUrl": "https://www.gtabase.com/de/gta-6/karte/#liquor-store-002",
   "location": "Three Sheets Liquor Store, Key Lento",
   "id": "parrot-stash",
   "title": "Geheimversteck hinter Three Sheets",
@@ -578,7 +579,7 @@
  {
   "trophy": false,
   "completion100": false,
-  "gtabaseUrl": "",
+  "gtabaseUrl": "https://www.gtabase.com/de/gta-6/karte/#vehicle-mod-shop-006",
   "location": "Coastal Auto Care, Key Lento",
   "id": "ue-ganado-retro",
   "title": "Ultimate Edition: Ganado Retro Build",
@@ -600,7 +601,7 @@
  {
   "trophy": false,
   "completion100": false,
-  "gtabaseUrl": "",
+  "gtabaseUrl": "https://www.gtabase.com/de/gta-6/karte/#pool-005",
   "location": "Delights Cabaret",
   "id": "ch2-pool-opponent",
   "title": "Pool-Gegner im Delights Cabaret besiegen",
@@ -622,7 +623,7 @@
  {
   "trophy": false,
   "completion100": false,
-  "gtabaseUrl": "",
+  "gtabaseUrl": "https://www.gtabase.com/de/gta-6/karte/#safehouse-003",
   "location": "Starlet Motel",
   "id": "ch2-motel-cards",
   "title": "Karten im Starlet Motel",
@@ -644,7 +645,7 @@
  {
   "trophy": false,
   "completion100": false,
-  "gtabaseUrl": "",
+  "gtabaseUrl": "https://www.gtabase.com/de/gta-6/karte/#safehouse-003",
   "location": "Port Gellhorn / Starlet Motel",
   "id": "ch2-prep-checking-out",
   "title": "Vorbereitung auf Checking Out",
@@ -703,7 +704,8 @@
    "https://game-checklists.com/gta6/guides/missables/",
    "https://everyblip.com/missables/",
    "https://outputlag.com/guides/gta-6-missables/"
-  ]
+  ],
+  "mapFeature": "race"
  },
  {
   "trophy": false,
@@ -775,7 +777,7 @@
  {
   "trophy": false,
   "completion100": false,
-  "gtabaseUrl": "",
+  "gtabaseUrl": "https://www.gtabase.com/de/gta-6/karte/#city-town-004",
   "location": "nahe Hamlet",
   "id": "free-call",
   "title": "This Is a Free Call From … (Lucia)",
@@ -815,7 +817,7 @@
  {
   "trophy": false,
   "completion100": false,
-  "gtabaseUrl": "",
+  "gtabaseUrl": "https://www.gtabase.com/de/gta-6/karte/#safehouse-005",
   "location": "Y Hotel, Spielmenü",
   "id": "sunset-prep",
   "title": "Vorbereitung auf Sunset",

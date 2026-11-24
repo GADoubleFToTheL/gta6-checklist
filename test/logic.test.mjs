@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import {
   nextIndex, urgency, openNow, redItems, itemStatus, defaultState,
-  sanitizeState, safeHttpsUrl, nextPonrIndex, missionIndexById, itemChapter,
+  sanitizeState, safeHttpsUrl, nextPonrIndex, missionIndexById, itemChapter, mapTarget,
 } from '../logic.js';
 
 const missions = JSON.parse(readFileSync(new URL('../data/missions.json', import.meta.url)));
@@ -108,4 +108,20 @@ test('sanitizeState verwirft Müll und unbekannte Missionen', () => {
   assert.deepEqual(s.doneItems, { a: true });
   assert.deepEqual(Object.keys(s.gtabaseUrls), ['b']);
   assert.equal(sanitizeState(null, missions).settings.spoilerProtection, true);
+});
+
+test('mapTarget: eigener Link > Marker > Kategorie > Karte', () => {
+  assert.equal(mapTarget({ id: 'x' }, defaultState()).kind, 'map');
+  assert.equal(mapTarget({ id: 'x', mapFeature: 'gym' }, defaultState()).url, 'https://www.gtabase.com/de/gta-6/karte/?feature=gym');
+  assert.equal(mapTarget({ id: 'x', mapFeature: 'a/../b' }, defaultState()).kind, 'map');
+  assert.equal(mapTarget({ id: 'x', gtabaseUrl: 'javascript:alert(1)' }, defaultState()).kind, 'map');
+  const own = { ...defaultState(), gtabaseUrls: { x: 'https://www.gtabase.com/de/gta-6/karte/#pool-005' } };
+  assert.equal(mapTarget({ id: 'x', gtabaseUrl: 'https://www.gtabase.com/de/gta-6/karte/#gym-001' }, own).url, own.gtabaseUrls.x);
+});
+
+test('Hinterlegte Karten-Links zeigen auf einen GTABase-Marker', () => {
+  for (const it of items) {
+    if (it.gtabaseUrl) assert.match(it.gtabaseUrl, /^https:\/\/www\.gtabase\.com\/de\/gta-6\/karte\/#[a-z0-9-]+$/, it.id);
+    if (it.mapFeature) assert.equal(mapTarget(it, defaultState()).kind, it.gtabaseUrl ? 'marker' : 'category', it.id);
+  }
 });

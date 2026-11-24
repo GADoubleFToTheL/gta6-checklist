@@ -134,3 +134,16 @@ export function safeHttpsUrl(value) {
     return '';
   }
 }
+
+export const MAP_URL = 'https://www.gtabase.com/de/gta-6/karte/';
+const FEATURE_BASE = `${MAP_URL}?feature=`;
+
+/** Karten-Ziel: eigener Link > hinterlegter Marker > passende Kategorie > allgemeine Karte. */
+export function mapTarget(item, state) {
+  const exact = safeHttpsUrl(state.gtabaseUrls[item.id]) || safeHttpsUrl(item.gtabaseUrl);
+  if (exact) return { url: exact, kind: 'marker' };
+  if (typeof item.mapFeature === 'string' && /^[a-z0-9]+(-[a-z0-9]+)*$/.test(item.mapFeature)) {
+    return { url: FEATURE_BASE + item.mapFeature, kind: 'category' };
+  }
+  return { url: MAP_URL, kind: 'map' };
+}

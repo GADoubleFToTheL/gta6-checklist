@@ -30,7 +30,7 @@ Spieldaten liegen getrennt von der Logik:
 - `data/items.json` – Einträge (siehe Felder unten)
 - `data/chapters.json` – Kapitelnamen
 
-Item-Felder: `id`, `title`, `category`, `description`, `availableFrom` (Missions-ID oder `null`), `lostAt` (`{mission, when: "start"|"end"}`), `importance`, `trophy`, `completion100` (`true`/`false`/`"umstritten"`), `confidence`, `note`, `location`, `gtabaseUrl`, `sources`.
+Item-Felder: `id`, `title`, `category`, `description`, `availableFrom` (Missions-ID oder `null`), `lostAt` (`{mission, when: "start"|"end"}`), `importance`, `trophy`, `completion100` (`true`/`false`/`"umstritten"`), `confidence`, `note`, `location`, `gtabaseUrl` (Marker-Link `https://www.gtabase.com/de/gta-6/karte/#<marker-id>`), `mapFeature` (optional: GTABase-Kategorie, z. B. `ammu-nation`, wenn kein genauer Marker bekannt ist), `sources`.
 
 Semantik: Ein Eintrag ist sichtbar, sobald `availableFrom` abgeschlossen ist, und muss erledigt sein, bevor die Mission aus `lostAt` abgeschlossen wird. **Rot** = geht mit der nächsten Mission verloren, **Orange** = geht bis zum nächsten Point of no Return verloren.
 

@@ -1,10 +1,9 @@
 import {
   nextIndex, itemStatus, urgency, openNow, redItems, itemChapter,
-  defaultState, sanitizeState, safeHttpsUrl,
+  defaultState, sanitizeState, safeHttpsUrl, mapTarget,
 } from './logic.js';
 
 const STORAGE_KEY = 'gta6-checklist-v1';
-const MAP_URL = 'https://www.gtabase.com/de/gta-6/karte/';
 const CATEGORIES = ['Vorbereitung', 'Geld', 'Missable', 'Beziehung Lucia', 'Waffe', 'Kleidung', 'Sammelobjekt', 'Fahrzeug'];
 
 let missions = [];
@@ -116,6 +115,19 @@ function isFutureItem(it) {
   return itemChapter(it, missions) > cur.chapter;
 }
 
+const PIN_TITLES = {
+  marker: 'Ort auf der Karte zeigen',
+  category: 'Passende Kategorie auf der Karte zeigen',
+};
+
+function pinLink(it) {
+  const { url, kind } = mapTarget(it, state);
+  if (kind === 'map') return null; // kein Ort bekannt (z. B. Anruf, Spielmenü)
+  return h('a', { class: `pin ${kind}`, href: url, target: '_blank', rel: 'noopener noreferrer',
+    title: PIN_TITLES[kind], 'aria-label': PIN_TITLES[kind], onclick: (e) => e.stopPropagation(),
+    onkeydown: (e) => e.stopPropagation() }, '📍');
+}
+
 function itemRow(it, showHint = true) {
   const st = status(it);
   const urg = st === 'offen' ? urgency(it, missions, nextIdx()) : 'normal';
@@ -134,7 +146,8 @@ function itemRow(it, showHint = true) {
         } }, done ? '✓' : ''),
     h('div', { class: 'body' },
       h('div', { class: `title ${isFutureItem(it) ? 'blur' : ''}` }, it.title),
-      (hint || unsure) && h('div', { class: 'meta' }, hint, hint && unsure && ' · ', unsure && 'Quellen unsicher')));
+      (hint || unsure) && h('div', { class: 'meta' }, hint, hint && unsure && ' · ', unsure && 'Quellen unsicher')),
+    pinLink(it));
 }
 
 /* ---------- Tab: Aufgaben ---------- */
@@ -299,7 +312,7 @@ function showDetail(id) {
   const it = items.find((x) => x.id === id);
   if (!it) return;
   const st = status(it);
-  const url = state.gtabaseUrls[id] || safeHttpsUrl(it.gtabaseUrl) || '';
+  const target = mapTarget(it, state);
   const input = h('input', { type: 'url', placeholder: 'GTABase-Teilen-Link einfügen (https://…)', value: state.gtabaseUrls[id] || '' });
   const hide = isFutureItem(it) ? 'blur' : '';
   openDialog(
@@ -310,6 +323,8 @@ function showDetail(id) {
     h('div', { class: 'actions' },
       st !== 'verpasst' && h('button', { class: 'primary', onclick: () => { closeDialog(); setDone(id, st !== 'erledigt'); } }, st === 'erledigt' ? 'Doch nicht erledigt' : 'Erledigt ✓'),
       h('button', { onclick: () => { if (hide) revealed.add(`i:${id}`); closeDialog(); render(); } }, hide ? 'Spoiler zeigen' : 'Schließen')),
+    h('a', { class: 'map-link', href: target.url, target: '_blank', rel: 'noopener noreferrer' },
+      h('button', { class: 'block' }, target.kind === 'marker' ? '📍 Ort auf der Karte zeigen' : '📍 Auf der Karte suchen')),
     h('details', { class: 'more' }, h('summary', {}, 'Mehr Infos'),
       h('p', {}, h('strong', {}, 'Ort: '), it.location || '–'),
       h('p', {}, h('strong', {}, 'Kategorie: '), it.category, ' · ', it.importance),
@@ -317,8 +332,11 @@ function showDetail(id) {
       it.confidence !== 'umstritten' && it.note && h('p', {}, h('strong', {}, 'Hinweis: '), it.note),
       h('p', { class: 'small' }, h('strong', {}, 'Quellen: '),
         it.sources.map((s) => { const u = safeHttpsUrl(s); return u ? h('div', {}, h('a', { href: u, target: '_blank', rel: 'noopener noreferrer' }, new URL(u).hostname)) : null; })),
-      h('a', { href: url || MAP_URL, target: '_blank', rel: 'noopener noreferrer' }, h('button', { class: 'block' }, 'Auf GTABase-Karte öffnen')),
-      h('p', { class: 'meta' }, url ? 'Direktlink zum Marker gespeichert.' : 'Kein Marker-Link – öffnet die Kartenseite.'),
+      h('p', { class: 'meta' }, {
+        marker: state.gtabaseUrls[id] ? 'Dein eigener Marker-Link ist gespeichert.' : 'Zeigt den Ort direkt auf der GTABase-Karte.',
+        category: 'Zeigt alle Orte dieser Art auf der Karte. Genauen Punkt speichern: auf GTABase den Marker antippen, „Link kopieren“ und unten einfügen.',
+        map: 'Kein genauer Ort bekannt. Genauen Punkt speichern: auf GTABase den Marker antippen, „Link kopieren“ und unten einfügen.',
+      }[target.kind]),
       input,
       h('div', { class: 'actions' },
         h('button', { onclick: () => {
