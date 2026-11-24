@@ -15,7 +15,7 @@ function png(size) {
     for (let x = 0; x < size; x++) {
       const u = x / size, v = y / size;
       const d = Math.min(distSeg(u, v, 0.27, 0.53, 0.43, 0.69), distSeg(u, v, 0.43, 0.69, 0.75, 0.33));
-      const [r, g, b] = d < 0.055 ? [255, 46, 147] : [18, 6, 31];
+      const [r, g, b] = d < 0.055 ? [246, 154, 201] : [71, 56, 117];
       row.set([r, g, b], 1 + x * 3);
     }
     rows.push(row);

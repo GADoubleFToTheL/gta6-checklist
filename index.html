@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#12061f">
+<meta name="theme-color" content="#473875">
 <meta name="robots" content="noindex, nofollow">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
@@ -12,6 +12,53 @@
 <title>GTA 6 Checkliste</title>
 </head>
 <body>
+<div class="scene sky" aria-hidden="true">
+  <svg viewBox="0 0 400 200" preserveAspectRatio="xMidYMin slice">
+    <g fill="#d091ca" opacity=".28">
+      <ellipse cx="120" cy="58" rx="90" ry="3"/><ellipse cx="300" cy="40" rx="70" ry="2.5"/><ellipse cx="230" cy="78" rx="60" ry="2"/>
+    </g>
+    <g class="jet">
+      <path d="M262 96 L430 14" stroke="#fcf0d8" stroke-width="2.2" stroke-linecap="round" opacity=".35"/>
+      <path d="M262 96 L430 14" stroke="#fcf0d8" stroke-width="6" stroke-linecap="round" opacity=".08"/>
+      <path d="M249 102 l12-5 l2 1 l-5 3 l6 4 l-2 1 l-7-3 l-4 2 l1 2 l-2 0 l-2-3z" fill="#545484"/>
+    </g>
+  </svg>
+</div>
+<div class="scene ground" aria-hidden="true">
+  <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMax slice">
+    <defs>
+      <g id="palm">
+        <path d="M47 200 C49 150 43 100 52 40 L56 41 C48 100 54 150 53 200 Z"/>
+        <path d="M54 40 Q78 28 98 52 Q76 38 54 43Z M54 40 Q74 18 92 20 Q72 26 54 42Z M54 40 Q56 18 66 6 Q58 22 55 41Z
+                 M54 40 Q36 18 18 22 Q38 26 53 42Z M54 40 Q28 30 10 56 Q32 38 53 43Z M54 41 Q70 50 78 74 Q66 54 54 44Z
+                 M54 41 Q38 52 32 76 Q42 56 54 44Z"/>
+      </g>
+    </defs>
+    <path fill="#b285ca" opacity=".55" d="M0 300 V268 h18 v-8 h14 v6 h20 v-14 h10 v10 h26 v-6 h18 v12 h30 v-18 h8 v-6 h6 v24 h40 v-8 h22 v10 h36 v-16 h12 v14 h30 v-6 h24 v8 h28 v-12 h16 v10 h12 V300 Z"/>
+    <g fill="#9f7ab7" opacity=".8">
+      <use href="#palm" transform="translate(150 196) scale(.5)"/>
+      <use href="#palm" transform="translate(196 206) scale(.42)"/>
+      <use href="#palm" transform="translate(40 190) scale(.55)"/>
+    </g>
+    <g stroke="#7461a8" fill="none" stroke-width="1.2">
+      <path d="M-10 150 Q120 178 252 146"/><path d="M-10 160 Q120 190 252 156"/>
+      <path d="M252 146 Q300 160 340 146 Q380 158 420 146"/><path d="M252 156 Q300 172 340 156 Q380 170 420 156"/>
+      <path d="M252 120 V300 M242 146 H262 M244 156 H260" stroke-width="3"/>
+      <path d="M340 110 V300 M330 146 H350 M332 156 H348" stroke-width="3"/>
+    </g>
+    <g class="birds" fill="#545484">
+      <path d="M118 163 q3-4 6 0 q3-4 6 0 q-3-2-6 1 q-3-3-6-1z"/>
+      <path d="M140 165 q2-3 4 0 q2-3 4 0 q-2-1.5-4 .8 q-2-2.3-4-.8z"/>
+      <path d="M292 158 q2-3 4 0 q2-3 4 0 q-2-1.5-4 .8 q-2-2.3-4-.8z"/>
+    </g>
+    <g fill="#7461a8">
+      <g class="palm-sway"><use href="#palm" transform="translate(218 52) scale(1.25)"/></g>
+      <g class="palm-sway b"><use href="#palm" transform="translate(62 104) scale(.98)"/></g>
+      <g class="palm-sway"><use href="#palm" transform="translate(-10 120) scale(.9)"/></g>
+      <g class="palm-sway b"><use href="#palm" transform="translate(318 150) scale(.75)"/></g>
+    </g>
+  </svg>
+</div>
 <main id="view" aria-live="polite"></main>
 <nav id="tabs" aria-label="Hauptnavigation">
   <button data-tab="now">Aufgaben</button>
