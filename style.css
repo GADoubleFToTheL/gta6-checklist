@@ -206,13 +206,21 @@ svg.qr{width:min(78vw,320px);height:auto;border-radius:12px}
 .scene svg{display:block;width:100%;height:100%}
 .scene.sky{top:0;height:46vh}
 .scene.ground{bottom:0;height:62vh}
-.scene .palm-sway{transform-box:fill-box;transform-origin:50% 100%;animation:sway 7s ease-in-out infinite}
-.scene .palm-sway.b{animation-duration:9s;animation-delay:-3s}
+.scene .sway{transform-box:fill-box;transform-origin:50% 100%;animation:sway 6.5s ease-in-out infinite}
+.scene .crown{transform-box:fill-box;transform-origin:50% 50%;animation:flutter 2.6s ease-in-out infinite}
+.scene .s2{animation-duration:7.8s;animation-delay:-2.4s}.scene .crown.s2{animation-duration:3.1s;animation-delay:-1.1s}
+.scene .s3{animation-duration:5.9s;animation-delay:-4.1s}.scene .crown.s3{animation-duration:2.2s;animation-delay:-.6s}
+.scene .s4{animation-duration:7.1s;animation-delay:-1.3s}.scene .crown.s4{animation-duration:2.9s;animation-delay:-1.9s}
+.scene .sway.far{animation-name:swayfar;animation-duration:8.5s}.scene .sway.f2{animation-delay:-3s}.scene .sway.f3{animation-delay:-5.5s}
+.scene .crown.far{animation-name:flutterfar;animation-duration:3.4s}
 .scene .jet{animation:fly 48s linear infinite}
 .scene .blink{animation:blink 1.6s steps(1) infinite}
 .scene .streak{animation:drift 70s ease-in-out infinite alternate}
 .scene .birds{animation:birds 5s ease-in-out infinite}
-@keyframes sway{0%,100%{transform:rotate(-1.2deg)}50%{transform:rotate(1.4deg)}}
+@keyframes sway{0%,100%{transform:rotate(-1deg)}22%{transform:rotate(1.6deg)}35%{transform:rotate(.9deg)}58%{transform:rotate(2.4deg)}80%{transform:rotate(.2deg)}}
+@keyframes flutter{0%,100%{transform:rotate(-2deg) scaleX(1)}30%{transform:rotate(2.5deg) scaleX(.97)}55%{transform:rotate(-.5deg) scaleX(1.02)}75%{transform:rotate(3deg) scaleX(.98)}}
+@keyframes swayfar{0%,100%{transform:rotate(-.6deg)}50%{transform:rotate(1.1deg)}}
+@keyframes flutterfar{0%,100%{transform:rotate(-1.2deg)}50%{transform:rotate(1.8deg)}}
 @keyframes fly{0%{transform:translate(140px,-68px);opacity:0}8%{opacity:1}88%{opacity:1}100%{transform:translate(-330px,161px);opacity:0}}
 @keyframes blink{0%{opacity:1}50%{opacity:.15}}
 @keyframes drift{from{transform:translateX(-18px)}to{transform:translateX(18px)}}

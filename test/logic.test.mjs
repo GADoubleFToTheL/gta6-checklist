@@ -155,3 +155,12 @@ test('Teilen: encode/decode ergibt denselben Zustand, Müll wird abgelehnt', () 
   const r = decodeShare(evil, missions);
   assert.equal(r.lastCompletedMissionId, null); assert.deepEqual(r.gtabaseUrls, {}); assert.deepEqual(r.doneItems, { x: true });
 });
+
+test('index.html: Kulisse (Himmel + Boden mit Palmen) und Logo vorhanden', () => {
+  const html = readFileSync(new URL('../index.html', import.meta.url), 'utf8');
+  assert.match(html, /class="scene sky"/);
+  assert.match(html, /class="scene ground"/);
+  assert.ok((html.match(/class="sway /g) || []).length >= 4, 'Palmen fehlen');
+  assert.match(html, /class="jet"/);
+  assert.match(html, /icons\/logo\.svg/);
+});
