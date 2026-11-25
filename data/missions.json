@@ -30,9 +30,9 @@
   "ponrNote": ""
  },
  {
-  "id": "just-a-scratch",
-  "name": "Just a Scratch",
-  "nameDe": "Nur ein Kratzer",
+  "id": "unwanted-attention",
+  "name": "Unwanted Attention",
+  "nameDe": "Unerwünschte Aufmerksamkeit",
   "chapter": 1,
   "character": "unbekannt",
   "order": 4,
@@ -50,9 +50,9 @@
   "ponrNote": ""
  },
  {
-  "id": "unwanted-attention",
-  "name": "Unwanted Attention",
-  "nameDe": "Unerwünschte Aufmerksamkeit",
+  "id": "pipework",
+  "name": "Pipework",
+  "nameDe": "Rohrleitungen",
   "chapter": 1,
   "character": "unbekannt",
   "order": 6,
@@ -60,9 +60,9 @@
   "ponrNote": ""
  },
  {
-  "id": "pipework",
-  "name": "Pipework",
-  "nameDe": "Rohrleitungen",
+  "id": "just-a-scratch",
+  "name": "Just a Scratch",
+  "nameDe": "Nur ein Kratzer",
   "chapter": 1,
   "character": "unbekannt",
   "order": 7,
@@ -107,13 +107,12 @@
   "character": "unbekannt",
   "order": 11,
   "pointOfNoReturn": false,
-  "ponrNote": "",
-  "orderNote": "Reihenfolge laut KeenGamer/Dexerto direkt nach Feng Shui; andere Guides könnten abweichen."
+  "ponrNote": ""
  },
  {
-  "id": "buck-me",
-  "name": "Buck Me",
-  "nameDe": "Buck Me",
+  "id": "clean-up-after-donnie",
+  "name": "Clean Up After Donnie",
+  "nameDe": "Aufräumen nach Donnie",
   "chapter": 1,
   "character": "unbekannt",
   "order": 12,
@@ -121,9 +120,9 @@
   "ponrNote": ""
  },
  {
-  "id": "clean-up-after-donnie",
-  "name": "Clean Up After Donnie",
-  "nameDe": "Aufräumen nach Donnie",
+  "id": "buck-me",
+  "name": "Buck Me",
+  "nameDe": "Buck Me",
   "chapter": 1,
   "character": "unbekannt",
   "order": 13,
@@ -141,14 +140,28 @@
   "ponrNote": ""
  },
  {
-  "id": "clear-skies",
-  "name": "Clear Skies",
-  "nameDe": "Klarer Himmel",
+  "id": "deposit-cash-into-buckme",
+  "name": "Deposit Cash Into BuckMe",
+  "nameDe": "Bargeld bei BuckMe einzahlen",
   "chapter": 1,
   "character": "unbekannt",
   "order": 15,
   "pointOfNoReturn": false,
-  "ponrNote": ""
+  "ponrNote": "",
+  "step": true,
+  "note": "Zahlen Sie an einem beliebigen Geldautomaten Bargeld auf Ihr BuckMe-Girokonto ein."
+ },
+ {
+  "id": "save-for-the-future",
+  "name": "Save for the Future",
+  "nameDe": "Für die Zukunft sparen",
+  "chapter": 1,
+  "character": "unbekannt",
+  "order": 16,
+  "pointOfNoReturn": false,
+  "ponrNote": "",
+  "step": true,
+  "note": "Zahlen Sie weiterhin Geld in Ihre Familiensparkonten ein, um das nächste Sparziel zu erreichen und neue BuckMe-Vorteile freizuschalten."
  },
  {
   "id": "day-release",
@@ -156,9 +169,31 @@
   "nameDe": "Tagesveröffentlichung",
   "chapter": 1,
   "character": "unbekannt",
-  "order": 16,
+  "order": 17,
   "pointOfNoReturn": false,
   "ponrNote": ""
+ },
+ {
+  "id": "clear-skies",
+  "name": "Clear Skies",
+  "nameDe": "Klarer Himmel",
+  "chapter": 1,
+  "character": "unbekannt",
+  "order": 18,
+  "pointOfNoReturn": false,
+  "ponrNote": ""
+ },
+ {
+  "id": "building-a-life",
+  "name": "Building a Life",
+  "nameDe": "Ein Leben aufbauen",
+  "chapter": 1,
+  "character": "unbekannt",
+  "order": 19,
+  "pointOfNoReturn": false,
+  "ponrNote": "",
+  "step": true,
+  "note": "Jason und Lucia arbeiten gemeinsam an ihrem neuen Zuhause, und Jason gibt Lucia eine Lektion im Umgang mit einer Waffe."
  },
  {
   "id": "swamped",
@@ -166,7 +201,7 @@
   "nameDe": "Überschwemmt",
   "chapter": 1,
   "character": "unbekannt",
-  "order": 17,
+  "order": 20,
   "pointOfNoReturn": false,
   "ponrNote": ""
  },
@@ -176,7 +211,7 @@
   "nameDe": "Don Gone",
   "chapter": 1,
   "character": "unbekannt",
-  "order": 18,
+  "order": 21,
   "pointOfNoReturn": false,
   "ponrNote": ""
  },
@@ -186,7 +221,7 @@
   "nameDe": "Neukalibrierung",
   "chapter": 1,
   "character": "unbekannt",
-  "order": 19,
+  "order": 22,
   "pointOfNoReturn": false,
   "ponrNote": ""
  },
@@ -196,7 +231,7 @@
   "nameDe": "Touristenfalle",
   "chapter": 1,
   "character": "unbekannt",
-  "order": 20,
+  "order": 23,
   "pointOfNoReturn": true,
   "ponrNote": "Weg: Bargeld, BuckMe-Girokonto, Bodenversteck, Jasons Haus in Key Lento, alle eigenen Fahrzeuge samt Tuning (auch Ultimate Edition). Jasons Fitness sinkt vorübergehend. Bleibt: Family Savings (bis 5.000 $), Beziehungslevel mit Lucia, Unikat-Waffen. Bei Ammu-Nation gekaufte Waffen liegen zu Beginn von Kapitel 2 im Waffenschrank. Tourist Trap, Home Sweet Home und Discharge Time laufen ohne Free Roam.",
   "ponrChecklist": [
@@ -211,7 +246,7 @@
   "nameDe": "Trautes Heim, Glück allein",
   "chapter": 1,
   "character": "Lucia",
-  "order": 21,
+  "order": 24,
   "pointOfNoReturn": false,
   "ponrNote": ""
  },
@@ -221,7 +256,7 @@
   "nameDe": "Entladezeit",
   "chapter": 1,
   "character": "unbekannt",
-  "order": 22,
+  "order": 25,
   "pointOfNoReturn": false,
   "ponrNote": ""
  },
@@ -231,7 +266,7 @@
   "nameDe": "Was ist in der Tasche?",
   "chapter": 2,
   "character": "Lucia",
-  "order": 23,
+  "order": 26,
   "pointOfNoReturn": false,
   "ponrNote": ""
  },
@@ -241,9 +276,33 @@
   "nameDe": "Unfallverursacher",
   "chapter": 2,
   "character": "Lucia",
-  "order": 24,
+  "order": 27,
   "pointOfNoReturn": false,
   "ponrNote": ""
+ },
+ {
+  "id": "take-care-of-jason",
+  "name": "Play Nurse",
+  "nameDe": "Krankenschwester spielen",
+  "chapter": 2,
+  "character": "unbekannt",
+  "order": 28,
+  "pointOfNoReturn": false,
+  "ponrNote": "",
+  "step": true,
+  "note": "Schau immer wieder nach Jason im Motel, bis er wieder auf den Beinen ist."
+ },
+ {
+  "id": "overnight-charges",
+  "name": "Overnight Charges",
+  "nameDe": "Übernachtgebühren",
+  "chapter": 2,
+  "character": "unbekannt",
+  "order": 29,
+  "pointOfNoReturn": false,
+  "ponrNote": "",
+  "step": true,
+  "note": "Gehen Sie zur Rezeption des Motels und erkundigen Sie sich nach dem Zimmerpreis."
  },
  {
   "id": "just-moved-in",
@@ -251,7 +310,7 @@
   "nameDe": "Gerade erst eingezogen",
   "chapter": 2,
   "character": "Lucia",
-  "order": 25,
+  "order": 30,
   "pointOfNoReturn": false,
   "ponrNote": ""
  },
@@ -261,7 +320,7 @@
   "nameDe": "Mädelsausflug",
   "chapter": 2,
   "character": "Lucia",
-  "order": 26,
+  "order": 31,
   "pointOfNoReturn": false,
   "ponrNote": ""
  },
@@ -271,9 +330,45 @@
   "nameDe": "Moses",
   "chapter": 2,
   "character": "unbekannt",
-  "order": 27,
+  "order": 32,
   "pointOfNoReturn": false,
   "ponrNote": ""
+ },
+ {
+  "id": "new-look",
+  "name": "New Look",
+  "nameDe": "Neuer Look",
+  "chapter": 2,
+  "character": "unbekannt",
+  "order": 33,
+  "pointOfNoReturn": false,
+  "ponrNote": "",
+  "step": true,
+  "note": "Besuchen Sie den Friseursalon Pearl House, um Lucia eine neue Frisur zu verpassen."
+ },
+ {
+  "id": "how-do-i-look",
+  "name": "How Do I Look?",
+  "nameDe": "Wie sehe ich aus?",
+  "chapter": 2,
+  "character": "unbekannt",
+  "order": 34,
+  "pointOfNoReturn": false,
+  "ponrNote": "",
+  "step": true,
+  "note": "Kauf Lucia neue Kleidung oder besorg ihr welche günstig bei Bargain World."
+ },
+ {
+  "id": "painkiller-supplier",
+  "name": "Got Pills?",
+  "nameDe": "Hast du Pillen?",
+  "chapter": 2,
+  "character": "unbekannt",
+  "order": 35,
+  "pointOfNoReturn": false,
+  "ponrNote": "",
+  "step": true,
+  "note": "Dunk meldet sich, sobald er etwas auf die Suche nach Schmerzmitteln für Jason gemacht hat."
  },
  {
   "id": "daily-driver",
@@ -281,9 +376,21 @@
   "nameDe": "Alltagsauto",
   "chapter": 2,
   "character": "unbekannt",
-  "order": 28,
+  "order": 36,
   "pointOfNoReturn": false,
   "ponrNote": ""
+ },
+ {
+  "id": "behind-on-payments",
+  "name": "Behind on Payments",
+  "nameDe": "Zahlungsrückstand",
+  "chapter": 2,
+  "character": "unbekannt",
+  "order": 37,
+  "pointOfNoReturn": false,
+  "ponrNote": "",
+  "step": true,
+  "note": "Linda behält die Halskette als Pfand ein, bis die 900 Dollar für das Motelzimmer bezahlt sind."
  },
  {
   "id": "slam-dunk",
@@ -291,7 +398,7 @@
   "nameDe": "Slam Dunk",
   "chapter": 2,
   "character": "unbekannt",
-  "order": 29,
+  "order": 38,
   "pointOfNoReturn": false,
   "ponrNote": ""
  },
@@ -301,7 +408,7 @@
   "nameDe": "Frühstückslauf",
   "chapter": 2,
   "character": "beide",
-  "order": 30,
+  "order": 39,
   "pointOfNoReturn": false,
   "ponrNote": ""
  },
@@ -311,9 +418,21 @@
   "nameDe": "Kaffeepause",
   "chapter": 2,
   "character": "unbekannt",
-  "order": 31,
+  "order": 40,
   "pointOfNoReturn": false,
   "ponrNote": ""
+ },
+ {
+  "id": "prepare-for-vice-city",
+  "name": "Prepare for Vice City",
+  "nameDe": "Bereite dich auf Vice City vor",
+  "chapter": 2,
+  "character": "unbekannt",
+  "order": 41,
+  "pointOfNoReturn": false,
+  "ponrNote": "",
+  "step": true,
+  "note": "Verdiene mindestens 15.000 Dollar, während Dre'Quan sich eine Unterkunft in Vice City sucht."
  },
  {
   "id": "afternoon-delight",
@@ -321,7 +440,7 @@
   "nameDe": "Nachmittagsgenuss",
   "chapter": 2,
   "character": "unbekannt",
-  "order": 32,
+  "order": 42,
   "pointOfNoReturn": false,
   "ponrNote": ""
  },
@@ -331,7 +450,7 @@
   "nameDe": "Auschecken",
   "chapter": 2,
   "character": "unbekannt",
-  "order": 33,
+  "order": 43,
   "pointOfNoReturn": true,
   "ponrNote": "Das Starlet Motel ist danach nicht mehr dein Zuhause (Bett, Schrank, Speicherpunkt). Kleidung bleibt, auch Geld und Autos. Der Pool-Gegner im Delights Cabaret ist bis zur Wiedereröffnung weg. Laut einigen Guides braucht die Mission 15.000 $ und alle anderen Kapitel-2-Missionen.",
   "ponrChecklist": [
@@ -347,7 +466,7 @@
   "nameDe": "Willkommen in Vice City",
   "chapter": 3,
   "character": "unbekannt",
-  "order": 34,
+  "order": 44,
   "pointOfNoReturn": false,
   "ponrNote": ""
  },
@@ -357,7 +476,7 @@
   "nameDe": "Händlerwahl",
   "chapter": 3,
   "character": "Jason",
-  "order": 35,
+  "order": 45,
   "pointOfNoReturn": false,
   "ponrNote": ""
  },
@@ -367,7 +486,7 @@
   "nameDe": "Lernen Sie die Heders kennen",
   "chapter": 3,
   "character": "unbekannt",
-  "order": 36,
+  "order": 46,
   "pointOfNoReturn": false,
   "ponrNote": ""
  },
@@ -377,7 +496,7 @@
   "nameDe": "Zweifelhafte Herkunft",
   "chapter": 3,
   "character": "unbekannt",
-  "order": 37,
+  "order": 47,
   "pointOfNoReturn": false,
   "ponrNote": ""
  },
@@ -387,17 +506,7 @@
   "nameDe": "Mama weiß es am besten",
   "chapter": 3,
   "character": "Lucia",
-  "order": 38,
-  "pointOfNoReturn": false,
-  "ponrNote": ""
- },
- {
-  "id": "south-leonida-real-estate",
-  "name": "South Leonida Real Estate",
-  "nameDe": "Immobilien in Süd-Leonida",
-  "chapter": 3,
-  "character": "Lucia",
-  "order": 39,
+  "order": 48,
   "pointOfNoReturn": false,
   "ponrNote": ""
  },
@@ -407,7 +516,7 @@
   "nameDe": "Tyrone",
   "chapter": 3,
   "character": "Jason",
-  "order": 40,
+  "order": 49,
   "pointOfNoReturn": false,
   "ponrNote": ""
  },
@@ -417,9 +526,21 @@
   "nameDe": "Hier, Kitty Kitty",
   "chapter": 3,
   "character": "unbekannt",
-  "order": 41,
+  "order": 50,
   "pointOfNoReturn": false,
   "ponrNote": ""
+ },
+ {
+  "id": "send-money-to-lorena",
+  "name": "Send Money to Lorena",
+  "nameDe": "Geld an Lorena senden",
+  "chapter": 3,
+  "character": "unbekannt",
+  "order": 51,
+  "pointOfNoReturn": false,
+  "ponrNote": "",
+  "step": true,
+  "note": "Schick Lorena etwas Geld."
  },
  {
   "id": "car-service",
@@ -427,9 +548,21 @@
   "nameDe": "Autoservice",
   "chapter": 3,
   "character": "Lucia",
-  "order": 42,
+  "order": 52,
   "pointOfNoReturn": false,
   "ponrNote": ""
+ },
+ {
+  "id": "send-more-money-to-lorena",
+  "name": "Send More Money to Lorena",
+  "nameDe": "Schick mehr Geld an Lorena",
+  "chapter": 3,
+  "character": "unbekannt",
+  "order": 53,
+  "pointOfNoReturn": false,
+  "ponrNote": "",
+  "step": true,
+  "note": "Senden Sie eine weitere Zahlung an Lorena."
  },
  {
   "id": "top-billing",
@@ -437,7 +570,7 @@
   "nameDe": "Top Billing",
   "chapter": 3,
   "character": "unbekannt",
-  "order": 43,
+  "order": 54,
   "pointOfNoReturn": false,
   "ponrNote": ""
  },
@@ -447,9 +580,21 @@
   "nameDe": "Boobie Time",
   "chapter": 3,
   "character": "unbekannt",
-  "order": 44,
+  "order": 55,
   "pointOfNoReturn": false,
   "ponrNote": ""
+ },
+ {
+  "id": "yasmanis-jewelry-jobs",
+  "name": "Yasmani's Jewelry Jobs",
+  "nameDe": "Yasmanis Schmuckjobs",
+  "chapter": 3,
+  "character": "unbekannt",
+  "order": 56,
+  "pointOfNoReturn": false,
+  "ponrNote": "",
+  "step": true,
+  "note": "Überfalle verschiedene Juweliergeschäfte in Vice City und verkaufe die Beute an Yasmani."
  },
  {
   "id": "first-impressions",
@@ -457,7 +602,7 @@
   "nameDe": "Erste Eindrücke",
   "chapter": 3,
   "character": "unbekannt",
-  "order": 45,
+  "order": 57,
   "pointOfNoReturn": false,
   "ponrNote": ""
  },
@@ -467,7 +612,7 @@
   "nameDe": "Beim Ausrutschen erwischt",
   "chapter": 3,
   "character": "beide",
-  "order": 46,
+  "order": 58,
   "pointOfNoReturn": false,
   "ponrNote": ""
  },
@@ -477,7 +622,7 @@
   "nameDe": "Querverkehr",
   "chapter": 3,
   "character": "unbekannt",
-  "order": 47,
+  "order": 59,
   "pointOfNoReturn": false,
   "ponrNote": ""
  },
@@ -487,7 +632,7 @@
   "nameDe": "Bonitätsprüfung",
   "chapter": 3,
   "character": "unbekannt",
-  "order": 48,
+  "order": 60,
   "pointOfNoReturn": false,
   "ponrNote": ""
  },
@@ -497,7 +642,7 @@
   "nameDe": "Schlüssel klonen, Kohle machen",
   "chapter": 3,
   "character": "unbekannt",
-  "order": 49,
+  "order": 61,
   "pointOfNoReturn": false,
   "ponrNote": ""
  },
@@ -507,7 +652,7 @@
   "nameDe": "Sinfrontera National Bank",
   "chapter": 3,
   "character": "unbekannt",
-  "order": 50,
+  "order": 62,
   "pointOfNoReturn": false,
   "ponrNote": ""
  },
@@ -517,9 +662,21 @@
   "nameDe": "Sicherheitsexperte",
   "chapter": 3,
   "character": "unbekannt",
-  "order": 51,
+  "order": 63,
   "pointOfNoReturn": false,
   "ponrNote": ""
+ },
+ {
+  "id": "heist-planning",
+  "name": "Heist Planning",
+  "nameDe": "Raubplanung",
+  "chapter": 3,
+  "character": "unbekannt",
+  "order": 64,
+  "pointOfNoReturn": false,
+  "ponrNote": "",
+  "step": true,
+  "note": "Raul stellt eine Bande zusammen, um die Sinfrontera National Bank auszurauben, und es gibt vorher noch viel vorzubereiten."
  },
  {
   "id": "ride-or-die",
@@ -527,7 +684,7 @@
   "nameDe": "Bis zum Tod",
   "chapter": 3,
   "character": "unbekannt",
-  "order": 52,
+  "order": 65,
   "pointOfNoReturn": false,
   "ponrNote": ""
  },
@@ -537,7 +694,7 @@
   "nameDe": "Firmeneigentum",
   "chapter": 3,
   "character": "unbekannt",
-  "order": 53,
+  "order": 66,
   "pointOfNoReturn": false,
   "ponrNote": ""
  },
@@ -547,7 +704,7 @@
   "nameDe": "Das fehlende Glied",
   "chapter": 3,
   "character": "unbekannt",
-  "order": 54,
+  "order": 67,
   "pointOfNoReturn": false,
   "ponrNote": ""
  },
@@ -557,7 +714,7 @@
   "nameDe": "Sicherheitswort",
   "chapter": 3,
   "character": "unbekannt",
-  "order": 55,
+  "order": 68,
   "pointOfNoReturn": false,
   "ponrNote": ""
  },
@@ -567,17 +724,17 @@
   "nameDe": "Läuse",
   "chapter": 3,
   "character": "unbekannt",
-  "order": 56,
+  "order": 69,
   "pointOfNoReturn": false,
   "ponrNote": ""
  },
  {
-  "id": "bricked-up",
-  "name": "Bricked Up",
-  "nameDe": "Zugemauert",
+  "id": "south-leonida-real-estate",
+  "name": "South Leonida Real Estate",
+  "nameDe": "Immobilien in Süd-Leonida",
   "chapter": 3,
-  "character": "beide",
-  "order": 57,
+  "character": "Lucia",
+  "order": 70,
   "pointOfNoReturn": false,
   "ponrNote": ""
  },
@@ -587,7 +744,17 @@
   "nameDe": "Versteckte Gebühren",
   "chapter": 3,
   "character": "unbekannt",
-  "order": 58,
+  "order": 71,
+  "pointOfNoReturn": false,
+  "ponrNote": ""
+ },
+ {
+  "id": "bricked-up",
+  "name": "Bricked Up",
+  "nameDe": "Zugemauert",
+  "chapter": 3,
+  "character": "beide",
+  "order": 72,
   "pointOfNoReturn": false,
   "ponrNote": ""
  },
@@ -597,7 +764,7 @@
   "nameDe": "Der Kartellraub",
   "chapter": 3,
   "character": "unbekannt",
-  "order": 59,
+  "order": 73,
   "pointOfNoReturn": false,
   "ponrNote": ""
  },
@@ -607,7 +774,7 @@
   "nameDe": "Ocean Beach",
   "chapter": 4,
   "character": "unbekannt",
-  "order": 60,
+  "order": 74,
   "pointOfNoReturn": false,
   "ponrNote": ""
  },
@@ -617,9 +784,21 @@
   "nameDe": "Ein anderes Leben",
   "chapter": 4,
   "character": "unbekannt",
-  "order": 61,
+  "order": 75,
   "pointOfNoReturn": false,
   "ponrNote": ""
+ },
+ {
+  "id": "pool-day",
+  "name": "Pool Day",
+  "nameDe": "Tag am Pool",
+  "chapter": 4,
+  "character": "unbekannt",
+  "order": 76,
+  "pointOfNoReturn": false,
+  "ponrNote": "",
+  "step": true,
+  "note": "Zeit für einen Tag am Pool."
  },
  {
   "id": "company-cars",
@@ -627,7 +806,7 @@
   "nameDe": "Firmenwagen",
   "chapter": 4,
   "character": "unbekannt",
-  "order": 62,
+  "order": 77,
   "pointOfNoReturn": false,
   "ponrNote": ""
  },
@@ -637,7 +816,7 @@
   "nameDe": "Anwalt einschalten",
   "chapter": 4,
   "character": "unbekannt",
-  "order": 63,
+  "order": 78,
   "pointOfNoReturn": false,
   "ponrNote": ""
  },
@@ -647,7 +826,7 @@
   "nameDe": "Feiern Sie hart!",
   "chapter": 4,
   "character": "unbekannt",
-  "order": 64,
+  "order": 79,
   "pointOfNoReturn": false,
   "ponrNote": ""
  },
@@ -657,7 +836,7 @@
   "nameDe": "Schweres Heben",
   "chapter": 4,
   "character": "beide",
-  "order": 65,
+  "order": 80,
   "pointOfNoReturn": false,
   "ponrNote": ""
  },
@@ -667,7 +846,7 @@
   "nameDe": "Foto-Shooting",
   "chapter": 4,
   "character": "unbekannt",
-  "order": 66,
+  "order": 81,
   "pointOfNoReturn": false,
   "ponrNote": ""
  },
@@ -677,47 +856,7 @@
   "nameDe": "Muskelaufbau",
   "chapter": 4,
   "character": "Lucia",
-  "order": 67,
-  "pointOfNoReturn": false,
-  "ponrNote": ""
- },
- {
-  "id": "watch-it",
-  "name": "Watch It",
-  "nameDe": "Schau es dir an",
-  "chapter": 4,
-  "character": "unbekannt",
-  "order": 68,
-  "pointOfNoReturn": false,
-  "ponrNote": ""
- },
- {
-  "id": "cash-injections",
-  "name": "Cash Injections",
-  "nameDe": "Finanzspritzen",
-  "chapter": 4,
-  "character": "Lucia",
-  "order": 69,
-  "pointOfNoReturn": false,
-  "ponrNote": ""
- },
- {
-  "id": "amateur-hour",
-  "name": "Amateur Hour",
-  "nameDe": "Amateurstunde",
-  "chapter": 4,
-  "character": "Lucia",
-  "order": 70,
-  "pointOfNoReturn": false,
-  "ponrNote": ""
- },
- {
-  "id": "dirty-work",
-  "name": "Dirty Work",
-  "nameDe": "Drecksarbeit",
-  "chapter": 4,
-  "character": "unbekannt",
-  "order": 71,
+  "order": 82,
   "pointOfNoReturn": false,
   "ponrNote": ""
  },
@@ -727,7 +866,47 @@
   "nameDe": "Zu viel Gepäck",
   "chapter": 4,
   "character": "Jason",
-  "order": 72,
+  "order": 83,
+  "pointOfNoReturn": false,
+  "ponrNote": ""
+ },
+ {
+  "id": "watch-it",
+  "name": "Watch It",
+  "nameDe": "Schau es dir an",
+  "chapter": 4,
+  "character": "unbekannt",
+  "order": 84,
+  "pointOfNoReturn": false,
+  "ponrNote": ""
+ },
+ {
+  "id": "cash-injections",
+  "name": "Cash Injections",
+  "nameDe": "Finanzspritzen",
+  "chapter": 4,
+  "character": "Lucia",
+  "order": 85,
+  "pointOfNoReturn": false,
+  "ponrNote": ""
+ },
+ {
+  "id": "amateur-hour",
+  "name": "Amateur Hour",
+  "nameDe": "Amateurstunde",
+  "chapter": 4,
+  "character": "Lucia",
+  "order": 86,
+  "pointOfNoReturn": false,
+  "ponrNote": ""
+ },
+ {
+  "id": "dirty-work",
+  "name": "Dirty Work",
+  "nameDe": "Drecksarbeit",
+  "chapter": 4,
+  "character": "unbekannt",
+  "order": 87,
   "pointOfNoReturn": false,
   "ponrNote": ""
  },
@@ -737,7 +916,7 @@
   "nameDe": "Abenteuer beim Babysitten",
   "chapter": 4,
   "character": "unbekannt",
-  "order": 73,
+  "order": 88,
   "pointOfNoReturn": false,
   "ponrNote": ""
  },
@@ -747,7 +926,7 @@
   "nameDe": "Neue Beweise",
   "chapter": 4,
   "character": "unbekannt",
-  "order": 74,
+  "order": 89,
   "pointOfNoReturn": false,
   "ponrNote": ""
  },
@@ -757,7 +936,7 @@
   "nameDe": "Machtspiel",
   "chapter": 4,
   "character": "unbekannt",
-  "order": 75,
+  "order": 90,
   "pointOfNoReturn": false,
   "ponrNote": ""
  },
@@ -767,7 +946,7 @@
   "nameDe": "Kinderspiel",
   "chapter": 4,
   "character": "unbekannt",
-  "order": 76,
+  "order": 91,
   "pointOfNoReturn": false,
   "ponrNote": ""
  },
@@ -777,7 +956,7 @@
   "nameDe": "Headliner",
   "chapter": 4,
   "character": "unbekannt",
-  "order": 77,
+  "order": 92,
   "pointOfNoReturn": false,
   "ponrNote": ""
  },
@@ -787,7 +966,7 @@
   "nameDe": "Enge Überwachung",
   "chapter": 4,
   "character": "Jason",
-  "order": 78,
+  "order": 93,
   "pointOfNoReturn": false,
   "ponrNote": ""
  },
@@ -797,7 +976,7 @@
   "nameDe": "Liefermethode",
   "chapter": 4,
   "character": "Jason",
-  "order": 79,
+  "order": 94,
   "pointOfNoReturn": false,
   "ponrNote": ""
  },
@@ -807,7 +986,7 @@
   "nameDe": "Teambildung",
   "chapter": 4,
   "character": "Lucia",
-  "order": 80,
+  "order": 95,
   "pointOfNoReturn": false,
   "ponrNote": ""
  },
@@ -817,7 +996,7 @@
   "nameDe": "Vollverpflegung",
   "chapter": 4,
   "character": "unbekannt",
-  "order": 81,
+  "order": 96,
   "pointOfNoReturn": false,
   "ponrNote": ""
  },
@@ -827,9 +1006,21 @@
   "nameDe": "VCIA-Entführung",
   "chapter": 4,
   "character": "unbekannt",
-  "order": 82,
+  "order": 97,
   "pointOfNoReturn": false,
   "ponrNote": ""
+ },
+ {
+  "id": "tie-up-loose-ends",
+  "name": "Tie Up Loose Ends",
+  "nameDe": "Lose Enden zusammenbinden",
+  "chapter": 4,
+  "character": "unbekannt",
+  "order": 98,
+  "pointOfNoReturn": false,
+  "ponrNote": "",
+  "step": true,
+  "note": "Nach dem Raubüberfall warten Jason und Lucia auf Neuigkeiten von Raul bezüglich der Festplatte."
  },
  {
   "id": "sunset",
@@ -837,7 +1028,7 @@
   "nameDe": "Sonnenuntergang",
   "chapter": 4,
   "character": "beide",
-  "order": 83,
+  "order": 99,
   "pointOfNoReturn": true,
   "ponrNote": "Danach beginnt Kapitel 5; bis dahin gibt es lange kein Free Roam. Die Kapitel-4-Entscheidung lässt sich nicht wiederholen.",
   "ponrChecklist": [
@@ -852,7 +1043,7 @@
   "nameDe": "Bei Null anfangen",
   "chapter": 4,
   "character": "unbekannt",
-  "order": 84,
+  "order": 100,
   "pointOfNoReturn": false,
   "ponrNote": ""
  },
@@ -862,7 +1053,7 @@
   "nameDe": "Lieber den Spatz in der Hand",
   "chapter": 5,
   "character": "beide",
-  "order": 85,
+  "order": 101,
   "pointOfNoReturn": false,
   "ponrNote": ""
  },
@@ -872,17 +1063,7 @@
   "nameDe": "Sich Freiheiten herausnehmen",
   "chapter": 5,
   "character": "beide",
-  "order": 86,
-  "pointOfNoReturn": false,
-  "ponrNote": ""
- },
- {
-  "id": "vc-baby",
-  "name": "VC Baby",
-  "nameDe": "VC Baby",
-  "chapter": 5,
-  "character": "unbekannt",
-  "order": 87,
+  "order": 102,
   "pointOfNoReturn": false,
   "ponrNote": ""
  },
@@ -892,7 +1073,17 @@
   "nameDe": "Hundekotbeutel",
   "chapter": 5,
   "character": "unbekannt",
-  "order": 88,
+  "order": 103,
+  "pointOfNoReturn": false,
+  "ponrNote": ""
+ },
+ {
+  "id": "vc-baby",
+  "name": "VC Baby",
+  "nameDe": "VC Baby",
+  "chapter": 5,
+  "character": "unbekannt",
+  "order": 104,
   "pointOfNoReturn": false,
   "ponrNote": ""
  },
@@ -902,9 +1093,33 @@
   "nameDe": "Operation Wilder Ruhm",
   "chapter": 5,
   "character": "unbekannt",
-  "order": 89,
+  "order": 105,
   "pointOfNoReturn": false,
   "ponrNote": ""
+ },
+ {
+  "id": "honest-abe",
+  "name": "Honest Abe",
+  "nameDe": "Ehrlicher Abe",
+  "chapter": 5,
+  "character": "unbekannt",
+  "order": 106,
+  "pointOfNoReturn": false,
+  "ponrNote": "",
+  "step": true,
+  "note": "Es ist an der Zeit, mit Abe eine Einigung auszuhandeln."
+ },
+ {
+  "id": "unfinished-business",
+  "name": "Unfinished Business",
+  "nameDe": "Unerledigte Angelegenheiten",
+  "chapter": 5,
+  "character": "unbekannt",
+  "order": 107,
+  "pointOfNoReturn": true,
+  "ponrNote": "Laut GTABase der Point of no Return von Kapitel 5: Danach geht es ohne Rückkehr ins Finale. Vorher alle offenen Nebenjobs erledigen und in einem eigenen Slot speichern.",
+  "step": true,
+  "note": "Der Festplattendeal ist fast abgeschlossen: Entweder noch die letzten Details klären oder Abes Angebot annehmen."
  },
  {
   "id": "protective-custody",
@@ -912,7 +1127,7 @@
   "nameDe": "Schutzhaft",
   "chapter": 5,
   "character": "beide",
-  "order": 90,
+  "order": 108,
   "pointOfNoReturn": false,
   "ponrNote": ""
  },
@@ -922,7 +1137,7 @@
   "nameDe": "Das Ende der Straße",
   "chapter": 5,
   "character": "unbekannt",
-  "order": 91,
+  "order": 109,
   "pointOfNoReturn": false,
   "ponrNote": ""
  }

@@ -28,9 +28,9 @@ test('Daten: Item-IDs eindeutig, Quellen gültige https-URLs', () => {
   for (const it of items) for (const s of it.sources) assert.ok(safeHttpsUrl(s), `${it.id}: ${s}`);
 });
 
-test('Points of no Return: Tourist Trap, Checking Out, Sunset', () => {
+test('Points of no Return: Tourist Trap, Checking Out, Sunset, Unfinished Business', () => {
   const ids = missions.filter((m) => m.pointOfNoReturn).map((m) => m.id);
-  assert.deepEqual(ids, ['tourist-trap', 'checking-out', 'sunset']);
+  assert.deepEqual(ids, ['tourist-trap', 'checking-out', 'sunset', 'unfinished-business']);
 });
 
 test('Eintrag ohne Verlustpunkt: Kapitel folgt der Freischaltung, alte erscheinen nicht mehr in „Jetzt“', () => {
@@ -173,11 +173,26 @@ test('Missionen: jede hat einen deutschen Titel', () => {
 test('Nebenmissionen: IDs eindeutig, Verweise gültig, nur https-Links', () => {
   const side = JSON.parse(readFileSync(new URL('../data/sidemissions.json', import.meta.url)));
   assert.ok(side.length > 30);
+  assert.ok(!side.some((x) => x.kind === 'step'), 'Story-Aufgaben gehören in missions.json');
   assert.equal(new Set(side.map((x) => x.id)).size, side.length);
   for (const x of side) {
-    assert.ok(['optional', 'stranger', 'step'].includes(x.kind), x.id);
+    assert.ok(['optional', 'stranger'].includes(x.kind), x.id);
     assert.ok(x.nameDe && x.name, x.id);
     if (x.after) assert.ok(missionIndexById(missions, x.after) >= 0, `${x.id}: ${x.after}`);
     assert.ok(safeHttpsUrl(x.url), x.id);
+  }
+});
+
+test('Story-Reihenfolge folgt GTABase: Schritte zwischen den Missionen, Kapitel nie rückwärts', () => {
+  const i = (id) => missionIndexById(missions, id);
+  assert.ok(i('girls-trip') < i('painkiller-supplier') && i('painkiller-supplier') < i('daily-driver'));
+  assert.ok(missions.find((m) => m.id === 'painkiller-supplier').step);
+  for (let k = 1; k < missions.length; k++) assert.ok(missions[k].chapter >= missions[k - 1].chapter, missions[k].id);
+});
+
+test('Jede Aufgabe ist vor ihrem Verlust freigeschaltet', () => {
+  for (const it of items) {
+    if (!it.availableFrom || !it.lostAt) continue;
+    assert.ok(missionIndexById(missions, it.availableFrom) + 1 <= missionIndexById(missions, it.lostAt.mission), it.id);
   }
 });

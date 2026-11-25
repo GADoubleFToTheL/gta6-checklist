@@ -523,7 +523,7 @@
   "title": "Sonnenbrille für Lucia (Yacht)",
   "category": "Kleidung",
   "description": "In Day Release auf dem mittleren Deck der Yacht das Paar oben an der Treppe ansprechen und die Sonnenbrille für Lucia holen.",
-  "availableFrom": "clear-skies",
+  "availableFrom": "save-for-the-future",
   "lostAt": {
    "mission": "day-release",
    "when": "end"

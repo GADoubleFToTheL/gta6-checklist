@@ -126,28 +126,6 @@
   "item": "find-lost-drugs"
  },
  {
-  "id": "deposit-cash-into-buckme",
-  "name": "Deposit Cash Into BuckMe",
-  "nameDe": "Bargeld bei BuckMe einzahlen",
-  "kind": "step",
-  "chapter": 1,
-  "after": "down-to-earth",
-  "missable": false,
-  "description": "Zahlen Sie an einem beliebigen Geldautomaten Bargeld auf Ihr BuckMe-Girokonto ein.",
-  "url": "https://www.gtabase.com/de/gta-6/missionen/bargeld-in-buckme-einzahlen"
- },
- {
-  "id": "save-for-the-future",
-  "name": "Save for the Future",
-  "nameDe": "Für die Zukunft sparen",
-  "kind": "step",
-  "chapter": 1,
-  "after": "down-to-earth",
-  "missable": false,
-  "description": "Zahlen Sie weiterhin Geld in Ihre Familiensparkonten ein, um das nächste Sparziel zu erreichen und neue BuckMe-Vorteile freizuschalten.",
-  "url": "https://www.gtabase.com/de/gta-6/missionen/fur-die-zukunft-speichern"
- },
- {
   "id": "clock-out",
   "name": "Clock Out",
   "nameDe": "Ausstempeln",
@@ -159,17 +137,6 @@
   "url": "https://www.gtabase.com/de/gta-6/missionen/ausstempeln",
   "giver": "Lucia Caminos",
   "item": "clock-out"
- },
- {
-  "id": "building-a-life",
-  "name": "Building a Life",
-  "nameDe": "Ein Leben aufbauen",
-  "kind": "step",
-  "chapter": 1,
-  "after": "clear-skies",
-  "missable": false,
-  "description": "Jason und Lucia arbeiten gemeinsam an ihrem neuen Zuhause, und Jason gibt Lucia eine Lektion im Umgang mit einer Waffe.",
-  "url": "https://www.gtabase.com/de/gta-6/missionen/ein-leben-aufbauen"
  },
  {
   "id": "ring-the-bell",
@@ -197,28 +164,6 @@
   "giver": "Brian Heder"
  },
  {
-  "id": "take-care-of-jason",
-  "name": "Play Nurse",
-  "nameDe": "Krankenschwester spielen",
-  "kind": "step",
-  "chapter": 2,
-  "after": "ambulance-chaser",
-  "missable": false,
-  "description": "Schau immer wieder nach Jason im Motel, bis er wieder auf den Beinen ist.",
-  "url": "https://www.gtabase.com/de/gta-6/missionen/kummere-dich-um-jason"
- },
- {
-  "id": "overnight-charges",
-  "name": "Overnight Charges",
-  "nameDe": "Übernachtgebühren",
-  "kind": "step",
-  "chapter": 2,
-  "after": "ambulance-chaser",
-  "missable": false,
-  "description": "Gehen Sie zur Rezeption des Motels und erkundigen Sie sich nach dem Zimmerpreis.",
-  "url": "https://www.gtabase.com/de/gta-6/missionen/ubernachtgebuhren"
- },
- {
   "id": "pick-up-a-gun",
   "name": "Pick Up a Gun",
   "nameDe": "Nimm eine Waffe auf",
@@ -229,50 +174,6 @@
   "description": "Geh zu Gellhorn Outfitters, um eine Waffe zu kaufen, oder hol dir eine deiner Waffen aus dem Schließfach.",
   "url": "https://www.gtabase.com/de/gta-6/missions/pick-up-a-gun",
   "giver": "Lucia Caminos"
- },
- {
-  "id": "new-look",
-  "name": "New Look",
-  "nameDe": "Neuer Look",
-  "kind": "step",
-  "chapter": 2,
-  "after": "moses",
-  "missable": false,
-  "description": "Besuchen Sie den Friseursalon Pearl House, um Lucia eine neue Frisur zu verpassen.",
-  "url": "https://www.gtabase.com/de/gta-6/missionen/neuer-look"
- },
- {
-  "id": "how-do-i-look",
-  "name": "How Do I Look?",
-  "nameDe": "Wie sehe ich aus?",
-  "kind": "step",
-  "chapter": 2,
-  "after": "moses",
-  "missable": false,
-  "description": "Kauf Lucia neue Kleidung oder besorg ihr welche günstig bei Bargain World.",
-  "url": "https://www.gtabase.com/de/gta-6/missionen/wie-sehe-ich-aus"
- },
- {
-  "id": "painkiller-supplier",
-  "name": "Got Pills?",
-  "nameDe": "Hast du Pillen?",
-  "kind": "step",
-  "chapter": 2,
-  "after": "moses",
-  "missable": false,
-  "description": "Dunk meldet sich, sobald er etwas auf die Suche nach Schmerzmitteln für Jason gemacht hat.",
-  "url": "https://www.gtabase.com/de/gta-6/missionen/schmerzmittellieferant"
- },
- {
-  "id": "behind-on-payments",
-  "name": "Behind on Payments",
-  "nameDe": "Zahlungsrückstand",
-  "kind": "step",
-  "chapter": 2,
-  "after": "daily-driver",
-  "missable": false,
-  "description": "Linda behält die Halskette als Pfand ein, bis die 900 Dollar für das Motelzimmer bezahlt sind.",
-  "url": "https://www.gtabase.com/de/gta-6/missionen/zahlungsruckstand"
  },
  {
   "id": "thrillbillies",
@@ -335,17 +236,6 @@
   "giver": "Lucia Caminos"
  },
  {
-  "id": "prepare-for-vice-city",
-  "name": "Prepare for Vice City",
-  "nameDe": "Bereite dich auf Vice City vor",
-  "kind": "step",
-  "chapter": 2,
-  "after": "coffee-break",
-  "missable": false,
-  "description": "Verdiene mindestens 15.000 Dollar, während Dre'Quan sich eine Unterkunft in Vice City sucht.",
-  "url": "https://www.gtabase.com/de/gta-6/missionen/bereite-dich-auf-vice-city-vor"
- },
- {
   "id": "get-your-wheels",
   "name": "Get Your Wheels",
   "nameDe": "Besorg dir ein Auto",
@@ -355,39 +245,6 @@
   "missable": false,
   "description": "Get yourself a set of wheels in Vice City.",
   "url": "https://www.gtabase.com/de/gta-6/missions/get-your-wheels"
- },
- {
-  "id": "send-money-to-lorena",
-  "name": "Send Money to Lorena",
-  "nameDe": "Geld an Lorena senden",
-  "kind": "step",
-  "chapter": 3,
-  "after": "here-kitty-kitty",
-  "missable": false,
-  "description": "Schick Lorena etwas Geld.",
-  "url": "https://www.gtabase.com/de/gta-6/missionen/geld-an-lorena-senden"
- },
- {
-  "id": "send-more-money-to-lorena",
-  "name": "Send More Money to Lorena",
-  "nameDe": "Schick mehr Geld an Lorena",
-  "kind": "step",
-  "chapter": 3,
-  "after": "car-service",
-  "missable": false,
-  "description": "Senden Sie eine weitere Zahlung an Lorena.",
-  "url": "https://www.gtabase.com/de/gta-6/missionen/schick-mehr-geld-an-lorena"
- },
- {
-  "id": "yasmanis-jewelry-jobs",
-  "name": "Yasmani's Jewelry Jobs",
-  "nameDe": "Yasmanis Schmuckjobs",
-  "kind": "step",
-  "chapter": 3,
-  "after": "boobie-time",
-  "missable": false,
-  "description": "Überfalle verschiedene Juweliergeschäfte in Vice City und verkaufe die Beute an Yasmani.",
-  "url": "https://www.gtabase.com/de/gta-6/missions/yasmanis-jewelry-jobs"
  },
  {
   "id": "race-against-yago",
@@ -403,17 +260,6 @@
   "item": "race-against-yago"
  },
  {
-  "id": "heist-planning",
-  "name": "Heist Planning",
-  "nameDe": "Raubplanung",
-  "kind": "step",
-  "chapter": 3,
-  "after": "security-expert",
-  "missable": false,
-  "description": "Raul stellt eine Bande zusammen, um die Sinfrontera National Bank auszurauben, und es gibt vorher noch viel vorzubereiten.",
-  "url": "https://www.gtabase.com/de/gta-6/missionen/raububerfallplanung"
- },
- {
   "id": "this-is-a-free-call-from",
   "name": "Pick Up Shayna",
   "nameDe": "Hol Shayna ab",
@@ -425,17 +271,6 @@
   "url": "https://www.gtabase.com/de/gta-6/missions/this-is-a-free-call-from",
   "giver": "Shayna",
   "item": "free-call"
- },
- {
-  "id": "pool-day",
-  "name": "Pool Day",
-  "nameDe": "Tag am Pool",
-  "kind": "step",
-  "chapter": 4,
-  "after": "another-life",
-  "missable": false,
-  "description": "Zeit für einen Tag am Pool.",
-  "url": "https://www.gtabase.com/de/gta-6/missionen/pooltag"
  },
  {
   "id": "attend-eddie-acostas-party",
@@ -474,17 +309,6 @@
   "item": "bad-driver"
  },
  {
-  "id": "tie-up-loose-ends",
-  "name": "Tie Up Loose Ends",
-  "nameDe": "Lose Enden zusammenbinden",
-  "kind": "step",
-  "chapter": 4,
-  "after": "vcia-takedown",
-  "missable": false,
-  "description": "Nach dem Raubüberfall warten Jason und Lucia auf Neuigkeiten von Raul bezüglich der Festplatte.",
-  "url": "https://www.gtabase.com/de/gta-6/missionen/offene-fragen-klaren"
- },
- {
   "id": "thats-where-the-money-is",
   "name": "That's Where the Money Is…",
   "nameDe": "Dort liegt das Geld…",
@@ -495,28 +319,6 @@
   "description": "Yasmani hat einen Tipp zu einem Geldtransporter, der Sie direkt zu einem Banktresor führen könnte.",
   "url": "https://www.gtabase.com/de/gta-6/missions/thats-where-the-money-is",
   "giver": "Yasmani"
- },
- {
-  "id": "honest-abe",
-  "name": "Honest Abe",
-  "nameDe": "Ehrlicher Abe",
-  "kind": "step",
-  "chapter": 5,
-  "after": "operation-savage-glory",
-  "missable": false,
-  "description": "Es ist an der Zeit, mit Abe eine Einigung auszuhandeln.",
-  "url": "https://www.gtabase.com/de/gta-6/missionen/honest-abe"
- },
- {
-  "id": "unfinished-business",
-  "name": "Unfinished Business",
-  "nameDe": "Unerledigte Angelegenheiten",
-  "kind": "step",
-  "chapter": 5,
-  "after": "operation-savage-glory",
-  "missable": false,
-  "description": "Der Festplattendeal ist fast abgeschlossen: Entweder noch die letzten Details klären oder Abes Angebot annehmen.",
-  "url": "https://www.gtabase.com/de/gta-6/missionen/unerledigte-angelegenheiten"
  },
  {
   "id": "search-for-the-skunk-ape",

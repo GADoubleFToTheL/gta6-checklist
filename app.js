@@ -258,7 +258,8 @@ function viewNow() {
     h('div', { class: 'label' }, 'Im Spiel als Nächstes'),
     h('div', { class: 'name' }, mName(m)),
     mAlt(m) && h('div', { class: 'alt' }, `Englisch: ${mAlt(m)}`),
-    h('div', { class: 'meta' }, `${chapterLabel(m.chapter)} · Mission ${m.order} von ${missions.length}`),
+    h('div', { class: 'meta' }, `${chapterLabel(m.chapter)} · ${m.step ? 'Story-Aufgabe' : 'Mission'} ${m.order} von ${missions.length}`),
+    m.note && h('div', { class: 'meta' }, m.note),
     m.orderNote && h('div', { class: 'meta' }, `ℹ ${m.orderNote}`),
     h('button', { class: 'ahead', onclick: () => showAhead(next) }, 'Schon weiter im Spiel? →')));
 
@@ -402,7 +403,7 @@ function toggleSide(x) {
   snack(`${done ? 'Wieder offen' : 'Erledigt'}: ${x.nameDe}`, undoTo(prev));
 }
 
-const SIDE_KINDS = [['all', 'Alle'], ['optional', 'Optional'], ['stranger', 'Fremde & Freaks'], ['step', 'Story-Aufgaben'], ['open', 'Nur offene']];
+const SIDE_KINDS = [['all', 'Alle'], ['optional', 'Optional'], ['stranger', 'Fremde & Freaks'], ['open', 'Nur offene']];
 
 function viewSide(q, cur) {
   const root = h('div');
@@ -437,7 +438,6 @@ function viewSide(q, cur) {
       const hide = state.settings.spoilerProtection && c !== 99 && c > cur.chapter;
       return [hide ? '???' : k, c !== 99 ? ` · ab ${chapLabel(c)}` : ''].join('');
     }, (k, xs) => xs.some((x) => chap(x) === cur.chapter && !sideDone(x)));
-  section('Story-Aufgaben', list.filter((x) => x.kind === 'step').sort(byChapter), chap, chapLabel, curOpen);
   return root;
 }
 
@@ -493,7 +493,7 @@ function missionRow(m, i, next, searched = false) {
   const isDone = i < next;
   // Gezielt gesuchte Missionen sind kein Spoiler – dann nicht verwischen.
   const hidden = !searched && state.settings.spoilerProtection && i > next && !revealed.has(`m:${m.id}`);
-  const meta = [searched && chapterLabel(m.chapter), i === next && 'Als Nächstes', m.pointOfNoReturn && '⚠ Point of no Return'].filter(Boolean).join(' · ');
+  const meta = [searched && chapterLabel(m.chapter), m.step && 'Story-Aufgabe', i === next && 'Als Nächstes', m.pointOfNoReturn && '⚠ Point of no Return'].filter(Boolean).join(' · ');
   return h('button', { class: `row card ${m.pointOfNoReturn ? 'rot' : ''} ${isDone ? 'done' : ''} ${i === next ? 'current' : ''}`,
       onclick: () => { if (hidden) { revealed.add(`m:${m.id}`); render(); return; } chooseProgress(m, i); } },
     h('div', { class: 'check' }, isDone ? '✓' : ''),
@@ -515,7 +515,7 @@ function showAhead(next) {
         closeDialog();
         setProgress(missions[i - 1].id, `Du spielst gerade „${mName(m)}“`);
       } }, h('b', {}, mName(m)), mAlt(m) && h('span', { class: 'alt' }, ` · ${mAlt(m)}`),
-        h('span', { class: 'meta' }, ` · ${chapterLabel(m.chapter)}`));
+        h('span', { class: 'meta' }, ` · ${chapterLabel(m.chapter)}${m.step ? ' · Story-Aufgabe' : ''}`));
     })),
     h('button', { class: 'block link', onclick: closeDialog }, 'Abbrechen'));
 }
@@ -787,7 +787,11 @@ async function init() {
   state = loadState();
   document.getElementById('tabs').addEventListener('click', (e) => {
     const t = e.target.closest('button')?.dataset.tab;
-    if (t) { tab = t; animateNext = true; window.scrollTo(0, 0); render(); }
+    if (t) {
+      tab = t; animateNext = true; window.scrollTo(0, 0); render();
+      // In „Missionen“ direkt zur aktuellen Mission springen.
+      if (t === 'missions') document.querySelector('.row.current')?.scrollIntoView({ block: 'center' });
+    }
   });
   render();
   importFromHash();
