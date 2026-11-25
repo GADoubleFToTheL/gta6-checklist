@@ -2,6 +2,7 @@
  {
   "id": "prologue",
   "name": "Prologue",
+  "nameDe": "Prolog",
   "chapter": 0,
   "character": "Lucia",
   "order": 1,
@@ -11,6 +12,7 @@
  {
   "id": "gone-fishing",
   "name": "Gone Fishing",
+  "nameDe": "Angeln gegangen",
   "chapter": 1,
   "character": "unbekannt",
   "order": 2,
@@ -20,6 +22,7 @@
  {
   "id": "gear-up",
   "name": "Gear Up",
+  "nameDe": "Ausrüstung aufladen",
   "chapter": 1,
   "character": "unbekannt",
   "order": 3,
@@ -29,6 +32,7 @@
  {
   "id": "just-a-scratch",
   "name": "Just a Scratch",
+  "nameDe": "Nur ein Kratzer",
   "chapter": 1,
   "character": "unbekannt",
   "order": 4,
@@ -38,6 +42,7 @@
  {
   "id": "lab-fees",
   "name": "Lab Fees",
+  "nameDe": "Laborgebühren",
   "chapter": 1,
   "character": "unbekannt",
   "order": 5,
@@ -47,6 +52,7 @@
  {
   "id": "unwanted-attention",
   "name": "Unwanted Attention",
+  "nameDe": "Unerwünschte Aufmerksamkeit",
   "chapter": 1,
   "character": "unbekannt",
   "order": 6,
@@ -56,6 +62,7 @@
  {
   "id": "pipework",
   "name": "Pipework",
+  "nameDe": "Rohrleitungen",
   "chapter": 1,
   "character": "unbekannt",
   "order": 7,
@@ -65,6 +72,7 @@
  {
   "id": "hey-arnold",
   "name": "Hey Arnold!",
+  "nameDe": "Hey Arnold!",
   "chapter": 1,
   "character": "unbekannt",
   "order": 8,
@@ -74,6 +82,7 @@
  {
   "id": "island-dreams",
   "name": "Island Dreams",
+  "nameDe": "Inselträume",
   "chapter": 1,
   "character": "unbekannt",
   "order": 9,
@@ -83,6 +92,7 @@
  {
   "id": "feng-shui",
   "name": "Feng Shui",
+  "nameDe": "Feng Shui",
   "chapter": 1,
   "character": "unbekannt",
   "order": 10,
@@ -92,6 +102,7 @@
  {
   "id": "coming-home",
   "name": "Coming Home",
+  "nameDe": "Nach Hause kommen",
   "chapter": 1,
   "character": "unbekannt",
   "order": 11,
@@ -102,6 +113,7 @@
  {
   "id": "buck-me",
   "name": "Buck Me",
+  "nameDe": "Buck Me",
   "chapter": 1,
   "character": "unbekannt",
   "order": 12,
@@ -111,6 +123,7 @@
  {
   "id": "clean-up-after-donnie",
   "name": "Clean Up After Donnie",
+  "nameDe": "Aufräumen nach Donnie",
   "chapter": 1,
   "character": "unbekannt",
   "order": 13,
@@ -120,6 +133,7 @@
  {
   "id": "down-to-earth",
   "name": "Down to Earth",
+  "nameDe": "Auf dem Boden geblieben",
   "chapter": 1,
   "character": "Lucia",
   "order": 14,
@@ -129,6 +143,7 @@
  {
   "id": "clear-skies",
   "name": "Clear Skies",
+  "nameDe": "Klarer Himmel",
   "chapter": 1,
   "character": "unbekannt",
   "order": 15,
@@ -138,6 +153,7 @@
  {
   "id": "day-release",
   "name": "Day Release",
+  "nameDe": "Tagesveröffentlichung",
   "chapter": 1,
   "character": "unbekannt",
   "order": 16,
@@ -147,6 +163,7 @@
  {
   "id": "swamped",
   "name": "Swamped",
+  "nameDe": "Überschwemmt",
   "chapter": 1,
   "character": "unbekannt",
   "order": 17,
@@ -156,6 +173,7 @@
  {
   "id": "don-gone",
   "name": "Don Gone",
+  "nameDe": "Don Gone",
   "chapter": 1,
   "character": "unbekannt",
   "order": 18,
@@ -165,6 +183,7 @@
  {
   "id": "recalibration",
   "name": "Recalibration",
+  "nameDe": "Neukalibrierung",
   "chapter": 1,
   "character": "unbekannt",
   "order": 19,
@@ -174,6 +193,7 @@
  {
   "id": "tourist-trap",
   "name": "Tourist Trap",
+  "nameDe": "Touristenfalle",
   "chapter": 1,
   "character": "unbekannt",
   "order": 20,
@@ -188,6 +208,7 @@
  {
   "id": "home-sweet-home",
   "name": "Home Sweet Home",
+  "nameDe": "Trautes Heim, Glück allein",
   "chapter": 1,
   "character": "Lucia",
   "order": 21,
@@ -197,6 +218,7 @@
  {
   "id": "discharge-time",
   "name": "Discharge Time",
+  "nameDe": "Entladezeit",
   "chapter": 1,
   "character": "unbekannt",
   "order": 22,
@@ -206,6 +228,7 @@
  {
   "id": "what-s-in-the-bag",
   "name": "What's in the Bag?",
+  "nameDe": "Was ist in der Tasche?",
   "chapter": 2,
   "character": "Lucia",
   "order": 23,
@@ -215,6 +238,7 @@
  {
   "id": "ambulance-chaser",
   "name": "Ambulance Chaser",
+  "nameDe": "Unfallverursacher",
   "chapter": 2,
   "character": "Lucia",
   "order": 24,
@@ -224,6 +248,7 @@
  {
   "id": "just-moved-in",
   "name": "Just Moved In",
+  "nameDe": "Gerade erst eingezogen",
   "chapter": 2,
   "character": "Lucia",
   "order": 25,
@@ -233,6 +258,7 @@
  {
   "id": "girls-trip",
   "name": "Girls' Trip",
+  "nameDe": "Mädelsausflug",
   "chapter": 2,
   "character": "Lucia",
   "order": 26,
@@ -242,6 +268,7 @@
  {
   "id": "moses",
   "name": "Moses",
+  "nameDe": "Moses",
   "chapter": 2,
   "character": "unbekannt",
   "order": 27,
@@ -251,6 +278,7 @@
  {
   "id": "daily-driver",
   "name": "Daily Driver",
+  "nameDe": "Alltagsauto",
   "chapter": 2,
   "character": "unbekannt",
   "order": 28,
@@ -260,6 +288,7 @@
  {
   "id": "slam-dunk",
   "name": "Slam Dunk",
+  "nameDe": "Slam Dunk",
   "chapter": 2,
   "character": "unbekannt",
   "order": 29,
@@ -269,6 +298,7 @@
  {
   "id": "breakfast-run",
   "name": "Breakfast Run",
+  "nameDe": "Frühstückslauf",
   "chapter": 2,
   "character": "beide",
   "order": 30,
@@ -278,6 +308,7 @@
  {
   "id": "coffee-break",
   "name": "Coffee Break",
+  "nameDe": "Kaffeepause",
   "chapter": 2,
   "character": "unbekannt",
   "order": 31,
@@ -287,6 +318,7 @@
  {
   "id": "afternoon-delight",
   "name": "Afternoon Delight",
+  "nameDe": "Nachmittagsgenuss",
   "chapter": 2,
   "character": "unbekannt",
   "order": 32,
@@ -296,6 +328,7 @@
  {
   "id": "checking-out",
   "name": "Checking Out",
+  "nameDe": "Auschecken",
   "chapter": 2,
   "character": "unbekannt",
   "order": 33,
@@ -311,6 +344,7 @@
  {
   "id": "welcome-to-vice-city",
   "name": "Welcome to Vice City",
+  "nameDe": "Willkommen in Vice City",
   "chapter": 3,
   "character": "unbekannt",
   "order": 34,
@@ -320,6 +354,7 @@
  {
   "id": "dealer-s-choice",
   "name": "Dealer's Choice",
+  "nameDe": "Händlerwahl",
   "chapter": 3,
   "character": "Jason",
   "order": 35,
@@ -329,6 +364,7 @@
  {
   "id": "meet-the-heders",
   "name": "Meet the Heders",
+  "nameDe": "Lernen Sie die Heders kennen",
   "chapter": 3,
   "character": "unbekannt",
   "order": 36,
@@ -338,6 +374,7 @@
  {
   "id": "dubious-provenance",
   "name": "Dubious Provenance",
+  "nameDe": "Zweifelhafte Herkunft",
   "chapter": 3,
   "character": "unbekannt",
   "order": 37,
@@ -347,6 +384,7 @@
  {
   "id": "mami-knows-best",
   "name": "Mami Knows Best",
+  "nameDe": "Mama weiß es am besten",
   "chapter": 3,
   "character": "Lucia",
   "order": 38,
@@ -356,6 +394,7 @@
  {
   "id": "south-leonida-real-estate",
   "name": "South Leonida Real Estate",
+  "nameDe": "Immobilien in Süd-Leonida",
   "chapter": 3,
   "character": "Lucia",
   "order": 39,
@@ -365,6 +404,7 @@
  {
   "id": "tyrone",
   "name": "Tyrone",
+  "nameDe": "Tyrone",
   "chapter": 3,
   "character": "Jason",
   "order": 40,
@@ -374,6 +414,7 @@
  {
   "id": "here-kitty-kitty",
   "name": "Here, Kitty Kitty",
+  "nameDe": "Hier, Kitty Kitty",
   "chapter": 3,
   "character": "unbekannt",
   "order": 41,
@@ -383,6 +424,7 @@
  {
   "id": "car-service",
   "name": "Car Service",
+  "nameDe": "Autoservice",
   "chapter": 3,
   "character": "Lucia",
   "order": 42,
@@ -392,6 +434,7 @@
  {
   "id": "top-billing",
   "name": "Top Billing",
+  "nameDe": "Top Billing",
   "chapter": 3,
   "character": "unbekannt",
   "order": 43,
@@ -401,6 +444,7 @@
  {
   "id": "boobie-time",
   "name": "Boobie Time",
+  "nameDe": "Boobie Time",
   "chapter": 3,
   "character": "unbekannt",
   "order": 44,
@@ -410,6 +454,7 @@
  {
   "id": "first-impressions",
   "name": "First Impressions",
+  "nameDe": "Erste Eindrücke",
   "chapter": 3,
   "character": "unbekannt",
   "order": 45,
@@ -419,6 +464,7 @@
  {
   "id": "caught-slipping",
   "name": "Caught Slipping",
+  "nameDe": "Beim Ausrutschen erwischt",
   "chapter": 3,
   "character": "beide",
   "order": 46,
@@ -428,6 +474,7 @@
  {
   "id": "crosstown-traffic",
   "name": "Crosstown Traffic",
+  "nameDe": "Querverkehr",
   "chapter": 3,
   "character": "unbekannt",
   "order": 47,
@@ -437,6 +484,7 @@
  {
   "id": "credit-check",
   "name": "Credit Check",
+  "nameDe": "Bonitätsprüfung",
   "chapter": 3,
   "character": "unbekannt",
   "order": 48,
@@ -446,6 +494,7 @@
  {
   "id": "steal-the-zorrusso-for-randy",
   "name": "Steal the Zorrusso for Randy",
+  "nameDe": "Schlüssel klonen, Kohle machen",
   "chapter": 3,
   "character": "unbekannt",
   "order": 49,
@@ -455,6 +504,7 @@
  {
   "id": "sinfrontera-national-bank",
   "name": "Sinfrontera National Bank",
+  "nameDe": "Sinfrontera National Bank",
   "chapter": 3,
   "character": "unbekannt",
   "order": 50,
@@ -464,6 +514,7 @@
  {
   "id": "security-expert",
   "name": "Security Expert",
+  "nameDe": "Sicherheitsexperte",
   "chapter": 3,
   "character": "unbekannt",
   "order": 51,
@@ -473,6 +524,7 @@
  {
   "id": "ride-or-die",
   "name": "Ride or Die",
+  "nameDe": "Bis zum Tod",
   "chapter": 3,
   "character": "unbekannt",
   "order": 52,
@@ -482,6 +534,7 @@
  {
   "id": "company-property",
   "name": "Company Property",
+  "nameDe": "Firmeneigentum",
   "chapter": 3,
   "character": "unbekannt",
   "order": 53,
@@ -491,6 +544,7 @@
  {
   "id": "the-missing-link",
   "name": "The Missing Link",
+  "nameDe": "Das fehlende Glied",
   "chapter": 3,
   "character": "unbekannt",
   "order": 54,
@@ -500,6 +554,7 @@
  {
   "id": "safe-word",
   "name": "Safe Word",
+  "nameDe": "Sicherheitswort",
   "chapter": 3,
   "character": "unbekannt",
   "order": 55,
@@ -509,6 +564,7 @@
  {
   "id": "cooties",
   "name": "Cooties",
+  "nameDe": "Läuse",
   "chapter": 3,
   "character": "unbekannt",
   "order": 56,
@@ -518,6 +574,7 @@
  {
   "id": "bricked-up",
   "name": "Bricked Up",
+  "nameDe": "Zugemauert",
   "chapter": 3,
   "character": "beide",
   "order": 57,
@@ -527,6 +584,7 @@
  {
   "id": "hidden-charges",
   "name": "Hidden Charges",
+  "nameDe": "Versteckte Gebühren",
   "chapter": 3,
   "character": "unbekannt",
   "order": 58,
@@ -536,6 +594,7 @@
  {
   "id": "the-cartel-heist",
   "name": "The Cartel Heist",
+  "nameDe": "Der Kartellraub",
   "chapter": 3,
   "character": "unbekannt",
   "order": 59,
@@ -545,6 +604,7 @@
  {
   "id": "ocean-beach",
   "name": "Ocean Beach",
+  "nameDe": "Ocean Beach",
   "chapter": 4,
   "character": "unbekannt",
   "order": 60,
@@ -554,6 +614,7 @@
  {
   "id": "another-life",
   "name": "Another Life",
+  "nameDe": "Ein anderes Leben",
   "chapter": 4,
   "character": "unbekannt",
   "order": 61,
@@ -563,6 +624,7 @@
  {
   "id": "company-cars",
   "name": "Company Cars",
+  "nameDe": "Firmenwagen",
   "chapter": 4,
   "character": "unbekannt",
   "order": 62,
@@ -572,6 +634,7 @@
  {
   "id": "lawyer-up",
   "name": "Lawyer Up",
+  "nameDe": "Anwalt einschalten",
   "chapter": 4,
   "character": "unbekannt",
   "order": 63,
@@ -581,6 +644,7 @@
  {
   "id": "party-hard",
   "name": "Party Hard",
+  "nameDe": "Feiern Sie hart!",
   "chapter": 4,
   "character": "unbekannt",
   "order": 64,
@@ -590,6 +654,7 @@
  {
   "id": "heavy-lifting",
   "name": "Heavy Lifting",
+  "nameDe": "Schweres Heben",
   "chapter": 4,
   "character": "beide",
   "order": 65,
@@ -599,6 +664,7 @@
  {
   "id": "photo-shoot",
   "name": "Photo/Shoot",
+  "nameDe": "Foto-Shooting",
   "chapter": 4,
   "character": "unbekannt",
   "order": 66,
@@ -608,6 +674,7 @@
  {
   "id": "making-gainz",
   "name": "Making Gainz",
+  "nameDe": "Muskelaufbau",
   "chapter": 4,
   "character": "Lucia",
   "order": 67,
@@ -617,6 +684,7 @@
  {
   "id": "watch-it",
   "name": "Watch It",
+  "nameDe": "Schau es dir an",
   "chapter": 4,
   "character": "unbekannt",
   "order": 68,
@@ -626,6 +694,7 @@
  {
   "id": "cash-injections",
   "name": "Cash Injections",
+  "nameDe": "Finanzspritzen",
   "chapter": 4,
   "character": "Lucia",
   "order": 69,
@@ -635,6 +704,7 @@
  {
   "id": "amateur-hour",
   "name": "Amateur Hour",
+  "nameDe": "Amateurstunde",
   "chapter": 4,
   "character": "Lucia",
   "order": 70,
@@ -644,6 +714,7 @@
  {
   "id": "dirty-work",
   "name": "Dirty Work",
+  "nameDe": "Drecksarbeit",
   "chapter": 4,
   "character": "unbekannt",
   "order": 71,
@@ -653,6 +724,7 @@
  {
   "id": "too-much-baggage",
   "name": "Too Much Baggage",
+  "nameDe": "Zu viel Gepäck",
   "chapter": 4,
   "character": "Jason",
   "order": 72,
@@ -662,6 +734,7 @@
  {
   "id": "adventures-in-babysitting",
   "name": "Adventures in Babysitting",
+  "nameDe": "Abenteuer beim Babysitten",
   "chapter": 4,
   "character": "unbekannt",
   "order": 73,
@@ -671,6 +744,7 @@
  {
   "id": "fresh-evidence",
   "name": "Fresh Evidence",
+  "nameDe": "Neue Beweise",
   "chapter": 4,
   "character": "unbekannt",
   "order": 74,
@@ -680,6 +754,7 @@
  {
   "id": "power-play",
   "name": "Power Play",
+  "nameDe": "Machtspiel",
   "chapter": 4,
   "character": "unbekannt",
   "order": 75,
@@ -689,6 +764,7 @@
  {
   "id": "child-s-play",
   "name": "Child's Play",
+  "nameDe": "Kinderspiel",
   "chapter": 4,
   "character": "unbekannt",
   "order": 76,
@@ -698,6 +774,7 @@
  {
   "id": "headliners",
   "name": "Headliners",
+  "nameDe": "Headliner",
   "chapter": 4,
   "character": "unbekannt",
   "order": 77,
@@ -707,6 +784,7 @@
  {
   "id": "close-surveillance",
   "name": "Close Surveillance",
+  "nameDe": "Enge Überwachung",
   "chapter": 4,
   "character": "Jason",
   "order": 78,
@@ -716,6 +794,7 @@
  {
   "id": "delivery-method",
   "name": "Delivery Method",
+  "nameDe": "Liefermethode",
   "chapter": 4,
   "character": "Jason",
   "order": 79,
@@ -725,6 +804,7 @@
  {
   "id": "team-building",
   "name": "Team Building",
+  "nameDe": "Teambildung",
   "chapter": 4,
   "character": "Lucia",
   "order": 80,
@@ -734,6 +814,7 @@
  {
   "id": "fully-catered",
   "name": "Fully Catered",
+  "nameDe": "Vollverpflegung",
   "chapter": 4,
   "character": "unbekannt",
   "order": 81,
@@ -743,6 +824,7 @@
  {
   "id": "vcia-takedown",
   "name": "VCIA Takedown",
+  "nameDe": "VCIA-Entführung",
   "chapter": 4,
   "character": "unbekannt",
   "order": 82,
@@ -752,6 +834,7 @@
  {
   "id": "sunset",
   "name": "Sunset",
+  "nameDe": "Sonnenuntergang",
   "chapter": 4,
   "character": "beide",
   "order": 83,
@@ -766,6 +849,7 @@
  {
   "id": "starting-from-zero",
   "name": "Starting From Zero",
+  "nameDe": "Bei Null anfangen",
   "chapter": 4,
   "character": "unbekannt",
   "order": 84,
@@ -775,6 +859,7 @@
  {
   "id": "bird-in-the-hand",
   "name": "Bird in the Hand",
+  "nameDe": "Lieber den Spatz in der Hand",
   "chapter": 5,
   "character": "beide",
   "order": 85,
@@ -784,6 +869,7 @@
  {
   "id": "taking-liberties",
   "name": "Taking Liberties",
+  "nameDe": "Sich Freiheiten herausnehmen",
   "chapter": 5,
   "character": "beide",
   "order": 86,
@@ -793,6 +879,7 @@
  {
   "id": "vc-baby",
   "name": "VC Baby",
+  "nameDe": "VC Baby",
   "chapter": 5,
   "character": "unbekannt",
   "order": 87,
@@ -802,6 +889,7 @@
  {
   "id": "doggie-bag",
   "name": "Doggie Bag",
+  "nameDe": "Hundekotbeutel",
   "chapter": 5,
   "character": "unbekannt",
   "order": 88,
@@ -811,6 +899,7 @@
  {
   "id": "operation-savage-glory",
   "name": "Operation Savage Glory",
+  "nameDe": "Operation Wilder Ruhm",
   "chapter": 5,
   "character": "unbekannt",
   "order": 89,
@@ -820,6 +909,7 @@
  {
   "id": "protective-custody",
   "name": "Protective Custody",
+  "nameDe": "Schutzhaft",
   "chapter": 5,
   "character": "beide",
   "order": 90,
@@ -829,6 +919,7 @@
  {
   "id": "the-end-of-the-road",
   "name": "The End of the Road",
+  "nameDe": "Das Ende der Straße",
   "chapter": 5,
   "character": "unbekannt",
   "order": 91,

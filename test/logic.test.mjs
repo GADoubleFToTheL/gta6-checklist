@@ -164,3 +164,8 @@ test('index.html: Kulisse (Himmel + Boden mit Palmen) und Logo vorhanden', () =>
   assert.match(html, /class="jet"/);
   assert.match(html, /icons\/logo\.svg/);
 });
+
+test('Missionen: jede hat einen deutschen Titel', () => {
+  for (const m of missions) assert.ok(typeof m.nameDe === 'string' && m.nameDe.trim(), m.id);
+  assert.equal(missions.find((m) => m.id === 'girls-trip').nameDe, 'Mädelsausflug');
+});

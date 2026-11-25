@@ -131,6 +131,10 @@ const HINTS = {
 };
 
 const chapterLabel = (c) => (c === 0 ? 'Prolog' : `Kapitel ${c}`);
+/** Deutscher Missionstitel (englischer Originaltitel als Zusatz, wo verschieden). */
+const mName = (m) => m.nameDe || m.name;
+const mAlt = (m) => (m.nameDe && m.nameDe !== m.name ? m.name : '');
+let missionQuery = '';
 
 function isFutureItem(it) {
   if (!state.settings.spoilerProtection || revealed.has(`i:${it.id}`)) return false;
@@ -249,7 +253,8 @@ function viewNow() {
 
   root.append(h('section', { class: 'hero' },
     h('div', { class: 'label' }, 'Im Spiel als Nächstes'),
-    h('div', { class: 'name' }, m.name),
+    h('div', { class: 'name' }, mName(m)),
+    mAlt(m) && h('div', { class: 'alt' }, `Englisch: ${mAlt(m)}`),
     h('div', { class: 'meta' }, `${chapterLabel(m.chapter)} · Mission ${m.order} von ${missions.length}`),
     m.orderNote && h('div', { class: 'meta' }, `ℹ ${m.orderNote}`)));
 
@@ -279,7 +284,7 @@ function viewNow() {
     root.append(h('button', { class: 'link', onclick: undoMission }, 'Letzte Mission rückgängig machen'));
   }
   root.append(h('div', { class: 'cta' },
-    h('button', { class: 'primary block', onclick: () => completeMission(reds) }, `„${m.name}“ gespielt – weiter ✓`)));
+    h('button', { class: 'primary block', onclick: () => completeMission(reds) }, `„${mName(m)}“ gespielt – weiter ✓`)));
   return root;
 }
 
@@ -297,7 +302,7 @@ async function completeMission(reds) {
     ], reds.length ? 'Trotzdem weiter' : 'Weiter', gate);
     if (!ok) return;
   }
-  setProgress(m.id, `„${m.name}“ abgeschlossen`);
+  setProgress(m.id, `„${mName(m)}“ abgeschlossen`);
 }
 
 function undoMission() {
@@ -351,7 +356,17 @@ function viewMissions() {
   const next = nextIdx();
   const cur = missions[Math.min(next, missions.length - 1)];
   const root = h('div', {}, h('h1', {}, 'Missionen'),
-    h('p', { class: 'muted small' }, 'Tippe eine Mission an, um sie als zuletzt abgeschlossen zu setzen.'));
+    h('p', { class: 'muted small' }, 'Tippe eine Mission an, um deinen Fortschritt zu setzen.'),
+    h('input', { type: 'search', id: 'mq', placeholder: 'Mission suchen (deutsch oder englisch) …', value: missionQuery,
+      oninput: (e) => { missionQuery = e.target.value; render(); const q = document.getElementById('mq'); q.focus(); q.setSelectionRange(q.value.length, q.value.length); } }));
+  const norm = (t) => t.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, ' ').trim();
+  const q = norm(missionQuery);
+  if (q) {
+    const hits = missions.map((m, i) => [m, i]).filter(([m]) => norm(`${m.nameDe || ''} ${m.name} ${m.id}`).includes(q));
+    if (!hits.length) root.append(h('p', { class: 'muted' }, 'Keine Mission gefunden.'));
+    hits.forEach(([m, i]) => root.append(missionRow(m, i, next, true)));
+    return root;
+  }
   const byChapter = new Map();
   missions.forEach((m, i) => byChapter.set(m.chapter, [...(byChapter.get(m.chapter) || []), [m, i]]));
   for (const [chapter, entries] of byChapter) {
@@ -364,18 +379,32 @@ function viewMissions() {
   return root;
 }
 
-function missionRow(m, i, next) {
+function missionRow(m, i, next, searched = false) {
   const isDone = i < next;
-  const hidden = state.settings.spoilerProtection && i > next && !revealed.has(`m:${m.id}`);
+  // Gezielt gesuchte Missionen sind kein Spoiler – dann nicht verwischen.
+  const hidden = !searched && state.settings.spoilerProtection && i > next && !revealed.has(`m:${m.id}`);
+  const meta = [searched && chapterLabel(m.chapter), i === next && 'Als Nächstes', m.pointOfNoReturn && '⚠ Point of no Return'].filter(Boolean).join(' · ');
   return h('button', { class: `row card ${m.pointOfNoReturn ? 'rot' : ''} ${isDone ? 'done' : ''} ${i === next ? 'current' : ''}`,
-      onclick: async () => {
-        if (hidden) { revealed.add(`m:${m.id}`); render(); return; }
-        if (await confirmDialog('Fortschritt setzen', h('p', {}, `„${m.name}“ als zuletzt abgeschlossen setzen?`), 'Setzen')) setProgress(m.id, `Fortschritt auf „${m.name}“ gesetzt`);
-      } },
+      onclick: () => { if (hidden) { revealed.add(`m:${m.id}`); render(); return; } chooseProgress(m, i); } },
     h('div', { class: 'check' }, isDone ? '✓' : ''),
     h('div', { class: 'body' },
-      h('div', { class: `title ${hidden ? 'blur' : ''}` }, m.name),
-      (i === next || m.pointOfNoReturn) && h('div', { class: 'meta' }, i === next && 'Als Nächstes', i === next && m.pointOfNoReturn && ' · ', m.pointOfNoReturn && '⚠ Point of no Return')));
+      h('div', { class: `title ${hidden ? 'blur' : ''}` }, mName(m)),
+      mAlt(m) && h('div', { class: `alt ${hidden ? 'blur' : ''}` }, mAlt(m)),
+      meta && h('div', { class: 'meta' }, meta)));
+}
+
+/** Fortschritt auf eine Mission setzen: schon gespielt oder spiele ich gerade. */
+function chooseProgress(m, i) {
+  const prev = i > 0 ? missions[i - 1] : null;
+  openDialog(
+    h('h1', {}, mName(m)),
+    mAlt(m) && h('p', { class: 'alt' }, `Englisch: ${mAlt(m)}`),
+    h('div', { class: 'choice' },
+      h('button', { class: 'primary block', onclick: () => { closeDialog(); missionQuery = ''; setProgress(prev ? prev.id : null, `Du spielst gerade „${mName(m)}“`); tab = 'now'; render(); } },
+        'Spiele ich gerade'),
+      h('button', { class: 'block', onclick: () => { closeDialog(); missionQuery = ''; setProgress(m.id, `„${mName(m)}“ als gespielt eingetragen`); } },
+        'Schon gespielt ✓'),
+      h('button', { class: 'block link', onclick: closeDialog }, 'Abbrechen')));
 }
 
 /* ---------- Tab: Alle Einträge ---------- */
@@ -421,9 +450,9 @@ function whenText(it) {
   const lost = missions.find((m) => m.id === it.lostAt?.mission);
   const from = missions.find((m) => m.id === it.availableFrom);
   const parts = [];
-  if (from) parts.push(`Verfügbar ab: nach „${from.name}“`);
+  if (from) parts.push(`Verfügbar ab: nach „${mName(from)}“`);
   parts.push(lost
-    ? `Geht verloren: ${it.lostAt.when === 'start' ? `sobald „${lost.name}“ startet` : `nach „${lost.name}“`}`
+    ? `Geht verloren: ${it.lostAt.when === 'start' ? `sobald „${mName(lost)}“ startet` : `nach „${mName(lost)}“`}`
     : 'Geht verloren: Zeitpunkt nicht bekannt');
   return parts;
 }
@@ -553,7 +582,7 @@ async function importFromHash() {
   try { incoming = decodeShare(m[1], missions); } catch { toast('Der Link enthält keinen gültigen Fortschritt.'); return; }
   const last = missions.find((x) => x.id === incoming.lastCompletedMissionId);
   const ok = await confirmDialog('Fortschritt übernehmen?', [
-    h('p', {}, `Zuletzt gespielt: ${last ? `„${last.name}“` : 'noch nichts'} · ${Object.keys(incoming.doneItems).length} Aufgaben erledigt.`),
+    h('p', {}, `Zuletzt gespielt: ${last ? `„${mName(last)}“` : 'noch nichts'} · ${Object.keys(incoming.doneItems).length} Aufgaben erledigt.`),
     h('p', { class: 'meta' }, 'Dein bisheriger Stand auf diesem Gerät wird ersetzt.'),
   ], 'Übernehmen');
   if (ok) { const prev = state; save(incoming); snack('Fortschritt übernommen', undoTo(prev)); }

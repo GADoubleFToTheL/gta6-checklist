@@ -58,7 +58,7 @@ nav#tabs button.active{color:#2f2660;font-weight:800;background:var(--sunset);bo
 .hero{border-radius:24px;padding:20px 18px;margin:0 0 14px;
   background:linear-gradient(170deg,rgba(71,56,117,.92) 0%,rgba(130,119,191,.9) 55%,rgba(246,154,201,.92) 100%);border:1px solid var(--line);box-shadow:0 12px 40px rgba(71,56,117,.45)}
 .hero .label{color:var(--cream)}
-.hero .name{font-size:2rem;line-height:1.05;margin:.2rem 0 .3rem;color:var(--cream);text-shadow:3px 3px 0 var(--bandana),0 2px 12px rgba(47,38,96,.5);overflow-wrap:anywhere}
+.hero .name{font-size:clamp(1.3rem,7.6vw,2rem);line-height:1.05;margin:.2rem 0 .3rem;hyphens:auto;-webkit-hyphens:auto;color:var(--cream);text-shadow:3px 3px 0 var(--bandana),0 2px 12px rgba(47,38,96,.5);overflow-wrap:break-word}
 .hero .meta{color:var(--cream);font-size:.9rem}
 .bar{height:8px;border-radius:99px;background:rgba(0,0,0,.35);margin:12px 0 16px;overflow:hidden}
 .bar i{display:block;height:100%;background:#fff;border-radius:99px;transition:width .6s var(--ease)}
@@ -233,3 +233,9 @@ header.top img{height:46px;width:auto;filter:drop-shadow(0 4px 12px rgba(246,154
 header.top b{display:block;font-family:"Arial Black","Segoe UI Black",Impact,system-ui,sans-serif;font-style:italic;text-transform:uppercase;
   letter-spacing:.06em;font-size:1rem;color:var(--cream);text-shadow:2px 2px 0 var(--bandana)}
 header.top span{display:block;font-size:.75rem;color:var(--muted);letter-spacing:.04em}
+
+/* Englischer Originaltitel unter dem deutschen */
+.alt{font-size:.78rem;color:var(--muted);margin-top:2px}
+.hero .alt{color:var(--cream);opacity:.85;font-size:.85rem;margin:-.1rem 0 .3rem}
+.choice{display:grid;gap:10px;margin-top:14px}
+#mq{margin:4px 0 12px}
