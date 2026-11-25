@@ -397,3 +397,10 @@ dialog.sheet::backdrop { background: rgba(18, 13, 34, .6); animation: fade .2s; 
   body.tab-story, body.tab-side, body.tab-more { --scene-h: 380px; }
   .tabbar { left: 50%; right: auto; width: 680px; transform: translateX(-50%); border: 1px solid var(--line); border-bottom: 0; border-radius: 16px 16px 0 0; }
 }
+
+/* Auf-/Zuklappen */
+.chapter-h .chev { flex: none; align-self: center; display: grid; place-items: center; width: 28px; height: 28px; margin-left: 2px; color: var(--text-3); transition: transform .2s var(--ease); }
+.chapter-h[aria-expanded=false] .chev { transform: rotate(-90deg); }
+.chapter.locked .chev { visibility: hidden; }
+.li-more.collapse { color: var(--text-3); }
+[data-anchor] { scroll-margin: 90px 0 calc(var(--tabbar-h) + env(safe-area-inset-bottom) + 20px); }

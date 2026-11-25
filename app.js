@@ -346,8 +346,27 @@ function missionRow(m, next, { searched = false } = {}) {
       icon('chevron-right', 18)));
 }
 
-function hiddenRow(text, onReveal) {
-  return h('button', { class: 'li-more', onclick: onReveal }, icon('eye', 18), h('span', {}, text), h('span', { style: 'margin-left:auto' }, icon('chevron-right', 16)));
+function hiddenRow(text, onReveal, anchor = null) {
+  return h('button', { class: 'li-more', 'data-anchor': anchor, onclick: onReveal }, icon('eye', 18), h('span', {}, text), h('span', { style: 'margin-left:auto' }, icon('chevron-down', 16)));
+}
+
+/** Aufgedeckte Liste wieder einklappen; danach die Stelle zeigen, an der aufgeklappt wurde. */
+function collapseRow(text, anchor, onCollapse) {
+  return h('button', { class: 'li-more collapse', onclick: () => { onCollapse(); render(); keepInView(anchor); } },
+    icon('eye-off', 18), h('span', {}, text), h('span', { style: 'margin-left:auto' }, icon('chevron-up', 16)));
+}
+
+function keepInView(anchor) {
+  if (!anchor) return;
+  requestAnimationFrame(() => document.querySelector(`[data-anchor="${CSS.escape(anchor)}"]`)?.scrollIntoView({ block: 'nearest' }));
+}
+
+/** Kapitelkopf mit Fortschritt und Pfeil zum Auf-/Zuklappen. */
+function chapterHead(num, name, muted, doneCount, total, expanded, onToggle, anchor) {
+  return h('button', { class: 'chapter-h', 'aria-expanded': String(expanded), 'data-anchor': anchor, onclick: onToggle },
+    h('div', {}, h('div', { class: 'num' }, num), h('span', { class: `name ${muted ? 'muted' : ''}` }, name)),
+    h('div', { class: 'prog' }, `${doneCount}/${total}`, h('div', { class: 'bar' }, h('i', { style: `width:${(doneCount / total) * 100}%` }))),
+    h('span', { class: 'chev', 'aria-hidden': 'true' }, icon('chevron-down', 18)));
 }
 
 /* ---------- Reiter: Jetzt ---------- */
@@ -413,8 +432,8 @@ function viewNow() {
     page.append(sectionH(`Später in ${chapterLabel(m.chapter)}`, `${later.length}`));
     const box = h('div', { class: 'list' });
     if (showLater) later.forEach((it) => box.append(itemRow(it)));
-    box.append(h('button', { class: 'li-more', onclick: () => { showLater = !showLater; render(); } },
-      icon(showLater ? 'chevron-down' : 'list-checks', 18), showLater ? 'Weniger anzeigen' : `${later.length} weitere Aufgaben anzeigen`));
+    box.append(h('button', { class: `li-more ${showLater ? 'collapse' : ''}`, 'data-anchor': 'later', onclick: () => { showLater = !showLater; render(); if (!showLater) keepInView('later'); } },
+      icon(showLater ? 'chevron-up' : 'list-checks', 18), showLater ? 'Weniger anzeigen' : `${later.length} weitere Aufgaben anzeigen`));
     page.append(box);
   }
   if (state.lastCompletedMissionId) {
@@ -482,20 +501,26 @@ function viewStory() {
     const locked = spoiler() && c > cur && !revealed.has(`ch:${c}`);
     const isOpen = openChapters.has(c) || (c === cur && !openChapters.has(`-${c}`));
     const sec = h('section', { class: `chapter ${locked ? 'locked' : ''}` });
-    sec.append(h('button', { class: 'chapter-h', 'aria-expanded': String(!locked && isOpen), onclick: () => toggleChapter(c, isOpen) },
-      h('div', {}, h('div', { class: 'num' }, c === 0 ? 'Einstieg' : chapterLabel(c)), h('span', { class: `name ${locked ? 'muted' : ''}` }, locked ? 'Noch nicht erreicht' : (chapterName(c) || chapterLabel(c)))),
-      h('div', { class: 'prog' }, `${doneCount}/${list.length}`, h('div', { class: 'bar' }, h('i', { style: `width:${(doneCount / list.length) * 100}%` })))));
+    sec.append(chapterHead(c === 0 ? 'Einstieg' : chapterLabel(c), locked ? 'Noch nicht erreicht' : (chapterName(c) || chapterLabel(c)), locked,
+      doneCount, list.length, !locked && isOpen, () => { toggleChapter(c, isOpen); keepInView(`head:${c}`); }, `head:${c}`));
     if (locked) {
-      sec.append(h('div', { class: 'list' }, hiddenRow(`${list.length} Missionen ausgeblendet (Spoiler) – anzeigen`, () => { revealed.add(`ch:${c}`); openChapters.add(c); render(); })));
+      sec.append(h('div', { class: 'list' }, hiddenRow(`${list.length} Missionen ausgeblendet (Spoiler) – anzeigen`, () => { revealed.add(`ch:${c}`); openChapters.add(c); openChapters.delete(`-${c}`); render(); }, `ch:${c}`)));
     } else if (isOpen) {
       const box = h('div', { class: 'list' });
-      let shown = list;
-      if (spoiler() && c === cur && !revealed.has(`rest:${c}`)) {
-        shown = list.filter((m) => missions.indexOf(m) <= next);
-        const rest = list.length - shown.length;
-        shown.forEach((m) => box.append(missionRow(m, next)));
-        if (rest > 0) box.append(hiddenRow(`Noch ${rest} ${rest === 1 ? 'Mission' : 'Missionen'} in diesem Kapitel – anzeigen`, () => { revealed.add(`rest:${c}`); render(); }));
-      } else shown.forEach((m) => box.append(missionRow(m, next)));
+      const restKey = `rest:${c}`;
+      if (spoiler() && c === cur) {
+        const upcoming = list.filter((m) => missions.indexOf(m) > next);
+        const restOpen = revealed.has(restKey);
+        list.filter((m) => restOpen || missions.indexOf(m) <= next).forEach((m) => box.append(missionRow(m, next)));
+        if (upcoming.length && !restOpen) {
+          box.append(hiddenRow(`Noch ${upcoming.length} ${upcoming.length === 1 ? 'Mission' : 'Missionen'} in diesem Kapitel – anzeigen`, () => { revealed.add(restKey); render(); }, restKey));
+        } else if (upcoming.length) {
+          box.append(collapseRow('Kommende Missionen wieder ausblenden', restKey, () => revealed.delete(restKey)));
+        }
+      } else {
+        list.forEach((m) => box.append(missionRow(m, next)));
+        if (spoiler() && c > cur) box.append(collapseRow('Kapitel wieder ausblenden', `ch:${c}`, () => revealed.delete(`ch:${c}`)));
+      }
       sec.append(box);
     }
     page.append(sec);
@@ -556,12 +581,15 @@ function viewSide() {
     const key = `s${c}`;
     const isOpen = openChapters.has(key) || (c >= cur && !openChapters.has(`-${key}`));
     const sec = h('section', { class: `chapter ${locked ? 'locked' : ''}` },
-      h('button', { class: 'chapter-h', 'aria-expanded': String(!locked && isOpen), onclick: () => toggleChapter(key, isOpen) },
-        h('div', {}, h('div', { class: 'num' }, c === 99 ? 'Ohne Kapitel' : c === 0 ? 'Einstieg' : chapterLabel(c)),
-          h('span', { class: `name ${locked ? 'muted' : ''}` }, locked ? 'Noch nicht erreicht' : (chapterName(c) || 'Sonstige'))),
-        h('div', { class: 'prog' }, `${d}/${xs.length}`, h('div', { class: 'bar' }, h('i', { style: `width:${(d / xs.length) * 100}%` })))));
-    if (locked) sec.append(h('div', { class: 'list' }, hiddenRow(`${xs.length} Nebenmissionen ausgeblendet (Spoiler) – anzeigen`, () => { revealed.add(`side:${c}`); openChapters.add(key); render(); })));
-    else if (isOpen) sec.append(h('div', { class: 'list' }, xs.map((x) => sideRow(x))));
+      chapterHead(c === 99 ? 'Ohne Kapitel' : c === 0 ? 'Einstieg' : chapterLabel(c), locked ? 'Noch nicht erreicht' : (chapterName(c) || 'Sonstige'), locked,
+        d, xs.length, !locked && isOpen, () => { toggleChapter(key, isOpen); keepInView(`head:${key}`); }, `head:${key}`));
+    if (locked) {
+      sec.append(h('div', { class: 'list' }, hiddenRow(`${xs.length} Nebenmissionen ausgeblendet (Spoiler) – anzeigen`, () => { revealed.add(`side:${c}`); openChapters.add(key); openChapters.delete(`-${key}`); render(); }, `side:${c}`)));
+    } else if (isOpen) {
+      const box = h('div', { class: 'list' }, xs.map((x) => sideRow(x)));
+      if (spoiler() && c !== 99 && c > cur) box.append(collapseRow('Wieder ausblenden', `side:${c}`, () => revealed.delete(`side:${c}`)));
+      sec.append(box);
+    }
     page.append(sec);
   }
   return page;
@@ -663,11 +691,14 @@ function viewItems() {
     && (!itemFilters.category || it.category === itemFilters.category)
     && (!itemFilters.status || status(it) === itemFilters.status)
     && (!q || norm(`${it.title} ${it.description} ${it.location}`).includes(q)));
-  const future = spoiler() && !q && !revealed.has('items-future') ? list.filter((it) => itemChapter(it, missions) > cur) : [];
-  list = list.filter((it) => !future.includes(it));
+  const later = spoiler() && !q ? list.filter((it) => itemChapter(it, missions) > cur) : [];
+  const laterOpen = revealed.has('items-future');
+  if (!laterOpen) list = list.filter((it) => !later.includes(it));
+  const future = laterOpen ? [] : later;
   page.append(sectionH('Aufgaben', list.length));
   const box = h('div', { class: 'list' }, list.map((it) => itemRow(it)));
-  if (future.length) box.append(hiddenRow(`${future.length} Aufgaben aus späteren Kapiteln ausgeblendet – anzeigen`, () => { revealed.add('items-future'); render(); }));
+  if (future.length) box.append(hiddenRow(`${future.length} Aufgaben aus späteren Kapiteln ausgeblendet – anzeigen`, () => { revealed.add('items-future'); render(); }, 'items-future'));
+  else if (laterOpen && later.length) box.append(collapseRow('Aufgaben aus späteren Kapiteln wieder ausblenden', 'items-future', () => revealed.delete('items-future')));
   page.append(list.length || future.length ? box : emptyCard('Keine Aufgaben für diesen Filter.'));
   return page;
 }
