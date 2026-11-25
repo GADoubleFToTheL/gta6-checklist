@@ -169,3 +169,15 @@ test('Missionen: jede hat einen deutschen Titel', () => {
   for (const m of missions) assert.ok(typeof m.nameDe === 'string' && m.nameDe.trim(), m.id);
   assert.equal(missions.find((m) => m.id === 'girls-trip').nameDe, 'Mädelsausflug');
 });
+
+test('Nebenmissionen: IDs eindeutig, Verweise gültig, nur https-Links', () => {
+  const side = JSON.parse(readFileSync(new URL('../data/sidemissions.json', import.meta.url)));
+  assert.ok(side.length > 30);
+  assert.equal(new Set(side.map((x) => x.id)).size, side.length);
+  for (const x of side) {
+    assert.ok(['optional', 'stranger', 'step'].includes(x.kind), x.id);
+    assert.ok(x.nameDe && x.name, x.id);
+    if (x.after) assert.ok(missionIndexById(missions, x.after) >= 0, `${x.id}: ${x.after}`);
+    assert.ok(safeHttpsUrl(x.url), x.id);
+  }
+});

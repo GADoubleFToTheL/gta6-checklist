@@ -1,7 +1,7 @@
 import {
   nextIndex, itemStatus, urgency, openNow, redItems, itemChapter,
   defaultState, sanitizeState, safeHttpsUrl, mapTarget,
-  moneyPlan, goalMatch, encodeShare, decodeShare, FAMILY_SAVINGS_CAP,
+  moneyPlan, goalMatch, encodeShare, decodeShare, FAMILY_SAVINGS_CAP, sideChapter, sideUnlocked,
 } from './logic.js';
 
 const STORAGE_KEY = 'gta6-checklist-v1';
@@ -9,6 +9,9 @@ const CATEGORIES = ['Vorbereitung', 'Geld', 'Missable', 'Beziehung Lucia', 'Waff
 
 let missions = [];
 let items = [];
+let sideMissions = [];
+let missionMode = 'story'; // 'story' | 'side'
+let sideFilter = 'all';
 let chapters = {};
 let state = defaultState();
 let tab = 'now';
@@ -356,11 +359,15 @@ function viewMissions() {
   const next = nextIdx();
   const cur = missions[Math.min(next, missions.length - 1)];
   const root = h('div', {}, h('h1', {}, 'Missionen'),
-    h('p', { class: 'muted small' }, 'Tippe eine Mission an, um deinen Fortschritt zu setzen.'),
+    h('div', { class: 'seg', role: 'tablist' },
+      [['story', 'Story'], ['side', `Nebenmissionen${sideMissions.length ? ` (${sideDoneCount()}/${sideMissions.length})` : ''}`]].map(([v, t]) =>
+        h('button', { role: 'tab', 'aria-selected': missionMode === v, class: missionMode === v ? 'active' : '',
+          onclick: () => { missionMode = v; animateNext = true; render(); } }, t))),
+    missionMode === 'story' && h('p', { class: 'muted small' }, 'Tippe eine Mission an, um deinen Fortschritt zu setzen.'),
     h('input', { type: 'search', id: 'mq', placeholder: 'Mission suchen (deutsch oder englisch) …', value: missionQuery,
       oninput: (e) => { missionQuery = e.target.value; render(); const q = document.getElementById('mq'); q.focus(); q.setSelectionRange(q.value.length, q.value.length); } }));
-  const norm = (t) => t.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, ' ').trim();
   const q = norm(missionQuery);
+  if (missionMode === 'side') { root.append(viewSide(q, cur)); return root; }
   if (q) {
     const hits = missions.map((m, i) => [m, i]).filter(([m]) => norm(`${m.nameDe || ''} ${m.name} ${m.id}`).includes(q));
     if (!hits.length) root.append(h('p', { class: 'muted' }, 'Keine Mission gefunden.'));
@@ -377,6 +384,108 @@ function viewMissions() {
   }
   root.append(h('button', { class: 'link', onclick: () => setProgress(null, 'Fortschritt auf Anfang gesetzt') }, 'Fortschritt auf Anfang setzen'));
   return root;
+}
+
+const norm = (t) => String(t || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, ' ').trim();
+const sideDone = (x) => !!(state.doneSide[x.id] || (x.item && state.doneItems[x.item]));
+const sideDoneCount = () => sideMissions.filter(sideDone).length;
+
+/** Nebenmission abhaken; verknüpfte Checklisten-Aufgabe wird mitgezogen. */
+function toggleSide(x) {
+  const prev = state;
+  const done = sideDone(x);
+  const doneSide = { ...state.doneSide };
+  const doneItems = { ...state.doneItems };
+  if (done) { delete doneSide[x.id]; if (x.item) delete doneItems[x.item]; } else { doneSide[x.id] = true; if (x.item) doneItems[x.item] = true; }
+  save({ ...state, doneSide, doneItems });
+  snack(`${done ? 'Wieder offen' : 'Erledigt'}: ${x.nameDe}`, undoTo(prev));
+}
+
+const SIDE_KINDS = [['all', 'Alle'], ['optional', 'Optional'], ['stranger', 'Fremde & Freaks'], ['step', 'Story-Aufgaben'], ['open', 'Nur offene']];
+
+function viewSide(q, cur) {
+  const root = h('div');
+  root.append(h('div', { class: 'chips' }, SIDE_KINDS.map(([v, t]) =>
+    h('button', { class: `chip ${sideFilter === v ? 'active' : ''}`, onclick: () => { sideFilter = v; render(); } }, t))));
+  let list = sideMissions.filter((x) => (sideFilter === 'all' || sideFilter === 'open' || x.kind === sideFilter)
+    && (sideFilter !== 'open' || !sideDone(x))
+    && (!q || norm(`${x.nameDe} ${x.name} ${x.giver || ''}`).includes(q)));
+  if (!list.length) { root.append(h('p', { class: 'muted' }, sideMissions.length ? 'Keine Nebenmission gefunden.' : 'Nebenmissionen konnten nicht geladen werden.')); return root; }
+  if (q) { list.forEach((x) => root.append(sideRow(x, cur, true))); return root; }
+
+  const section = (title, entries, groupBy, labelOf, openKey) => {
+    if (!entries.length) return;
+    root.append(h('h2', {}, `${title} (${entries.filter((x) => sideDone(x)).length}/${entries.length})`));
+    const groups = new Map();
+    entries.forEach((x) => { const k = groupBy(x); groups.set(k, [...(groups.get(k) || []), x]); });
+    for (const [k, xs] of groups) {
+      const done = xs.filter((x) => sideDone(x)).length;
+      root.append(h('details', { class: 'chap', open: openKey(k, xs) },
+        h('summary', {}, labelOf(k, xs), h('span', { class: 'count' }, ` ${done}/${xs.length}`)),
+        xs.map((x) => sideRow(x, cur))));
+    }
+  };
+  const chap = (x) => sideChapter(x, missions) ?? 99;
+  const byChapter = (a, b) => chap(a) - chap(b);
+  const chapLabel = (c) => (c === 99 ? 'Kapitel unbekannt' : chapterLabel(c));
+  const curOpen = (c) => c === cur.chapter;
+  section('Optionale Missionen', list.filter((x) => x.kind === 'optional').sort(byChapter), chap, chapLabel, curOpen);
+  section('Fremde & Freaks', list.filter((x) => x.kind === 'stranger').sort((a, b) => byChapter(a, b) || (a.giver || '').localeCompare(b.giver || '')),
+    (x) => x.giver || 'Sonstige', (k, xs) => {
+      const c = Math.min(...xs.map(chap));
+      const hide = state.settings.spoilerProtection && c !== 99 && c > cur.chapter;
+      return [hide ? '???' : k, c !== 99 ? ` · ab ${chapLabel(c)}` : ''].join('');
+    }, (k, xs) => xs.some((x) => chap(x) === cur.chapter && !sideDone(x)));
+  section('Story-Aufgaben', list.filter((x) => x.kind === 'step').sort(byChapter), chap, chapLabel, curOpen);
+  return root;
+}
+
+function sideRow(x, cur, searched = false) {
+  const c = sideChapter(x, missions);
+  const done = sideDone(x);
+  const hidden = !searched && state.settings.spoilerProtection && c != null && c > cur.chapter && !revealed.has(`s:${x.id}`);
+  const locked = !sideUnlocked(x, missions, nextIdx());
+  const after = missions.find((m) => m.id === x.after);
+  const meta = [
+    searched && c != null && chapterLabel(c),
+    x.kind === 'stranger' && x.giver,
+    after && `nach „${mName(after)}“`,
+    x.missable && '⚠ verpassbar',
+    locked && !done && 'noch nicht frei',
+  ].filter(Boolean).join(' · ');
+  const toggle = () => toggleSide(x);
+  const row = h('div', { class: `row card side ${x.missable && !done ? 'orange' : ''} ${done ? 'done' : ''}`, role: 'button', tabindex: 0,
+      onclick: () => { if (row.dataset.swiped) return; if (hidden) { revealed.add(`s:${x.id}`); render(); return; } showSide(x); },
+      onkeydown: (e) => { if (e.key === 'Enter') showSide(x); } },
+    h('div', { class: 'check', role: 'checkbox', 'aria-checked': done, 'aria-label': 'Erledigt',
+      onclick: (e) => { e.stopPropagation(); if (!done) { const r = e.currentTarget.getBoundingClientRect(); burst(r.left + r.width / 2, r.top + r.height / 2); } toggle(); } }, done ? '✓' : ''),
+    h('div', { class: 'body' },
+      h('div', { class: `title ${hidden ? 'blur' : ''}` }, x.nameDe),
+      x.name !== x.nameDe && h('div', { class: `alt ${hidden ? 'blur' : ''}` }, x.name),
+      meta && h('div', { class: 'meta' }, meta)));
+  addSwipe(row, { right: toggle, left: () => showSide(x) });
+  return row;
+}
+
+function showSide(x) {
+  const c = sideChapter(x, missions);
+  const after = missions.find((m) => m.id === x.after);
+  const done = sideDone(x);
+  const link = safeHttpsUrl(x.url);
+  openDialog(
+    h('h1', {}, x.nameDe),
+    x.name !== x.nameDe && h('p', { class: 'alt' }, `Englisch: ${x.name}`),
+    x.description && h('p', {}, x.description),
+    h('div', { class: 'when' },
+      h('div', {}, { optional: 'Optionale Mission', stranger: `Fremde & Freaks${x.giver ? ` · ${x.giver}` : ''}`, step: 'Story-Aufgabe' }[x.kind]),
+      c != null && h('div', {}, chapterLabel(c)),
+      after && h('div', {}, `Erscheint nach „${mName(after)}“`)),
+    x.missable && h('div', { class: 'unsure' }, h('strong', {}, '⚠ Verpassbar: '), 'Diese Mission kann später nicht mehr gespielt werden. Erledige sie, sobald sie auftaucht.'),
+    h('div', { class: 'actions' },
+      h('button', { class: 'primary', onclick: () => { closeDialog(); toggleSide(x); } },
+        done ? 'Doch nicht erledigt' : 'Erledigt ✓'),
+      h('button', { onclick: closeDialog }, 'Schließen')),
+    link && h('p', { class: 'small' }, h('a', { href: link, target: '_blank', rel: 'noopener noreferrer' }, 'Komplettlösung auf GTABase')));
 }
 
 function missionRow(m, i, next, searched = false) {
@@ -652,6 +761,7 @@ async function init() {
       return r.json();
     })));
     missions = m; items = i; chapters = c;
+    sideMissions = await fetch('data/sidemissions.json').then((r) => (r.ok ? r.json() : [])).catch(() => []);
   } catch (err) {
     document.getElementById('view').replaceChildren(h('p', {}, `Daten konnten nicht geladen werden: ${err.message}`));
     return;

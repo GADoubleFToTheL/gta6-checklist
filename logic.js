@@ -96,6 +96,7 @@ export function defaultState() {
   return {
     lastCompletedMissionId: null,
     doneItems: {},
+    doneSide: {},
     missedItems: {},
     gtabaseUrls: {},
     settings: { spoilerProtection: true, helpSeen: false },
@@ -118,6 +119,7 @@ export function sanitizeState(raw, missions) {
   return {
     lastCompletedMissionId: last,
     doneItems: bools(raw.doneItems),
+    doneSide: bools(raw.doneSide),
     missedItems: bools(raw.missedItems),
     gtabaseUrls: urls,
     settings: { spoilerProtection: raw.settings?.spoilerProtection !== false, helpSeen: raw.settings?.helpSeen === true },
@@ -206,6 +208,7 @@ export function encodeShare(state) {
     v: 1,
     m: state.lastCompletedMissionId,
     d: Object.keys(state.doneItems),
+    n: Object.keys(state.doneSide || {}),
     x: Object.keys(state.missedItems),
     s: [state.settings.spoilerProtection ? 1 : 0, state.settings.helpSeen ? 1 : 0],
   };
@@ -226,8 +229,25 @@ export function decodeShare(text, missions) {
   return sanitizeState({
     lastCompletedMissionId: d.m,
     doneItems: flags(d.d),
+    doneSide: flags(d.n),
     missedItems: flags(d.x),
     gtabaseUrls: urls,
     settings: { spoilerProtection: d.s?.[0] !== 0, helpSeen: d.s?.[1] === 1 },
   }, missions);
+}
+
+/* ---------- Nebenmissionen ---------- */
+
+/** Kapitel einer Nebenmission: eigenes Kapitel, sonst Kapitel der Story-Mission, nach der sie kommt. */
+export function sideChapter(sm, missions) {
+  if (Number.isInteger(sm.chapter)) return sm.chapter;
+  const m = missions.find((x) => x.id === sm.after);
+  return m ? m.chapter : null;
+}
+
+/** Ist die Nebenmission schon freigeschaltet (Story-Mission davor gespielt)? */
+export function sideUnlocked(sm, missions, next) {
+  if (!sm.after) return true;
+  const i = missionIndexById(missions, sm.after);
+  return i < 0 || i < next;
 }

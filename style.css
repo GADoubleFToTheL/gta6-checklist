@@ -81,7 +81,7 @@ details>summary::before{content:"▸ ";display:inline-block;transition:transform
 details[open]>summary::before{transform:rotate(90deg)}
 details.chap{margin:0 0 6px}
 details.chap>summary{font-family:"Arial Black","Segoe UI Black",Impact,system-ui,sans-serif;font-style:italic;text-transform:uppercase;font-size:.95rem;
-  background:var(--panel2);border-radius:var(--radius);padding:14px 16px;margin-bottom:8px}
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:14px 16px;margin-bottom:8px}
 .row.current{border-color:var(--glow);box-shadow:0 0 0 2px rgba(246,154,201,.45)}
 .chips{display:flex;gap:8px;margin:10px 0 4px;flex-wrap:wrap}
 .chip{border-radius:99px;min-height:44px;padding:.5rem 1rem}
@@ -239,3 +239,9 @@ header.top span{display:block;font-size:.75rem;color:var(--muted);letter-spacing
 .hero .alt{color:var(--cream);opacity:.85;font-size:.85rem;margin:-.1rem 0 .3rem}
 .choice{display:grid;gap:10px;margin-top:14px}
 #mq{margin:4px 0 12px}
+
+/* Story / Nebenmissionen umschalten */
+.seg{display:flex;gap:6px;padding:5px;margin:4px 0 12px;border-radius:18px;background:var(--panel);border:1px solid var(--line)}
+.seg button{flex:1;min-height:46px;border:0;border-radius:14px;background:none;color:var(--muted);font-weight:700;font-size:.9rem}
+.seg button.active{background:var(--sunset);color:#2f2660;font-weight:800}
+details.chap>summary .count{font-style:normal;font-family:system-ui,sans-serif;font-size:.8rem;color:var(--muted);text-transform:none}
