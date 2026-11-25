@@ -156,13 +156,23 @@ test('Teilen: encode/decode ergibt denselben Zustand, Müll wird abgelehnt', () 
   assert.equal(r.lastCompletedMissionId, null); assert.deepEqual(r.gtabaseUrls, {}); assert.deepEqual(r.doneItems, { x: true });
 });
 
-test('index.html: Kulisse (Himmel + Boden mit Palmen) und Logo vorhanden', () => {
+test('index.html: Kulisse, Logo und vier Reiter vorhanden', () => {
   const html = readFileSync(new URL('../index.html', import.meta.url), 'utf8');
-  assert.match(html, /class="scene sky"/);
-  assert.match(html, /class="scene ground"/);
-  assert.ok((html.match(/class="sway /g) || []).length >= 4, 'Palmen fehlen');
-  assert.match(html, /class="jet"/);
+  assert.match(html, /id="scene"/);
   assert.match(html, /icons\/logo\.svg/);
+  for (const t of ['now', 'story', 'side', 'more']) assert.match(html, new RegExp(`data-tab="${t}"`));
+  const art = readFileSync(new URL('../art.js', import.meta.url), 'utf8');
+  for (const loc of ['keys', 'gellhorn', 'vice']) assert.match(art, new RegExp(`loc === '${loc}'`));
+  assert.match(art, /class: animated \? `sway/);
+});
+
+test('Jede Mission und Nebenmission hat ein Bild-Motiv und eine Beschreibung', async () => {
+  const { MOTIFS, LOCATIONS } = await import('../art.js');
+  const side = JSON.parse(readFileSync(new URL('../data/sidemissions.json', import.meta.url)));
+  for (const x of [...missions, ...side]) {
+    assert.ok(x.art && MOTIFS.includes(x.art.motif) && LOCATIONS.includes(x.art.loc), `${x.id}: ${JSON.stringify(x.art)}`);
+  }
+  for (const m of missions) assert.ok(m.desc && m.desc.length > 10, m.id);
 });
 
 test('Missionen: jede hat einen deutschen Titel', () => {

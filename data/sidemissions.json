@@ -10,7 +10,12 @@
   "description": "Jasons Nachbarin Shirley hat Durst auf Rum und bittet ihn, welchen aus dem Laden zu holen.",
   "url": "https://www.gtabase.com/de/gta-6/missionen/shirleys-rum-besorgen",
   "giver": "Shirley",
-  "item": "shirleys-rum"
+  "item": "shirleys-rum",
+  "art": {
+   "loc": "keys",
+   "motif": "bottle",
+   "time": "dusk"
+  }
  },
  {
   "id": "steal-the-scooter",
@@ -23,7 +28,12 @@
   "description": "Shirley hat einen ungewöhnlichen Plan, der den Elektromobil ihrer Nachbarin betrifft.",
   "url": "https://www.gtabase.com/de/gta-6/missionen/roller-stehlen",
   "giver": "Shirley",
-  "item": "steal-scooter"
+  "item": "steal-scooter",
+  "art": {
+   "loc": "keys",
+   "motif": "key",
+   "time": "day"
+  }
  },
  {
   "id": "pick-up-groceries",
@@ -35,7 +45,12 @@
   "missable": false,
   "description": "Kaufe ein paar Lebensmittel ein und bring sie nach Hause, bevor Lucia ankommt.",
   "url": "https://www.gtabase.com/de/gta-6/missionen/lebensmittel-einkaufen",
-  "giver": "Lucia Caminos"
+  "giver": "Lucia Caminos",
+  "art": {
+   "loc": "keys",
+   "motif": "groceries",
+   "time": "night"
+  }
  },
  {
   "id": "buy-flowers",
@@ -47,7 +62,12 @@
   "missable": false,
   "description": "Bestellen Sie Blumen für Lucia und lassen Sie sie zu ihr nach Hause liefern.",
   "url": "https://www.gtabase.com/de/gta-6/missionen/blumen-kaufen",
-  "giver": "Lucia Caminos"
+  "giver": "Lucia Caminos",
+  "art": {
+   "loc": "keys",
+   "motif": "flowers",
+   "time": "dusk"
+  }
  },
  {
   "id": "buy-lucia-a-necklace",
@@ -60,7 +80,12 @@
   "description": "Schenke Lucia eine Halskette aus dem Schmuckgeschäft „The Siren's Chest“.",
   "url": "https://www.gtabase.com/de/gta-6/missionen/kaufe-lucia-eine-halskette",
   "giver": "Lucia Caminos",
-  "item": "lucia-necklace"
+  "item": "lucia-necklace",
+  "art": {
+   "loc": "keys",
+   "motif": "necklace",
+   "time": "day"
+  }
  },
  {
   "id": "get-the-chop",
@@ -72,7 +97,12 @@
   "missable": false,
   "description": "Bei Barnacle Beauties können Sie sich die Haare schneiden lassen oder Ihren Bart in Form bringen lassen.",
   "url": "https://www.gtabase.com/de/gta-6/missionen/hol-dir-den-hack",
-  "giver": "Lucia Caminos"
+  "giver": "Lucia Caminos",
+  "art": {
+   "loc": "keys",
+   "motif": "scissors",
+   "time": "night"
+  }
  },
  {
   "id": "get-lucias-clothes",
@@ -85,7 +115,12 @@
   "description": "Lucia bittet Jason, in der Bar Manatee's Rest ein paar Kleidungsstücke von ihrem Freund Andy abzuholen.",
   "url": "https://www.gtabase.com/de/gta-6/missionen/lucias-kleidung-erhalten",
   "giver": "Lucia Caminos",
-  "item": "lucia-clothes-andy"
+  "item": "lucia-clothes-andy",
+  "art": {
+   "loc": "keys",
+   "motif": "shopping",
+   "time": "dusk"
+  }
  },
  {
   "id": "catch-a-bigger-fish",
@@ -97,7 +132,12 @@
   "missable": false,
   "description": "Cal bets Jason he can't land a stoplight parrotfish heavier than 2 lbs.",
   "url": "https://www.gtabase.com/de/gta-6/missions/catch-a-bigger-fish",
-  "giver": "Cal Hampton"
+  "giver": "Cal Hampton",
+  "art": {
+   "loc": "keys",
+   "motif": "fish",
+   "time": "day"
+  }
  },
  {
   "id": "meditate-with-lucia",
@@ -110,7 +150,12 @@
   "description": "Lucia lädt Jason ein, sich einen Moment Zeit zu nehmen und mit ihr in seinem Haus zu meditieren.",
   "url": "https://www.gtabase.com/de/gta-6/missionen/meditieren-mit-lucia",
   "giver": "Lucia Caminos",
-  "item": "meditation-lucia"
+  "item": "meditation-lucia",
+  "art": {
+   "loc": "keys",
+   "motif": "lotus",
+   "time": "night"
+  }
  },
  {
   "id": "find-the-lost-drugs",
@@ -123,7 +168,12 @@
   "description": "Folgen Sie den Signalen und suchen Sie in vier Bereichen des Sumpfes nach verlorenen Drogenpaketen.",
   "url": "https://www.gtabase.com/de/gta-6/missionen/finde-die-verlorenen-drogen",
   "giver": "Donnie",
-  "item": "find-lost-drugs"
+  "item": "find-lost-drugs",
+  "art": {
+   "loc": "keys",
+   "motif": "package",
+   "time": "dusk"
+  }
  },
  {
   "id": "clock-out",
@@ -136,7 +186,12 @@
   "description": "Lucia hat früher Feierabend gemacht und braucht vor 16 Uhr eine Mitfahrgelegenheit nach Hause.",
   "url": "https://www.gtabase.com/de/gta-6/missionen/ausstempeln",
   "giver": "Lucia Caminos",
-  "item": "clock-out"
+  "item": "clock-out",
+  "art": {
+   "loc": "keys",
+   "motif": "car",
+   "time": "day"
+  }
  },
  {
   "id": "ring-the-bell",
@@ -149,7 +204,12 @@
   "description": "Cal überredet Jason zu ein paar Drinks im Rusty Anchor, und die Nacht endet damit, dass Jason sich vergewissert, dass sein Freund unversehrt nach Hause kommt.",
   "url": "https://www.gtabase.com/de/gta-6/missionen/laute-die-glocke",
   "giver": "Cal Hampton",
-  "item": "ring-the-bell"
+  "item": "ring-the-bell",
+  "art": {
+   "loc": "keys",
+   "motif": "bell",
+   "time": "night"
+  }
  },
  {
   "id": "donnies-lost-drugs",
@@ -161,7 +221,12 @@
   "missable": false,
   "description": "Donnies Boot sank vor Corsair Key, Drogen waren noch an Bord, und Brian will sie zurück.",
   "url": "https://www.gtabase.com/de/gta-6/missionen/donnies-verlorene-drogen",
-  "giver": "Brian Heder"
+  "giver": "Brian Heder",
+  "art": {
+   "loc": "keys",
+   "motif": "boat",
+   "time": "dusk"
+  }
  },
  {
   "id": "pick-up-a-gun",
@@ -173,7 +238,12 @@
   "missable": false,
   "description": "Geh zu Gellhorn Outfitters, um eine Waffe zu kaufen, oder hol dir eine deiner Waffen aus dem Schließfach.",
   "url": "https://www.gtabase.com/de/gta-6/missions/pick-up-a-gun",
-  "giver": "Lucia Caminos"
+  "giver": "Lucia Caminos",
+  "art": {
+   "loc": "gellhorn",
+   "motif": "gun",
+   "time": "day"
+  }
  },
  {
   "id": "thrillbillies",
@@ -185,7 +255,12 @@
   "missable": false,
   "description": "Im Thrillbilly Mud Club gibt es Preisgelder zu gewinnen – für jeden, der bereit ist, sich schmutzig zu machen.",
   "url": "https://www.gtabase.com/de/gta-6/missions/thrillbillies",
-  "giver": "Billy"
+  "giver": "Billy",
+  "art": {
+   "loc": "gellhorn",
+   "motif": "pickup",
+   "time": "night"
+  }
  },
  {
   "id": "twist-wrist-smash-grab",
@@ -197,7 +272,12 @@
   "missable": false,
   "description": "Billy is planning a job and needs one more rider to join his crew.",
   "url": "https://www.gtabase.com/de/gta-6/missions/twist-wrist-smash-grab",
-  "giver": "Billy"
+  "giver": "Billy",
+  "art": {
+   "loc": "gellhorn",
+   "motif": "ring",
+   "time": "dusk"
+  }
  },
  {
   "id": "hit-avery-pawn",
@@ -209,7 +289,12 @@
   "missable": false,
   "description": "Lucia suggests hitting Avery Pawn in Port Gellhorn together, a shop full of valuables.",
   "url": "https://www.gtabase.com/de/gta-6/missions/hit-avery-pawn",
-  "giver": "Lucia Caminos"
+  "giver": "Lucia Caminos",
+  "art": {
+   "loc": "gellhorn",
+   "motif": "safe",
+   "time": "day"
+  }
  },
  {
   "id": "hit-kingpin-bowling",
@@ -221,7 +306,12 @@
   "missable": false,
   "description": "The bowling alley has been taken over by Kolt & Associates and looks like a good next target.",
   "url": "https://www.gtabase.com/de/gta-6/missions/hit-kingpin-bowling",
-  "giver": "Lucia Caminos"
+  "giver": "Lucia Caminos",
+  "art": {
+   "loc": "gellhorn",
+   "motif": "money",
+   "time": "night"
+  }
  },
  {
   "id": "impounded-vehicle",
@@ -233,7 +323,12 @@
   "missable": false,
   "description": "Lucias Auto wurde beschlagnahmt und sie muss es zurückbekommen.",
   "url": "https://www.gtabase.com/de/gta-6/missions/impounded-vehicle",
-  "giver": "Lucia Caminos"
+  "giver": "Lucia Caminos",
+  "art": {
+   "loc": "gellhorn",
+   "motif": "police",
+   "time": "dusk"
+  }
  },
  {
   "id": "get-your-wheels",
@@ -244,7 +339,12 @@
   "after": "mami-knows-best",
   "missable": false,
   "description": "Get yourself a set of wheels in Vice City.",
-  "url": "https://www.gtabase.com/de/gta-6/missions/get-your-wheels"
+  "url": "https://www.gtabase.com/de/gta-6/missions/get-your-wheels",
+  "art": {
+   "loc": "vice",
+   "motif": "convertible",
+   "time": "day"
+  }
  },
  {
   "id": "race-against-yago",
@@ -257,7 +357,12 @@
   "description": "Fordere Yago zu einem Wettlauf heraus. Zeitkritisch und leicht zu verpassen.",
   "url": "https://www.gtabase.com/de/gta-6/missions/race-against-yago",
   "giver": "Yago",
-  "item": "race-against-yago"
+  "item": "race-against-yago",
+  "art": {
+   "loc": "vice",
+   "motif": "flag",
+   "time": "night"
+  }
  },
  {
   "id": "this-is-a-free-call-from",
@@ -270,7 +375,12 @@
   "description": "Jemand braucht Lucia, um abgeholt zu werden. Zeitkritisch und leicht zu verpassen.",
   "url": "https://www.gtabase.com/de/gta-6/missions/this-is-a-free-call-from",
   "giver": "Shayna",
-  "item": "free-call"
+  "item": "free-call",
+  "art": {
+   "loc": "vice",
+   "motif": "phone",
+   "time": "dusk"
+  }
  },
  {
   "id": "attend-eddie-acostas-party",
@@ -282,7 +392,12 @@
   "missable": false,
   "description": "Eddie Acosta veranstaltet eine Party, und du bist eingeladen.",
   "url": "https://www.gtabase.com/de/gta-6/missions/attend-eddie-acostas-party",
-  "giver": "Eddie Acosta"
+  "giver": "Eddie Acosta",
+  "art": {
+   "loc": "vice",
+   "motif": "cocktail",
+   "time": "day"
+  }
  },
  {
   "id": "its-a-date",
@@ -293,7 +408,12 @@
   "after": "heavy-lifting",
   "missable": false,
   "description": "Zeit für einen romantischen Abend zu zweit.",
-  "url": "https://www.gtabase.com/de/gta-6/missionen/es-ist-ein-date"
+  "url": "https://www.gtabase.com/de/gta-6/missionen/es-ist-ein-date",
+  "art": {
+   "loc": "vice",
+   "motif": "cocktail",
+   "time": "night"
+  }
  },
  {
   "id": "bad-driver",
@@ -306,7 +426,12 @@
   "description": "Track down Felipe.",
   "url": "https://www.gtabase.com/de/gta-6/missions/bad-driver",
   "giver": "Andrea",
-  "item": "bad-driver"
+  "item": "bad-driver",
+  "art": {
+   "loc": "vice",
+   "motif": "car",
+   "time": "dusk"
+  }
  },
  {
   "id": "thats-where-the-money-is",
@@ -318,7 +443,12 @@
   "missable": false,
   "description": "Yasmani hat einen Tipp zu einem Geldtransporter, der Sie direkt zu einem Banktresor führen könnte.",
   "url": "https://www.gtabase.com/de/gta-6/missions/thats-where-the-money-is",
-  "giver": "Yasmani"
+  "giver": "Yasmani",
+  "art": {
+   "loc": "vice",
+   "motif": "armored",
+   "time": "day"
+  }
  },
  {
   "id": "search-for-the-skunk-ape",
@@ -329,7 +459,12 @@
   "chapter": 1,
   "missable": false,
   "description": "Ein Flugblatt von einem Mann namens Kirk bittet um Informationen über ein mysteriöses Wesen namens Skunk Ape.",
-  "url": "https://www.gtabase.com/gta-6/strangers/search-for-the-skunk-ape/"
+  "url": "https://www.gtabase.com/gta-6/strangers/search-for-the-skunk-ape/",
+  "art": {
+   "loc": "swamp",
+   "motif": "footprint",
+   "time": "night"
+  }
  },
  {
   "id": "search-for-tree-effigies",
@@ -340,7 +475,12 @@
   "chapter": 1,
   "missable": false,
   "description": "Hilf Kirk dabei, Herrn Mangrove aufzuspüren, indem du in Pelican Valley nach geschnitzten Abbildern an den Bäumen suchst.",
-  "url": "https://www.gtabase.com/gta-6/strangers/search-for-tree-effigies/"
+  "url": "https://www.gtabase.com/gta-6/strangers/search-for-tree-effigies/",
+  "art": {
+   "loc": "swamp",
+   "motif": "footprint",
+   "time": "dusk"
+  }
  },
  {
   "id": "help-kirk-find-mr-mangrove",
@@ -351,7 +491,12 @@
   "chapter": 1,
   "missable": false,
   "description": "Kirk bittet um Hilfe bei seiner nächsten Suche nach Mr. Mangrove in der Nähe des Cottonmouth Lake.",
-  "url": "https://www.gtabase.com/de/gta-6/fremde/hilf-kirk-mr-mangrove-zu-finden"
+  "url": "https://www.gtabase.com/de/gta-6/fremde/hilf-kirk-mr-mangrove-zu-finden",
+  "art": {
+   "loc": "swamp",
+   "motif": "footprint",
+   "time": "day"
+  }
  },
  {
   "id": "the-final-flush",
@@ -362,7 +507,12 @@
   "chapter": 1,
   "missable": false,
   "description": "Eine SMS der „No Flushers“-Bewegung ruft zu einem Treffen in Frank's Waffles in Tequesta auf, wo ein Mann mit einer Theorie über Leonidas Abwasserkanäle wartet.",
-  "url": "https://www.gtabase.com/de/gta-6/fremde/die-letzte-spulung"
+  "url": "https://www.gtabase.com/de/gta-6/fremde/die-letzte-spulung",
+  "art": {
+   "loc": "keys",
+   "motif": "mic",
+   "time": "night"
+  }
  },
  {
   "id": "retest-freddies-defenses",
@@ -373,7 +523,12 @@
   "chapter": 1,
   "missable": false,
   "description": "Freddie, der Weltuntergangsvorbereiter, fordert dich heraus, in seinen Bunker zurückzukehren und seine verbesserten Verteidigungsanlagen zu überwinden.",
-  "url": "https://www.gtabase.com/de/gta-6/fremde/freddys-verteidigung-erneut-testen"
+  "url": "https://www.gtabase.com/de/gta-6/fremde/freddys-verteidigung-erneut-testen",
+  "art": {
+   "loc": "country",
+   "motif": "safe",
+   "time": "dusk"
+  }
  },
  {
   "id": "check-out-mckittrick-farm",
@@ -384,7 +539,12 @@
   "chapter": 2,
   "missable": false,
   "description": "Auf einem Flyer wird eine Pilotenstelle auf der McKittrick Farm angeboten, also schauen Sie vorbei und halten Sie nach Kyle Ausschau.",
-  "url": "https://www.gtabase.com/de/gta-6/fremde/besucht-die-mckittrick-farm"
+  "url": "https://www.gtabase.com/de/gta-6/fremde/besucht-die-mckittrick-farm",
+  "art": {
+   "loc": "country",
+   "motif": "plane",
+   "time": "day"
+  }
  },
  {
   "id": "collect-chemicals-for-kyle",
@@ -395,7 +555,12 @@
   "chapter": 2,
   "missable": false,
   "description": "Kyle benötigt einige Chemikalien für eine neue Pflanzenschutzbehandlung und schickt dich zu einem Lagerhaus, um sie zu holen.",
-  "url": "https://www.gtabase.com/de/gta-6/fremde/chemikalien-fur-kyle-sammeln"
+  "url": "https://www.gtabase.com/de/gta-6/fremde/chemikalien-fur-kyle-sammeln",
+  "art": {
+   "loc": "country",
+   "motif": "plane",
+   "time": "night"
+  }
  },
  {
   "id": "veteran-hunted",
@@ -406,7 +571,12 @@
   "chapter": 2,
   "missable": false,
   "description": "Jasons alter Armeefreund Bret Vogel möchte bei seinem Jagdgeschäft in der Nähe des Mount Kalaga mithelfen.",
-  "url": "https://www.gtabase.com/de/gta-6/fremde/gejagter-veteran"
+  "url": "https://www.gtabase.com/de/gta-6/fremde/gejagter-veteran",
+  "art": {
+   "loc": "country",
+   "motif": "antlers",
+   "time": "dusk"
+  }
  },
  {
   "id": "steal-vehicles-for-moses",
@@ -417,7 +587,12 @@
   "chapter": 2,
   "missable": false,
   "description": "Moses hat eine Liste mit Fahrzeugen, die er geliefert bekommen möchte, ohne dass Fragen gestellt werden.",
-  "url": "https://www.gtabase.com/de/gta-6/fremde/fahrzeuge-fur-moses-stehlen"
+  "url": "https://www.gtabase.com/de/gta-6/fremde/fahrzeuge-fur-moses-stehlen",
+  "art": {
+   "loc": "gellhorn",
+   "motif": "sports",
+   "time": "day"
+  }
  },
  {
   "id": "collect-moses-gift",
@@ -428,7 +603,12 @@
   "chapter": 2,
   "missable": false,
   "description": "Moses hat in seiner Autowerkstatt ein Dankeschön-Geschenk für alle Autos hinterlassen, die ihr ihm gebracht habt.",
-  "url": "https://www.gtabase.com/de/gta-6/fremde/moses-geschenk-sammeln"
+  "url": "https://www.gtabase.com/de/gta-6/fremde/moses-geschenk-sammeln",
+  "art": {
+   "loc": "gellhorn",
+   "motif": "sports",
+   "time": "night"
+  }
  },
  {
   "id": "brets-hunting-decks",
@@ -439,7 +619,12 @@
   "chapter": 2,
   "missable": false,
   "description": "Bret Vogel hat 15 Jagdverträge für Jason, in denen jeweils nach bestimmten Tieren in makellosem oder gutem Zustand gefragt ist.",
-  "url": "https://www.gtabase.com/de/gta-6/fremde/brets-jagddecks"
+  "url": "https://www.gtabase.com/de/gta-6/fremde/brets-jagddecks",
+  "art": {
+   "loc": "country",
+   "motif": "antlers",
+   "time": "dusk"
+  }
  },
  {
   "id": "gellhorns-missing-tourists",
@@ -449,7 +634,12 @@
   "chapter": 2,
   "missable": false,
   "description": "In Port Gellhorn verschwinden immer wieder Touristen, und die Spur führt zu einem verlassenen Lagerhaus mitten in der Stadt.",
-  "url": "https://www.gtabase.com/de/gta-6/fremde/gellhorns-vermisste-touristen"
+  "url": "https://www.gtabase.com/de/gta-6/fremde/gellhorns-vermisste-touristen",
+  "art": {
+   "loc": "gellhorn",
+   "motif": "footprint",
+   "time": "day"
+  }
  },
  {
   "id": "missing-person",
@@ -459,7 +649,12 @@
   "chapter": 2,
   "missable": false,
   "description": "Die Tipp-Hotline hat noch eine letzte Bitte: Treffen Sie sich persönlich im Trophäenraum in Port Gellhorn.",
-  "url": "https://www.gtabase.com/de/gta-6/strangers/missing-person"
+  "url": "https://www.gtabase.com/de/gta-6/strangers/missing-person",
+  "art": {
+   "loc": "gellhorn",
+   "motif": "phone",
+   "time": "night"
+  }
  },
  {
   "id": "ufo-abduction",
@@ -469,7 +664,12 @@
   "chapter": 2,
   "missable": false,
   "description": "Ein Auto mit offenen Türen und flackernden Lichtern auf einer dunklen Straße in Kelly County ist der Beginn eines der seltsamsten Mysterien in Leonida.",
-  "url": "https://www.gtabase.com/de/gta-6/fremde/ufo-entfuhrung"
+  "url": "https://www.gtabase.com/de/gta-6/fremde/ufo-entfuhrung",
+  "art": {
+   "loc": "gellhorn",
+   "motif": "ufo",
+   "time": "dusk"
+  }
  },
  {
   "id": "join-a-street-race",
@@ -480,7 +680,12 @@
   "chapter": 3,
   "missable": false,
   "description": "Schließ dich den Hit 'n' Run VC-Rennfahrern in Salton an und verdiene dir etwas Geld auf der Straße.",
-  "url": "https://www.gtabase.com/de/gta-6/fremde/nehmen-an-einem-strassenrennen-teil"
+  "url": "https://www.gtabase.com/de/gta-6/fremde/nehmen-an-einem-strassenrennen-teil",
+  "art": {
+   "loc": "vice",
+   "motif": "flag",
+   "time": "day"
+  }
  },
  {
   "id": "bumper-to-bumper",
@@ -491,7 +696,12 @@
   "chapter": 3,
   "missable": false,
   "description": "Yago möchte, dass Jason ihm alles beibringt.",
-  "url": "https://www.gtabase.com/de/gta-6/fremde/stossstange-an-stossstange"
+  "url": "https://www.gtabase.com/de/gta-6/fremde/stossstange-an-stossstange",
+  "art": {
+   "loc": "vice",
+   "motif": "flag",
+   "time": "night"
+  }
  },
  {
   "id": "buddy",
@@ -502,7 +712,12 @@
   "chapter": 3,
   "missable": false,
   "description": "Geh und sieh nach Kyle.",
-  "url": "https://www.gtabase.com/de/gta-6/fremde/kumpel"
+  "url": "https://www.gtabase.com/de/gta-6/fremde/kumpel",
+  "art": {
+   "loc": "country",
+   "motif": "plane",
+   "time": "dusk"
+  }
  },
  {
   "id": "mall-rats",
@@ -513,7 +728,12 @@
   "chapter": 3,
   "missable": false,
   "description": "Begleite Billy und seine Crew bei einem weiteren Auftrag.",
-  "url": "https://www.gtabase.com/de/gta-6/fremde/einkaufszentrum-ratten"
+  "url": "https://www.gtabase.com/de/gta-6/fremde/einkaufszentrum-ratten",
+  "art": {
+   "loc": "vice",
+   "motif": "muscle",
+   "time": "day"
+  }
  },
  {
   "id": "brother-to-brother",
@@ -524,7 +744,12 @@
   "chapter": 3,
   "missable": false,
   "description": "Yago braucht Verstärkung, und Jason ist derjenige, den er anruft.",
-  "url": "https://www.gtabase.com/de/gta-6/fremde/bruder-zu-bruder"
+  "url": "https://www.gtabase.com/de/gta-6/fremde/bruder-zu-bruder",
+  "art": {
+   "loc": "vice",
+   "motif": "flag",
+   "time": "night"
+  }
  },
  {
   "id": "the-impaler",
@@ -535,7 +760,12 @@
   "chapter": 3,
   "missable": false,
   "description": "Wyman und Billy brauchen ein ganz bestimmtes Auto, das aus dem Polizeiverwahrplatz geholt werden muss.",
-  "url": "https://www.gtabase.com/de/gta-6/fremde/der-pfahler"
+  "url": "https://www.gtabase.com/de/gta-6/fremde/der-pfahler",
+  "art": {
+   "loc": "vice",
+   "motif": "muscle",
+   "time": "dusk"
+  }
  },
  {
   "id": "hometown-heroes",
@@ -546,7 +776,12 @@
   "chapter": 3,
   "missable": false,
   "description": "Billys Crew ist bereit für den größten Auftrag, den sie je geplant hat.",
-  "url": "https://www.gtabase.com/de/gta-6/fremde/helden-der-heimatstadt"
+  "url": "https://www.gtabase.com/de/gta-6/fremde/helden-der-heimatstadt",
+  "art": {
+   "loc": "vice",
+   "motif": "muscle",
+   "time": "day"
+  }
  },
  {
   "id": "climbing-the-cellerichain",
@@ -557,7 +792,12 @@
   "chapter": 3,
   "missable": false,
   "description": "Andy benötigt Hilfe bei der Auslieferung von Produkten für eine Firma namens Cellerica.",
-  "url": "https://www.gtabase.com/de/gta-6/fremde/erklimmen-der-cellerichain"
+  "url": "https://www.gtabase.com/de/gta-6/fremde/erklimmen-der-cellerichain",
+  "art": {
+   "loc": "vice",
+   "motif": "lotus",
+   "time": "night"
+  }
  },
  {
   "id": "pay-the-cellerica-fee",
@@ -568,7 +808,12 @@
   "chapter": 3,
   "missable": false,
   "description": "Andy möchte Lucias Aufnahmegebühr, bevor sie Cellerica beitreten kann.",
-  "url": "https://www.gtabase.com/de/gta-6/fremde/cellerica-gebuhr-zahlen"
+  "url": "https://www.gtabase.com/de/gta-6/fremde/cellerica-gebuhr-zahlen",
+  "art": {
+   "loc": "vice",
+   "motif": "lotus",
+   "time": "dusk"
+  }
  },
  {
   "id": "peach",
@@ -579,7 +824,12 @@
   "chapter": 3,
   "missable": false,
   "description": "Es ist Zeit für Lucias Cellerica-Initiation auf dem Campus der Gruppe.",
-  "url": "https://www.gtabase.com/de/gta-6/fremde/pfirsich"
+  "url": "https://www.gtabase.com/de/gta-6/fremde/pfirsich",
+  "art": {
+   "loc": "vice",
+   "motif": "lotus",
+   "time": "day"
+  }
  },
  {
   "id": "read-the-label",
@@ -590,7 +840,12 @@
   "chapter": 3,
   "missable": false,
   "description": "Der Anführer von Cellerica fordert die Rückgabe eines der gestohlenen Lieferwagen der Gruppe.",
-  "url": "https://www.gtabase.com/de/gta-6/fremde/lies-das-etikett"
+  "url": "https://www.gtabase.com/de/gta-6/fremde/lies-das-etikett",
+  "art": {
+   "loc": "vice",
+   "motif": "lotus",
+   "time": "night"
+  }
  },
  {
   "id": "puff-puff-pass",
@@ -601,7 +856,12 @@
   "chapter": 3,
   "missable": false,
   "description": "Cecilia hat ein Problem im Lager der Paper Boys, das Lucia lösen soll.",
-  "url": "https://www.gtabase.com/de/gta-6/fremde/puff-puff-pass"
+  "url": "https://www.gtabase.com/de/gta-6/fremde/puff-puff-pass",
+  "art": {
+   "loc": "vice",
+   "motif": "lotus",
+   "time": "dusk"
+  }
  },
  {
   "id": "yasmanis-atm-jobs",
@@ -612,7 +872,12 @@
   "chapter": 3,
   "missable": false,
   "description": "Yasmani hat eine Reihe von Geldautomatenreparaturen zu erledigen.",
-  "url": "https://www.gtabase.com/de/gta-6/fremde/yasmanis-geldautomatenjobs"
+  "url": "https://www.gtabase.com/de/gta-6/fremde/yasmanis-geldautomatenjobs",
+  "art": {
+   "loc": "vice",
+   "motif": "atm",
+   "time": "day"
+  }
  },
  {
   "id": "yasmanis-payday-loans-jobs",
@@ -623,7 +888,12 @@
   "chapter": 3,
   "missable": false,
   "description": "Yasmani hat einige Läden für Kurzzeitkredite gefunden, die einen Besuch wert sind.",
-  "url": "https://www.gtabase.com/de/gta-6/fremde/yasmanis-kurzzeitkredite-jobs"
+  "url": "https://www.gtabase.com/de/gta-6/fremde/yasmanis-kurzzeitkredite-jobs",
+  "art": {
+   "loc": "vice",
+   "motif": "atm",
+   "time": "night"
+  }
  },
  {
   "id": "tail-the-security-van",
@@ -634,7 +904,12 @@
   "chapter": 3,
   "missable": false,
   "description": "Yasmani möchte, dass du einem Geldtransporter folgst und schaust, wohin er fährt.",
-  "url": "https://www.gtabase.com/de/gta-6/fremde/verfolge-den-geldtransporter"
+  "url": "https://www.gtabase.com/de/gta-6/fremde/verfolge-den-geldtransporter",
+  "art": {
+   "loc": "vice",
+   "motif": "atm",
+   "time": "dusk"
+  }
  },
  {
   "id": "randys-wish-list",
@@ -645,7 +920,12 @@
   "chapter": 3,
   "missable": false,
   "description": "Randy hat eine Wunschliste und er zählt darauf, dass du sie erfüllst.",
-  "url": "https://www.gtabase.com/de/gta-6/fremde/randys-wunschliste"
+  "url": "https://www.gtabase.com/de/gta-6/fremde/randys-wunschliste",
+  "art": {
+   "loc": "vice",
+   "motif": "sports",
+   "time": "day"
+  }
  },
  {
   "id": "take-out-kitty-litter",
@@ -656,7 +936,12 @@
   "chapter": 3,
   "missable": false,
   "description": "Tyrone will alle Kitty Litter-Labore in Vice City schließen lassen.",
-  "url": "https://www.gtabase.com/de/gta-6/fremde/katzenstreu-rausbringen"
+  "url": "https://www.gtabase.com/de/gta-6/fremde/katzenstreu-rausbringen",
+  "art": {
+   "loc": "vice",
+   "motif": "package",
+   "time": "night"
+  }
  },
  {
   "id": "spin-on-this",
@@ -667,7 +952,12 @@
   "chapter": 3,
   "missable": false,
   "description": "Tyrone ist bereit, die Hauptproduktion von synthetischen Rohstoffen endgültig einzustellen.",
-  "url": "https://www.gtabase.com/de/gta-6/fremde/dreh-dich-dazu"
+  "url": "https://www.gtabase.com/de/gta-6/fremde/dreh-dich-dazu",
+  "art": {
+   "loc": "vice",
+   "motif": "package",
+   "time": "dusk"
+  }
  },
  {
   "id": "dunks-robbery-tips",
@@ -678,7 +968,12 @@
   "chapter": 3,
   "missable": false,
   "description": "Dunk kennt ein paar Orte, die sich hervorragend für einen Raubüberfall eignen.",
-  "url": "https://www.gtabase.com/de/gta-6/fremde/tipps-fur-dunks-und-raububerfalle"
+  "url": "https://www.gtabase.com/de/gta-6/fremde/tipps-fur-dunks-und-raububerfalle",
+  "art": {
+   "loc": "vice",
+   "motif": "safe",
+   "time": "day"
+  }
  },
  {
   "id": "sisters-of-the-sea",
@@ -689,7 +984,12 @@
   "chapter": 3,
   "missable": false,
   "description": "Rosebud von Dodos Rising möchte helfen, einen Orca aus dem Vice City Oceanarium zu befreien.",
-  "url": "https://www.gtabase.com/de/gta-6/fremde/schwestern-des-meeres"
+  "url": "https://www.gtabase.com/de/gta-6/fremde/schwestern-des-meeres",
+  "art": {
+   "loc": "beach",
+   "motif": "boat",
+   "time": "night"
+  }
  },
  {
   "id": "bring-out-the-chimp",
@@ -700,7 +1000,12 @@
   "chapter": 3,
   "missable": false,
   "description": "Dodos Rising fordert Beweise aus einem Affenlabor in der Nähe der VCIA, insbesondere von einem bestimmten Schimpansen.",
-  "url": "https://www.gtabase.com/de/gta-6/fremde/lass-den-schimpansen-raus"
+  "url": "https://www.gtabase.com/de/gta-6/fremde/lass-den-schimpansen-raus",
+  "art": {
+   "loc": "vice",
+   "motif": "camera",
+   "time": "dusk"
+  }
  },
  {
   "id": "twin-flames",
@@ -711,7 +1016,12 @@
   "chapter": 3,
   "missable": false,
   "description": "Tyler und Steve von Dodos Rising wollen eine Fracking-Anlage in Watson Bay stilllegen.",
-  "url": "https://www.gtabase.com/de/gta-6/fremde/zwillingsflammen"
+  "url": "https://www.gtabase.com/de/gta-6/fremde/zwillingsflammen",
+  "art": {
+   "loc": "vice",
+   "motif": "ring",
+   "time": "day"
+  }
  },
  {
   "id": "dodo-rise",
@@ -722,7 +1032,12 @@
   "chapter": 3,
   "missable": false,
   "description": "Lucia erhält ihre eigene Mission in Dodos Rising: Sie soll ein ganz besonderes Ei aus einem Zoo stehlen.",
-  "url": "https://www.gtabase.com/de/gta-6/fremde/dodo-aufstieg"
+  "url": "https://www.gtabase.com/de/gta-6/fremde/dodo-aufstieg",
+  "art": {
+   "loc": "beach",
+   "motif": "plane",
+   "time": "night"
+  }
  },
  {
   "id": "the-unknown-stuntman",
@@ -733,7 +1048,12 @@
   "chapter": 3,
   "missable": false,
   "description": "Ein waghalsiger Stuntman veranstaltet ein Werbeevent in Ocean Beach und könnte dabei Hilfe gebrauchen.",
-  "url": "https://www.gtabase.com/de/gta-6/fremde/der-unbekannte-stuntman"
+  "url": "https://www.gtabase.com/de/gta-6/fremde/der-unbekannte-stuntman",
+  "art": {
+   "loc": "vice",
+   "motif": "flag",
+   "time": "dusk"
+  }
  },
  {
   "id": "trial-by-tire",
@@ -744,7 +1064,12 @@
   "chapter": 3,
   "missable": false,
   "description": "Die AudaCity-Crew möchte erst einmal sehen, was du auf einem Dirtbike drauf hast, bevor sie dich ins Team aufnimmt.",
-  "url": "https://www.gtabase.com/de/gta-6/fremde/test-mit-reifen"
+  "url": "https://www.gtabase.com/de/gta-6/fremde/test-mit-reifen",
+  "art": {
+   "loc": "vice",
+   "motif": "flag",
+   "time": "day"
+  }
  },
  {
   "id": "quit-your-job-sell-your-house",
@@ -755,7 +1080,12 @@
   "chapter": 3,
   "missable": false,
   "description": "Papa Audacity braucht für seinen nächsten Stunt zwei zusätzliche Paar Hände, und dieses Mal möchte er sowohl Jason als auch Lucia dabei haben.",
-  "url": "https://www.gtabase.com/de/gta-6/fremde/kundige-deinen-job-verkaufe-dein-haus"
+  "url": "https://www.gtabase.com/de/gta-6/fremde/kundige-deinen-job-verkaufe-dein-haus",
+  "art": {
+   "loc": "vice",
+   "motif": "flag",
+   "time": "night"
+  }
  },
  {
   "id": "audacity-stunts",
@@ -766,7 +1096,12 @@
   "chapter": 3,
   "missable": false,
   "description": "Schüren Sie die Vorfreude auf AudaCity mit einer Reihe von Stunt-Sprüngen rund um Vice City.",
-  "url": "https://www.gtabase.com/de/gta-6/strangers/audacity-stunts"
+  "url": "https://www.gtabase.com/de/gta-6/strangers/audacity-stunts",
+  "art": {
+   "loc": "vice",
+   "motif": "flag",
+   "time": "dusk"
+  }
  },
  {
   "id": "catching-a-whale",
@@ -777,7 +1112,12 @@
   "chapter": 3,
   "missable": false,
   "description": "Papa Kühnheit plant etwas Großes und braucht einen Piloten. Treffen Sie ihn auf dem Flugplatz Sundown.",
-  "url": "https://www.gtabase.com/de/gta-6/strangers/catching-a-whale"
+  "url": "https://www.gtabase.com/de/gta-6/strangers/catching-a-whale",
+  "art": {
+   "loc": "vice",
+   "motif": "flag",
+   "time": "day"
+  }
  },
  {
   "id": "the-audacity",
@@ -788,7 +1128,12 @@
   "chapter": 3,
   "missable": false,
   "description": "Papa Audacity veranstaltet die Launch-Party für AudaCity und DacityCoin in den Neo Paloma Apartments, und Sie stehen auf der Gästeliste.",
-  "url": "https://www.gtabase.com/de/gta-6/fremde/die-dreistigkeit"
+  "url": "https://www.gtabase.com/de/gta-6/fremde/die-dreistigkeit",
+  "art": {
+   "loc": "vice",
+   "motif": "flag",
+   "time": "night"
+  }
  },
  {
   "id": "the-last-mile-passing-the-torch",
@@ -799,7 +1144,12 @@
   "chapter": 4,
   "missable": false,
   "description": "Pilot Pete braucht jemanden, der sein Flugzeug fliegt und seine Abwürfe durchführt.",
-  "url": "https://www.gtabase.com/de/gta-6/fremde/die-letzte-meile-die-ubergabe-der-fackel"
+  "url": "https://www.gtabase.com/de/gta-6/fremde/die-letzte-meile-die-ubergabe-der-fackel",
+  "art": {
+   "loc": "country",
+   "motif": "plane",
+   "time": "dusk"
+  }
  },
  {
   "id": "the-last-mile-backseat-pilot",
@@ -810,7 +1160,12 @@
   "chapter": 4,
   "missable": false,
   "description": "Pilot Pete hat eine weitere Runde Abwürfe für Sie vom Flugplatz Wild Hog aus.",
-  "url": "https://www.gtabase.com/de/gta-6/fremde/die-letzte-meile-rucksitzpilot"
+  "url": "https://www.gtabase.com/de/gta-6/fremde/die-letzte-meile-rucksitzpilot",
+  "art": {
+   "loc": "country",
+   "motif": "plane",
+   "time": "day"
+  }
  },
  {
   "id": "petes-deliveries-southpoint-airfield",
@@ -821,7 +1176,12 @@
   "chapter": 4,
   "missable": false,
   "description": "Führe eine weitere Serie von Luftabwürfen für Pilot Pete durch, beginnend in Mariana County.",
-  "url": "https://www.gtabase.com/de/gta-6/fremde/petes-lieferungen-southpoint-flugplatz"
+  "url": "https://www.gtabase.com/de/gta-6/fremde/petes-lieferungen-southpoint-flugplatz",
+  "art": {
+   "loc": "country",
+   "motif": "plane",
+   "time": "night"
+  }
  },
  {
   "id": "petes-deliveries-avery-allen-co",
@@ -832,7 +1192,12 @@
   "chapter": 4,
   "missable": false,
   "description": "Pilot Pete hat eine neue Reihe von Abflügen, die in Kelly County beginnen.",
-  "url": "https://www.gtabase.com/de/gta-6/fremde/petes-lieferungen-avery-allen-co"
+  "url": "https://www.gtabase.com/de/gta-6/fremde/petes-lieferungen-avery-allen-co",
+  "art": {
+   "loc": "country",
+   "motif": "plane",
+   "time": "dusk"
+  }
  },
  {
   "id": "deliver-packages-pilot-pete",
@@ -843,6 +1208,11 @@
   "chapter": 4,
   "missable": false,
   "description": "Pilot Petes letzter Lieferflug beginnt in Leonard County.",
-  "url": "https://www.gtabase.com/de/gta-6/fremde/paketzusteller-pilot-pete"
+  "url": "https://www.gtabase.com/de/gta-6/fremde/paketzusteller-pilot-pete",
+  "art": {
+   "loc": "country",
+   "motif": "plane",
+   "time": "day"
+  }
  }
 ]

@@ -1,8 +1,12 @@
-const CACHE = 'gta6-checklist-v19';
+const CACHE = 'gta6-checklist-v20';
 const SHELL = [
-  './', 'index.html', 'style.css', 'app.js', 'logic.js', 'manifest.webmanifest',
+  './', 'index.html', 'style.css', 'app.js', 'logic.js', 'icons.js', 'art.js', 'manifest.webmanifest',
   'data/missions.json', 'data/items.json', 'data/chapters.json', 'data/sidemissions.json',
   'icons/icon.svg', 'icons/icon-192.png', 'icons/icon-512.png', 'icons/logo.svg', 'vendor/qrcode.js',
+  'vendor/fonts/inter-latin-400-normal.woff2', 'vendor/fonts/inter-latin-500-normal.woff2',
+  'vendor/fonts/inter-latin-600-normal.woff2', 'vendor/fonts/inter-latin-700-normal.woff2',
+  'vendor/fonts/barlow-condensed-latin-500-normal.woff2', 'vendor/fonts/barlow-condensed-latin-600-normal.woff2',
+  'vendor/fonts/barlow-condensed-latin-700-normal.woff2',
 ];
 
 self.addEventListener('install', (e) => {

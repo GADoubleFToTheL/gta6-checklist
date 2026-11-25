@@ -7,7 +7,13 @@
   "character": "Lucia",
   "order": 1,
   "pointOfNoReturn": false,
-  "ponrNote": ""
+  "ponrNote": "",
+  "desc": "Lucia steht am Anfang ihrer Geschichte – ein Überfall, der nicht nach Plan läuft, und eine Flucht übers Wasser.",
+  "art": {
+   "loc": "keys",
+   "motif": "shop",
+   "time": "night"
+  }
  },
  {
   "id": "gone-fishing",
@@ -17,7 +23,13 @@
   "character": "unbekannt",
   "order": 2,
   "pointOfNoReturn": false,
-  "ponrNote": ""
+  "ponrNote": "",
+  "desc": "Eine Schmuggelfahrt mit Cal und Donnie geht schief. Jason muss ins Revier der Kingfishers im Pelican Valley.",
+  "art": {
+   "loc": "swamp",
+   "motif": "airboat",
+   "time": "dusk"
+  }
  },
  {
   "id": "gear-up",
@@ -27,7 +39,13 @@
   "character": "unbekannt",
   "order": 3,
   "pointOfNoReturn": false,
-  "ponrNote": ""
+  "ponrNote": "",
+  "desc": "Jason holt sich beim örtlichen Ammu-Nation eine neue Langwaffe ab.",
+  "art": {
+   "loc": "keys",
+   "motif": "gun",
+   "time": "day"
+  }
  },
  {
   "id": "unwanted-attention",
@@ -37,7 +55,13 @@
   "character": "unbekannt",
   "order": 4,
   "pointOfNoReturn": false,
-  "ponrNote": ""
+  "ponrNote": "",
+  "desc": "Cal und Jason fahren nach Hamlet, um Brians Geld aus einem beschlagnahmten Wagen zu holen.",
+  "art": {
+   "loc": "country",
+   "motif": "police",
+   "time": "day"
+  }
  },
  {
   "id": "lab-fees",
@@ -47,7 +71,13 @@
   "character": "unbekannt",
   "order": 5,
   "pointOfNoReturn": false,
-  "ponrNote": ""
+  "ponrNote": "",
+  "desc": "Jason treibt Brians Miete in einem Souvenirladen ein, der mehr verbirgt als Andenken.",
+  "art": {
+   "loc": "keys",
+   "motif": "shop",
+   "time": "day"
+  }
  },
  {
   "id": "pipework",
@@ -57,7 +87,13 @@
   "character": "unbekannt",
   "order": 6,
   "pointOfNoReturn": false,
-  "ponrNote": ""
+  "ponrNote": "",
+  "desc": "Beim Mieteintreiben bei Mandy erledigt Jason nebenbei ein paar Reparaturen im Haus.",
+  "art": {
+   "loc": "keys",
+   "motif": "wrench",
+   "time": "day"
+  }
  },
  {
   "id": "just-a-scratch",
@@ -67,7 +103,13 @@
   "character": "unbekannt",
   "order": 7,
   "pointOfNoReturn": false,
-  "ponrNote": ""
+  "ponrNote": "",
+  "desc": "Jason bringt seinen ramponierten Ganado zu Joey bei Coastal Auto Care.",
+  "art": {
+   "loc": "keys",
+   "motif": "pickup",
+   "time": "dusk"
+  }
  },
  {
   "id": "hey-arnold",
@@ -77,7 +119,13 @@
   "character": "unbekannt",
   "order": 8,
   "pointOfNoReturn": false,
-  "ponrNote": ""
+  "ponrNote": "",
+  "desc": "Brians langjähriger Broker Arnold meldet sich nicht mehr. Jason und Cal suchen ihn.",
+  "art": {
+   "loc": "keys",
+   "motif": "briefcase",
+   "time": "dusk"
+  }
  },
  {
   "id": "island-dreams",
@@ -87,7 +135,13 @@
   "character": "unbekannt",
   "order": 9,
   "pointOfNoReturn": false,
-  "ponrNote": ""
+  "ponrNote": "",
+  "desc": "Kenton braucht Jason für einen Junggesellenabschied: Tauchgang zu einem Wrack, Schatzsuche inklusive.",
+  "art": {
+   "loc": "keys",
+   "motif": "chest",
+   "time": "day"
+  }
  },
  {
   "id": "feng-shui",
@@ -97,7 +151,13 @@
   "character": "unbekannt",
   "order": 10,
   "pointOfNoReturn": false,
-  "ponrNote": ""
+  "ponrNote": "",
+  "desc": "Jason und Cal hängen zu Hause ab und stellen die Möbel um, bevor Lucia ankommt.",
+  "art": {
+   "loc": "keys",
+   "motif": "home",
+   "time": "dusk"
+  }
  },
  {
   "id": "coming-home",
@@ -107,7 +167,13 @@
   "character": "unbekannt",
   "order": 11,
   "pointOfNoReturn": false,
-  "ponrNote": ""
+  "ponrNote": "",
+  "desc": "Lucia kommt aus der Hamlet-Haftanstalt frei und braucht eine Fahrt nach Hause.",
+  "art": {
+   "loc": "country",
+   "motif": "prison",
+   "time": "day"
+  }
  },
  {
   "id": "clean-up-after-donnie",
@@ -117,7 +183,13 @@
   "character": "unbekannt",
   "order": 12,
   "pointOfNoReturn": false,
-  "ponrNote": ""
+  "ponrNote": "",
+  "desc": "Ein verlorenes Paket aus Donnies verpatzter Lieferung sendet ein Signal – nahe einem Angelplatz bei Hamlet.",
+  "art": {
+   "loc": "swamp",
+   "motif": "package",
+   "time": "dusk"
+  }
  },
  {
   "id": "buck-me",
@@ -127,7 +199,13 @@
   "character": "unbekannt",
   "order": 13,
   "pointOfNoReturn": false,
-  "ponrNote": ""
+  "ponrNote": "",
+  "desc": "Lucia braucht ein Konto für ihren Lohn aus der Sozialarbeit. Treffpunkt ist die Fleeca-Bank.",
+  "art": {
+   "loc": "keys",
+   "motif": "bank",
+   "time": "day"
+  }
  },
  {
   "id": "down-to-earth",
@@ -137,7 +215,13 @@
   "character": "Lucia",
   "order": 14,
   "pointOfNoReturn": false,
-  "ponrNote": ""
+  "ponrNote": "",
+  "desc": "Brian will Jason für einen neuen Job am Jachthafen sehen – Lucia kommt mit.",
+  "art": {
+   "loc": "keys",
+   "motif": "marina",
+   "time": "dusk"
+  }
  },
  {
   "id": "deposit-cash-into-buckme",
@@ -149,7 +233,13 @@
   "pointOfNoReturn": false,
   "ponrNote": "",
   "step": true,
-  "note": "Zahlen Sie an einem beliebigen Geldautomaten Bargeld auf Ihr BuckMe-Girokonto ein."
+  "note": "Zahlen Sie an einem beliebigen Geldautomaten Bargeld auf Ihr BuckMe-Girokonto ein.",
+  "desc": "Zahl an einem beliebigen Geldautomaten Bargeld auf dein BuckMe-Girokonto ein.",
+  "art": {
+   "loc": "keys",
+   "motif": "atm",
+   "time": "night"
+  }
  },
  {
   "id": "save-for-the-future",
@@ -161,7 +251,13 @@
   "pointOfNoReturn": false,
   "ponrNote": "",
   "step": true,
-  "note": "Zahlen Sie weiterhin Geld in Ihre Familiensparkonten ein, um das nächste Sparziel zu erreichen und neue BuckMe-Vorteile freizuschalten."
+  "note": "Zahlen Sie weiterhin Geld in Ihre Familiensparkonten ein, um das nächste Sparziel zu erreichen und neue BuckMe-Vorteile freizuschalten.",
+  "desc": "Leg weiter Geld ins Family Savings, um das nächste Sparziel und neue BuckMe-Vorteile zu erreichen.",
+  "art": {
+   "loc": "keys",
+   "motif": "piggy",
+   "time": "day"
+  }
  },
  {
   "id": "day-release",
@@ -171,7 +267,13 @@
   "character": "unbekannt",
   "order": 17,
   "pointOfNoReturn": false,
-  "ponrNote": ""
+  "ponrNote": "",
+  "desc": "Kat und Mattia laden Jason und Lucia zu einem Partytag ein – los geht es im Rusty Anchor.",
+  "art": {
+   "loc": "keys",
+   "motif": "yacht",
+   "time": "day"
+  }
  },
  {
   "id": "clear-skies",
@@ -181,7 +283,13 @@
   "character": "unbekannt",
   "order": 18,
   "pointOfNoReturn": false,
-  "ponrNote": ""
+  "ponrNote": "",
+  "desc": "Brian hat einen Job für Jason und Donnie, der in Southwind beginnt.",
+  "art": {
+   "loc": "country",
+   "motif": "plane",
+   "time": "day"
+  }
  },
  {
   "id": "building-a-life",
@@ -193,7 +301,13 @@
   "pointOfNoReturn": false,
   "ponrNote": "",
   "step": true,
-  "note": "Jason und Lucia arbeiten gemeinsam an ihrem neuen Zuhause, und Jason gibt Lucia eine Lektion im Umgang mit einer Waffe."
+  "note": "Jason und Lucia arbeiten gemeinsam an ihrem neuen Zuhause, und Jason gibt Lucia eine Lektion im Umgang mit einer Waffe.",
+  "desc": "Jason und Lucia richten das gemeinsame Zuhause ein, und Lucia bekommt eine Schießstunde.",
+  "art": {
+   "loc": "keys",
+   "motif": "home",
+   "time": "day"
+  }
  },
  {
   "id": "swamped",
@@ -203,7 +317,13 @@
   "character": "unbekannt",
   "order": 20,
   "pointOfNoReturn": false,
-  "ponrNote": ""
+  "ponrNote": "",
+  "desc": "Brian bestellt Jason zum Jachthafen, bevor es zu den Kingfishers geht.",
+  "art": {
+   "loc": "swamp",
+   "motif": "airboat",
+   "time": "night"
+  }
  },
  {
   "id": "don-gone",
@@ -213,7 +333,13 @@
   "character": "unbekannt",
   "order": 21,
   "pointOfNoReturn": false,
-  "ponrNote": ""
+  "ponrNote": "",
+  "desc": "Brian schickt Jason los, Donnies Wohnwagen in Key Lento auszuräumen.",
+  "art": {
+   "loc": "keys",
+   "motif": "trailer",
+   "time": "dusk"
+  }
  },
  {
   "id": "recalibration",
@@ -223,7 +349,13 @@
   "character": "unbekannt",
   "order": 22,
   "pointOfNoReturn": false,
-  "ponrNote": ""
+  "ponrNote": "",
+  "desc": "Cal geht es schlecht – Jason und Lucia versuchen, ihn aufzumuntern.",
+  "art": {
+   "loc": "keys",
+   "motif": "cocktail",
+   "time": "night"
+  }
  },
  {
   "id": "tourist-trap",
@@ -233,12 +365,18 @@
   "character": "unbekannt",
   "order": 23,
   "pointOfNoReturn": true,
-  "ponrNote": "Weg: Bargeld, BuckMe-Girokonto, Bodenversteck, Jasons Haus in Key Lento, alle eigenen Fahrzeuge samt Tuning (auch Ultimate Edition). Jasons Fitness sinkt vorübergehend. Bleibt: Family Savings (bis 5.000 $), Beziehungslevel mit Lucia, Unikat-Waffen. Bei Ammu-Nation gekaufte Waffen liegen zu Beginn von Kapitel 2 im Waffenschrank. Tourist Trap, Home Sweet Home und Discharge Time laufen ohne Free Roam.",
+  "ponrNote": "Weg: Bargeld, BuckMe-Girokonto, Bodenversteck, Jasons Haus in Key Lento, alle eigenen Fahrzeuge samt Tuning (auch Ultimate Edition). Jasons Fitness sinkt vorübergehend. Bleibt: Family Savings (bis 5.000 $), Beziehungslevel mit Lucia, Unikat-Waffen. Bei Ammu-Nation gekaufte Waffen liegen zu Beginn von Kapitel 2 im Waffenschrank. Touristenfalle, Trautes Heim, Glück allein und Entladezeit laufen ohne Free Roam.",
   "ponrChecklist": [
    "Manueller Save in eigenem Slot",
    "5.000 $ ins Family Savings",
    "Restgeld ausgeben (Waffen bei Ammu-Nation, kein Tuning)"
-  ]
+  ],
+  "desc": "Mattia bietet einen einfachen Job an, der zu gut bezahlter Arbeit führen könnte.",
+  "art": {
+   "loc": "keys",
+   "motif": "bag",
+   "time": "night"
+  }
  },
  {
   "id": "home-sweet-home",
@@ -248,7 +386,13 @@
   "character": "Lucia",
   "order": 24,
   "pointOfNoReturn": false,
-  "ponrNote": ""
+  "ponrNote": "",
+  "desc": "Lucia holt ein paar Sachen aus Jasons Haus, bevor die beiden untertauchen.",
+  "art": {
+   "loc": "keys",
+   "motif": "home",
+   "time": "night"
+  }
  },
  {
   "id": "discharge-time",
@@ -258,7 +402,13 @@
   "character": "unbekannt",
   "order": 25,
   "pointOfNoReturn": false,
-  "ponrNote": ""
+  "ponrNote": "",
+  "desc": "Lucia fährt ins Vice City Hospital – doch dort wartet Ärger.",
+  "art": {
+   "loc": "vice",
+   "motif": "hospital",
+   "time": "night"
+  }
  },
  {
   "id": "what-s-in-the-bag",
@@ -268,7 +418,13 @@
   "character": "Lucia",
   "order": 26,
   "pointOfNoReturn": false,
-  "ponrNote": ""
+  "ponrNote": "",
+  "desc": "Jason und Lucia wachen in einem Motel in Port Gellhorn auf und sehen endlich in die Tasche.",
+  "art": {
+   "loc": "gellhorn",
+   "motif": "bag",
+   "time": "day"
+  }
  },
  {
   "id": "ambulance-chaser",
@@ -278,7 +434,13 @@
   "character": "Lucia",
   "order": 27,
   "pointOfNoReturn": false,
-  "ponrNote": ""
+  "ponrNote": "",
+  "desc": "Der Krankenwagen von der Flucht steht noch in der Nähe. Lucia muss ihn loswerden, bevor die Polizei ihn findet.",
+  "art": {
+   "loc": "gellhorn",
+   "motif": "ambulance",
+   "time": "dusk"
+  }
  },
  {
   "id": "take-care-of-jason",
@@ -290,7 +452,13 @@
   "pointOfNoReturn": false,
   "ponrNote": "",
   "step": true,
-  "note": "Schau immer wieder nach Jason im Motel, bis er wieder auf den Beinen ist."
+  "note": "Schau immer wieder nach Jason im Motel, bis er wieder auf den Beinen ist.",
+  "desc": "Schau im Motel immer wieder nach Jason, bis er wieder auf den Beinen ist.",
+  "art": {
+   "loc": "gellhorn",
+   "motif": "motel",
+   "time": "day"
+  }
  },
  {
   "id": "overnight-charges",
@@ -302,7 +470,13 @@
   "pointOfNoReturn": false,
   "ponrNote": "",
   "step": true,
-  "note": "Gehen Sie zur Rezeption des Motels und erkundigen Sie sich nach dem Zimmerpreis."
+  "note": "Gehen Sie zur Rezeption des Motels und erkundigen Sie sich nach dem Zimmerpreis.",
+  "desc": "Geh zur Rezeption des Motels und finde heraus, wie viel für das Zimmer offen ist.",
+  "art": {
+   "loc": "gellhorn",
+   "motif": "money",
+   "time": "night"
+  }
  },
  {
   "id": "just-moved-in",
@@ -312,7 +486,13 @@
   "character": "Lucia",
   "order": 30,
   "pointOfNoReturn": false,
-  "ponrNote": ""
+  "ponrNote": "",
+  "desc": "Besorg ein paar Vorräte im Laden in der Nähe des Motels.",
+  "art": {
+   "loc": "gellhorn",
+   "motif": "groceries",
+   "time": "day"
+  }
  },
  {
   "id": "girls-trip",
@@ -322,7 +502,13 @@
   "character": "Lucia",
   "order": 31,
   "pointOfNoReturn": false,
-  "ponrNote": ""
+  "ponrNote": "",
+  "desc": "Jason braucht Schmerzmittel nach seiner Operation – Lucia hört sich im Motel um.",
+  "art": {
+   "loc": "gellhorn",
+   "motif": "pills",
+   "time": "dusk"
+  }
  },
  {
   "id": "moses",
@@ -332,7 +518,13 @@
   "character": "unbekannt",
   "order": 32,
   "pointOfNoReturn": false,
-  "ponrNote": ""
+  "ponrNote": "",
+  "desc": "Vicki meint, ein Mechaniker namens Moses könnte Lucia ein Auto besorgen. Bring ihm einen unauffälligen Wagen.",
+  "art": {
+   "loc": "gellhorn",
+   "motif": "car",
+   "time": "day"
+  }
  },
  {
   "id": "new-look",
@@ -344,7 +536,13 @@
   "pointOfNoReturn": false,
   "ponrNote": "",
   "step": true,
-  "note": "Besuchen Sie den Friseursalon Pearl House, um Lucia eine neue Frisur zu verpassen."
+  "note": "Besuchen Sie den Friseursalon Pearl House, um Lucia eine neue Frisur zu verpassen.",
+  "desc": "Besuch den Pearl House Hair Salon und gib Lucia eine neue Frisur.",
+  "art": {
+   "loc": "gellhorn",
+   "motif": "scissors",
+   "time": "day"
+  }
  },
  {
   "id": "how-do-i-look",
@@ -356,7 +554,13 @@
   "pointOfNoReturn": false,
   "ponrNote": "",
   "step": true,
-  "note": "Kauf Lucia neue Kleidung oder besorg ihr welche günstig bei Bargain World."
+  "note": "Kauf Lucia neue Kleidung oder besorg ihr welche günstig bei Bargain World.",
+  "desc": "Kauf Lucia neue Kleidung – oder hol sie günstig bei Bargain World.",
+  "art": {
+   "loc": "gellhorn",
+   "motif": "shopping",
+   "time": "day"
+  }
  },
  {
   "id": "painkiller-supplier",
@@ -368,7 +572,13 @@
   "pointOfNoReturn": false,
   "ponrNote": "",
   "step": true,
-  "note": "Dunk meldet sich, sobald er etwas auf die Suche nach Schmerzmitteln für Jason gemacht hat."
+  "note": "Dunk meldet sich, sobald er etwas auf die Suche nach Schmerzmitteln für Jason gemacht hat.",
+  "desc": "Dunk meldet sich, sobald er eine Spur zu Schmerzmitteln für Jason hat.",
+  "art": {
+   "loc": "gellhorn",
+   "motif": "phone",
+   "time": "dusk"
+  }
  },
  {
   "id": "daily-driver",
@@ -378,7 +588,13 @@
   "character": "unbekannt",
   "order": 36,
   "pointOfNoReturn": false,
-  "ponrNote": ""
+  "ponrNote": "",
+  "desc": "Moses will einen Canis Crawler von Kunden zurück, die nicht bezahlt haben.",
+  "art": {
+   "loc": "country",
+   "motif": "pickup",
+   "time": "day"
+  }
  },
  {
   "id": "behind-on-payments",
@@ -390,7 +606,13 @@
   "pointOfNoReturn": false,
   "ponrNote": "",
   "step": true,
-  "note": "Linda behält die Halskette als Pfand ein, bis die 900 Dollar für das Motelzimmer bezahlt sind."
+  "note": "Linda behält die Halskette als Pfand ein, bis die 900 Dollar für das Motelzimmer bezahlt sind.",
+  "desc": "Linda behält die Halskette als Pfand, bis die 900 $ für das Motelzimmer bezahlt sind.",
+  "art": {
+   "loc": "gellhorn",
+   "motif": "necklace",
+   "time": "dusk"
+  }
  },
  {
   "id": "slam-dunk",
@@ -400,7 +622,13 @@
   "character": "unbekannt",
   "order": 38,
   "pointOfNoReturn": false,
-  "ponrNote": ""
+  "ponrNote": "",
+  "desc": "Geh zu Dunks Wohnwagen und finde heraus, wie er an stärkere Schmerzmittel kommen will.",
+  "art": {
+   "loc": "gellhorn",
+   "motif": "trailer",
+   "time": "night"
+  }
  },
  {
   "id": "breakfast-run",
@@ -410,7 +638,13 @@
   "character": "beide",
   "order": 39,
   "pointOfNoReturn": false,
-  "ponrNote": ""
+  "ponrNote": "",
+  "desc": "Zurück zum Motel: Wie geht es Jason?",
+  "art": {
+   "loc": "gellhorn",
+   "motif": "motel",
+   "time": "dusk"
+  }
  },
  {
   "id": "coffee-break",
@@ -420,7 +654,13 @@
   "character": "unbekannt",
   "order": 40,
   "pointOfNoReturn": false,
-  "ponrNote": ""
+  "ponrNote": "",
+  "desc": "Nach einer Reihe von Überfällen gönnen sich Jason und Lucia eine Pause.",
+  "art": {
+   "loc": "gellhorn",
+   "motif": "shop",
+   "time": "dusk"
+  }
  },
  {
   "id": "prepare-for-vice-city",
@@ -432,7 +672,13 @@
   "pointOfNoReturn": false,
   "ponrNote": "",
   "step": true,
-  "note": "Verdiene mindestens 15.000 Dollar, während Dre'Quan sich eine Unterkunft in Vice City sucht."
+  "note": "Verdiene mindestens 15.000 Dollar, während Dre'Quan sich eine Unterkunft in Vice City sucht.",
+  "desc": "Verdiene mindestens 15.000 $, während Dre’Quan eine Unterkunft in Vice City organisiert.",
+  "art": {
+   "loc": "gellhorn",
+   "motif": "money",
+   "time": "night"
+  }
  },
  {
   "id": "afternoon-delight",
@@ -442,7 +688,13 @@
   "character": "unbekannt",
   "order": 42,
   "pointOfNoReturn": false,
-  "ponrNote": ""
+  "ponrNote": "",
+  "desc": "Vicki will ihren Chef im Delights ausrauben und die Beute teilen.",
+  "art": {
+   "loc": "gellhorn",
+   "motif": "club",
+   "time": "night"
+  }
  },
  {
   "id": "checking-out",
@@ -458,7 +710,13 @@
    "Pool-Gegner im Delights Cabaret besiegen",
    "Karten im Starlet Motel einsammeln",
    "Manueller Save in eigenem Slot"
-  ]
+  ],
+  "desc": "Jason und Lucia packen, verlassen das Motel und fahren zu Dre’Quan nach Vice City.",
+  "art": {
+   "loc": "gellhorn",
+   "motif": "car",
+   "time": "dusk"
+  }
  },
  {
   "id": "welcome-to-vice-city",
@@ -468,7 +726,13 @@
   "character": "unbekannt",
   "order": 44,
   "pointOfNoReturn": false,
-  "ponrNote": ""
+  "ponrNote": "",
+  "desc": "Jason und Lucia kommen in Vice City an und suchen Jasons alten Freund Dre’Quan.",
+  "art": {
+   "loc": "vice",
+   "motif": "hotel",
+   "time": "dusk"
+  }
  },
  {
   "id": "dealer-s-choice",
@@ -478,7 +742,13 @@
   "character": "Jason",
   "order": 45,
   "pointOfNoReturn": false,
-  "ponrNote": ""
+  "ponrNote": "",
+  "desc": "Boobie meint, Jason schulde ihm etwas für die Wohnung – und schickt ihn mit Dre’Quan zu einem Deal.",
+  "art": {
+   "loc": "vice",
+   "motif": "package",
+   "time": "night"
+  }
  },
  {
   "id": "meet-the-heders",
@@ -488,7 +758,13 @@
   "character": "unbekannt",
   "order": 46,
   "pointOfNoReturn": false,
-  "ponrNote": ""
+  "ponrNote": "",
+  "desc": "Doppeldate mit Brian und Lori Heder.",
+  "art": {
+   "loc": "beach",
+   "motif": "cocktail",
+   "time": "dusk"
+  }
  },
  {
   "id": "dubious-provenance",
@@ -498,7 +774,13 @@
   "character": "unbekannt",
   "order": 47,
   "pointOfNoReturn": false,
-  "ponrNote": ""
+  "ponrNote": "",
+  "desc": "Jason und Lucia bringen die Statue zu einem Antiquitätenhändler in Capri.",
+  "art": {
+   "loc": "vice",
+   "motif": "statue",
+   "time": "day"
+  }
  },
  {
   "id": "mami-knows-best",
@@ -508,7 +790,13 @@
   "character": "Lucia",
   "order": 48,
   "pointOfNoReturn": false,
-  "ponrNote": ""
+  "ponrNote": "",
+  "desc": "Lucia trifft ihre Mutter Mia, die gerade ein eigenes Immobilienbüro eröffnet hat.",
+  "art": {
+   "loc": "vice",
+   "motif": "contract",
+   "time": "day"
+  }
  },
  {
   "id": "tyrone",
@@ -518,7 +806,13 @@
   "character": "Jason",
   "order": 49,
   "pointOfNoReturn": false,
-  "ponrNote": ""
+  "ponrNote": "",
+  "desc": "Jason trifft Tyrone wegen eines Jobs.",
+  "art": {
+   "loc": "vice",
+   "motif": "muscle",
+   "time": "day"
+  }
  },
  {
   "id": "here-kitty-kitty",
@@ -528,7 +822,13 @@
   "character": "unbekannt",
   "order": 50,
   "pointOfNoReturn": false,
-  "ponrNote": ""
+  "ponrNote": "",
+  "desc": "Jason sucht einen Mann namens Charles, um herauszufinden, woher „Kitty Litter“ kommt.",
+  "art": {
+   "loc": "vice",
+   "motif": "pills",
+   "time": "night"
+  }
  },
  {
   "id": "send-money-to-lorena",
@@ -540,7 +840,13 @@
   "pointOfNoReturn": false,
   "ponrNote": "",
   "step": true,
-  "note": "Schick Lorena etwas Geld."
+  "note": "Schick Lorena etwas Geld.",
+  "desc": "Schick Lorena etwas Geld.",
+  "art": {
+   "loc": "vice",
+   "motif": "phone",
+   "time": "day"
+  }
  },
  {
   "id": "car-service",
@@ -550,7 +856,13 @@
   "character": "Lucia",
   "order": 52,
   "pointOfNoReturn": false,
-  "ponrNote": ""
+  "ponrNote": "",
+  "desc": "Lucia stiehlt ein Auto für Raul.",
+  "art": {
+   "loc": "vice",
+   "motif": "sports",
+   "time": "night"
+  }
  },
  {
   "id": "send-more-money-to-lorena",
@@ -562,7 +874,13 @@
   "pointOfNoReturn": false,
   "ponrNote": "",
   "step": true,
-  "note": "Senden Sie eine weitere Zahlung an Lorena."
+  "note": "Senden Sie eine weitere Zahlung an Lorena.",
+  "desc": "Schick Lorena eine weitere Zahlung.",
+  "art": {
+   "loc": "vice",
+   "motif": "atm",
+   "time": "night"
+  }
  },
  {
   "id": "top-billing",
@@ -572,7 +890,13 @@
   "character": "unbekannt",
   "order": 54,
   "pointOfNoReturn": false,
-  "ponrNote": ""
+  "ponrNote": "",
+  "desc": "Jason, Lucia und Dre’Quan gehen zum Konzert der Real Dimez.",
+  "art": {
+   "loc": "vice",
+   "motif": "stage",
+   "time": "night"
+  }
  },
  {
   "id": "boobie-time",
@@ -582,7 +906,13 @@
   "character": "unbekannt",
   "order": 55,
   "pointOfNoReturn": false,
-  "ponrNote": ""
+  "ponrNote": "",
+  "desc": "Jason fährt Boobie eine Weile durch Vice City.",
+  "art": {
+   "loc": "vice",
+   "motif": "convertible",
+   "time": "dusk"
+  }
  },
  {
   "id": "yasmanis-jewelry-jobs",
@@ -594,7 +924,13 @@
   "pointOfNoReturn": false,
   "ponrNote": "",
   "step": true,
-  "note": "Überfalle verschiedene Juweliergeschäfte in Vice City und verkaufe die Beute an Yasmani."
+  "note": "Überfalle verschiedene Juweliergeschäfte in Vice City und verkaufe die Beute an Yasmani.",
+  "desc": "Überfalle eine Reihe Juweliere in Vice City und verkaufe die Beute an Yasmani.",
+  "art": {
+   "loc": "vice",
+   "motif": "ring",
+   "time": "night"
+  }
  },
  {
   "id": "first-impressions",
@@ -604,7 +940,13 @@
   "character": "unbekannt",
   "order": 57,
   "pointOfNoReturn": false,
-  "ponrNote": ""
+  "ponrNote": "",
+  "desc": "Jason und Lucia treffen Raul zum ersten Mal.",
+  "art": {
+   "loc": "vice",
+   "motif": "briefcase",
+   "time": "dusk"
+  }
  },
  {
   "id": "caught-slipping",
@@ -614,7 +956,13 @@
   "character": "beide",
   "order": 58,
   "pointOfNoReturn": false,
-  "ponrNote": ""
+  "ponrNote": "",
+  "desc": "Jason und Lucia müssen einen Einbruch verhindern.",
+  "art": {
+   "loc": "vice",
+   "motif": "gun",
+   "time": "night"
+  }
  },
  {
   "id": "crosstown-traffic",
@@ -624,7 +972,13 @@
   "character": "unbekannt",
   "order": 59,
   "pointOfNoReturn": false,
-  "ponrNote": ""
+  "ponrNote": "",
+  "desc": "Lucia beschattet für Raul ein Gangmitglied, Jason trifft Karim.",
+  "art": {
+   "loc": "vice",
+   "motif": "car",
+   "time": "night"
+  }
  },
  {
   "id": "credit-check",
@@ -634,7 +988,13 @@
   "character": "unbekannt",
   "order": 60,
   "pointOfNoReturn": false,
-  "ponrNote": ""
+  "ponrNote": "",
+  "desc": "Raul lädt Jason und Lucia zu seiner Basis ein, um die Crew kennenzulernen.",
+  "art": {
+   "loc": "vice",
+   "motif": "dice",
+   "time": "night"
+  }
  },
  {
   "id": "steal-the-zorrusso-for-randy",
@@ -644,7 +1004,13 @@
   "character": "unbekannt",
   "order": 61,
   "pointOfNoReturn": false,
-  "ponrNote": ""
+  "ponrNote": "",
+  "desc": "Jason und Lucia stehlen für Randy einen edlen Zorrusso.",
+  "art": {
+   "loc": "vice",
+   "motif": "key",
+   "time": "night"
+  }
  },
  {
   "id": "sinfrontera-national-bank",
@@ -654,7 +1020,13 @@
   "character": "unbekannt",
   "order": 62,
   "pointOfNoReturn": false,
-  "ponrNote": ""
+  "ponrNote": "",
+  "desc": "Jason und Lucia sehen sich eine Bank genauer an – die Vorbereitung für einen großen Coup beginnt.",
+  "art": {
+   "loc": "vice",
+   "motif": "bank",
+   "time": "day"
+  }
  },
  {
   "id": "security-expert",
@@ -664,7 +1036,13 @@
   "character": "unbekannt",
   "order": 63,
   "pointOfNoReturn": false,
-  "ponrNote": ""
+  "ponrNote": "",
+  "desc": "Ein Sicherheitsexperte könnte beim Coup helfen.",
+  "art": {
+   "loc": "vice",
+   "motif": "safe",
+   "time": "day"
+  }
  },
  {
   "id": "heist-planning",
@@ -676,7 +1054,13 @@
   "pointOfNoReturn": false,
   "ponrNote": "",
   "step": true,
-  "note": "Raul stellt eine Bande zusammen, um die Sinfrontera National Bank auszurauben, und es gibt vorher noch viel vorzubereiten."
+  "note": "Raul stellt eine Bande zusammen, um die Sinfrontera National Bank auszurauben, und es gibt vorher noch viel vorzubereiten.",
+  "desc": "Raul stellt eine Crew für den Überfall auf die Sinfrontera National Bank zusammen – vorher gibt es viel vorzubereiten.",
+  "art": {
+   "loc": "vice",
+   "motif": "contract",
+   "time": "night"
+  }
  },
  {
   "id": "ride-or-die",
@@ -686,7 +1070,13 @@
   "character": "unbekannt",
   "order": 65,
   "pointOfNoReturn": false,
-  "ponrNote": ""
+  "ponrNote": "",
+  "desc": "Jason hilft Dre’Quan aus.",
+  "art": {
+   "loc": "vice",
+   "motif": "pickup",
+   "time": "dusk"
+  }
  },
  {
   "id": "company-property",
@@ -696,7 +1086,13 @@
   "character": "unbekannt",
   "order": 66,
   "pointOfNoReturn": false,
-  "ponrNote": ""
+  "ponrNote": "",
+  "desc": "Jason und Lucia treffen Brian und helfen bei einer Waffenlieferung.",
+  "art": {
+   "loc": "beach",
+   "motif": "boat",
+   "time": "dusk"
+  }
  },
  {
   "id": "the-missing-link",
@@ -706,7 +1102,13 @@
   "character": "unbekannt",
   "order": 67,
   "pointOfNoReturn": false,
-  "ponrNote": ""
+  "ponrNote": "",
+  "desc": "Lucia trifft Andrea – die Spur führt zu einem Hahnenkampf.",
+  "art": {
+   "loc": "country",
+   "motif": "rooster",
+   "time": "dusk"
+  }
  },
  {
   "id": "safe-word",
@@ -716,7 +1118,13 @@
   "character": "unbekannt",
   "order": 68,
   "pointOfNoReturn": false,
-  "ponrNote": ""
+  "ponrNote": "",
+  "desc": "Lucia stiehlt einen Übungstresor und lernt etwas Neues.",
+  "art": {
+   "loc": "vice",
+   "motif": "safe",
+   "time": "night"
+  }
  },
  {
   "id": "cooties",
@@ -726,7 +1134,13 @@
   "character": "unbekannt",
   "order": 69,
   "pointOfNoReturn": false,
-  "ponrNote": ""
+  "ponrNote": "",
+  "desc": "Lucia hilft beim Dreh eines Musikvideos.",
+  "art": {
+   "loc": "vice",
+   "motif": "camera",
+   "time": "day"
+  }
  },
  {
   "id": "south-leonida-real-estate",
@@ -736,7 +1150,13 @@
   "character": "Lucia",
   "order": 70,
   "pointOfNoReturn": false,
-  "ponrNote": ""
+  "ponrNote": "",
+  "desc": "Lucia trifft Mia wieder – und gerät erneut mit der M7-Gang aneinander.",
+  "art": {
+   "loc": "vice",
+   "motif": "muscle",
+   "time": "dusk"
+  }
  },
  {
   "id": "hidden-charges",
@@ -746,7 +1166,13 @@
   "character": "unbekannt",
   "order": 71,
   "pointOfNoReturn": false,
-  "ponrNote": ""
+  "ponrNote": "",
+  "desc": "Jason und Lucia bereiten den Sprengstoff für den Coup vor.",
+  "art": {
+   "loc": "vice",
+   "motif": "charges",
+   "time": "night"
+  }
  },
  {
   "id": "bricked-up",
@@ -756,7 +1182,13 @@
   "character": "beide",
   "order": 72,
   "pointOfNoReturn": false,
-  "ponrNote": ""
+  "ponrNote": "",
+  "desc": "Jason und Lucia erledigen ein paar Arbeiten für Boobie.",
+  "art": {
+   "loc": "vice",
+   "motif": "package",
+   "time": "day"
+  }
  },
  {
   "id": "the-cartel-heist",
@@ -766,7 +1198,13 @@
   "character": "unbekannt",
   "order": 73,
   "pointOfNoReturn": false,
-  "ponrNote": ""
+  "ponrNote": "",
+  "desc": "Der Plan steht – Zeit für die Bank.",
+  "art": {
+   "loc": "vice",
+   "motif": "bank",
+   "time": "night"
+  }
  },
  {
   "id": "ocean-beach",
@@ -776,7 +1214,13 @@
   "character": "unbekannt",
   "order": 74,
   "pointOfNoReturn": false,
-  "ponrNote": ""
+  "ponrNote": "",
+  "desc": "Jason und Lucia lassen sich in Ocean Beach nieder.",
+  "art": {
+   "loc": "beach",
+   "motif": "hotel",
+   "time": "day"
+  }
  },
  {
   "id": "another-life",
@@ -786,7 +1230,13 @@
   "character": "unbekannt",
   "order": 75,
   "pointOfNoReturn": false,
-  "ponrNote": ""
+  "ponrNote": "",
+  "desc": "Lucia denkt an ihre Vergangenheit zurück.",
+  "art": {
+   "loc": "beach",
+   "motif": "lotus",
+   "time": "dusk"
+  }
  },
  {
   "id": "pool-day",
@@ -798,7 +1248,13 @@
   "pointOfNoReturn": false,
   "ponrNote": "",
   "step": true,
-  "note": "Zeit für einen Tag am Pool."
+  "note": "Zeit für einen Tag am Pool.",
+  "desc": "Zeit für einen Tag am Pool.",
+  "art": {
+   "loc": "beach",
+   "motif": "pool",
+   "time": "day"
+  }
  },
  {
   "id": "company-cars",
@@ -808,7 +1264,13 @@
   "character": "unbekannt",
   "order": 77,
   "pointOfNoReturn": false,
-  "ponrNote": ""
+  "ponrNote": "",
+  "desc": "Jason und Lucia holen sich neue Autos.",
+  "art": {
+   "loc": "beach",
+   "motif": "sports",
+   "time": "day"
+  }
  },
  {
   "id": "lawyer-up",
@@ -818,7 +1280,13 @@
   "character": "unbekannt",
   "order": 78,
   "pointOfNoReturn": false,
-  "ponrNote": ""
+  "ponrNote": "",
+  "desc": "Jason und Lucia treffen den Anwalt Abe Gonzalez.",
+  "art": {
+   "loc": "vice",
+   "motif": "briefcase",
+   "time": "day"
+  }
  },
  {
   "id": "party-hard",
@@ -828,7 +1296,13 @@
   "character": "unbekannt",
   "order": 79,
   "pointOfNoReturn": false,
-  "ponrNote": ""
+  "ponrNote": "",
+  "desc": "Jason und Lucia arbeiten als Personenschutz für einen Promi.",
+  "art": {
+   "loc": "vice",
+   "motif": "club",
+   "time": "night"
+  }
  },
  {
   "id": "heavy-lifting",
@@ -838,7 +1312,13 @@
   "character": "beide",
   "order": 80,
   "pointOfNoReturn": false,
-  "ponrNote": ""
+  "ponrNote": "",
+  "desc": "Jason und Lucia müssen eine Lieferung ausfahren.",
+  "art": {
+   "loc": "vice",
+   "motif": "van",
+   "time": "day"
+  }
  },
  {
   "id": "photo-shoot",
@@ -848,7 +1328,13 @@
   "character": "unbekannt",
   "order": 81,
   "pointOfNoReturn": false,
-  "ponrNote": ""
+  "ponrNote": "",
+  "desc": "Jason, Lucia und Dre’Quan drehen ein Promo-Video.",
+  "art": {
+   "loc": "beach",
+   "motif": "camera",
+   "time": "day"
+  }
  },
  {
   "id": "making-gainz",
@@ -858,7 +1344,13 @@
   "character": "Lucia",
   "order": 82,
   "pointOfNoReturn": false,
-  "ponrNote": ""
+  "ponrNote": "",
+  "desc": "Raul hat einen Plan – Lucia geht ins Fitnessstudio, um jemanden kennenzulernen.",
+  "art": {
+   "loc": "vice",
+   "motif": "gym",
+   "time": "day"
+  }
  },
  {
   "id": "too-much-baggage",
@@ -868,7 +1360,13 @@
   "character": "Jason",
   "order": 83,
   "pointOfNoReturn": false,
-  "ponrNote": ""
+  "ponrNote": "",
+  "desc": "Jason erkundet den Flughafen und hilft beim Gepäck.",
+  "art": {
+   "loc": "vice",
+   "motif": "airport",
+   "time": "day"
+  }
  },
  {
   "id": "watch-it",
@@ -878,7 +1376,13 @@
   "character": "unbekannt",
   "order": 84,
   "pointOfNoReturn": false,
-  "ponrNote": ""
+  "ponrNote": "",
+  "desc": "Jason und Dre’Quan treffen einen Clubbesitzer.",
+  "art": {
+   "loc": "vice",
+   "motif": "cocktail",
+   "time": "night"
+  }
  },
  {
   "id": "cash-injections",
@@ -888,7 +1392,13 @@
   "character": "Lucia",
   "order": 85,
   "pointOfNoReturn": false,
-  "ponrNote": ""
+  "ponrNote": "",
+  "desc": "Lucia verbringt Zeit mit Nate und hilft einem Bekannten.",
+  "art": {
+   "loc": "vice",
+   "motif": "money",
+   "time": "dusk"
+  }
  },
  {
   "id": "amateur-hour",
@@ -898,7 +1408,13 @@
   "character": "Lucia",
   "order": 86,
   "pointOfNoReturn": false,
-  "ponrNote": ""
+  "ponrNote": "",
+  "desc": "Lucia hilft Cisco, einen Regisseur zur Rede zu stellen.",
+  "art": {
+   "loc": "vice",
+   "motif": "mic",
+   "time": "night"
+  }
  },
  {
   "id": "dirty-work",
@@ -908,7 +1424,13 @@
   "character": "unbekannt",
   "order": 87,
   "pointOfNoReturn": false,
-  "ponrNote": ""
+  "ponrNote": "",
+  "desc": "Jason und Lucia verhandeln mit Raina und knüpfen neue Kontakte.",
+  "art": {
+   "loc": "vice",
+   "motif": "briefcase",
+   "time": "night"
+  }
  },
  {
   "id": "adventures-in-babysitting",
@@ -918,7 +1440,13 @@
   "character": "unbekannt",
   "order": 88,
   "pointOfNoReturn": false,
-  "ponrNote": ""
+  "ponrNote": "",
+  "desc": "Jason arbeitet als Türsteher in einem Club für Andrés.",
+  "art": {
+   "loc": "vice",
+   "motif": "ticket",
+   "time": "night"
+  }
  },
  {
   "id": "fresh-evidence",
@@ -928,7 +1456,13 @@
   "character": "unbekannt",
   "order": 89,
   "pointOfNoReturn": false,
-  "ponrNote": ""
+  "ponrNote": "",
+  "desc": "Jason und Dre’Quan sind hinter belastendem Material her.",
+  "art": {
+   "loc": "vice",
+   "motif": "phone",
+   "time": "night"
+  }
  },
  {
   "id": "power-play",
@@ -938,7 +1472,13 @@
   "character": "unbekannt",
   "order": 90,
   "pointOfNoReturn": false,
-  "ponrNote": ""
+  "ponrNote": "",
+  "desc": "Hilf Kordells Crew und sammle Informationen.",
+  "art": {
+   "loc": "vice",
+   "motif": "dice",
+   "time": "dusk"
+  }
  },
  {
   "id": "child-s-play",
@@ -948,7 +1488,13 @@
   "character": "unbekannt",
   "order": 91,
   "pointOfNoReturn": false,
-  "ponrNote": ""
+  "ponrNote": "",
+  "desc": "Etwas mit Rafa kommt dazwischen – Jason und Lucia helfen einem Bekannten.",
+  "art": {
+   "loc": "beach",
+   "motif": "convertible",
+   "time": "dusk"
+  }
  },
  {
   "id": "headliners",
@@ -958,7 +1504,13 @@
   "character": "unbekannt",
   "order": 92,
   "pointOfNoReturn": false,
-  "ponrNote": ""
+  "ponrNote": "",
+  "desc": "Die Dimez treten im VYB auf, Jason und Lucia helfen bei der Launch-Party.",
+  "art": {
+   "loc": "vice",
+   "motif": "stage",
+   "time": "night"
+  }
  },
  {
   "id": "close-surveillance",
@@ -968,7 +1520,13 @@
   "character": "Jason",
   "order": 93,
   "pointOfNoReturn": false,
-  "ponrNote": ""
+  "ponrNote": "",
+  "desc": "Jason beobachtet mit einer Spionagedrohne ein paar Bodybuilder.",
+  "art": {
+   "loc": "beach",
+   "motif": "drone",
+   "time": "day"
+  }
  },
  {
   "id": "delivery-method",
@@ -978,7 +1536,13 @@
   "character": "Jason",
   "order": 94,
   "pointOfNoReturn": false,
-  "ponrNote": ""
+  "ponrNote": "",
+  "desc": "Jason geht undercover, um Andrea zu helfen.",
+  "art": {
+   "loc": "vice",
+   "motif": "van",
+   "time": "night"
+  }
  },
  {
   "id": "team-building",
@@ -988,7 +1552,13 @@
   "character": "Lucia",
   "order": 95,
   "pointOfNoReturn": false,
-  "ponrNote": ""
+  "ponrNote": "",
+  "desc": "Lucia trifft Kordell und muss sich beweisen.",
+  "art": {
+   "loc": "vice",
+   "motif": "gun",
+   "time": "dusk"
+  }
  },
  {
   "id": "fully-catered",
@@ -998,7 +1568,13 @@
   "character": "unbekannt",
   "order": 96,
   "pointOfNoReturn": false,
-  "ponrNote": ""
+  "ponrNote": "",
+  "desc": "Jason und Lucia stehlen einen Catering-Wagen.",
+  "art": {
+   "loc": "vice",
+   "motif": "catering",
+   "time": "day"
+  }
  },
  {
   "id": "vcia-takedown",
@@ -1008,7 +1584,13 @@
   "character": "unbekannt",
   "order": 97,
   "pointOfNoReturn": false,
-  "ponrNote": ""
+  "ponrNote": "",
+  "desc": "Der Coup am Flughafen startet.",
+  "art": {
+   "loc": "vice",
+   "motif": "airport",
+   "time": "night"
+  }
  },
  {
   "id": "tie-up-loose-ends",
@@ -1020,7 +1602,13 @@
   "pointOfNoReturn": false,
   "ponrNote": "",
   "step": true,
-  "note": "Nach dem Raubüberfall warten Jason und Lucia auf Neuigkeiten von Raul bezüglich der Festplatte."
+  "note": "Nach dem Raubüberfall warten Jason und Lucia auf Neuigkeiten von Raul bezüglich der Festplatte.",
+  "desc": "Nach dem Coup warten Jason und Lucia auf Nachricht von Raul wegen der Festplatte.",
+  "art": {
+   "loc": "vice",
+   "motif": "harddrive",
+   "time": "night"
+  }
  },
  {
   "id": "sunset",
@@ -1035,7 +1623,13 @@
    "Kapitel-4-Nebenjobs beenden",
    "Notiz an der Y-Hotel-Rezeption abholen",
    "Manueller Save in eigenem Slot"
-  ]
+  ],
+  "desc": "Jason und Lucia suchen nach Antworten.",
+  "art": {
+   "loc": "beach",
+   "motif": "hotel",
+   "time": "dusk"
+  }
  },
  {
   "id": "starting-from-zero",
@@ -1045,7 +1639,13 @@
   "character": "unbekannt",
   "order": 100,
   "pointOfNoReturn": false,
-  "ponrNote": ""
+  "ponrNote": "",
+  "desc": "Die letzte Mission von Kapitel 4.",
+  "art": {
+   "loc": "vice",
+   "motif": "bag",
+   "time": "dusk"
+  }
  },
  {
   "id": "bird-in-the-hand",
@@ -1055,7 +1655,13 @@
   "character": "beide",
   "order": 101,
   "pointOfNoReturn": false,
-  "ponrNote": ""
+  "ponrNote": "",
+  "desc": "Jason und Lucia besorgen sich ein neues Gefährt.",
+  "art": {
+   "loc": "vice",
+   "motif": "heli",
+   "time": "day"
+  }
  },
  {
   "id": "taking-liberties",
@@ -1065,7 +1671,13 @@
   "character": "beide",
   "order": 102,
   "pointOfNoReturn": false,
-  "ponrNote": ""
+  "ponrNote": "",
+  "desc": "Ein neuer Plan nimmt Gestalt an.",
+  "art": {
+   "loc": "vice",
+   "motif": "contract",
+   "time": "dusk"
+  }
  },
  {
   "id": "doggie-bag",
@@ -1075,7 +1687,13 @@
   "character": "unbekannt",
   "order": 103,
   "pointOfNoReturn": false,
-  "ponrNote": ""
+  "ponrNote": "",
+  "desc": "Triff Vinny und geh mit ihm auf die Suche nach Schmuggelware.",
+  "art": {
+   "loc": "swamp",
+   "motif": "dog",
+   "time": "dusk"
+  }
  },
  {
   "id": "vc-baby",
@@ -1085,7 +1703,13 @@
   "character": "unbekannt",
   "order": 104,
   "pointOfNoReturn": false,
-  "ponrNote": ""
+  "ponrNote": "",
+  "desc": "Mattia meldet sich und bittet um Hilfe.",
+  "art": {
+   "loc": "beach",
+   "motif": "boat",
+   "time": "night"
+  }
  },
  {
   "id": "operation-savage-glory",
@@ -1095,7 +1719,13 @@
   "character": "unbekannt",
   "order": 105,
   "pointOfNoReturn": false,
-  "ponrNote": ""
+  "ponrNote": "",
+  "desc": "Eine wertvolle Lieferung muss zurückgeholt werden.",
+  "art": {
+   "loc": "country",
+   "motif": "armored",
+   "time": "dusk"
+  }
  },
  {
   "id": "honest-abe",
@@ -1107,7 +1737,13 @@
   "pointOfNoReturn": false,
   "ponrNote": "",
   "step": true,
-  "note": "Es ist an der Zeit, mit Abe eine Einigung auszuhandeln."
+  "note": "Es ist an der Zeit, mit Abe eine Einigung auszuhandeln.",
+  "desc": "Zeit, mit Abe einen Deal auszuhandeln.",
+  "art": {
+   "loc": "vice",
+   "motif": "briefcase",
+   "time": "day"
+  }
  },
  {
   "id": "unfinished-business",
@@ -1119,7 +1755,13 @@
   "pointOfNoReturn": true,
   "ponrNote": "Laut GTABase der Point of no Return von Kapitel 5: Danach geht es ohne Rückkehr ins Finale. Vorher alle offenen Nebenjobs erledigen und in einem eigenen Slot speichern.",
   "step": true,
-  "note": "Der Festplattendeal ist fast abgeschlossen: Entweder noch die letzten Details klären oder Abes Angebot annehmen."
+  "note": "Der Festplattendeal ist fast abgeschlossen: Entweder noch die letzten Details klären oder Abes Angebot annehmen.",
+  "desc": "Der Festplatten-Deal ist fast durch: offene Rechnungen begleichen oder Abes Angebot annehmen.",
+  "art": {
+   "loc": "vice",
+   "motif": "harddrive",
+   "time": "dusk"
+  }
  },
  {
   "id": "protective-custody",
@@ -1129,7 +1771,13 @@
   "character": "beide",
   "order": 108,
   "pointOfNoReturn": false,
-  "ponrNote": ""
+  "ponrNote": "",
+  "desc": "Jason und Lucia arbeiten zusammen – die Entscheidung naht.",
+  "art": {
+   "loc": "vice",
+   "motif": "police",
+   "time": "night"
+  }
  },
  {
   "id": "the-end-of-the-road",
@@ -1139,6 +1787,12 @@
   "character": "unbekannt",
   "order": 109,
   "pointOfNoReturn": false,
-  "ponrNote": ""
+  "ponrNote": "",
+  "desc": "Das Finale der Geschichte.",
+  "art": {
+   "loc": "keys",
+   "motif": "convertible",
+   "time": "dusk"
+  }
  }
 ]
