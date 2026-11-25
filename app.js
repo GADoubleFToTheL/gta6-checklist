@@ -259,7 +259,8 @@ function viewNow() {
     h('div', { class: 'name' }, mName(m)),
     mAlt(m) && h('div', { class: 'alt' }, `Englisch: ${mAlt(m)}`),
     h('div', { class: 'meta' }, `${chapterLabel(m.chapter)} · Mission ${m.order} von ${missions.length}`),
-    m.orderNote && h('div', { class: 'meta' }, `ℹ ${m.orderNote}`)));
+    m.orderNote && h('div', { class: 'meta' }, `ℹ ${m.orderNote}`),
+    h('button', { class: 'ahead', onclick: () => showAhead(next) }, 'Schon weiter im Spiel? →')));
 
   if (m.pointOfNoReturn) {
     root.append(h('div', { class: 'banner', role: 'alert' },
@@ -500,6 +501,23 @@ function missionRow(m, i, next, searched = false) {
       h('div', { class: `title ${hidden ? 'blur' : ''}` }, mName(m)),
       mAlt(m) && h('div', { class: `alt ${hidden ? 'blur' : ''}` }, mAlt(m)),
       meta && h('div', { class: 'meta' }, meta)));
+}
+
+/** Die nächsten Missionen ohne Unschärfe zeigen – du wählst, welche du gerade spielst. */
+function showAhead(next) {
+  const upcoming = missions.slice(next + 1, next + 11);
+  openDialog(
+    h('h1', {}, 'Welche spielst du gerade?'),
+    h('p', { class: 'meta' }, 'Alle Missionen davor gelten dann als gespielt. Aufgaben, die dabei verloren gegangen wären, werden als verpasst gezeigt – das kannst du rückgängig machen.'),
+    h('div', { class: 'choice' }, upcoming.map((m) => {
+      const i = missions.indexOf(m);
+      return h('button', { class: 'block ahead-item', onclick: () => {
+        closeDialog();
+        setProgress(missions[i - 1].id, `Du spielst gerade „${mName(m)}“`);
+      } }, h('b', {}, mName(m)), mAlt(m) && h('span', { class: 'alt' }, ` · ${mAlt(m)}`),
+        h('span', { class: 'meta' }, ` · ${chapterLabel(m.chapter)}`));
+    })),
+    h('button', { class: 'block link', onclick: closeDialog }, 'Abbrechen'));
 }
 
 /** Fortschritt auf eine Mission setzen: schon gespielt oder spiele ich gerade. */

@@ -245,3 +245,8 @@ header.top span{display:block;font-size:.75rem;color:var(--muted);letter-spacing
 .seg button{flex:1;min-height:46px;border:0;border-radius:14px;background:none;color:var(--muted);font-weight:700;font-size:.9rem}
 .seg button.active{background:var(--sunset);color:#2f2660;font-weight:800}
 details.chap>summary .count{font-style:normal;font-family:system-ui,sans-serif;font-size:.8rem;color:var(--muted);text-transform:none}
+
+/* „Schon weiter im Spiel?“ */
+.hero button.ahead{background:rgba(47,38,96,.35);border:1px solid rgba(252,240,216,.35);color:var(--cream);min-height:44px;padding:.4rem .9rem;margin-top:12px;font-size:.85rem;font-weight:700}
+.ahead-item{text-align:left;min-height:52px}
+.ahead-item .alt,.ahead-item .meta{display:inline;font-size:.78rem}
