@@ -52,6 +52,14 @@ const mAlt = (m) => (m.nameDe && m.nameDe !== m.name ? m.name : '');
 const norm = (t) => String(t || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, ' ').trim();
 const fmt = (n) => `${n.toLocaleString('de-DE')} $`;
 const nextIdx = () => nextIndex(missions, state.lastCompletedMissionId);
+/** Story-Fortschritt in Prozent (gespielte Story-Einträge). */
+const storyPercent = () => Math.round((Math.min(nextIdx(), missions.length) / missions.length) * 100);
+function progressBar(label) {
+  const pct = storyPercent();
+  return h('div', { class: 'story-progress', role: 'progressbar', 'aria-valuenow': pct, 'aria-valuemin': 0, 'aria-valuemax': 100, 'aria-label': 'Story-Fortschritt' },
+    h('div', { class: 'track' }, h('i', { style: `width:${pct}%` })),
+    h('span', { class: 'pct' }, `${pct} %`, label && h('span', { class: 'lbl' }, ` ${label}`)));
+}
 const curMission = () => missions[Math.min(nextIdx(), missions.length - 1)];
 const curChapter = () => curMission().chapter;
 const status = (it) => itemStatus(it, state, missions);
@@ -389,7 +397,8 @@ function viewNow() {
     h('div', { class: 'eyebrow' }, chapterLine(m.chapter)),
     h('h1', { class: 'display' }, mName(m)),
     h('div', { class: 'lead-meta' }, `${m.step ? 'Story-Aufgabe' : 'Mission'} ${m.order} von ${missions.length}`,
-      mAlt(m) && h('span', { class: 'en' }, ` · ${mAlt(m)}`))));
+      mAlt(m) && h('span', { class: 'en' }, ` · ${mAlt(m)}`)),
+    progressBar('der Story geschafft')));
 
   if (!state.settings.helpSeen) {
     page.append(h('div', { class: 'notice info' }, h('span', { class: 'ic' }, icon('info', 20)),
@@ -484,7 +493,8 @@ function viewStory() {
   const played = Math.min(next, missions.length);
   const page = h('div', { class: 'page' });
   page.append(h('div', { class: 'lead' }, h('h1', { class: 'page-title' }, 'Story'),
-    h('div', { class: 'lead-meta' }, `${played} von ${missions.length} gespielt`)));
+    h('div', { class: 'lead-meta' }, `${played} von ${missions.length} gespielt`),
+    progressBar('geschafft')));
   page.append(searchBox('Mission suchen (deutsch oder englisch)', storyQuery, (v) => { storyQuery = v; }, 'sq'));
   const q = norm(storyQuery);
   if (q) {

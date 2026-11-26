@@ -404,3 +404,10 @@ dialog.sheet::backdrop { background: rgba(18, 13, 34, .6); animation: fade .2s; 
 .chapter.locked .chev { visibility: hidden; }
 .li-more.collapse { color: var(--text-3); }
 [data-anchor] { scroll-margin: 90px 0 calc(var(--tabbar-h) + env(safe-area-inset-bottom) + 20px); }
+
+/* Story-Fortschritt in Prozent */
+.story-progress { display: flex; align-items: center; gap: 10px; margin-top: 10px; max-width: 360px; }
+.story-progress .track { flex: 1; height: 6px; border-radius: 3px; background: rgba(252, 240, 216, .18); overflow: hidden; }
+.story-progress .track i { display: block; height: 100%; border-radius: 3px; background: var(--pink); transition: width .5s var(--ease); }
+.story-progress .pct { font: 700 14px/1 var(--font); color: var(--text); white-space: nowrap; text-shadow: 0 1px 10px rgba(37, 29, 63, .7); }
+.story-progress .lbl { font-weight: 500; color: var(--text-2); }
