@@ -1221,13 +1221,60 @@ async function init() {
   importFromHash();
   window.addEventListener('hashchange', importFromHash);
   setTimeout(warmThumbs, 1200);
-  if ('serviceWorker' in navigator) {
-    const hadController = !!navigator.serviceWorker.controller;
-    navigator.serviceWorker.addEventListener('controllerchange', () => {
-      if (hadController) snack('Neue Version geladen.', { label: 'Neu laden', run: () => location.reload() });
-    });
-    navigator.serviceWorker.register('sw.js').catch(() => {});
+  setupUpdates();
+  if (sessionStorage.getItem('gta6-updated')) {
+    sessionStorage.removeItem('gta6-updated');
+    snack('App aktualisiert – dein Fortschritt ist erhalten.');
   }
+}
+
+/* ---------- Updates ----------
+   Eine neue Version wird im Hintergrund geladen. Dann erscheint oben eine Karte, die bleibt, bis man sie antippt.
+   Wechselt man vorher aus der App heraus, wird beim Zurückkehren automatisch aktualisiert. */
+
+let updatePending = false;
+let reloadOnReturn = false;
+
+function applyUpdate() {
+  sessionStorage.setItem('gta6-updated', '1');
+  location.reload();
+}
+
+function showUpdate() {
+  const el = document.getElementById('update');
+  if (!el || !el.hidden) return;
+  el.replaceChildren(
+    h('div', { class: 'upd-ic' }, icon('download', 22)),
+    h('div', { class: 'upd-text' },
+      h('div', { class: 'upd-title' }, 'Neue Version verfügbar'),
+      h('div', { class: 'upd-sub' }, 'Ein Tipp genügt – dein Fortschritt bleibt erhalten.')),
+    h('div', { class: 'upd-actions' },
+      h('button', { class: 'upd-go', onclick: applyUpdate }, 'Jetzt aktualisieren'),
+      h('button', { class: 'upd-later', onclick: () => { el.hidden = true; } }, 'Später')));
+  el.hidden = false;
+  if (navigator.vibrate && !reducedMotion()) navigator.vibrate([15, 60, 15]);
+}
+
+function setupUpdates() {
+  if (!('serviceWorker' in navigator)) return;
+  // Erstes Übernehmen durch den Service Worker ist kein Update – erst ein Wechsel von einer Version zur nächsten.
+  let current = navigator.serviceWorker.controller;
+  navigator.serviceWorker.addEventListener('controllerchange', () => {
+    const previous = current;
+    current = navigator.serviceWorker.controller;
+    if (!previous || updatePending) return;
+    updatePending = true;
+    showUpdate();
+  });
+  navigator.serviceWorker.register('sw.js').then((reg) => {
+    // Beim Zurückkehren in die App nach Updates sehen bzw. ein wartendes Update automatisch anwenden.
+    document.addEventListener('visibilitychange', () => {
+      if (document.visibilityState === 'hidden') { if (updatePending) reloadOnReturn = true; return; }
+      if (reloadOnReturn) { applyUpdate(); return; }
+      reg.update().catch(() => {});
+    });
+    setInterval(() => { if (document.visibilityState === 'visible') reg.update().catch(() => {}); }, 30 * 60 * 1000);
+  }).catch(() => {});
 }
 
 init();
