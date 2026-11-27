@@ -11,6 +11,7 @@ Statisch (HTML/CSS/JS, kein Build, keine Laufzeit-Abhängigkeiten). Fortschritt 
 | **Jetzt** | Nächste Mission mit Bild und Kurzbeschreibung, „Mission gespielt – weiter“, „Im Spiel schon weiter?“, Aufgaben, die vorher erledigt sein müssen, Warnungen vor Points of no Return |
 | **Story** | Alle 109 Story-Einträge nach Kapiteln (inkl. kleiner Story-Aufgaben), Suche deutsch/englisch, eigene Seite je Mission mit „Spiele ich gerade“ |
 | **Neben** | 74 Nebenmissionen (optional, Fremde & Freaks) nach Kapitel, Filter, Suche |
+| **Fundorte** | Alle 6.007 Orte der GTABase-Karte (Geheimnisse, einzigartige Waffen, besondere Fahrzeuge, Sammelobjekte, Karten, Aktivitäten …) nach Art gruppiert, mit Filter, Suche, Abhaken und Direktlink auf den Marker der Live-Karte |
 | **Mehr** | Alle Aufgaben, Trophäen & 100 %, Geld-Rechner, Übertragen, Sicherung, Spoiler-Schutz |
 
 Spoiler-Schutz: Alles nach der aktuellen Mission ist ausgeblendet („Noch 11 Missionen in diesem Kapitel – anzeigen“).
@@ -51,6 +52,7 @@ Vorschaubilder werden beim ersten Anzeigen aus dem SVG in kleine PNGs umgerechne
 - `data/sidemissions.json` – Nebenmissionen: `id`, `name`, `nameDe`, `kind` (`optional` | `stranger`), `giver`, `chapter`, `after` (Story-Mission, nach der sie erscheint), `missable`, `description`, `url`, `item` (verknüpfte Aufgabe), `art`
 - `data/items.json` – Aufgaben/Missables: `id`, `title`, `category`, `description`, `availableFrom`, `lostAt` (`{mission, when: "start"|"end"}`), `importance`, `trophy`, `completion100` (`true`/`false`/`"umstritten"`), `confidence`, `note`, `location`, `gtabaseUrl` (Marker-Link `https://www.gtabase.com/de/gta-6/karte/#<marker-id>`), `mapFeature`, `sources`
 - `data/chapters.json` – Kapitelnamen
+- `data/spots.json` – Fundorte: Gruppen und Kategorien mit `[markerId, name]`. Erzeugt mit `node tools/fetch-spots.cjs` (Playwright) aus der GTABase-Karte; übernommen werden nur ID, Name und Kategorie, Beschreibungen und Bilder bleiben auf GTABase. Link: `https://www.gtabase.com/de/gta-6/karte/#<markerId>`. Gefundene Orte stehen im Fortschritt unter `found` und werden im Teilen-Link als Bitfeld je ID-Präfix übertragen.
 
 `art` beschreibt das Bild: `{ loc, motif, time }` mit `loc` ∈ keys, swamp, gellhorn, vice, beach, country; `time` ∈ dusk, day, night; `motif` ist ein Motiv aus `art.js` (z. B. `car`, `motel`, `pills`, `bank`). Die Tests prüfen, dass jedes Motiv existiert.
 

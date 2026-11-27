@@ -1,7 +1,7 @@
-const CACHE = 'gta6-checklist-v22';
+const CACHE = 'gta6-checklist-v23';
 const SHELL = [
   './', 'index.html', 'style.css', 'app.js', 'logic.js', 'icons.js', 'art.js', 'manifest.webmanifest',
-  'data/missions.json', 'data/items.json', 'data/chapters.json', 'data/sidemissions.json',
+  'data/missions.json', 'data/items.json', 'data/chapters.json', 'data/sidemissions.json', 'data/spots.json',
   'icons/icon.svg', 'icons/icon-192.png', 'icons/icon-512.png', 'icons/logo.svg', 'vendor/qrcode.js',
   'vendor/fonts/inter-latin-400-normal.woff2', 'vendor/fonts/inter-latin-500-normal.woff2',
   'vendor/fonts/inter-latin-600-normal.woff2', 'vendor/fonts/inter-latin-700-normal.woff2',

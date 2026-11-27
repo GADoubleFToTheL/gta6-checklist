@@ -97,6 +97,7 @@ export function defaultState() {
     lastCompletedMissionId: null,
     doneItems: {},
     doneSide: {},
+    found: {},
     missedItems: {},
     gtabaseUrls: {},
     settings: { spoilerProtection: true, helpSeen: false },
@@ -120,6 +121,7 @@ export function sanitizeState(raw, missions) {
     lastCompletedMissionId: last,
     doneItems: bools(raw.doneItems),
     doneSide: bools(raw.doneSide),
+    found: spotFlags(raw.found),
     missedItems: bools(raw.missedItems),
     gtabaseUrls: urls,
     settings: { spoilerProtection: raw.settings?.spoilerProtection !== false, helpSeen: raw.settings?.helpSeen === true },
@@ -209,6 +211,7 @@ export function encodeShare(state) {
     m: state.lastCompletedMissionId,
     d: Object.keys(state.doneItems),
     n: Object.keys(state.doneSide || {}),
+    f: encodeFound(state.found || {}),
     x: Object.keys(state.missedItems),
     s: [state.settings.spoilerProtection ? 1 : 0, state.settings.helpSeen ? 1 : 0],
   };
@@ -230,6 +233,7 @@ export function decodeShare(text, missions) {
     lastCompletedMissionId: d.m,
     doneItems: flags(d.d),
     doneSide: flags(d.n),
+    found: decodeFound(d.f),
     missedItems: flags(d.x),
     gtabaseUrls: urls,
     settings: { spoilerProtection: d.s?.[0] !== 0, helpSeen: d.s?.[1] === 1 },
@@ -250,4 +254,61 @@ export function sideUnlocked(sm, missions, next) {
   if (!sm.after) return true;
   const i = missionIndexById(missions, sm.after);
   return i < 0 || i < next;
+}
+
+/* ---------- Fundorte (GTABase-Marker) ---------- */
+
+export const SPOT_ID = /^[a-z0-9]+(?:-[a-z0-9]+)*-\d{3}$/;
+export const SPOT_MAP = 'https://www.gtabase.com/de/gta-6/karte/';
+
+/** Nur gültige Marker-IDs übernehmen. */
+export function spotFlags(o) {
+  const out = {};
+  if (o && typeof o === 'object') for (const [k, v] of Object.entries(o)) if (v === true && SPOT_ID.test(k)) out[k] = true;
+  return out;
+}
+
+export const spotLink = (id) => (SPOT_ID.test(id) ? `${SPOT_MAP}#${id}` : SPOT_MAP);
+export const spotCategoryLink = (feature) => `${SPOT_MAP}?feature=${encodeURIComponent(feature)}`;
+
+/**
+ * Gefundene Marker kompakt für Link/QR: je Präfix ein Bitfeld über die Nummer (z. B. „unique-weapon-039“ → Bit 39).
+ * Unabhängig von der Reihenfolge der Daten, bleibt also auch nach Aktualisierungen gültig.
+ */
+export function encodeFound(found) {
+  const bits = {};
+  for (const id of Object.keys(found)) {
+    if (!found[id] || !SPOT_ID.test(id)) continue;
+    const i = id.lastIndexOf('-');
+    const pre = id.slice(0, i); const n = Number(id.slice(i + 1));
+    (bits[pre] ||= []).push(n);
+  }
+  const out = {};
+  for (const [pre, nums] of Object.entries(bits)) {
+    const bytes = new Uint8Array(Math.floor(Math.max(...nums) / 8) + 1);
+    for (const n of nums) bytes[n >> 3] |= 1 << (n & 7);
+    let bin = '';
+    bytes.forEach((b) => { bin += String.fromCharCode(b); });
+    out[pre] = btoa(bin).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+  }
+  return out;
+}
+
+export function decodeFound(f) {
+  const out = {};
+  if (!f || typeof f !== 'object') return out;
+  for (const [pre, b64] of Object.entries(f)) {
+    if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(pre) || typeof b64 !== 'string' || b64.length > 200 || !/^[A-Za-z0-9_-]*$/.test(b64)) continue;
+    const bin = atob(b64.replace(/-/g, '+').replace(/_/g, '/'));
+    for (let i = 0; i < bin.length; i++) {
+      const byte = bin.charCodeAt(i);
+      for (let bit = 0; bit < 8; bit++) {
+        if (byte & (1 << bit)) {
+          const n = i * 8 + bit;
+          if (n < 1000) out[`${pre}-${String(n).padStart(3, '0')}`] = true;
+        }
+      }
+    }
+  }
+  return out;
 }

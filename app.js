@@ -1,6 +1,6 @@
 import {
   nextIndex, itemStatus, urgency, openNow, redItems, itemChapter, missionIndexById,
-  defaultState, sanitizeState, safeHttpsUrl, mapTarget,
+  defaultState, sanitizeState, safeHttpsUrl, mapTarget, spotLink, spotCategoryLink,
   moneyPlan, goalMatch, encodeShare, decodeShare, FAMILY_SAVINGS_CAP, sideChapter, sideUnlocked,
 } from './logic.js';
 import { icon } from './icons.js';
@@ -22,6 +22,16 @@ let sideFilter = 'all';
 let itemFilters = { q: '', status: 'offen', chapter: '', category: '' };
 let moneyInputs = { cash: '', checking: '', savings: '' };
 let showLater = false;
+// Fundorte (GTABase-Marker), werden erst beim Öffnen des Reiters geladen
+let spots = null;
+let spotsLoading = null;
+let spotIndex = [];
+let spotGroup = 'all';
+let spotQuery = '';
+let spotCat = null;
+let spotCatQuery = '';
+let spotCatFilter = 'all';
+let spotLimit = 150;
 const openChapters = new Set();
 const revealed = new Set(); // nur für diese Sitzung aufgedeckte Spoiler
 
@@ -649,6 +659,133 @@ function showSide(x) {
     link && h('div', { class: 'sources' }, h('a', { href: link, target: '_blank', rel: 'noopener noreferrer' }, 'Komplettlösung auf GTABase'))));
 }
 
+/* ---------- Reiter: Fundorte ---------- */
+
+const GROUP_ICON = {
+  secrets: 'sparkles', collectibles: 'gem', 'collectible-cards': 'layers', weapons: 'crosshair', vehicles: 'car',
+  activities: 'zap', robberies: 'banknote', properties: 'house', style: 'shirt', 'food-drink': 'utensils', 'local-places': 'landmark',
+};
+const GROUP_SHORT = {
+  secrets: 'Geheimnisse', collectibles: 'Sammeln', 'collectible-cards': 'Karten', weapons: 'Waffen', vehicles: 'Fahrzeuge',
+  activities: 'Aktivitäten', robberies: 'Raubzüge', properties: 'Persönlich', style: 'Stil', 'food-drink': 'Essen', 'local-places': 'Orte',
+};
+
+function loadSpots() {
+  spotsLoading ||= fetch('data/spots.json').then((r) => {
+    if (!r.ok) throw new Error(`spots.json: ${r.status}`);
+    return r.json();
+  }).then((d) => {
+    spots = d;
+    spots.catById = new Map(d.categories.map((c) => [c.id, c]));
+    spotIndex = d.categories.flatMap((c) => c.items.map(([id, name]) => ({ id, name, cat: c, n: norm(name) })));
+    if (tab === 'spots') render();
+  }).catch((err) => {
+    spotsLoading = null;
+    if (tab === 'spots') document.getElementById('view').replaceChildren(h('div', { class: 'page' },
+      h('div', { class: 'lead' }, h('h1', { class: 'page-title' }, 'Fundorte')), emptyCard(`Fundorte konnten nicht geladen werden: ${err.message}`)));
+  });
+  return spotsLoading;
+}
+
+const foundCount = (items) => items.reduce((n, [id]) => n + (state.found[id] ? 1 : 0), 0);
+
+function pctBar(done, total, label) {
+  const pct = total ? Math.round((done / total) * 100) : 0;
+  return h('div', { class: 'story-progress', role: 'progressbar', 'aria-valuenow': pct, 'aria-valuemin': 0, 'aria-valuemax': 100 },
+    h('div', { class: 'track' }, h('i', { style: `width:${pct}%` })),
+    h('span', { class: 'pct' }, `${pct} %`, label && h('span', { class: 'lbl' }, ` ${label}`)));
+}
+
+function toggleFound(id, name) {
+  const prev = state;
+  const found = { ...state.found };
+  const was = !!found[id];
+  if (was) delete found[id]; else found[id] = true;
+  save({ ...state, found });
+  if (!was && navigator.vibrate && !reducedMotion()) navigator.vibrate(10);
+  snack(`${was ? 'Wieder offen' : 'Gefunden'}: ${name}`, undoTo(prev));
+}
+
+function spotRow(id, name, catName = null) {
+  const done = !!state.found[id];
+  const row = h('div', { class: `li spot ${done ? 'done' : ''}` },
+    checkbox(done, `${name} gefunden`, () => toggleFound(id, name)),
+    h('a', { class: 'main spot-link', href: spotLink(id), target: '_blank', rel: 'noopener noreferrer', 'aria-label': `${name} auf der GTABase-Karte zeigen` },
+      h('div', { class: 't' }, name),
+      catName && h('div', { class: 'sub' }, catName)),
+    h('a', { class: 'icon-btn', href: spotLink(id), target: '_blank', rel: 'noopener noreferrer', 'aria-label': 'Auf der Karte zeigen', tabindex: -1 }, icon('map-pin', 19)));
+  addSwipe(row, { right: () => toggleFound(id, name), left: () => {} });
+  return row;
+}
+
+function viewSpots() {
+  if (!spots) {
+    loadSpots();
+    return h('div', { class: 'page' }, h('div', { class: 'lead' }, h('h1', { class: 'page-title' }, 'Fundorte'), h('div', { class: 'lead-meta' }, 'Wird geladen …')));
+  }
+  if (spotCat && spots.catById.has(spotCat)) return viewSpotCategory(spots.catById.get(spotCat));
+  const page = h('div', { class: 'page' });
+  const all = spotIndex.length;
+  const doneAll = spotIndex.reduce((n, x) => n + (state.found[x.id] ? 1 : 0), 0);
+  page.append(h('div', { class: 'lead' }, h('h1', { class: 'page-title' }, 'Fundorte'),
+    h('div', { class: 'lead-meta' }, `${doneAll.toLocaleString('de-DE')} von ${all.toLocaleString('de-DE')} gefunden`),
+    pctBar(doneAll, all, 'gefunden')));
+  page.append(searchBox('Fundort suchen, z. B. Revolver', spotQuery, (v) => { spotQuery = v; spotLimit = 150; }, 'spq'));
+  const q = norm(spotQuery);
+  if (q) {
+    const hits = spotIndex.filter((x) => x.n.includes(q) || norm(x.cat.name).includes(q));
+    page.append(sectionH('Treffer', hits.length.toLocaleString('de-DE')));
+    if (!hits.length) { page.append(emptyCard('Kein Fundort gefunden.')); return page; }
+    const box = h('div', { class: 'list' }, hits.slice(0, spotLimit).map((x) => spotRow(x.id, x.name, x.cat.name)));
+    if (hits.length > spotLimit) box.append(h('button', { class: 'li-more', onclick: () => { spotLimit += 150; render(); } }, icon('chevron-down', 18), `Weitere ${Math.min(150, hits.length - spotLimit)} anzeigen`));
+    page.append(box);
+    return page;
+  }
+  page.append(h('div', { class: 'chips-scroll', role: 'group', 'aria-label': 'Art' },
+    [['all', 'Alle'], ...spots.groups.map((g) => [g.id, GROUP_SHORT[g.id] || g.name])].map(([v, t]) =>
+      h('button', { class: 'chip', 'aria-pressed': String(spotGroup === v), onclick: () => { spotGroup = v; render(); } }, v !== 'all' && icon(GROUP_ICON[v] || 'map-pin', 15), t))));
+  for (const g of spots.groups) {
+    if (spotGroup !== 'all' && spotGroup !== g.id) continue;
+    const cats = spots.categories.filter((c) => c.group === g.id);
+    if (!cats.length) continue;
+    const gTotal = cats.reduce((n, c) => n + c.items.length, 0);
+    const gDone = cats.reduce((n, c) => n + foundCount(c.items), 0);
+    page.append(sectionH(g.name, `${gDone}/${gTotal}`));
+    page.append(h('div', { class: 'list' }, cats.map((c) => {
+      const d = foundCount(c.items);
+      return h('button', { class: `li ${d === c.items.length ? 'done-cat' : ''}`, onclick: () => { spotCat = c.id; spotCatQuery = ''; spotCatFilter = 'all'; spotLimit = 150; render(); window.scrollTo(0, 0); } },
+        h('span', { class: 'lead-ic' }, icon(GROUP_ICON[g.id] || 'map-pin', 18)),
+        h('div', { class: 'main' }, h('div', { class: 't' }, c.name), h('div', { class: 'sub' }, `${d} von ${c.items.length} gefunden`)),
+        h('div', { class: 'trail' }, h('div', { class: 'mini' }, h('i', { style: `width:${(d / c.items.length) * 100}%` })), icon('chevron-right', 18)));
+    })));
+  }
+  page.append(h('p', { class: 'fine' }, `Fundorte nach der interaktiven Karte von GTABase (Stand ${new Date(spots.updated).toLocaleDateString('de-DE')}). Antippen öffnet den Ort direkt auf der Karte; Beschreibung und Bilder findest du dort.`));
+  return page;
+}
+
+const SPOT_FILTERS = [['all', 'Alle'], ['open', 'Offen'], ['found', 'Gefunden']];
+
+function viewSpotCategory(c) {
+  const page = h('div', { class: 'page' });
+  const d = foundCount(c.items);
+  page.append(h('div', { class: 'lead' },
+    h('button', { class: 'back', onclick: () => { spotCat = null; render(); window.scrollTo(0, 0); } }, icon('chevron-right', 18), 'Fundorte'),
+    h('h1', { class: 'page-title' }, c.name),
+    h('div', { class: 'lead-meta' }, `${d} von ${c.items.length} gefunden`),
+    pctBar(d, c.items.length, 'gefunden')));
+  page.append(h('a', { class: 'btn btn-block', href: spotCategoryLink(c.feature), target: '_blank', rel: 'noopener noreferrer' }, icon('map', 18), 'Alle auf der GTABase-Karte zeigen'));
+  if (c.items.length > 8) page.append(h('div', { style: 'margin-top:12px' }, searchBox(`In „${c.name}“ suchen`, spotCatQuery, (v) => { spotCatQuery = v; spotLimit = 150; }, 'scq')));
+  page.append(h('div', { class: 'seg' }, SPOT_FILTERS.map(([v, t]) => h('button', { 'aria-pressed': String(spotCatFilter === v), onclick: () => { spotCatFilter = v; spotLimit = 150; render(); } }, t))));
+  const q = norm(spotCatQuery);
+  const list = c.items.filter(([id, name]) => (spotCatFilter === 'all' || (spotCatFilter === 'found') === !!state.found[id]) && (!q || norm(name).includes(q)));
+  page.append(sectionH(spotCatFilter === 'found' ? 'Gefunden' : spotCatFilter === 'open' ? 'Noch offen' : 'Fundorte', list.length));
+  if (!list.length) { page.append(emptyCard(spotCatFilter === 'open' ? 'Alles gefunden!' : 'Keine Einträge.')); return page; }
+  const box = h('div', { class: 'list' }, list.slice(0, spotLimit).map(([id, name]) => spotRow(id, name)));
+  if (list.length > spotLimit) box.append(h('button', { class: 'li-more', onclick: () => { spotLimit += 150; render(); } }, icon('chevron-down', 18), `Weitere ${Math.min(150, list.length - spotLimit)} anzeigen`));
+  page.append(box);
+  return page;
+}
+
 /* ---------- Reiter: Mehr ---------- */
 
 function viewMore() {
@@ -931,7 +1068,7 @@ function updateScene() {
 
 function render() {
   const view = document.getElementById('view');
-  const fn = { now: viewNow, story: viewStory, side: viewSide, more: viewMore }[tab];
+  const fn = { now: viewNow, story: viewStory, side: viewSide, spots: viewSpots, more: viewMore }[tab];
   view.replaceChildren(fn());
   document.body.className = `tab-${tab}`;
   document.querySelectorAll('#tabs button').forEach((b) => {
@@ -943,6 +1080,7 @@ function render() {
 
 function goTab(t) {
   if (t === tab && t === 'more' && sub) sub = null;
+  if (t === tab && t === 'spots' && spotCat) spotCat = null;
   tab = t;
   render();
   window.scrollTo(0, 0);

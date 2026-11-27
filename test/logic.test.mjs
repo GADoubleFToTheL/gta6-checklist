@@ -4,7 +4,7 @@ import { readFileSync } from 'node:fs';
 import {
   nextIndex, urgency, openNow, redItems, itemStatus, defaultState,
   sanitizeState, safeHttpsUrl, nextPonrIndex, missionIndexById, itemChapter, mapTarget,
-  moneyPlan, goalMatch, encodeShare, decodeShare,
+  moneyPlan, goalMatch, encodeShare, decodeShare, encodeFound, decodeFound, spotFlags, spotLink,
 } from '../logic.js';
 
 const missions = JSON.parse(readFileSync(new URL('../data/missions.json', import.meta.url)));
@@ -160,7 +160,7 @@ test('index.html: Kulisse, Logo und vier Reiter vorhanden', () => {
   const html = readFileSync(new URL('../index.html', import.meta.url), 'utf8');
   assert.match(html, /id="scene"/);
   assert.match(html, /icons\/logo\.svg/);
-  for (const t of ['now', 'story', 'side', 'more']) assert.match(html, new RegExp(`data-tab="${t}"`));
+  for (const t of ['now', 'story', 'side', 'spots', 'more']) assert.match(html, new RegExp(`data-tab="${t}"`));
   const art = readFileSync(new URL('../art.js', import.meta.url), 'utf8');
   for (const loc of ['keys', 'gellhorn', 'vice']) assert.match(art, new RegExp(`loc === '${loc}'`));
   assert.match(art, /class: animated \? `sway/);
@@ -205,4 +205,27 @@ test('Jede Aufgabe ist vor ihrem Verlust freigeschaltet', () => {
     if (!it.availableFrom || !it.lostAt) continue;
     assert.ok(missionIndexById(missions, it.availableFrom) + 1 <= missionIndexById(missions, it.lostAt.mission), it.id);
   }
+});
+
+test('Fundorte: Daten gültig, IDs eindeutig, Links auf GTABase-Marker', () => {
+  const spots = JSON.parse(readFileSync(new URL('../data/spots.json', import.meta.url)));
+  assert.ok(spots.total > 1000 && spots.categories.length > 50);
+  const ids = spots.categories.flatMap((c) => c.items.map(([id]) => id));
+  assert.equal(ids.length, spots.total);
+  assert.equal(new Set(ids).size, ids.length);
+  const groups = new Set(spots.groups.map((g) => g.id));
+  for (const c of spots.categories) {
+    assert.ok(groups.has(c.group), c.id);
+    for (const [id, name] of c.items) { assert.match(spotLink(id), /^https:\/\/www\.gtabase\.com\/de\/gta-6\/karte\/#[a-z0-9-]+-\d{3}$/, id); assert.ok(name, id); }
+  }
+  assert.ok(spots.categories.find((c) => c.id === 'unique-weapon' && c.group === 'secrets'));
+});
+
+test('Fundorte: gefunden-Liste übersteht Link/QR und Import, Müll wird verworfen', () => {
+  const found = { 'unique-weapon-039': true, 'unique-weapon-001': true, 'hidden-package-124': true, 'easter-egg-000': true };
+  assert.deepEqual(decodeFound(encodeFound(found)), found);
+  assert.deepEqual(spotFlags({ 'unique-weapon-039': true, 'javascript:x': true, 'a-1': true, 'b-002': 'yes' }), { 'unique-weapon-039': true });
+  const s = { ...stateAt('girls-trip'), found };
+  assert.deepEqual(decodeShare(encodeShare(s), missions).found, found);
+  assert.deepEqual(decodeFound({ '../x': 'AAAA', ok: 12 }), {});
 });
