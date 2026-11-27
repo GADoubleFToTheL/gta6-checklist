@@ -669,6 +669,75 @@ const GROUP_SHORT = {
   secrets: 'Geheimnisse', collectibles: 'Sammeln', 'collectible-cards': 'Karten', weapons: 'Waffen', vehicles: 'Fahrzeuge',
   activities: 'Aktivitäten', robberies: 'Raubzüge', properties: 'Persönlich', style: 'Stil', 'food-drink': 'Essen', 'local-places': 'Orte',
 };
+/** Eine Farbe je Art – abgeleitet aus der Dämmerungs-Palette, damit es ruhig bleibt. */
+const GROUP_COLOR = {
+  secrets: '#f69ac9', collectibles: '#f2c46d', 'collectible-cards': '#ff9fb8', weapons: '#ee8a97', vehicles: '#8fc1f2',
+  activities: '#82e0d3', robberies: '#a9dc8f', properties: '#c4b2f2', style: '#f0a6dc', 'food-drink': '#f5b48c', 'local-places': '#b8b0ea',
+};
+/** Eigenes Symbol je Kategorie (sonst das der Art). */
+const CAT_ICON = {
+  'easter-egg': 'egg', 'unique-weapon': 'crosshair', 'standout-vehicle': 'car', 'wyman-car': 'car-front', treasure: 'gem', shipwreck: 'anchor',
+  underwater: 'waves', 'message-bottle': 'scroll-text', 'hidden-package': 'package', meteorite: 'orbit', 'luxury-watch': 'watch',
+  magazine: 'book-open', 'style-magazine': 'book-open', comics: 'book-open', 'book-swap': 'book-open', 'cocaine-flamingo': 'bird',
+  'scoop-container': 'container', 'ahol-street-art': 'palette', mural: 'palette', 'yellow-loot-box': 'box', playlist: 'music',
+  'waink-curiosity': 'camera', 'waink-landmark': 'camera', 'waink-sculpture': 'camera', 'waink-peewee': 'camera', 'waink-noflusher': 'camera',
+  'weapon-spawn': 'crosshair', 'ammu-nation': 'store', parachuting: 'cloud',
+  'vehicle-spawn': 'key-round', 'vehicle-mod-shop': 'wrench', 'pay-n-spray': 'spray-can', 'gas-station': 'fuel', 'ev-charger': 'plug-zap',
+  'bus-stop': 'bus', 'public-transport': 'train-front', airport: 'plane', helipad: 'plane', marina: 'sailboat', ferry: 'ship', 'car-wash': 'droplets',
+  'vehicle-rental': 'key-round', 'vehicle-request': 'clipboard-list',
+  'stunt-jump': 'rocket', 'under-the-bridge': 'plane', 'base-jump': 'mountain', 'knife-flight': 'plane', race: 'flag', 'race-challenge': 'timer',
+  'drone-race': 'radio', fishing: 'fish', hunting: 'target', golf: 'flag-triangle-right', 'mini-golf': 'flag-triangle-right', basketball: 'circle-dot',
+  arcade: 'gamepad-2', pool: 'circle-dot', gym: 'dumbbell', meditation: 'flower-2', 'shooting-range': 'target', 'random-event': 'dices',
+  'car-meet': 'car', 'gang-compound': 'shield',
+  bank: 'landmark', safe: 'vault', 'smash-n-grab': 'gem', 'towable-atm': 'banknote', fence: 'handshake', 'gang-operation': 'briefcase',
+  'kitty-litter-lab': 'flask-conical', 'payday-loan': 'hand-coins',
+  garage: 'warehouse', safehouse: 'house', strangers: 'users',
+  footwear: 'footprints', haircut: 'scissors', tattoo: 'pen-tool', electronics: 'smartphone',
+  bar: 'wine', 'cafe-takeout': 'coffee', 'convenience-store': 'shopping-basket', 'food-and-drink': 'sandwich', 'liquor-store': 'wine',
+  'street-food': 'utensils', nightclub: 'music',
+  atm: 'banknote', 'city-town': 'building-2', 'fire-station': 'flame', hospital: 'cross', landmark: 'landmark', 'police-station': 'siren',
+};
+/** Bilder (eigene Zeichnungen) für Geheimnisse und als Titelbild je Art. */
+const CAT_ART = {
+  'easter-egg': { loc: 'vice', motif: 'ufo', time: 'dusk' }, 'unique-weapon': { loc: 'vice', motif: 'gun', time: 'dusk' },
+  'standout-vehicle': { loc: 'beach', motif: 'sports', time: 'day' }, 'wyman-car': { loc: 'country', motif: 'convertible', time: 'dusk' },
+  treasure: { loc: 'beach', motif: 'chest', time: 'dusk' }, shipwreck: { loc: 'keys', motif: 'wreck', time: 'dusk' },
+  underwater: { loc: 'beach', motif: 'reef', time: 'day' }, 'message-bottle': { loc: 'beach', motif: 'msgbottle', time: 'dusk' },
+};
+const GROUP_ART = {
+  collectibles: { loc: 'swamp', motif: 'package', time: 'dusk' }, 'collectible-cards': { loc: 'vice', motif: 'ticket', time: 'dusk' },
+  weapons: { loc: 'vice', motif: 'gun', time: 'dusk' }, vehicles: { loc: 'gellhorn', motif: 'muscle', time: 'dusk' },
+  activities: { loc: 'country', motif: 'flag', time: 'day' }, robberies: { loc: 'vice', motif: 'safe', time: 'dusk' },
+  properties: { loc: 'keys', motif: 'home', time: 'dusk' }, style: { loc: 'vice', motif: 'shopping', time: 'day' },
+  'food-drink': { loc: 'beach', motif: 'cocktail', time: 'dusk' }, 'local-places': { loc: 'vice', motif: 'hotel', time: 'dusk' },
+};
+const catColor = (c) => GROUP_COLOR[c.group] || 'var(--pink)';
+const catIcon = (c) => CAT_ICON[c.id] || GROUP_ICON[c.group] || 'map-pin';
+const catArtEntity = (c) => ({ id: `spot-${c.id}`, art: CAT_ART[c.id] || GROUP_ART[c.group] || { loc: 'vice', motif: 'pin', time: 'dusk' } });
+
+/** Fortschrittsring (SVG). */
+function ring(done, total, size = 34, color = 'var(--pink)', showPct = false) {
+  const NS = 'http://www.w3.org/2000/svg';
+  const r = size / 2 - 3; const C = 2 * Math.PI * r;
+  const pct = total ? done / total : 0;
+  const svg = document.createElementNS(NS, 'svg');
+  for (const [k, v] of Object.entries({ viewBox: `0 0 ${size} ${size}`, width: size, height: size, class: 'ring', 'aria-hidden': 'true' })) svg.setAttribute(k, v);
+  const mk = (tag, attrs) => { const e = document.createElementNS(NS, tag); for (const [k, v] of Object.entries(attrs)) e.setAttribute(k, v); svg.append(e); return e; };
+  mk('circle', { cx: size / 2, cy: size / 2, r, fill: 'none', stroke: 'rgba(252,240,216,.14)', 'stroke-width': 3.5 });
+  if (pct > 0) mk('circle', { cx: size / 2, cy: size / 2, r, fill: 'none', stroke: color, 'stroke-width': 3.5, 'stroke-linecap': 'round',
+    'stroke-dasharray': `${C * pct} ${C}`, transform: `rotate(-90 ${size / 2} ${size / 2})` });
+  if (pct >= 1) {
+    mk('path', { d: `M${size * 0.32} ${size * 0.52} l${size * 0.12} ${size * 0.12} l${size * 0.24} -${size * 0.26}`, fill: 'none', stroke: color, 'stroke-width': 2.6, 'stroke-linecap': 'round', 'stroke-linejoin': 'round' });
+  } else if (showPct) {
+    const t = mk('text', { x: size / 2, y: size / 2 + size * 0.11, 'text-anchor': 'middle', 'font-size': size * 0.28, 'font-weight': 700, fill: 'currentColor', 'font-family': 'Inter, system-ui, sans-serif' });
+    t.textContent = `${Math.floor(pct * 100)}%`;
+  }
+  return svg;
+}
+
+function tintIcon(name, color, size = 18) {
+  return h('span', { class: 'lead-ic tint', style: `--c:${color}` }, icon(name, size));
+}
 
 function loadSpots() {
   spotsLoading ||= fetch('data/spots.json').then((r) => {
@@ -706,16 +775,36 @@ function toggleFound(id, name) {
   snack(`${was ? 'Wieder offen' : 'Gefunden'}: ${name}`, undoTo(prev));
 }
 
-function spotRow(id, name, catName = null) {
+function spotRow(id, name, cat = null) {
   const done = !!state.found[id];
   const row = h('div', { class: `li spot ${done ? 'done' : ''}` },
     checkbox(done, `${name} gefunden`, () => toggleFound(id, name)),
     h('a', { class: 'main spot-link', href: spotLink(id), target: '_blank', rel: 'noopener noreferrer', 'aria-label': `${name} auf der GTABase-Karte zeigen` },
       h('div', { class: 't' }, name),
-      catName && h('div', { class: 'sub' }, catName)),
+      cat && h('div', { class: 'sub cat-sub', style: `--c:${catColor(cat)}` }, icon(catIcon(cat), 13), cat.name)),
     h('a', { class: 'icon-btn', href: spotLink(id), target: '_blank', rel: 'noopener noreferrer', 'aria-label': 'Auf der Karte zeigen', tabindex: -1 }, icon('map-pin', 19)));
   addSwipe(row, { right: () => toggleFound(id, name), left: () => {} });
   return row;
+}
+
+function openSpotCat(c) {
+  spotCat = c.id; spotCatQuery = ''; spotCatFilter = 'all'; spotLimit = 150;
+  render(); window.scrollTo(0, 0);
+}
+
+function spotTile(c) {
+  const d = foundCount(c.items);
+  const n = c.items.length;
+  return h('button', { class: `tile ${d === n ? 'complete' : ''}`, style: `--c:${catColor(c)}`, onclick: () => openSpotCat(c) },
+    h('div', { class: 'tile-art' }, thumbImg(catArtEntity(c)), h('span', { class: 'tile-ic' }, icon(catIcon(c), 16))),
+    h('div', { class: 'tile-body' },
+      h('div', { class: 'tile-text' }, h('div', { class: 'tn' }, c.name), h('div', { class: 'tc' }, `${d} / ${n}`)),
+      ring(d, n, 34, catColor(c))));
+}
+
+function groupHead(g, done, total) {
+  return h('div', { class: 'gh' }, tintIcon(GROUP_ICON[g.id] || 'map-pin', GROUP_COLOR[g.id], 16),
+    h('b', {}, g.name), h('span', { class: 'count' }, `${done.toLocaleString('de-DE')} / ${total.toLocaleString('de-DE')}`));
 }
 
 function viewSpots() {
@@ -736,27 +825,29 @@ function viewSpots() {
     const hits = spotIndex.filter((x) => x.n.includes(q) || norm(x.cat.name).includes(q));
     page.append(sectionH('Treffer', hits.length.toLocaleString('de-DE')));
     if (!hits.length) { page.append(emptyCard('Kein Fundort gefunden.')); return page; }
-    const box = h('div', { class: 'list' }, hits.slice(0, spotLimit).map((x) => spotRow(x.id, x.name, x.cat.name)));
+    const box = h('div', { class: 'list' }, hits.slice(0, spotLimit).map((x) => spotRow(x.id, x.name, x.cat)));
     if (hits.length > spotLimit) box.append(h('button', { class: 'li-more', onclick: () => { spotLimit += 150; render(); } }, icon('chevron-down', 18), `Weitere ${Math.min(150, hits.length - spotLimit)} anzeigen`));
     page.append(box);
     return page;
   }
   page.append(h('div', { class: 'chips-scroll', role: 'group', 'aria-label': 'Art' },
     [['all', 'Alle'], ...spots.groups.map((g) => [g.id, GROUP_SHORT[g.id] || g.name])].map(([v, t]) =>
-      h('button', { class: 'chip', 'aria-pressed': String(spotGroup === v), onclick: () => { spotGroup = v; render(); } }, v !== 'all' && icon(GROUP_ICON[v] || 'map-pin', 15), t))));
+      h('button', { class: 'chip', style: v !== 'all' ? `--c:${GROUP_COLOR[v]}` : null, 'aria-pressed': String(spotGroup === v), onclick: () => { spotGroup = v; render(); } },
+        v !== 'all' && icon(GROUP_ICON[v] || 'map-pin', 15), t))));
   for (const g of spots.groups) {
     if (spotGroup !== 'all' && spotGroup !== g.id) continue;
     const cats = spots.categories.filter((c) => c.group === g.id);
     if (!cats.length) continue;
     const gTotal = cats.reduce((n, c) => n + c.items.length, 0);
     const gDone = cats.reduce((n, c) => n + foundCount(c.items), 0);
-    page.append(sectionH(g.name, `${gDone}/${gTotal}`));
+    page.append(groupHead(g, gDone, gTotal));
+    if (g.id === 'secrets') { page.append(h('div', { class: 'tiles' }, cats.map(spotTile))); continue; }
     page.append(h('div', { class: 'list' }, cats.map((c) => {
       const d = foundCount(c.items);
-      return h('button', { class: `li ${d === c.items.length ? 'done-cat' : ''}`, onclick: () => { spotCat = c.id; spotCatQuery = ''; spotCatFilter = 'all'; spotLimit = 150; render(); window.scrollTo(0, 0); } },
-        h('span', { class: 'lead-ic' }, icon(GROUP_ICON[g.id] || 'map-pin', 18)),
+      return h('button', { class: `li ${d === c.items.length ? 'complete' : ''}`, onclick: () => openSpotCat(c) },
+        tintIcon(catIcon(c), catColor(c)),
         h('div', { class: 'main' }, h('div', { class: 't' }, c.name), h('div', { class: 'sub' }, `${d} von ${c.items.length} gefunden`)),
-        h('div', { class: 'trail' }, h('div', { class: 'mini' }, h('i', { style: `width:${(d / c.items.length) * 100}%` })), icon('chevron-right', 18)));
+        h('div', { class: 'trail' }, ring(d, c.items.length, 30, catColor(c)), icon('chevron-right', 18)));
     })));
   }
   page.append(h('p', { class: 'fine' }, `Fundorte nach der interaktiven Karte von GTABase (Stand ${new Date(spots.updated).toLocaleDateString('de-DE')}). Antippen öffnet den Ort direkt auf der Karte; Beschreibung und Bilder findest du dort.`));
@@ -764,23 +855,43 @@ function viewSpots() {
 }
 
 const SPOT_FILTERS = [['all', 'Alle'], ['open', 'Offen'], ['found', 'Gefunden']];
+const letterOf = (name) => { const ch = norm(name).charAt(0).toUpperCase(); return /[A-Z]/.test(ch) ? ch : '#'; };
 
 function viewSpotCategory(c) {
   const page = h('div', { class: 'page' });
   const d = foundCount(c.items);
+  const n = c.items.length;
+  const color = catColor(c);
+  const groupName = spots.groups.find((g) => g.id === c.group)?.name || '';
   page.append(h('div', { class: 'lead' },
     h('button', { class: 'back', onclick: () => { spotCat = null; render(); window.scrollTo(0, 0); } }, icon('chevron-right', 18), 'Fundorte'),
-    h('h1', { class: 'page-title' }, c.name),
-    h('div', { class: 'lead-meta' }, `${d} von ${c.items.length} gefunden`),
-    pctBar(d, c.items.length, 'gefunden')));
-  page.append(h('a', { class: 'btn btn-block', href: spotCategoryLink(c.feature), target: '_blank', rel: 'noopener noreferrer' }, icon('map', 18), 'Alle auf der GTABase-Karte zeigen'));
-  if (c.items.length > 8) page.append(h('div', { style: 'margin-top:12px' }, searchBox(`In „${c.name}“ suchen`, spotCatQuery, (v) => { spotCatQuery = v; spotLimit = 150; }, 'scq')));
-  page.append(h('div', { class: 'seg' }, SPOT_FILTERS.map(([v, t]) => h('button', { 'aria-pressed': String(spotCatFilter === v), onclick: () => { spotCatFilter = v; spotLimit = 150; render(); } }, t))));
+    h('div', { class: 'eyebrow' }, groupName),
+    h('h1', { class: 'page-title' }, c.name)));
+  page.append(h('div', { class: 'card spot-hero', style: `--c:${color}` },
+    art(catArtEntity(c), c.name),
+    h('div', { class: 'hero-stats' },
+      ring(d, n, 64, color, true),
+      h('div', { class: 'hs-text' },
+        h('div', { class: 'hs-big' }, `${d} von ${n} gefunden`),
+        h('div', { class: 'hs-small' }, d === n ? 'Alles gefunden!' : `Noch ${n - d} offen`))),
+    h('div', { class: 'card-body', style: 'padding-top:0' },
+      h('a', { class: 'btn btn-block', href: spotCategoryLink(c.feature), target: '_blank', rel: 'noopener noreferrer' }, icon('map', 18), 'Alle auf der GTABase-Karte zeigen'))));
+  if (n > 8) page.append(h('div', { style: 'margin-top:14px' }, searchBox(`In „${c.name}“ suchen`, spotCatQuery, (v) => { spotCatQuery = v; spotLimit = 150; }, 'scq')));
+  page.append(h('div', { class: 'seg' }, SPOT_FILTERS.map(([v, t]) => h('button', { 'aria-pressed': String(spotCatFilter === v), onclick: () => { spotCatFilter = v; spotLimit = 150; render(); } },
+    t, v === 'open' ? ` ${n - d}` : v === 'found' ? ` ${d}` : ` ${n}`))));
   const q = norm(spotCatQuery);
   const list = c.items.filter(([id, name]) => (spotCatFilter === 'all' || (spotCatFilter === 'found') === !!state.found[id]) && (!q || norm(name).includes(q)));
-  page.append(sectionH(spotCatFilter === 'found' ? 'Gefunden' : spotCatFilter === 'open' ? 'Noch offen' : 'Fundorte', list.length));
-  if (!list.length) { page.append(emptyCard(spotCatFilter === 'open' ? 'Alles gefunden!' : 'Keine Einträge.')); return page; }
-  const box = h('div', { class: 'list' }, list.slice(0, spotLimit).map(([id, name]) => spotRow(id, name)));
+  if (!list.length) { page.append(h('div', { style: 'margin-top:14px' }, emptyCard(spotCatFilter === 'open' ? 'Alles gefunden!' : 'Keine Einträge.'))); return page; }
+  const withLetters = !q && list.length > 30;
+  const box = h('div', { class: `list ${withLetters ? 'letters' : ''}`, style: 'margin-top:14px' });
+  let last = '';
+  for (const [id, name] of list.slice(0, spotLimit)) {
+    if (withLetters) {
+      const L = letterOf(name);
+      if (L !== last) { box.append(h('div', { class: 'li-letter', style: `--c:${color}` }, L)); last = L; }
+    }
+    box.append(spotRow(id, name));
+  }
   if (list.length > spotLimit) box.append(h('button', { class: 'li-more', onclick: () => { spotLimit += 150; render(); } }, icon('chevron-down', 18), `Weitere ${Math.min(150, list.length - spotLimit)} anzeigen`));
   page.append(box);
   return page;
