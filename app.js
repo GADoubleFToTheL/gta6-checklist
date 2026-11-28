@@ -252,7 +252,7 @@ function openSheet(...content) {
     h('div', { class: 'grab', 'aria-hidden': 'true' }),
     h('button', { class: 'close', 'aria-label': 'Schließen', onclick: closeSheet }, icon('x', 20)),
     ...content.filter(Boolean));
-  if (!d.open) d.showModal();
+  if (!d.open) { d.showModal(); armBack(); }
   d.scrollTop = 0;
 }
 const closeSheet = () => { if (dlg().open) dlg().close(); };
@@ -839,9 +839,15 @@ function spotRow(it, { cat = null, showRegion = spotRegion < 0 } = {}) {
   return row;
 }
 
+let spotsScrollY = 0;
 function openSpotCat(c) {
+  spotsScrollY = window.scrollY;
   spotCat = c.id; spotCatQuery = ''; spotCatFilter = 'all'; spotLimit = 150;
-  render(); window.scrollTo(0, 0);
+  render(); window.scrollTo(0, 0); armBack();
+}
+function closeSpotCat() {
+  spotCat = null; render();
+  requestAnimationFrame(() => window.scrollTo(0, spotsScrollY));
 }
 
 function spotTile(c) {
@@ -927,7 +933,7 @@ function viewSpotCategory(c) {
   const color = catColor(c);
   const groupName = spots.groups.find((g) => g.id === c.group)?.name || '';
   page.append(h('div', { class: 'lead' },
-    h('button', { class: 'back', onclick: () => { spotCat = null; render(); window.scrollTo(0, 0); } }, icon('chevron-right', 18), 'Fundorte'),
+    h('button', { class: 'back', onclick: closeSpotCat }, icon('chevron-right', 18), 'Fundorte'),
     h('div', { class: 'eyebrow' }, [groupName, spotRegion >= 0 ? regionName(spotRegion) : null].filter(Boolean).join(' · ')),
     h('h1', { class: 'page-title' }, c.name)));
   const heroStats = (dd) => [ring(dd, n, 64, color, true),
@@ -992,7 +998,7 @@ function viewMore() {
   const page = h('div', { class: 'page' });
   const open = items.filter((it) => status(it) === 'offen').length;
   page.append(h('div', { class: 'lead' }, h('h1', { class: 'page-title' }, 'Mehr')));
-  const nav = (ic, t, s, go) => h('button', { class: 'li', onclick: () => { sub = go; render(); window.scrollTo(0, 0); } },
+  const nav = (ic, t, s, go) => h('button', { class: 'li', onclick: () => { sub = go; render(); window.scrollTo(0, 0); armBack(); } },
     h('span', { class: 'lead-ic' }, icon(ic, 18)), h('div', { class: 'main' }, h('div', { class: 't' }, t), s && h('div', { class: 'sub' }, s)),
     h('div', { class: 'trail' }, icon('chevron-right', 18)));
   page.append(sectionH('Checkliste'), h('div', { class: 'list' },
@@ -1145,7 +1151,8 @@ async function qrSvg(text) {
 async function importFromHash() {
   const m = location.hash.match(/^#import=([A-Za-z0-9_-]+)$/);
   if (!m) return;
-  history.replaceState(null, '', location.pathname + location.search);
+  history.replaceState({ gta6Base: true }, '', location.pathname + location.search);
+  armBack();
   let incoming;
   try { incoming = decodeShare(m[1], missions); } catch { snack('Der Link enthält keinen gültigen Fortschritt.'); return; }
   const last = missionById(incoming.lastCompletedMissionId);
@@ -1283,6 +1290,7 @@ function goTab(t) {
   tab = t;
   render();
   window.scrollTo(0, 0);
+  armBack();
   if (t === 'story') requestAnimationFrame(() => document.querySelector('.li.current')?.scrollIntoView({ block: 'center' }));
 }
 
@@ -1310,10 +1318,91 @@ async function init() {
   window.addEventListener('hashchange', importFromHash);
   setTimeout(warmThumbs, 1200);
   setupUpdates();
+  setupBackNavigation();
   if (sessionStorage.getItem('gta6-updated')) {
     sessionStorage.removeItem('gta6-updated');
     snack('App aktualisiert – dein Fortschritt ist erhalten.');
   }
+}
+
+/* ---------- Zurück-Geste / Zurück-Taste ----------
+   Die System-Geste (vom Rand wischen) löst im Browser „Zurück“ aus. Damit sie in der App eine Ebene zurückgeht
+   statt die App zu verlassen, liegt immer ein Wächter-Eintrag im Verlauf. Wird er verbraucht, geht die App
+   eine Ebene zurück und stellt den Wächter neu auf. Auf „Jetzt“ beendet erst ein zweites Zurück die App. */
+
+let lastSheetClose = 0;
+let exitHintAt = 0;
+
+function armBack() {
+  if (history.state?.gta6Guard) return;
+  history.pushState({ gta6Guard: true }, '');
+}
+
+/** Eine Ebene zurück. Gibt false zurück, wenn es in der App nichts mehr zurückzugehen gibt. */
+function inAppBack() {
+  if (dlg().open) { closeSheet(); return true; }
+  if (Date.now() - lastSheetClose < 350) return true; // Blatt wurde gerade schon vom Browser geschlossen
+  if (tab === 'spots' && spotCat) { closeSpotCat(); return true; }
+  if (tab === 'more' && sub) { sub = null; render(); window.scrollTo(0, 0); return true; }
+  if (tab !== 'now') { tab = 'now'; render(); window.scrollTo(0, 0); return true; }
+  return false;
+}
+
+function setupBackNavigation() {
+  dlg().addEventListener('close', () => { lastSheetClose = Date.now(); });
+  sessionStorage.removeItem('gta6-reload'); // Seite ist frisch geladen – ein offener Neulade-Wunsch ist erledigt
+  // Neu geladen, während der Wächter aktiv war (z. B. Seite aktualisiert): Eintrag so lassen.
+  if (!history.state?.gta6Guard) {
+    if (!history.state?.gta6Base) history.replaceState({ gta6Base: true }, '');
+    armBack();
+  }
+  window.addEventListener('popstate', () => {
+    if (sessionStorage.getItem('gta6-reload')) { sessionStorage.removeItem('gta6-reload'); location.reload(); return; }
+    if (history.state?.gta6Guard) return; // Vorwärts-Navigation o. Ä.
+    if (inAppBack()) { armBack(); return; }
+    // Auf „Jetzt“: Hinweis zeigen und kurz keinen Wächter aufstellen – das nächste Zurück verlässt die App.
+    exitHintAt = Date.now();
+    snack('Zum Beenden nochmal zurückwischen');
+    setTimeout(() => { if (Date.now() - exitHintAt >= 2400) armBack(); }, 2500);
+  });
+  setupEdgeSwipe();
+}
+
+/**
+ * Auf iPhones gibt es in der installierten App keine System-Geste für „Zurück“.
+ * Dort übernimmt die App das Wischen vom linken oder rechten Rand selbst.
+ */
+function setupEdgeSwipe() {
+  const iosStandalone = window.navigator.standalone === true;
+  if (!iosStandalone) return;
+  const EDGE = 24; const TRIGGER = 70;
+  let start = null;
+  const hint = h('div', { class: 'edge-hint', 'aria-hidden': 'true' }, icon('chevron-right', 22));
+  document.body.append(hint);
+  document.addEventListener('touchstart', (e) => {
+    const t = e.touches[0];
+    if (e.touches.length !== 1) return;
+    const side = t.clientX < EDGE ? 'left' : t.clientX > innerWidth - EDGE ? 'right' : null;
+    start = side ? { x: t.clientX, y: t.clientY, side } : null;
+  }, { passive: true });
+  document.addEventListener('touchmove', (e) => {
+    if (!start) return;
+    const t = e.touches[0];
+    const dx = start.side === 'left' ? t.clientX - start.x : start.x - t.clientX;
+    if (Math.abs(t.clientY - start.y) > 50) { start = null; hint.className = 'edge-hint'; return; }
+    const p = Math.max(0, Math.min(1, dx / TRIGGER));
+    hint.className = `edge-hint show ${start.side} ${p >= 1 ? 'ready' : ''}`;
+    hint.style.setProperty('--p', p.toFixed(2));
+    hint.style.top = `${t.clientY - 22}px`;
+  }, { passive: true });
+  document.addEventListener('touchend', (e) => {
+    if (!start) return;
+    const t = e.changedTouches[0];
+    const dx = start.side === 'left' ? t.clientX - start.x : start.x - t.clientX;
+    hint.className = 'edge-hint';
+    start = null;
+    if (dx >= TRIGGER) inAppBack();
+  }, { passive: true });
 }
 
 /* ---------- Updates ----------
@@ -1325,7 +1414,8 @@ let reloadOnReturn = false;
 
 function applyUpdate() {
   sessionStorage.setItem('gta6-updated', '1');
-  location.reload();
+  // Erst den Zurück-Wächter abbauen, dann neu laden – sonst bleibt ein verwaister Eintrag im Verlauf.
+  if (history.state?.gta6Guard) { sessionStorage.setItem('gta6-reload', '1'); history.back(); } else location.reload();
 }
 
 function showUpdate() {

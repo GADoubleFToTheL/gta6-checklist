@@ -18,6 +18,8 @@ Spoiler-Schutz: Alles nach der aktuellen Mission ist ausgeblendet („Noch 11 Mi
 
 Bedienung: Aufgabe nach rechts wischen = erledigt, nach links = Details. Jede Änderung lässt sich über die Meldungsleiste rückgängig machen.
 
+Zurück-Geste: Wischen vom Bildschirmrand (Android) bzw. die Zurück-Taste geht in der App eine Ebene zurück – offenes Blatt schließen, Unterseite verlassen, zurück zu „Jetzt“. Auf „Jetzt“ beendet erst ein zweites Zurück die App. Technisch liegt dafür ein Wächter-Eintrag im Browser-Verlauf. In der installierten iPhone-App (ohne System-Geste) erkennt die App das Wischen vom linken oder rechten Rand selbst.
+
 ## Lokal starten
 
 ```

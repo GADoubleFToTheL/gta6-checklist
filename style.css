@@ -496,3 +496,11 @@ dialog.sheet::backdrop { background: rgba(18, 13, 34, .6); animation: fade .2s; 
 .has-photo { display: inline-flex; align-items: center; gap: 4px; color: var(--pink); font-weight: 600; }
 .li-letter { display: flex; align-items: center; }
 .li-letter .lc { margin-left: auto; font: 600 12px var(--font); color: var(--text-3); letter-spacing: 0; }
+
+/* Zurück-Wischen vom Rand (iPhone-App) */
+.edge-hint { position: fixed; z-index: 40; top: 50%; left: 0; display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%;
+  background: var(--surface-3); color: var(--text); opacity: 0; pointer-events: none; transform: translateX(-60px); transition: opacity .15s; }
+.edge-hint.show { opacity: calc(.3 + var(--p, 0) * .7); }
+.edge-hint.left { left: 0; transform: translateX(calc(-44px + var(--p, 0) * 56px)) rotate(180deg); }
+.edge-hint.right { left: auto; right: 0; transform: translateX(calc(44px - var(--p, 0) * 56px)) rotate(180deg); }
+.edge-hint.ready { background: var(--pink); color: var(--on-accent); }
