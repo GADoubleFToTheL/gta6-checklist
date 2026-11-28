@@ -33,7 +33,8 @@ let spotCatQuery = '';
 let spotCatFilter = 'all';
 let spotLimit = 150;
 let spotRegion = Number(localStorage.getItem('gta6-spot-region') ?? -1); // -1 = alle Gebiete
-let spotSort = 'az'; // 'az' | 'area'
+let spotSort = 'az'; // 'az' | 'area' | 'type'
+let spotType = 'all'; // Art-Filter in der Kategorie (z. B. „Motorrad“, „Revolver“)
 const openChapters = new Set();
 const revealed = new Set(); // nur für diese Sitzung aufgedeckte Spoiler
 
@@ -748,7 +749,7 @@ function loadSpots() {
   }).then((d) => {
     spots = d;
     spots.catById = new Map(d.categories.map((c) => [c.id, c]));
-    spotIndex = d.categories.flatMap((c) => c.items.map((it) => ({ id: it[0], name: it[1], it, cat: c, n: norm(it[1]) })));
+    spotIndex = d.categories.flatMap((c) => c.items.map((it) => ({ id: it[0], name: it[1], it, cat: c, n: norm(`${it[1]} ${it[5] >= 0 ? d.types[it[5]].name : ''}`) })));
     if (!(spotRegion >= -1 && spotRegion < (d.regions || []).length)) spotRegion = -1;
     if (tab === 'spots') render();
   }).catch((err) => {
@@ -764,6 +765,8 @@ const inRegion = (it) => spotRegion < 0 || it[2] === spotRegion;
 const regionItems = (c) => c.items.filter(inRegion);
 const regionName = (i) => spots.regions?.[i]?.name || '';
 const placeName = (i) => (i >= 0 ? spots.places?.[i] || '' : '');
+const typeName = (i) => (i >= 0 ? spots.types?.[i]?.name || '' : '');
+const typeKind = (i) => (i >= 0 ? spots.types?.[i]?.kind || '' : '');
 /** Gebiet passend zum Story-Fortschritt (Kapitel 1: Keys, 2: Port Gellhorn, danach Vice City). */
 function storyRegion() {
   const id = { keys: 'keys', gellhorn: 'gellhorn', vice: 'vice' }[sceneFor(curChapter())];
@@ -822,15 +825,17 @@ function toggleFound(id, name) {
 }
 
 function spotRow(it, { cat = null, showRegion = spotRegion < 0 } = {}) {
-  const [id, name, region, place, photo] = it;
+  const [id, name, region, place, photo, type = -1] = it;
   const done = !!state.found[id];
-  const where = [placeName(place), showRegion ? regionName(region) : ''].filter(Boolean).join(' · ');
+  const pl = placeName(place); const rg = showRegion ? regionName(region) : '';
+  const where = (pl && rg.includes(pl) ? [rg] : [pl, rg]).filter(Boolean).join(' · ');
   const row = h('div', { class: `li spot ${done ? 'done' : ''}`, 'data-spot': id },
     checkbox(done, `${name} gefunden`, () => toggleFound(id, name)),
     h('a', { class: 'main spot-link', href: spotLink(id), target: '_blank', rel: 'noopener noreferrer',
       'aria-label': `${name}${where ? `, ${where}` : ''} – ${photo ? 'Foto und Ort' : 'Ort'} auf der GTABase-Karte zeigen` },
       h('div', { class: 't' }, name),
-      (cat || where || photo) && h('div', { class: 'sub spot-sub', style: cat ? `--c:${catColor(cat)}` : null },
+      (cat || where || photo || type >= 0) && h('div', { class: 'sub spot-sub', style: cat ? `--c:${catColor(cat)}` : null },
+        type >= 0 && h('span', { class: 'type-pill' }, typeName(type)),
         cat && h('span', { class: 'cat-sub' }, icon(catIcon(cat), 13), cat.name),
         where && h('span', {}, where),
         photo ? h('span', { class: 'has-photo', title: 'Foto auf GTABase' }, icon('camera', 13), 'Foto') : null)),
@@ -842,7 +847,7 @@ function spotRow(it, { cat = null, showRegion = spotRegion < 0 } = {}) {
 let spotsScrollY = 0;
 function openSpotCat(c) {
   spotsScrollY = window.scrollY;
-  spotCat = c.id; spotCatQuery = ''; spotCatFilter = 'all'; spotLimit = 150;
+  spotCat = c.id; spotCatQuery = ''; spotCatFilter = 'all'; spotType = 'all'; spotLimit = 150;
   render(); window.scrollTo(0, 0); armBack();
 }
 function closeSpotCat() {
@@ -947,38 +952,57 @@ function viewSpotCategory(c) {
     h('div', { class: 'card-body', style: 'padding-top:0' },
       h('a', { class: 'btn btn-block', href: spotCategoryLink(c.feature), target: '_blank', rel: 'noopener noreferrer' }, icon('map', 18), 'Alle auf der GTABase-Karte zeigen'))));
   page.append(h('div', { style: 'margin-top:4px' }, regionChips()));
+  // Art-Filter (z. B. Auto/Motorrad/Boot oder Pistole/Revolver/Sturmgewehr), nur wenn die Kategorie Typen hat
+  const kindCount = (k) => items.filter((it) => typeKind(it[5] ?? -1) === k).length;
+  const kinds = [...new Set(items.map((it) => typeKind(it[5] ?? -1)).filter(Boolean))].sort((a, b) => kindCount(b) - kindCount(a) || a.localeCompare(b, 'de'));
+  if (!kinds.includes(spotType)) spotType = 'all';
+  if (kinds.length > 1) {
+    page.append(h('div', { class: 'chips-scroll', role: 'group', 'aria-label': 'Typ', style: 'margin-top:12px' },
+      h('span', { class: 'chips-label' }, icon('list-checks', 15), 'Typ'),
+      [['all', 'Alle'], ...kinds.map((k) => [k, k])].map(([v, t]) => {
+        const cnt = v === 'all' ? items.length : kindCount(v);
+        return h('button', { class: 'chip', style: `--c:${color}`, 'aria-pressed': String(spotType === v), onclick: () => { spotType = v; spotLimit = 150; render(); } },
+          t, h('span', { class: 'chip-n' }, String(cnt)));
+      })));
+  }
+  const typed = spotType === 'all' ? items : items.filter((it) => typeKind(it[5] ?? -1) === spotType);
   if (n > 8) page.append(h('div', { style: 'margin-top:12px' }, searchBox(`In „${c.name}“ suchen`, spotCatQuery, (v) => { spotCatQuery = v; spotLimit = 150; }, 'scq')));
+  const tn = typed.length;
   const segButtons = (dd) => SPOT_FILTERS.map(([v, t]) => h('button', { 'aria-pressed': String(spotCatFilter === v), onclick: () => { spotCatFilter = v; spotLimit = 150; render(); } },
-    t, v === 'open' ? ` ${n - dd}` : v === 'found' ? ` ${dd}` : ` ${n}`));
-  const seg = h('div', { class: 'seg' }, segButtons(d));
+    t, v === 'open' ? ` ${tn - dd}` : v === 'found' ? ` ${dd}` : ` ${tn}`));
+  const seg = h('div', { class: 'seg' }, segButtons(foundCount(typed)));
   page.append(seg);
-  spotPatch = () => { const dd = foundCount(items); statsBox.replaceChildren(...heroStats(dd)); seg.replaceChildren(...segButtons(dd)); };
+  spotPatch = () => { statsBox.replaceChildren(...heroStats(foundCount(items))); seg.replaceChildren(...segButtons(foundCount(typed))); };
   const q = norm(spotCatQuery);
-  let list = items.filter(([id, name, , place]) => (spotCatFilter === 'all' || (spotCatFilter === 'found') === !!state.found[id])
-    && (!q || norm(name).includes(q) || norm(placeName(place)).includes(q)));
+  let list = typed.filter(([id, name, , place, , type = -1]) => (spotCatFilter === 'all' || (spotCatFilter === 'found') === !!state.found[id])
+    && (!q || norm(name).includes(q) || norm(placeName(place)).includes(q) || norm(typeName(type)).includes(q)));
   if (!list.length) { page.append(h('div', { style: 'margin-top:14px' }, emptyCard(spotCatFilter === 'open' && n ? 'Alles gefunden!' : 'Keine Einträge.'))); return page; }
+  const hasTypes = kinds.length > 0;
+  if (spotSort === 'type' && !hasTypes) spotSort = 'az';
   const byArea = spotSort === 'area';
+  const byType = spotSort === 'type';
   if (list.length > 8 && !q) {
     page.append(h('div', { class: 'sort-row' }, h('span', {}, 'Sortieren:'),
-      [['az', 'A–Z'], ['area', spotRegion < 0 ? 'Nach Gebiet' : 'Nach Ort']].map(([v, t]) =>
+      [['az', 'A–Z'], ...(hasTypes ? [['type', 'Nach Typ']] : []), ['area', spotRegion < 0 ? 'Nach Gebiet' : 'Nach Ort']].map(([v, t]) =>
         h('button', { class: 'chip small', 'aria-pressed': String(spotSort === v), onclick: () => { spotSort = v; spotLimit = 150; render(); } }, t))));
   }
-  // Überschriften: A–Z, nach Gebiet (alle Gebiete) oder nach Ort (ein Gebiet)
-  const headOf = byArea
-    ? (it) => (spotRegion < 0 ? regionName(it[2]) : placeName(it[3]) || 'Weitere Orte')
-    : (it) => letterOf(it[1]);
-  if (byArea) {
-    const order = (it) => (spotRegion < 0 ? String(it[2]).padStart(2, '0') : (it[3] >= 0 ? `0${placeName(it[3])}` : '1'));
+  // Überschriften: A–Z, nach Typ, nach Gebiet (alle Gebiete) oder nach Ort (ein Gebiet)
+  const headOf = byType ? (it) => typeName(it[5] ?? -1) || 'Ohne Typ'
+    : byArea ? (it) => (spotRegion < 0 ? regionName(it[2]) : placeName(it[3]) || 'Weitere Orte')
+      : (it) => letterOf(it[1]);
+  if (byArea || byType) {
+    const order = byType ? (it) => ((it[5] ?? -1) >= 0 ? `0${typeName(it[5])}` : '1')
+      : (it) => (spotRegion < 0 ? String(it[2]).padStart(2, '0') : (it[3] >= 0 ? `0${placeName(it[3])}` : '1'));
     list = [...list].sort((a, b) => order(a).localeCompare(order(b), 'de') || a[1].localeCompare(b[1], 'de', { numeric: true }));
   }
-  const withHeads = !q && (byArea || list.length > 30);
+  const withHeads = !q && (byArea || byType || list.length > 30);
   const box = h('div', { class: `list ${withHeads ? 'letters' : ''}`, style: 'margin-top:12px' });
   let last = null;
   for (const it of list.slice(0, spotLimit)) {
     if (withHeads) {
       const head = headOf(it);
       if (head !== last) {
-        const count = byArea ? list.filter((x) => headOf(x) === head).length : null;
+        const count = byArea || byType ? list.filter((x) => headOf(x) === head).length : null;
         box.append(h('div', { class: 'li-letter', style: `--c:${color}` }, head, count != null && h('span', { class: 'lc' }, String(count))));
         last = head;
       }
