@@ -216,9 +216,18 @@ test('Fundorte: Daten gültig, IDs eindeutig, Links auf GTABase-Marker', () => {
   const groups = new Set(spots.groups.map((g) => g.id));
   for (const c of spots.categories) {
     assert.ok(groups.has(c.group), c.id);
-    for (const [id, name] of c.items) { assert.match(spotLink(id), /^https:\/\/www\.gtabase\.com\/de\/gta-6\/karte\/#[a-z0-9-]+-\d{3}$/, id); assert.ok(name, id); }
+    for (const [id, name, region, place, photo] of c.items) {
+      assert.match(spotLink(id), /^https:\/\/www\.gtabase\.com\/de\/gta-6\/karte\/#[a-z0-9-]+-\d{3}$/, id);
+      assert.ok(name, id);
+      assert.ok(Number.isInteger(region) && region >= 0 && region < spots.regions.length, `${id} Gebiet`);
+      assert.ok(Number.isInteger(place) && place >= -1 && place < spots.places.length, `${id} Ort`);
+      assert.ok(photo === 0 || photo === 1, `${id} Foto`);
+    }
   }
   assert.ok(spots.categories.find((c) => c.id === 'unique-weapon' && c.group === 'secrets'));
+  assert.deepEqual(spots.regions.map((r) => r.id), ['vice', 'keys', 'grassrivers', 'gellhorn', 'leonida', 'kalaga']);
+  const shirley = spots.categories.flatMap((c) => c.items).find((it) => it[1] === 'Shirley, the Neighbor');
+  assert.equal(spots.regions[shirley[2]].id, 'keys');
 });
 
 test('Fundorte: gefunden-Liste übersteht Link/QR und Import, Müll wird verworfen', () => {

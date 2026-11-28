@@ -3,16 +3,24 @@ const ICONS = {"check":[["path",{"d":"M20 6 9 17l-5-5"}]],"map-pin":[["path",{"d
 
 const NS = 'http://www.w3.org/2000/svg';
 
-/** SVG-Icon als DOM-Element (24er Raster, Linienstärke 2, Farbe = currentColor). */
+const cache = new Map();
+
+/** SVG-Icon als DOM-Element (24er Raster, Linienstärke 2, Farbe = currentColor). Einmal gebaut, danach nur kopiert. */
 export function icon(name, size = 20, label = '') {
-  const svg = document.createElementNS(NS, 'svg');
-  for (const [k, v] of Object.entries({ viewBox: '0 0 24 24', width: size, height: size, fill: 'none', stroke: 'currentColor',
-    'stroke-width': 2, 'stroke-linecap': 'round', 'stroke-linejoin': 'round', class: `i i-${name}` })) svg.setAttribute(k, v);
-  if (label) { svg.setAttribute('role', 'img'); svg.setAttribute('aria-label', label); } else svg.setAttribute('aria-hidden', 'true');
-  for (const [tag, attrs] of ICONS[name] || []) {
-    const el = document.createElementNS(NS, tag);
-    for (const [k, v] of Object.entries(attrs)) el.setAttribute(k, v);
-    svg.append(el);
+  const key = `${name}|${size}`;
+  let tpl = cache.get(key);
+  if (!tpl) {
+    tpl = document.createElementNS(NS, 'svg');
+    for (const [k, v] of Object.entries({ viewBox: '0 0 24 24', width: size, height: size, fill: 'none', stroke: 'currentColor',
+      'stroke-width': 2, 'stroke-linecap': 'round', 'stroke-linejoin': 'round', class: `i i-${name}`, 'aria-hidden': 'true' })) tpl.setAttribute(k, v);
+    for (const [tag, attrs] of ICONS[name] || []) {
+      const el = document.createElementNS(NS, tag);
+      for (const [k, v] of Object.entries(attrs)) el.setAttribute(k, v);
+      tpl.append(el);
+    }
+    cache.set(key, tpl);
   }
+  const svg = tpl.cloneNode(true);
+  if (label) { svg.removeAttribute('aria-hidden'); svg.setAttribute('role', 'img'); svg.setAttribute('aria-label', label); }
   return svg;
 }

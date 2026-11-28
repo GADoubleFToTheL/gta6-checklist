@@ -481,3 +481,18 @@ dialog.sheet::backdrop { background: rgba(18, 13, 34, .6); animation: fade .2s; 
 .upd-go:active, .upd-later:active { transform: scale(.98); }
 @keyframes upd-in { from { transform: translateY(-120%); opacity: 0; } to { transform: none; opacity: 1; } }
 @keyframes upd-pulse { from { transform: scale(.9); opacity: .6; } to { transform: scale(1.35); opacity: 0; } }
+
+/* Fundorte: Gebiete, Orte, Fotohinweis */
+.chips-label { flex: none; display: inline-flex; align-items: center; gap: 5px; padding: 0 4px 0 2px; font: 600 12px/1 var(--font); letter-spacing: .06em; text-transform: uppercase; color: var(--text-3); }
+.chips-scroll + .chips-scroll { margin-top: 8px; }
+.region-chips .chip[aria-pressed=true] { background: var(--text); color: var(--on-accent); }
+.chip.here:not([aria-pressed=true]) { border-color: rgba(246, 154, 201, .55); }
+.chip.here .i { color: var(--pink); }
+.chip.here[aria-pressed=true] .i { color: var(--on-accent); }
+.chip.small { min-height: 32px; padding: 0 12px; font-size: 13px; }
+.sort-row { display: flex; align-items: center; gap: 8px; margin: 12px 2px 0; font: 500 13px var(--font); color: var(--text-3); }
+.spot-sub { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; }
+.spot-sub .cat-sub .i { color: var(--c); }
+.has-photo { display: inline-flex; align-items: center; gap: 4px; color: var(--pink); font-weight: 600; }
+.li-letter { display: flex; align-items: center; }
+.li-letter .lc { margin-left: auto; font: 600 12px var(--font); color: var(--text-3); letter-spacing: 0; }
